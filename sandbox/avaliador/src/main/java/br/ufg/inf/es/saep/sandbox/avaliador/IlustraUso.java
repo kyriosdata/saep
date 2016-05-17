@@ -3,6 +3,8 @@ package br.ufg.inf.es.saep.sandbox.avaliador;
 import com.udojava.evalex.Expression;
 
 import java.math.BigDecimal;
+import java.util.Iterator;
+import java.util.List;
 
 public class IlustraUso {
 
@@ -29,9 +31,35 @@ public class IlustraUso {
         result = AvaliaExpressao(CONSTANTE_LOGICA_IGUALDADE);
         System.out.println(result);
 
-        expression = new Expression(VARIAVEL);
-        for (String variavel : expression.getDeclaredOperators()) {
-            System.out.println(variavel);
+        // Deve ser conhecido que "ch" é empregada pela expressão.
+        expression = new Expression(VARIAVEL).with("ch", new BigDecimal(3.4));
+        System.out.println(expression.eval());
+
+        expression = new Expression("n * m");
+        System.out.println(somatorio(1, 10, expression));
+    }
+
+    private static BigDecimal somatorio(int limiteInferior, int limiteSuperior, Expression expr) {
+        BigDecimal acumulador = new BigDecimal(0);
+        for (int i = limiteInferior; i <= limiteSuperior; i++) {
+
+            // DEFINE VALORES DE TODOS OS TERMOS DA EXPRESSÃO
+            // PARA O ÍNDICE i
+            expr.setVariable("i", new BigDecimal(i));
+            expr.setVariable("n", new BigDecimal(1));
+            expr.setVariable("m", new BigDecimal(1));
+
+            BigDecimal exprResult = expr.eval();
+            acumulador = acumulador.add(exprResult);
+        }
+
+        return acumulador;
+    }
+
+    private static void ExibirTokens(Expression expression) {
+        Iterator<String> tokens = expression.getExpressionTokenizer();
+        while (tokens.hasNext()) {
+            System.out.print(tokens.next() + ",");
         }
     }
 
