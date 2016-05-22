@@ -1,0 +1,8 @@
+Ilustra emprego de biblioteca
+=============================
+
+Execução via Maven
+------------------
+
+mvn exec:java -Dexec.mainClass="br.ufg.inf.es.saep.sandbox.IlustraUso"
+

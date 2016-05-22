@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="avaliador" />
+        <module name="regras-avaliador" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="avaliador" target="1.5" />
+      <module name="regras-avaliador" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
