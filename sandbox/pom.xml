@@ -4,12 +4,22 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.ufg.inf.es.construcao</groupId>
-    <artifactId>exemplos</artifactId>
+    <groupId>br.ufg.inf.es.saep</groupId>
+    <artifactId>sandbox</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
-    <name>Exemplos Construção de Software</name>
+	
+    <name>SAPE (experimentações)</name>
+	<url>https://github.com/kyriosdata/saep</url>
+	<inceptionYear>2016</inceptionYear>
 
+	<developers>
+		<developer>
+			<id>kyriosdata</id>
+			<name>Fábio Nogueira de Lucena</name>
+			<email>fabio@inf.ufg.br</email>
+	</developers>
+		
     <modules>
 		<module>avaliador</module>
     </modules>
