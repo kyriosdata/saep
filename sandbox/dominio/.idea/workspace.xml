@@ -123,8 +123,8 @@
       <file leaf-file-name="Ordenacao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+            <state relative-caret-position="240">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#929#943#0" expanded="true" />
@@ -915,7 +915,7 @@
       <workItem from="1464105118332" duration="297000" />
       <workItem from="1464111402176" duration="14097000" />
       <workItem from="1464186862000" duration="292000" />
-      <workItem from="1464187263486" duration="7549000" />
+      <workItem from="1464187263486" duration="8149000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -981,7 +981,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26060000" />
+    <option name="totallyTimeSpent" value="26660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="140" y="48" width="2474" height="1991" extended-state="0" />
@@ -1628,8 +1628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        <state relative-caret-position="240">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#929#943#0" expanded="true" />
