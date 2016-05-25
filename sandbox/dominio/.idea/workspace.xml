@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java" />
     </list>
     <ignored path="dominio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -124,8 +123,8 @@
       <file leaf-file-name="Ordenacao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+            <state relative-caret-position="570">
+              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#929#943#0" expanded="true" />
@@ -916,7 +915,7 @@
       <workItem from="1464105118332" duration="297000" />
       <workItem from="1464111402176" duration="14097000" />
       <workItem from="1464186862000" duration="292000" />
-      <workItem from="1464187263486" duration="7370000" />
+      <workItem from="1464187263486" duration="7549000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -939,7 +938,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464197178096</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="modificador equivocado">
+      <created>1464197245002</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1464197245002</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -975,7 +981,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25881000" />
+    <option name="totallyTimeSpent" value="26060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="140" y="48" width="2474" height="1991" extended-state="0" />
@@ -1023,7 +1029,8 @@
     <MESSAGE value="Versão inicial do modelo de domínio." />
     <MESSAGE value="Implementacao experimental do modelo" />
     <MESSAGE value="inserida ordenação topológica" />
-    <option name="LAST_COMMIT_MESSAGE" value="inserida ordenação topológica" />
+    <MESSAGE value="modificador equivocado" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificador equivocado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1621,8 +1628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        <state relative-caret-position="570">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#929#943#0" expanded="true" />
