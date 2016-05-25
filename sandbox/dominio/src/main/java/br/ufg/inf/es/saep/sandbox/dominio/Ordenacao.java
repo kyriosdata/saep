@@ -18,7 +18,7 @@ import java.util.*;
  * foram executados.
  *
  */
-public static class Ordenacao {
+public class Ordenacao {
 
     /**
      * Ordena topologicamente os itens avaliados.
