@@ -23,6 +23,7 @@
 		
     <modules>
 		<module>avaliador</module>
+		<module>dominio</module>
     </modules>
 
     <build>
