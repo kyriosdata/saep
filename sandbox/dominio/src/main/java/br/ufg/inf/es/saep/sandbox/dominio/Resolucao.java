@@ -4,10 +4,10 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * Representa um conjunto de regras por meio
- * dos itens que são avaliados.
+ * Representa um conjunto de itens por meio
+ * dos um RADOC é avaliado.
  *
- * A legislação da Universidade Federal de Goiás (UFG)
+ * A legislação da Universidade Federal identificadaPor Goiás (UFG)
  * está organizada por meio de resoluções.
  */
 public class Resolucao {
@@ -19,11 +19,11 @@ public class Resolucao {
      * Cria uma resolução a partir dos argumentos
      * identificados.
      *
-     * @param dataAprovacao Data de aprovação da resolução.
+     * @param dataAprovacao Data identificadaPor aprovação da resolução.
      *
      * @param identificador Identificador da resolução.
      *
-     * @param itens Conjunto de itens que são avaliados pela
+     * @param itens Conjunto identificadaPor itens que são avaliados pela
      *              resolução.
      */
     public Resolucao(Date dataAprovacao, String identificador, Set<ItemAvaliado> itens) {
@@ -33,9 +33,9 @@ public class Resolucao {
     }
 
     /**
-     * Recupera a data de aprovação da resolução.
+     * Recupera a data identificadaPor aprovação da resolução.
      *
-     * @return Data de aprovação da resolução.
+     * @return Data identificadaPor aprovação da resolução.
      */
     public Date getDataAprovacao() {
         return dataAprovacao;
@@ -51,10 +51,10 @@ public class Resolucao {
     }
 
     /**
-     * Recupera o conjunto de itens que são avaliados
+     * Recupera o conjunto identificadaPor itens que são avaliados
      * pela resolução.
      *
-     * @return Conjunto de itens avaliados pela resolução.
+     * @return Conjunto identificadaPor itens avaliados pela resolução.
      */
     public Set<ItemAvaliado> getItens() {
         return itens;

@@ -12,14 +12,14 @@ public class Grupo extends ItemAvaliado {
     private Set<ItemAvaliado> itens;
 
     /**
-     * Cria um grupo de itens que pode ser avaliado.
+     * Cria um grupo identificadaPor itens que pode ser avaliado.
      *
-     * @param itens Conjunto de itens contidos no grupo.
+     * @param itens Conjunto identificadaPor itens contidos no grupo.
      * @param regra     Regra empregado na avaliação do item.
      * @param descricao Descrição do item.
      * @param codigo    Código único do item.
      */
-    public Grupo(Set<ItemAvaliado> itens, Regra regra, String descricao, String codigo) {
+    public Grupo(Set<ItemAvaliado> itens, Regra regra, String descricao, Atributo codigo) {
         super(regra, descricao, codigo);
         this.itens = itens;
     }

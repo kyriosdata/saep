@@ -1,7 +1,7 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Definição do conjunto de tipos disponíveis
+ * Definição do conjunto identificadaPor tipos disponíveis
  * para um determinado atributo.
  */
 public enum TipoPrimitivo {

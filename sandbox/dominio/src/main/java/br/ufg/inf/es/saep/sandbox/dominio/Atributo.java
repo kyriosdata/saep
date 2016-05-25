@@ -1,8 +1,8 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Definição de um tipo primitivo e um nome usados
- * para identificar o domínio de um valor.
+ * Definição identificadaPor um tipo primitivo e um nome usados
+ * para identificar o domínio identificadaPor um valor.
  */
 public class Atributo {
     private String nome;

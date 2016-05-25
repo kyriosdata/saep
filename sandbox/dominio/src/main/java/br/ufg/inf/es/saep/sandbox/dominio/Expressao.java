@@ -8,7 +8,7 @@ public class Expressao {
 
     /**
      * Recupera a expressão.
-     * @return A sequência de caracteres que define
+     * @return A sequência identificadaPor caracteres que define
      * a expressão.
      */
     public String getExpressao() {
@@ -17,7 +17,7 @@ public class Expressao {
 
     /**
      * Cria uma expressão para a sequência fornecida.
-     * @param expressao A sequência de caracteres que
+     * @param expressao A sequência identificadaPor caracteres que
      *                  define a expressão.
      */
     public Expressao(String expressao) {

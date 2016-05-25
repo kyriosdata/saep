@@ -1,13 +1,11 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 /**
- * Identifica conjunto de valores computados pela
- * avaliação de regras.
+ * Identifica conjunto identificadaPor valores computados pela
+ * avaliação identificadaPor regras.
  */
 public class Resultado {
-    private Map<String, Double> pontuacoes;
-    private Set<Avaliacao> avaliacoes;
+    private List<Pontuacao> pontuacoes;
 }
