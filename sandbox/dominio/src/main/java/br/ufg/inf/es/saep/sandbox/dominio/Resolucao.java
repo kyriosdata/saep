@@ -5,6 +5,8 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -16,9 +18,15 @@ import java.util.Set;
  * está organizada por meio de resoluções.
  */
 public class Resolucao {
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd/MM/yyyy", timezone = "GMT-2")
     private Date dataAprovacao;
+
     private String identificador;
     private Set<ItemAvaliado> itens;
+
+    private Resolucao(){
+        // Usado pelo Jackson (JSON)
+    }
 
     /**
      * Cria uma resolução a partir dos argumentos

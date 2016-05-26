@@ -8,7 +8,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.*;
 
 /**
- * Fornece ordenação topológica a ser seguida
+ * Fornece ORDENAÇÃO topológica a ser seguida
  * para execução das regras.
  *
  * A sequência retornada pelo método {@link #ordena(List)}
