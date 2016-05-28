@@ -6,22 +6,45 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Definição identificadaPor um tipo primitivo e um nome usados
- * para identificar o domínio identificadaPor um valor.
+ * Elemento que faz parte de um dado {@link Tipo}.
  */
 public class Atributo {
+
+    /**
+     * O nome do atributo, por exemplo,
+     * "cha" ou "nome".
+     */
     private String nome;
+
+    /**
+     * A identificação do conjunto de valores
+     * associado ao atributo. Por exemplo,
+     * um atributo "inteiro" significa que
+     * apenas valores inteiros podem ser
+     * assumidos pelo atributo em questão.
+     */
     private TipoPrimitivo tipo;
 
-    public Atributo(String nome, TipoPrimitivo tipo) {
+    /**
+     * Informação adicional que detalha o uso
+     * esperado do tipo (informação de ajuda).
+     * Por exemplo, para o Atributo "nome", pode
+     * ser algo como "nome completo do periódico,
+     * por exemplo, International Journal of Health
+     * Informatics.".
+     */
+    private String descricao;
+
+    public Atributo(String nome, String descricao, TipoPrimitivo tipo) {
         this.nome = nome;
+        this.descricao = descricao;
         this.tipo = tipo;
     }
 
     /**
      * Recupera o nome do atributo.
      *
-     * @return O identificador do atributo.
+     * @return O identificador único do atributo.
      */
     public String getNome() {
         return nome;

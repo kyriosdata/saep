@@ -8,7 +8,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * Representa qualquer relato que é passível
  * identificadaPor ser avaliado.
  */
-public abstract class ItemAvaliado {
+public class ItemAvaliado {
     private Regra regra;
     private String descricao;
     private Atributo atributo;
