@@ -40,7 +40,7 @@ public class Ordenacao {
         Set<String> inseridos = new HashSet<String>(size);
 
         for(ItemAvaliado item : itens) {
-            itemPorNome.put(item.getAtributo().getNome(), item);
+            itemPorNome.put(item.getResultado().getNome(), item);
         }
 
         // TODAS OS ITENS SERÃO INSERIDOS
@@ -83,6 +83,6 @@ public class Ordenacao {
         ordenados.add(item);
 
         // Acrescenta nome do atributo aos já inseridos
-        inseridos.add(item.getAtributo().getNome());
+        inseridos.add(item.getResultado().getNome());
     }
 }

@@ -8,24 +8,33 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.Set;
 
 /**
- * Reúne zero ou mais itens avaliados. Isso significa que
- * um grupo pode conter tipos e também outros grupos que,
- * por sua vez, podem conter outros grupos, formando uma
- * hierarquia.
+ * Tipos de relato podem estar classificados em
+ * um grupo. Por exemplo, "aulas presenciais na graduação"
+ * e "aulas do ensino a distância na graduação" são
+ * tipos do grupo "graduação".
  */
-public class Grupo extends ItemAvaliado {
-    private Set<ItemAvaliado> itens;
+public class Grupo extends Tipo {
+    private Set<Tipo> tipos;
 
     /**
-     * Cria um grupo identificadaPor itens que pode ser avaliado.
+     * Cria um grupo (reunião de tipos).
      *
-     * @param itens Conjunto identificadaPor itens contidos no grupo.
-     * @param regra     Regra empregado na avaliação do item.
-     * @param descricao Descrição do item.
-     * @param codigo    Código único do item.
+     * @param tipos Conjunto identificadaPor tipos contidos no grupo.
+     * @param nome     O nome do grupo.
+     * @param descricao A descrição do grupo.
+     * @param codigo    O código do grupo.
+     * @param atributos O conjunto de atributos definido para o grupo.
      */
-    public Grupo(Set<ItemAvaliado> itens, Regra regra, String descricao, Atributo codigo) {
-        super(regra, descricao, codigo);
-        this.itens = itens;
+    public Grupo(String nome,
+                 String codigo,
+                 String descricao,
+                 Set<Atributo> atributos,
+                 Set<Tipo> tipos) {
+        super(nome, codigo, descricao, atributos);
+        this.tipos = tipos;
+    }
+
+    public Set<Tipo> getTipos() {
+        return tipos;
     }
 }
