@@ -13,18 +13,18 @@ import java.util.List;
  */
 public class Regra {
     private Expressao expressao;
-    private List<Atributo> atributos;
+    private List<Atributo> dependeDe;
     private double valorMaximo;
     private double valorMinimo;
 
     /**
-     * Lista de atributos diretamente empregados
+     * Lista de dependeDe diretamente empregados
      * pela expressão cuja avaliação dá origem à
      * pontuação da regra.
-     * @return Lista de atributos diretamente empregados
+     * @return Lista de dependeDe diretamente empregados
      * para avaliação da regra.
      */
-    public List<Atributo> getAtributos() { return atributos; }
+    public List<Atributo> getDependeDe() { return dependeDe; }
 
     /**
      * Recupera a expressão.
@@ -72,11 +72,15 @@ public class Regra {
      *
      * @param valorMaximo O valor máximo admitido pela avaliação da regra.
      * @param valorMinimo O valor mínimo admitido pela avaliação da regra.
+     * @param dependeDe Lista de atributos dos quais a regra depende. Ou seja,
+     *                  antes da avaliação da regra, os itens correspondentes
+     *                  a essa lista devem estar disponíveis (previamente
+     *                  avaliados).
      */
-    public Regra(Expressao expressao, double valorMaximo, double valorMinimo, List<Atributo> atributos) {
+    public Regra(Expressao expressao, double valorMaximo, double valorMinimo, List<Atributo> dependeDe) {
         this.expressao = expressao;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
-        this.atributos = atributos;
+        this.dependeDe = dependeDe;
     }
 }

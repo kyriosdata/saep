@@ -61,7 +61,7 @@ public class Ordenacao {
         // primeiro. Ou seja, se "a depende de b", então
         // "a" será inserido após o "b" ser inserido.
 
-        for(Atributo atributo : item.getRegra().getAtributos()) {
+        for(Atributo atributo : item.getRegra().getDependeDe()) {
             String nome = atributo.getNome();
 
             // Se esse atributo já faz parte da sequência,

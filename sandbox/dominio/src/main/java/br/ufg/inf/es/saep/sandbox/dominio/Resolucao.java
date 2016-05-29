@@ -15,13 +15,28 @@ import java.util.Set;
  * dos um RADOC é avaliado.
  *
  * A legislação da Universidade Federal identificadaPor Goiás (UFG)
- * está organizada por meio de resoluções.
+ * está organizada por meio de resoluções. Uma instância dessa
+ * classe simplesmente registra os itens relevantes ou aqueles
+ * considerados em uma avaliação.
  */
 public class Resolucao {
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd/MM/yyyy", timezone = "GMT-2")
     private Date dataAprovacao;
 
+    /**
+     * Identificador único da resolução.
+     */
     private String identificador;
+
+    /**
+     * Descrição ou informação adicional sobre
+     * a resolução.
+     */
+    private String descricao;
+
+    /**
+     * Conjunto de itens avaliados pela resolução.
+     */
     private Set<ItemAvaliado> itens;
 
     private Resolucao(){
@@ -31,15 +46,14 @@ public class Resolucao {
     /**
      * Cria uma resolução a partir dos argumentos
      * identificados.
-     *
-     * @param dataAprovacao Data identificadaPor aprovação da resolução.
-     *
      * @param identificador Identificador da resolução.
-     *
+     * @param descricao
+     * @param dataAprovacao Data identificadaPor aprovação da resolução.
      * @param itens Conjunto identificadaPor itens que são avaliados pela
-     *              resolução.
-     */
-    public Resolucao(Date dataAprovacao, String identificador, Set<ItemAvaliado> itens) {
+     *
+     * */
+    public Resolucao(String identificador, String descricao, Date dataAprovacao, Set<ItemAvaliado> itens) {
+        this.descricao = descricao;
         this.dataAprovacao = dataAprovacao;
         this.identificador = identificador;
         this.itens = itens;

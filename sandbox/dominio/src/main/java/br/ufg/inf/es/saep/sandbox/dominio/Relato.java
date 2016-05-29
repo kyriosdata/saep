@@ -5,15 +5,28 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
- * Conjunto identificadaPor valores correspondentes a um dado tipo
- * identificadaPor item que é avaliado.
+ * Encapsula conjunto de valores que caracterizam
+ * o relato de uma atividade ou produto.
+ *
+ * Cada relato é de um tipo específico, que
+ * representa um tipo de atividade ou tipo de
+ * produto. Esse tipo é mantido por uma instância
+ * de {@link Tipo}. O tipo ainda define com
+ * precisão os atributos correspondentes.
+ *
+ * Cada um dos valores do relato está associado
+ * a um {@link Atributo} definido pelo tipo
+ * do relato.
+ *
  */
 public class Relato implements Alteravel {
     private Tipo tipo;
-    private Map<String, Double> valores;
+    private Map<String, Valor> valorPorNome;
 
     /**
      * Cria um relato a partir do tipo e valores correspondentes
@@ -24,8 +37,14 @@ public class Relato implements Alteravel {
      * @param valores Conjunto identificadaPor valores para os tipos
      *                do relato.
      */
-    public Relato(Tipo tipo, Map<String, Double> valores) {
+    public Relato(Tipo tipo, List<Valor> valores) {
         this.tipo = tipo;
-        this.valores = valores;
+
+        valorPorNome = new HashMap<String, Valor>(valores.size());
+
+        for(Valor valor : valores) {
+            String nome = valor.getAtributo().getNome();
+            valorPorNome.put(nome, valor);
+        }
     }
 }

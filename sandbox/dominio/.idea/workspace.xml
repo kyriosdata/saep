@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/TipoTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Valor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ValorTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Grupo.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Grupo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Atributo.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Atributo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/AvaliaRegraService.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/AvaliaRegraService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ItemAvaliado.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ItemAvaliado.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Tipo.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Tipo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoItensTest.java" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoItensTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoService.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTrivialTest.java" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTrivialTest.java" />
     </list>
     <ignored path="dominio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,186 +38,249 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tipo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Tipo.java">
+      <file leaf-file-name="Valor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Valor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="98" column="85" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="85" />
+            <state relative-caret-position="2616">
+              <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
               <folding>
-                <element signature="e#0#2979#0" expanded="true" />
+                <element signature="e#1694#1695#0" expanded="true" />
+                <element signature="e#1723#1724#0" expanded="true" />
+                <element signature="e#1941#1942#0" expanded="true" />
+                <element signature="e#1970#1971#0" expanded="true" />
+                <element signature="e#2163#2164#0" expanded="true" />
+                <element signature="e#2190#2191#0" expanded="true" />
+                <element signature="e#2357#2358#0" expanded="true" />
+                <element signature="e#2388#2389#0" expanded="true" />
+                <marker date="1464552498000" expanded="true" signature="45:242" ph="/**...*/" />
+                <marker date="1464552498000" expanded="true" signature="452:521" ph="/**...*/" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Grupo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Grupo.java">
+      <file leaf-file-name="ValorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ValorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            <state relative-caret-position="192">
+              <caret line="8" column="86" selection-start-line="8" selection-start-column="86" selection-end-line="8" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Relato.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="746">
+              <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
               <folding>
-                <element signature="e#0#1132#0" expanded="true" />
-                <element signature="e#1100#1101#0" expanded="true" />
-                <element signature="e#1128#1129#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <marker date="1464552497000" expanded="true" signature="260:699" ph="/**...*/" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JAVA/br.ufg.inf.es.saep.sandbox.dominio" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JAVA/br.ufg.inf.es.saep.sandbox.dominio" pinned="false" current-in-tab="true">
         <entry file="uml://JAVA/br.ufg.inf.es.saep.sandbox.dominio">
           <provider selected="true" editor-type-id="UmlEditorProvider">
             <state>
               <ID>JAVA</ID>
               <OriginalElement>br.ufg.inf.es.saep.sandbox.dominio</OriginalElement>
               <nodes>
-                <node x="1577.0040809084458" y="497.91376863023413">br.ufg.inf.es.saep.sandbox.dominio.Grupo</node>
-                <node x="833.0" y="0.0">br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo</node>
-                <node x="335.0" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.MediaRegra</node>
-                <node x="812.0" y="457.0">br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado</node>
-                <node x="1360.75" y="762.0">br.ufg.inf.es.saep.sandbox.dominio.Radoc</node>
-                <node x="0.0" y="1041.0">br.ufg.inf.es.saep.sandbox.dominio.Ordenacao</node>
-                <node x="190.0" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.SomatorioRegra</node>
-                <node x="1383.75" y="630.5">br.ufg.inf.es.saep.sandbox.dominio.Relato</node>
-                <node x="697.75" y="620.0">br.ufg.inf.es.saep.sandbox.dominio.Resolucao</node>
-                <node x="458.00000000000006" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.PontosPorRelatoRegra</node>
-                <node x="1408.125" y="284.0">br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
-                <node x="1176.4916666666668" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.Alteravel</node>
-                <node x="639.0" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.PontosPorHoraRegra</node>
-                <node x="931.75" y="762.0">br.ufg.inf.es.saep.sandbox.dominio.Resultado</node>
-                <node x="814.0" y="142.0">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
-                <node x="65.89638041163946" y="286.19446415897795">br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra</node>
-                <node x="1025.7333333333333" y="862.0">br.ufg.inf.es.saep.sandbox.dominio.Parecer</node>
-                <node x="1175.75" y="620.0">br.ufg.inf.es.saep.sandbox.dominio.Alteracao</node>
-                <node x="343.5" y="284.0">br.ufg.inf.es.saep.sandbox.dominio.Regra</node>
-                <node x="929.75" y="630.5">br.ufg.inf.es.saep.sandbox.dominio.Pontuacao</node>
-                <node x="195.82499999999993" y="163.0">br.ufg.inf.es.saep.sandbox.dominio.Expressao</node>
+                <node x="-307.1818362480127" y="538.0627980922098">br.ufg.inf.es.saep.sandbox.dominio.Grupo</node>
+                <node x="122.18081807297494" y="49.562798092209846">br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo</node>
+                <node x="842.0558180729748" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.MediaRegra</node>
+                <node x="302.05581807297494" y="506.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado</node>
+                <node x="-295.81918192702506" y="842.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Radoc</node>
+                <node x="-508.3068362480127" y="1121.56279809221">br.ufg.inf.es.saep.sandbox.dominio.Ordenacao</node>
+                <node x="965.0558180729748" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.SomatorioRegra</node>
+                <node x="-272.81918192702506" y="700.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Relato</node>
+                <node x="365.30581807297494" y="679.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Resolucao</node>
+                <node x="661.0558180729748" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.PontosPorRelatoRegra</node>
+                <node x="-279.3068362480127" y="333.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
+                <node x="15.730200789024366" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Alteravel</node>
+                <node x="488.05581807297494" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.PontosPorHoraRegra</node>
+                <node x="-508.3068362480127" y="333.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Valor</node>
+                <node x="103.18081807297494" y="191.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
+                <node x="121.30581807297494" y="842.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Resultado</node>
+                <node x="1110.055818072975" y="527.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra</node>
+                <node x="-1.5074535319632787" y="942.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Parecer</node>
+                <node x="-88.69418192702506" y="690.0627980922098">br.ufg.inf.es.saep.sandbox.dominio.Alteracao</node>
+                <node x="119.30581807297494" y="700.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Pontuacao</node>
+                <node x="698.5558180729748" y="333.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Regra</node>
+                <node x="935.3968674556912" y="212.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Expressao</node>
               </nodes>
               <notes />
               <edges>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.MediaRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
                   <point x="0.0" y="-14.5" />
-                  <point x="386.5" y="437.0" />
-                  <point x="442.66666666666663" y="437.0" />
-                  <point x="-19.83333333333337" y="56.5" />
+                  <point x="893.5558180729748" y="486.56279809220985" />
+                  <point x="837.3891514063083" y="486.56279809220985" />
+                  <point x="19.833333333333343" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Alteracao" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="-46.0" />
+                  <point x="5.305818072974944" y="659.5627980922098" />
+                  <point x="57.730200789024366" y="659.5627980922098" />
+                  <point x="0.0" y="14.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Relato" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="-35.5" />
+                  <point x="-209.81918192702506" y="639.5627980922098" />
+                  <point x="-147.6818362480127" y="639.5627980922098" />
+                  <point x="-147.6818362480127" y="486.56279809220985" />
+                  <point x="-161.8068362480127" y="486.56279809220985" />
+                  <point x="23.5" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Resolucao">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="94.125" y="-67.0" />
+                  <point x="218.11754646803672" y="922.5627980922098" />
+                  <point x="481.30581807297494" y="922.5627980922098" />
+                  <point x="0.0" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Resultado">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="31.375" y="-67.0" />
+                  <point x="155.36754646803672" y="912.5627980922098" />
+                  <point x="232.30581807297494" y="912.5627980922098" />
+                  <point x="0.0" y="25.0" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Atributo" target="br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="-46.0" />
+                  <point x="0.0" y="46.0" />
+                </edge>
+                <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+                  <point x="55.333333333333314" y="-56.5" />
+                  <point x="440.3891514063083" y="466.56279809220985" />
+                  <point x="718.3891514063083" y="466.56279809220985" />
+                  <point x="-99.16666666666666" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-                  <point x="42.5" y="-35.5" />
-                  <point x="127.5" y="417.0" />
-                  <point x="363.33333333333337" y="417.0" />
-                  <point x="-99.16666666666663" y="56.5" />
+                  <point x="-42.5" y="-35.5" />
+                  <point x="1152.555818072975" y="466.56279809220985" />
+                  <point x="916.7224847396416" y="466.56279809220985" />
+                  <point x="99.16666666666666" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="56.5" y="-35.5" />
+                  <point x="288.80581807297494" y="659.5627980922098" />
+                  <point x="343.55581807297494" y="659.5627980922098" />
+                  <point x="-41.5" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.PontosPorHoraRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
                   <point x="0.0" y="-14.5" />
-                  <point x="715.5" y="427.0" />
-                  <point x="522.0" y="427.0" />
-                  <point x="59.5" y="56.5" />
-                </edge>
-                <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="564.5558180729751" y="476.56279809220985" />
+                  <point x="758.0558180729748" y="476.56279809220985" />
+                  <point x="-59.5" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Radoc">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="-94.125" y="-67.0" />
+                  <point x="29.86754646803672" y="922.5627980922098" />
+                  <point x="-209.81918192702506" y="922.5627980922098" />
+                  <point x="0.0" y="25.0" />
+                </edge>
+                <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+                  <point x="-59.5" y="-56.5" />
+                  <point x="758.0558180729748" y="303.56279809220985" />
+                  <point x="244.93081807297494" y="303.56279809220985" />
+                  <point x="60.75" y="46.0" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.PontosPorRelatoRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
                   <point x="0.0" y="-14.5" />
-                  <point x="538.5" y="437.0" />
-                  <point x="482.33333333333337" y="437.0" />
-                  <point x="19.83333333333337" y="56.5" />
+                  <point x="741.5558180729748" y="486.56279809220985" />
+                  <point x="797.7224847396416" y="486.56279809220985" />
+                  <point x="-19.83333333333333" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Relato" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
-                  <point x="-31.5" y="-35.5" />
-                  <point x="1415.25" y="590.0" />
-                  <point x="1246.4916666666668" y="590.0" />
-                  <point x="28.0" y="14.5" />
+                  <point x="42.0" y="-35.5" />
+                  <point x="-167.81918192702506" y="649.5627980922098" />
+                  <point x="29.730200789024366" y="649.5627980922098" />
+                  <point x="-28.0" y="14.5" />
+                </edge>
+                <edge source="br.ufg.inf.es.saep.sandbox.dominio.Relato" target="br.ufg.inf.es.saep.sandbox.dominio.Valor">
+                  <point x="-42.0" y="-35.5" />
+                  <point x="-251.81918192702506" y="659.5627980922098" />
+                  <point x="-403.8068362480127" y="659.5627980922098" />
+                  <point x="0.0" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="-56.5" />
+                  <point x="385.05581807297494" y="313.56279809220985" />
+                  <point x="204.43081807297494" y="313.56279809220985" />
+                  <point x="20.25" y="46.0" />
+                </edge>
+                <edge source="br.ufg.inf.es.saep.sandbox.dominio.Valor" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+                  <point x="0.0" y="-56.5" />
+                  <point x="-403.8068362480127" y="303.56279809220985" />
+                  <point x="123.43081807297494" y="303.56279809220985" />
+                  <point x="-60.75" y="46.0" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.SomatorioRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
                   <point x="0.0" y="-14.5" />
-                  <point x="252.5" y="427.0" />
-                  <point x="403.0" y="427.0" />
-                  <point x="-59.5" y="56.5" />
+                  <point x="1027.555818072975" y="476.56279809220985" />
+                  <point x="877.0558180729748" y="476.56279809220985" />
+                  <point x="59.5" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Expressao">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="59.5" y="-56.5" />
+                  <point x="877.0558180729748" y="313.56279809220985" />
+                  <point x="972.8968674556912" y="313.56279809220985" />
+                  <point x="-37.5" y="25.0" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="-55.33333333333337" y="-56.5" />
+                  <point x="329.7224847396416" y="486.56279809220985" />
+                  <point x="-114.8068362480127" y="486.56279809220985" />
+                  <point x="70.5" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Grupo" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
-                  <point x="-37.25" y="-25.0" />
-                  <point x="23.5" y="56.5" />
+                  <point x="37.25" y="-25.0" />
+                  <point x="-195.4318362480127" y="486.56279809220985" />
+                  <point x="-208.8068362480127" y="486.56279809220985" />
+                  <point x="-23.5" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Tipo" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="-56.5" />
+                  <point x="-185.3068362480127" y="313.56279809220985" />
+                  <point x="163.93081807297494" y="313.56279809220985" />
+                  <point x="-20.25" y="46.0" />
+                </edge>
+                <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
+                  <point x="-56.5" y="-35.5" />
+                  <point x="175.80581807297494" y="659.5627980922098" />
+                  <point x="85.73020078902437" y="659.5627980922098" />
+                  <point x="28.0" y="14.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Radoc" target="br.ufg.inf.es.saep.sandbox.dominio.Relato">
                   <point x="0.0" y="-25.0" />
                   <point x="0.0" y="35.5" />
                 </edge>
-                <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
-                  <point x="56.5" y="-35.5" />
-                  <point x="1099.25" y="600.0" />
-                  <point x="1190.4916666666668" y="600.0" />
-                  <point x="-28.0" y="14.5" />
-                </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Resultado" target="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="-25.0" />
+                  <point x="0.0" y="35.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Expressao">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="42.5" y="-35.5" />
+                  <point x="1237.555818072975" y="313.56279809220985" />
+                  <point x="1047.8968674556913" y="313.56279809220985" />
+                  <point x="37.5" y="25.0" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Resolucao" target="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="-56.5" />
+                  <point x="481.30581807297494" y="659.5627980922098" />
+                  <point x="426.55581807297494" y="659.5627980922098" />
+                  <point x="41.5" y="56.5" />
                 </edge>
                 <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Alteracao">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
+                  <point x="-31.375" y="-67.0" />
+                  <point x="92.61754646803672" y="912.5627980922098" />
+                  <point x="5.305818072974944" y="912.5627980922098" />
+                  <point x="0.0" y="46.0" />
                 </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="0.8498190591073582" x="272.41305890702625" y="376.41305890702625" />
-              <SelectedNodes>
-                <node>br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
-              </SelectedNodes>
+              <settings layout="Hierarchic Group" zoom="0.8675862068965517" x="393.6065182829889" y="742.6828298887123" />
+              <SelectedNodes />
               <Categories>
                 <Category>Fields</Category>
               </Categories>
@@ -221,50 +290,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemAvaliado.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ItemAvaliado.java">
+      <file leaf-file-name="Pontuacao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+            <state relative-caret-position="648">
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
               <folding>
-                <element signature="e#0#1896#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrdenacaoItensTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoItensTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ordenacao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#2971#0" expanded="true" />
-                <element signature="e#928#942#0" expanded="true" />
-                <element signature="e#1222#1244#0" expanded="true" />
-                <element signature="e#1295#1303#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Regra.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1608">
-              <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#2300#0" expanded="true" />
+                <element signature="e#988#989#0" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="e#1130#1131#0" expanded="true" />
+                <element signature="e#1158#1159#0" expanded="true" />
+                <marker date="1464556759000" expanded="true" signature="188:545" ph="/**...*/" />
+                <marker date="1464556759000" expanded="true" signature="713:753" ph="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -273,8 +310,8 @@
       <file leaf-file-name="TipoPrimitivo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/TipoPrimitivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+            <state relative-caret-position="218">
+              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
               <folding>
                 <element signature="e#0#590#0" expanded="true" />
               </folding>
@@ -282,26 +319,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResolucaoRepositoryJson.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoRepositoryJson.java">
+      <file leaf-file-name="Resultado.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resultado.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="336">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#387#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TipoTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/TipoTest.java">
+      <file leaf-file-name="PontuacaoService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#615#625#0" expanded="true" />
-                <element signature="e#1248#1254#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="264">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -331,11 +366,8 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Avaliacao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoFactory.java" />
-        <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTrivialTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoRegras.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoRegrasTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resultado.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java" />
@@ -344,7 +376,6 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoRepository.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/resolucao.json" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
         <option value="$PROJECT_DIR$/src/test/resources/resolucao.json" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoRepositoryJsonTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Alteracao.java" />
@@ -352,8 +383,6 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Expressao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Parecer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoRepositoryJson.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontosPorRelatoRegra.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontosPorHora.java" />
@@ -361,15 +390,23 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/MediaRegra.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/SomatorioRegra.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/CondicionalRegra.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/AvaliaRegraService.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Classe.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/TipoPrimitivo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Atributo.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Tipo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ItemAvaliado.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoItensTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Grupo.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/TipoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Atributo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ItemAvaliado.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/AvaliaRegraService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTrivialTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Valor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java" />
+        <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ValorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java" />
       </list>
     </option>
   </component>
@@ -397,7 +434,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="1101" />
+    <option name="height" value="1105" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -464,6 +501,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -585,10 +624,6 @@
               <option name="myItemId" value="sandbox" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistencia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -623,8 +658,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -639,22 +672,22 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-      <recent name="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/persistencia" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.ufg.inf.es.saep.sandbox.dominio" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="br.ufg.inf.es.saep.sandbox.dominio" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.ufg.inf.es.saep.sandbox.dominio" />
       <recent name="br.ufg.inf.es.saep.sandbox.persistencia" />
-      <recent name="br.ufg.inf.es.saep.sandbox.dominio" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="br.ufg.inf.es.saep.sandbox.dominio" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/persistencia" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TipoTest.umGrupo">
+  <component name="RunManager" selected="JUnit.All in dominio">
     <configuration default="false" name="All in dominio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="dominio" />
@@ -1206,8 +1239,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TipoTest.umGrupo" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in dominio" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in dominio" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TipoTest.umGrupo" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.OrdenacaoItensTest.umItemDependenteDeAtributoOrdenacaoTrivial" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.TipoTest.umaInstanciaDeTipo" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ResolucaoRepositoryJsonTest.recuperacaoArquivoTrivial" />
@@ -1236,7 +1269,8 @@
       <workItem from="1464294068510" duration="4252000" />
       <workItem from="1464372405648" duration="6082000" />
       <workItem from="1464443142481" duration="4501000" />
-      <workItem from="1464467112945" duration="7268000" />
+      <workItem from="1464467112945" duration="7315000" />
+      <workItem from="1464527285963" duration="8035000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -1273,14 +1307,21 @@
       <option name="project" value="LOCAL" />
       <updated>1464463986096</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tipos ou classes de relatos (reorganizacao)">
+      <created>1464484645446</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1464484645446</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_dominio - 2016.05.28 at 21h 57m 07s.xml">
+    <history-entry file="All_in_dominio - 2016.05.28 at 21h 59m 53s.xml">
       <configuration name="All in dominio" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_dominio - 2016.05.28 at 21h 59m 53s.xml">
+    <history-entry file="All_in_dominio - 2016.05.29 at 14h 34m 19s.xml">
       <configuration name="All in dominio" configurationId="JUnit" />
     </history-entry>
     <history-entry file="OrdenacaoItensTest_umItemDependenteDeAtributoOrdenacaoTrivial - 2016.05.28 at 21h 41m 43s.xml">
@@ -1309,27 +1350,27 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49285000" />
+    <option name="totallyTimeSpent" value="57367000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1101" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1105" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32804757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277394" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971373" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3349181" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32606542" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32576504" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15495208" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32804757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32675222" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1359,7 +1400,8 @@
     <MESSAGE value="inserida ordenação topológica" />
     <MESSAGE value="modificador equivocado" />
     <MESSAGE value="documentacao de classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="documentacao de classes" />
+    <MESSAGE value="Tipos ou classes de relatos (reorganizacao)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tipos ou classes de relatos (reorganizacao)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1380,8 +1422,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Avaliacao.java" />
-    <entry file="uml://JAVA/br.ufg.inf.es.saep.sandbox.dominio" />
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1418,7 +1458,7 @@
         <state relative-caret-position="1224">
           <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
           <folding>
-            <element signature="e#0#2005#0" expanded="true" />
+            <element signature="e#0#2396#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1428,7 +1468,9 @@
         <state relative-caret-position="624">
           <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding>
-            <element signature="e#0#1896#0" expanded="true" />
+            <element signature="e#0#2196#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1439,8 +1481,6 @@
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="45" />
           <folding>
             <element signature="e#0#1132#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1128#1129#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1450,7 +1490,7 @@
         <state relative-caret-position="600">
           <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
           <folding>
-            <element signature="e#0#1461#0" expanded="true" />
+            <element signature="e#0#1626#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1474,17 +1514,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Avaliacao.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTrivialTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#329#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/RadocRepositoryJson.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1546,16 +1575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#693#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/RadocRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1566,40 +1585,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#2005#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           <folding>
             <element signature="e#0#684#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resultado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#387#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1642,58 +1633,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#714#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/AvaliaRegraService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/SomatorioRegra.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="e#0#538#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Atributo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#1461#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/TipoPrimitivo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#590#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1706,7 +1651,7 @@
           <nodes />
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="42.5" y="14.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="43.0" y="15.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1714,72 +1659,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/br.ufg.inf.es.saep.sandbox.dominio.Tipo">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>br.ufg.inf.es.saep.sandbox.dominio.Tipo</OriginalElement>
-          <nodes>
-            <node x="32.0" y="0.0">br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo</node>
-            <node x="13.0" y="142.0">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
-            <node x="0.0" y="284.0">br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Atributo" target="br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Tipo" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-523.5" y="-223.0" />
-          <SelectedNodes>
-            <node>br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Fields</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Tipo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="98" column="85" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="85" />
-          <folding>
-            <element signature="e#0#2979#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ItemAvaliado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#1896#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1608">
-          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#2300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Ordenacao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="1560">
           <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
             <element signature="e#0#2971#0" expanded="true" />
@@ -1790,43 +1672,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/br.ufg.inf.es.saep.sandbox.dominio">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoRepositoryJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#907#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoItensTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#345#359#0" expanded="false" />
+            <element signature="e#826#840#0" expanded="false" />
+            <element signature="e#1766#1776#0" expanded="false" />
+            <element signature="e#1974#1984#0" expanded="false" />
+            <element signature="e#2290#2300#0" expanded="false" />
+            <element signature="e#2689#2703#0" expanded="false" />
+            <element signature="e#3553#3563#0" expanded="false" />
+            <element signature="e#3845#3859#0" expanded="false" />
+            <element signature="e#4801#4811#0" expanded="false" />
+            <element signature="e#5034#5044#0" expanded="false" />
+            <element signature="e#5309#5323#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Tipo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1924">
+          <caret line="98" column="85" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#2979#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Grupo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#1132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/TipoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#615#625#0" expanded="true" />
+            <element signature="e#1248#1254#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Atributo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#1626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#2567#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ItemAvaliado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#2196#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/AvaliaRegraService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#2396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTrivialTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#693#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resultado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/TipoPrimitivo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/br.ufg.inf.es.saep.sandbox.dominio.Tipo">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>JAVA</ID>
-          <OriginalElement>br.ufg.inf.es.saep.sandbox.dominio</OriginalElement>
+          <OriginalElement>br.ufg.inf.es.saep.sandbox.dominio.Tipo</OriginalElement>
           <nodes>
-            <node x="1577.0040809084458" y="497.91376863023413">br.ufg.inf.es.saep.sandbox.dominio.Grupo</node>
-            <node x="833.0" y="0.0">br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo</node>
-            <node x="335.0" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.MediaRegra</node>
-            <node x="812.0" y="457.0">br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado</node>
-            <node x="1360.75" y="762.0">br.ufg.inf.es.saep.sandbox.dominio.Radoc</node>
-            <node x="0.0" y="1041.0">br.ufg.inf.es.saep.sandbox.dominio.Ordenacao</node>
-            <node x="190.0" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.SomatorioRegra</node>
-            <node x="1383.75" y="630.5">br.ufg.inf.es.saep.sandbox.dominio.Relato</node>
-            <node x="697.75" y="620.0">br.ufg.inf.es.saep.sandbox.dominio.Resolucao</node>
-            <node x="458.00000000000006" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.PontosPorRelatoRegra</node>
-            <node x="1408.125" y="284.0">br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
-            <node x="1176.4916666666668" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.Alteravel</node>
-            <node x="639.0" y="499.0">br.ufg.inf.es.saep.sandbox.dominio.PontosPorHoraRegra</node>
-            <node x="931.75" y="762.0">br.ufg.inf.es.saep.sandbox.dominio.Resultado</node>
-            <node x="814.0" y="142.0">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
-            <node x="65.89638041163946" y="286.19446415897795">br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra</node>
-            <node x="1025.7333333333333" y="862.0">br.ufg.inf.es.saep.sandbox.dominio.Parecer</node>
-            <node x="1175.75" y="620.0">br.ufg.inf.es.saep.sandbox.dominio.Alteracao</node>
-            <node x="343.5" y="284.0">br.ufg.inf.es.saep.sandbox.dominio.Regra</node>
-            <node x="929.75" y="630.5">br.ufg.inf.es.saep.sandbox.dominio.Pontuacao</node>
-            <node x="195.82499999999993" y="163.0">br.ufg.inf.es.saep.sandbox.dominio.Expressao</node>
+            <node x="-469.0" y="51.5">br.ufg.inf.es.saep.sandbox.dominio.Grupo</node>
+            <node x="-692.0" y="179.0">br.ufg.inf.es.saep.sandbox.dominio.Radoc</node>
+            <node x="349.46500000000003" y="30.499999999999872">br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo</node>
+            <node x="-532.0" y="268.0">br.ufg.inf.es.saep.sandbox.dominio.Resolucao</node>
+            <node x="88.83500000000004" y="30.49999999999993">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
+            <node x="-210.91500000000002" y="20.0">br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
+            <node x="-468.0" y="169.0">br.ufg.inf.es.saep.sandbox.dominio.Relato</node>
+            <node x="-200.0" y="267.0">br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado</node>
+            <node x="-229.0" y="454.0">br.ufg.inf.es.saep.sandbox.dominio.Pontuacao</node>
+            <node x="51.0" y="267.0">br.ufg.inf.es.saep.sandbox.dominio.Regra</node>
           </nodes>
           <notes />
           <edges>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.MediaRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-              <point x="0.0" y="-14.5" />
-              <point x="386.5" y="437.0" />
-              <point x="442.66666666666663" y="437.0" />
-              <point x="-19.83333333333337" y="56.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Alteracao" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
@@ -1834,99 +1859,7 @@
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Resolucao">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Resultado">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Atributo" target="br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-              <point x="42.5" y="-35.5" />
-              <point x="127.5" y="417.0" />
-              <point x="363.33333333333337" y="417.0" />
-              <point x="-99.16666666666663" y="56.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.PontosPorHoraRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-              <point x="0.0" y="-14.5" />
-              <point x="715.5" y="427.0" />
-              <point x="522.0" y="427.0" />
-              <point x="59.5" y="56.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Radoc">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.PontosPorRelatoRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-              <point x="0.0" y="-14.5" />
-              <point x="538.5" y="437.0" />
-              <point x="482.33333333333337" y="437.0" />
-              <point x="19.83333333333337" y="56.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Relato" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
-              <point x="-31.5" y="-35.5" />
-              <point x="1415.25" y="590.0" />
-              <point x="1246.4916666666668" y="590.0" />
-              <point x="28.0" y="14.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.SomatorioRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
-              <point x="0.0" y="-14.5" />
-              <point x="252.5" y="427.0" />
-              <point x="403.0" y="427.0" />
-              <point x="-59.5" y="56.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Expressao">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
             <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Grupo" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
-              <point x="-37.25" y="-25.0" />
-              <point x="23.5" y="56.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Tipo" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Radoc" target="br.ufg.inf.es.saep.sandbox.dominio.Relato">
-              <point x="0.0" y="-25.0" />
-              <point x="0.0" y="35.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
-              <point x="56.5" y="-35.5" />
-              <point x="1099.25" y="600.0" />
-              <point x="1190.4916666666668" y="600.0" />
-              <point x="-28.0" y="14.5" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Resultado" target="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Expressao">
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
@@ -1934,14 +1867,38 @@
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
-            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Alteracao">
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Grupo" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
+              <point x="0.0" y="5.0" />
+              <point x="0.0" y="5.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Atributo" target="br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Tipo" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Radoc" target="br.ufg.inf.es.saep.sandbox.dominio.Relato">
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.8498190591073582" x="272.41305890702625" y="376.41305890702625" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-459.0" y="158.0" />
           <SelectedNodes>
-            <node>br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
+            <node>br.ufg.inf.es.saep.sandbox.dominio.Relato</node>
           </SelectedNodes>
           <Categories>
             <Category>Fields</Category>
@@ -1951,43 +1908,262 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoRepositoryJson.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Grupo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#1132#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1128#1129#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoItensTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/TipoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        <state relative-caret-position="746">
+          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#615#625#0" expanded="true" />
-            <element signature="e#1248#1254#0" expanded="true" />
+            <marker date="1464552497000" expanded="true" signature="260:699" ph="/**...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Valor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2616">
+          <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
+          <folding>
+            <element signature="e#1694#1695#0" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1941#1942#0" expanded="true" />
+            <element signature="e#1970#1971#0" expanded="true" />
+            <element signature="e#2163#2164#0" expanded="true" />
+            <element signature="e#2190#2191#0" expanded="true" />
+            <element signature="e#2357#2358#0" expanded="true" />
+            <element signature="e#2388#2389#0" expanded="true" />
+            <marker date="1464552498000" expanded="true" signature="45:242" ph="/**...*/" />
+            <marker date="1464552498000" expanded="true" signature="452:521" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ValorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="86" selection-start-line="8" selection-start-column="86" selection-end-line="8" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding>
+            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <marker date="1464556759000" expanded="true" signature="188:545" ph="/**...*/" />
+            <marker date="1464556759000" expanded="true" signature="713:753" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/br.ufg.inf.es.saep.sandbox.dominio">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>br.ufg.inf.es.saep.sandbox.dominio</OriginalElement>
+          <nodes>
+            <node x="-307.1818362480127" y="538.0627980922098">br.ufg.inf.es.saep.sandbox.dominio.Grupo</node>
+            <node x="122.18081807297494" y="49.562798092209846">br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo</node>
+            <node x="842.0558180729748" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.MediaRegra</node>
+            <node x="302.05581807297494" y="506.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado</node>
+            <node x="-295.81918192702506" y="842.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Radoc</node>
+            <node x="-508.3068362480127" y="1121.56279809221">br.ufg.inf.es.saep.sandbox.dominio.Ordenacao</node>
+            <node x="965.0558180729748" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.SomatorioRegra</node>
+            <node x="-272.81918192702506" y="700.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Relato</node>
+            <node x="365.30581807297494" y="679.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Resolucao</node>
+            <node x="661.0558180729748" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.PontosPorRelatoRegra</node>
+            <node x="-279.3068362480127" y="333.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Tipo</node>
+            <node x="15.730200789024366" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Alteravel</node>
+            <node x="488.05581807297494" y="548.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.PontosPorHoraRegra</node>
+            <node x="-508.3068362480127" y="333.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Valor</node>
+            <node x="103.18081807297494" y="191.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
+            <node x="121.30581807297494" y="842.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Resultado</node>
+            <node x="1110.055818072975" y="527.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra</node>
+            <node x="-1.5074535319632787" y="942.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Parecer</node>
+            <node x="-88.69418192702506" y="690.0627980922098">br.ufg.inf.es.saep.sandbox.dominio.Alteracao</node>
+            <node x="119.30581807297494" y="700.5627980922098">br.ufg.inf.es.saep.sandbox.dominio.Pontuacao</node>
+            <node x="698.5558180729748" y="333.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Regra</node>
+            <node x="935.3968674556912" y="212.56279809220985">br.ufg.inf.es.saep.sandbox.dominio.Expressao</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.MediaRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+              <point x="0.0" y="-14.5" />
+              <point x="893.5558180729748" y="486.56279809220985" />
+              <point x="837.3891514063083" y="486.56279809220985" />
+              <point x="19.833333333333343" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Alteracao" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
+              <point x="0.0" y="-46.0" />
+              <point x="5.305818072974944" y="659.5627980922098" />
+              <point x="57.730200789024366" y="659.5627980922098" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Relato" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
+              <point x="0.0" y="-35.5" />
+              <point x="-209.81918192702506" y="639.5627980922098" />
+              <point x="-147.6818362480127" y="639.5627980922098" />
+              <point x="-147.6818362480127" y="486.56279809220985" />
+              <point x="-161.8068362480127" y="486.56279809220985" />
+              <point x="23.5" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Resolucao">
+              <point x="94.125" y="-67.0" />
+              <point x="218.11754646803672" y="922.5627980922098" />
+              <point x="481.30581807297494" y="922.5627980922098" />
+              <point x="0.0" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Resultado">
+              <point x="31.375" y="-67.0" />
+              <point x="155.36754646803672" y="912.5627980922098" />
+              <point x="232.30581807297494" y="912.5627980922098" />
+              <point x="0.0" y="25.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Atributo" target="br.ufg.inf.es.saep.sandbox.dominio.TipoPrimitivo">
+              <point x="0.0" y="-46.0" />
+              <point x="0.0" y="46.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+              <point x="55.333333333333314" y="-56.5" />
+              <point x="440.3891514063083" y="466.56279809220985" />
+              <point x="718.3891514063083" y="466.56279809220985" />
+              <point x="-99.16666666666666" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+              <point x="-42.5" y="-35.5" />
+              <point x="1152.555818072975" y="466.56279809220985" />
+              <point x="916.7224847396416" y="466.56279809220985" />
+              <point x="99.16666666666666" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado">
+              <point x="56.5" y="-35.5" />
+              <point x="288.80581807297494" y="659.5627980922098" />
+              <point x="343.55581807297494" y="659.5627980922098" />
+              <point x="-41.5" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.PontosPorHoraRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+              <point x="0.0" y="-14.5" />
+              <point x="564.5558180729751" y="476.56279809220985" />
+              <point x="758.0558180729748" y="476.56279809220985" />
+              <point x="-59.5" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Radoc">
+              <point x="-94.125" y="-67.0" />
+              <point x="29.86754646803672" y="922.5627980922098" />
+              <point x="-209.81918192702506" y="922.5627980922098" />
+              <point x="0.0" y="25.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+              <point x="-59.5" y="-56.5" />
+              <point x="758.0558180729748" y="303.56279809220985" />
+              <point x="244.93081807297494" y="303.56279809220985" />
+              <point x="60.75" y="46.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.PontosPorRelatoRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+              <point x="0.0" y="-14.5" />
+              <point x="741.5558180729748" y="486.56279809220985" />
+              <point x="797.7224847396416" y="486.56279809220985" />
+              <point x="-19.83333333333333" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Relato" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
+              <point x="42.0" y="-35.5" />
+              <point x="-167.81918192702506" y="649.5627980922098" />
+              <point x="29.730200789024366" y="649.5627980922098" />
+              <point x="-28.0" y="14.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Relato" target="br.ufg.inf.es.saep.sandbox.dominio.Valor">
+              <point x="-42.0" y="-35.5" />
+              <point x="-251.81918192702506" y="659.5627980922098" />
+              <point x="-403.8068362480127" y="659.5627980922098" />
+              <point x="0.0" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+              <point x="0.0" y="-56.5" />
+              <point x="385.05581807297494" y="313.56279809220985" />
+              <point x="204.43081807297494" y="313.56279809220985" />
+              <point x="20.25" y="46.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Valor" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+              <point x="0.0" y="-56.5" />
+              <point x="-403.8068362480127" y="303.56279809220985" />
+              <point x="123.43081807297494" y="303.56279809220985" />
+              <point x="-60.75" y="46.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.SomatorioRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Regra">
+              <point x="0.0" y="-14.5" />
+              <point x="1027.555818072975" y="476.56279809220985" />
+              <point x="877.0558180729748" y="476.56279809220985" />
+              <point x="59.5" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Regra" target="br.ufg.inf.es.saep.sandbox.dominio.Expressao">
+              <point x="59.5" y="-56.5" />
+              <point x="877.0558180729748" y="313.56279809220985" />
+              <point x="972.8968674556912" y="313.56279809220985" />
+              <point x="-37.5" y="25.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
+              <point x="-55.33333333333337" y="-56.5" />
+              <point x="329.7224847396416" y="486.56279809220985" />
+              <point x="-114.8068362480127" y="486.56279809220985" />
+              <point x="70.5" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Grupo" target="br.ufg.inf.es.saep.sandbox.dominio.Tipo">
+              <point x="37.25" y="-25.0" />
+              <point x="-195.4318362480127" y="486.56279809220985" />
+              <point x="-208.8068362480127" y="486.56279809220985" />
+              <point x="-23.5" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Tipo" target="br.ufg.inf.es.saep.sandbox.dominio.Atributo">
+              <point x="0.0" y="-56.5" />
+              <point x="-185.3068362480127" y="313.56279809220985" />
+              <point x="163.93081807297494" y="313.56279809220985" />
+              <point x="-20.25" y="46.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao" target="br.ufg.inf.es.saep.sandbox.dominio.Alteravel">
+              <point x="-56.5" y="-35.5" />
+              <point x="175.80581807297494" y="659.5627980922098" />
+              <point x="85.73020078902437" y="659.5627980922098" />
+              <point x="28.0" y="14.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Radoc" target="br.ufg.inf.es.saep.sandbox.dominio.Relato">
+              <point x="0.0" y="-25.0" />
+              <point x="0.0" y="35.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Resultado" target="br.ufg.inf.es.saep.sandbox.dominio.Pontuacao">
+              <point x="0.0" y="-25.0" />
+              <point x="0.0" y="35.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.CondicionalRegra" target="br.ufg.inf.es.saep.sandbox.dominio.Expressao">
+              <point x="42.5" y="-35.5" />
+              <point x="1237.555818072975" y="313.56279809220985" />
+              <point x="1047.8968674556913" y="313.56279809220985" />
+              <point x="37.5" y="25.0" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Resolucao" target="br.ufg.inf.es.saep.sandbox.dominio.ItemAvaliado">
+              <point x="0.0" y="-56.5" />
+              <point x="481.30581807297494" y="659.5627980922098" />
+              <point x="426.55581807297494" y="659.5627980922098" />
+              <point x="41.5" y="56.5" />
+            </edge>
+            <edge source="br.ufg.inf.es.saep.sandbox.dominio.Parecer" target="br.ufg.inf.es.saep.sandbox.dominio.Alteracao">
+              <point x="-31.375" y="-67.0" />
+              <point x="92.61754646803672" y="912.5627980922098" />
+              <point x="5.305818072974944" y="912.5627980922098" />
+              <point x="0.0" y="46.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8675862068965517" x="393.6065182829889" y="742.6828298887123" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>

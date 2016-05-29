@@ -8,15 +8,18 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Interface a ser implementada por qualquer serviço
- * que ofereça o cálculo identificadaPor avaliação identificadaPor regras.
+ * Interface a ser implementada por serviço
+ * que ofereça o cálculo (avaliação) de relatos.
+ *
+ * A avaliação é realizada conforme a "configuração"
+ * (conjunto de itens avaliados) empregada.
  */
 public interface PontuacaoService {
 
     /**
-     * Computa resultado da avaliação identificadaPor relatos.
+     * Computa resultado da avaliação dos relatos.
      *
-     * @param relatos Conjunto identificadaPor relatos sobre os quais
+     * @param relatos Conjunto de relatos sobre os quais
      *                o cômputo será feito.
      *
      * @return Resultado produzido pela avaliação identificadaPor relatos.

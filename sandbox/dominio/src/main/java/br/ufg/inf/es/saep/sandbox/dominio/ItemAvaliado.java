@@ -7,6 +7,11 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
  * Representa item avaliado por uma resolução.
+ * Qualquer elemento que direta ou indiretamente
+ * produz um valor considerado por uma
+ * resolução é representado por uma instância
+ * dessa classe.
+ *
  */
 public class ItemAvaliado {
 
@@ -37,6 +42,15 @@ public class ItemAvaliado {
      * identificador do resultado.
      */
     private Atributo resultado;
+
+    /**
+     * Recupera o tipo do item avaliado.
+     *
+     * @return O tipo do item.
+     */
+    public Tipo getTipo() {
+        return tipo;
+    }
 
     /**
      * Recupera a regra identificadaPor avaliação do item.
@@ -75,7 +89,7 @@ public class ItemAvaliado {
 
      */
     public ItemAvaliado(Tipo tipo, Regra regra, String descricao, Atributo resultado) {
-        this.tipo = this.tipo;
+        this.tipo = tipo;
         this.regra = regra;
         this.descricao = descricao;
         this.resultado = resultado;

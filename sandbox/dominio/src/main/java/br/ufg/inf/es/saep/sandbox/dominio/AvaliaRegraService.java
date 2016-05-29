@@ -3,7 +3,8 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Created by fabio_000 on 27/05/2016.
+ * Interface de operações oferecidas por um serviço
+ * que avalia uma regra.
  */
 public interface AvaliaRegraService {
 

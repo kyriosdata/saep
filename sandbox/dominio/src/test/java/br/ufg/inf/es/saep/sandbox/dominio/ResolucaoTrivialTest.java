@@ -13,7 +13,7 @@ public class ResolucaoTrivialTest {
     @Test
     public void resolucaoVazia() {
         Set<ItemAvaliado> itens = new HashSet<ItemAvaliado>();
-        Resolucao r = new Resolucao(new Date(), "vazia", itens);
+        Resolucao r = new Resolucao("vazia", null, new Date(), itens);
         assertNotNull(r);
     }
 }
