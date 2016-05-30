@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Implementação JSON.
@@ -31,6 +32,14 @@ public class ResolucaoRepositoryJson implements ResolucaoRepository {
     }
 
     public String persiste(Resolucao resolucao) {
+        return null;
+    }
+
+    public boolean remove(String identificador) {
+        return false;
+    }
+
+    public List<String> resolucoes() {
         return null;
     }
 }
