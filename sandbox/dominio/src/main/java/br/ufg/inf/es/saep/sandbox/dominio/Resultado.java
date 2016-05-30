@@ -8,9 +8,11 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Identifica conjunto identificadaPor valores computados pela
- * avaliação identificadaPor regras.
+ * Reúne as pontuações ou resultado obtido pela
+ * aplicação de uma resolução a um relatório.
  */
 public class Resultado {
+    private Resolucao resolucao;
+
     private List<Pontuacao> pontuacoes;
 }

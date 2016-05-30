@@ -15,13 +15,13 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * original.
  */
 public class Alteracao {
-    private Alteravel origem;
-    private Alteravel destino;
+    private Alteravel antigo;
+    private Alteravel novo;
     private String justificativa;
 
     public Alteracao(Alteravel origem, Alteravel destino, String justificativa) {
-        this.origem = origem;
-        this.destino = origem;
+        this.antigo = origem;
+        this.novo = origem;
         this.justificativa = justificativa;
     }
 }

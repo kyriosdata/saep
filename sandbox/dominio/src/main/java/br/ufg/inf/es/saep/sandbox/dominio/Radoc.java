@@ -5,12 +5,24 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  * Relatório contendo relatos associados a um docente.
  */
 public class Radoc {
+
+    /**
+     * Identificador único do relatório.
+     */
+    private String guid;
+
+    /**
+     * Ano base do relatório.
+     */
+    private int anoBase;
+
     private List<Relato> relatos;
 
     /**

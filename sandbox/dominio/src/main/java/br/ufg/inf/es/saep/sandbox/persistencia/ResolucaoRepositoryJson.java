@@ -29,4 +29,8 @@ public class ResolucaoRepositoryJson implements ResolucaoRepository {
             return null;
         }
     }
+
+    public String persiste(Resolucao resolucao) {
+        return null;
+    }
 }

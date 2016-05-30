@@ -20,11 +20,19 @@ import java.util.Set;
  * considerados em uma avaliação.
  */
 public class Resolucao {
+
+    /**
+     * Identificador único da resolução (uso interno).
+     * Contraste com {#link {@link #identificador}.
+     */
+    private String guid;
+
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd/MM/yyyy", timezone = "GMT-2")
     private Date dataAprovacao;
 
     /**
-     * Identificador único da resolução.
+     * Identificador da resolução (uso externo, por exemplo,
+     * usuários). Contraste com {@link #guid}.
      */
     private String identificador;
 
