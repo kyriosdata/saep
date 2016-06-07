@@ -31,6 +31,18 @@ public class Pontuacao implements Alteravel {
     private double valor;
 
     /**
+     * Cria a pontuação obtida para um dado item avaliado.
+     *
+     * @param itemAvaliado Item cuja pontuação foi obtida.
+     *
+     * @param valor Valor obtido da pontuação.
+     */
+    public Pontuacao(ItemAvaliado itemAvaliado, double valor) {
+        this.itemAvaliado = itemAvaliado;
+        this.valor = valor;
+    }
+
+    /**
      * Verifica se o valor lógico da pontuação
      * é verdadeiro.
      *

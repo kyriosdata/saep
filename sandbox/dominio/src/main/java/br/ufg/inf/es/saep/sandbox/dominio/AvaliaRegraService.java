@@ -14,10 +14,9 @@ public interface AvaliaRegraService {
      * @param relatos O conjunto de relatos sobre o qual a
      *                regra será avaliada.
      *
-     * @param regra Regra que será empregada para avaliar
-     *              os relatos.
+     * @param item Item que avalia o conjunto de relatos.
      *
      * @return Pontuação resultado da avaliação da regra.
      */
-    Pontuacao avalia(List<Relato> relatos, Regra regra);
+    Pontuacao avalia(List<Relato> relatos, ItemAvaliado item);
 }
