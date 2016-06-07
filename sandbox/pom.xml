@@ -22,8 +22,8 @@
 	</developers>
 		
     <modules>
+        <module>dominio</module>
 		<module>avaliador</module>
-		<module>dominio</module>
     </modules>
 
     <build>

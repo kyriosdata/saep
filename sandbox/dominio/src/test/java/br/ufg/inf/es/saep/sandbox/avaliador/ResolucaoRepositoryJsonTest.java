@@ -1,4 +1,4 @@
-package br.ufg.inf.es.saep.sandbox.persistencia;
+package br.ufg.inf.es.saep.sandbox.avaliador;
 
 import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
 import org.junit.Test;
