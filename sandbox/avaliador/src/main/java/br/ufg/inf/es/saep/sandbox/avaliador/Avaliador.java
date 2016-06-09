@@ -57,41 +57,69 @@ public class Avaliador implements AvaliaRegraService {
      * @return Pontuação obtida pela avaliação.
      */
     public float avalia(List<Registro> registros, int codigo) {
+
         // Recupera variável associado ao resultado
+        // (identificador do depósito do resultado)
         String variavel = regras.getVariavel(codigo);
 
-        float resultado = 0f;
-
         switch (regras.getTipo(codigo)) {
-            case 0:
+            case Regras.PONTOS_POR_RELATO:
                 float ppr = regras.getPontosPorRelato(codigo);
-                resultado = ppr * registros.size();
+                float pontos = ppr * registros.size();
 
                 // Atualiza contexto
-                contexto.put(variavel, new BigDecimal(resultado));
-                return resultado;
-            case 1:
-                // Recupera a expressão
-                String sentenca = regras.getSentenca(codigo);
-                Expression exp = new Expression(sentenca);
+                contexto.put(variavel, new BigDecimal(pontos));
+                return pontos;
 
-                // Variáveis utilizadas na avaliação da expressão
-                List<String> utilizadas = regras.getDependencias(codigo);
-
-                // Define o contexto
-                for (String dependeDe : utilizadas) {
-                    BigDecimal valor = contexto.get(dependeDe);
-                    exp.setVariable(dependeDe, valor);
-                }
-
-                // Avalia
-                BigDecimal resultadoSentenca = exp.eval();
+            case Regras.EXPRESSAO:
+                BigDecimal valor = avaliaExpressao(codigo);
 
                 // Deposita resultado produzido no contexto
-                contexto.put(variavel, resultadoSentenca);
-                return resultadoSentenca.floatValue();
+                contexto.put(variavel, valor);
+
+                return valor.floatValue();
+
+            case Regras.CONDICIONAL:
+                BigDecimal condicao = avaliaExpressao(codigo);
+                int cexpr = condicao == BigDecimal.ZERO
+                        ? regras.getCodigoSentencaSenao(codigo)
+                        : regras.getCodigoSentencaEntao(codigo);
+
+                // Avalia "então" ou "senão"
+                BigDecimal resultado = avaliaExpressao(cexpr);
+
+                // Deposita resultado produzido no contexto
+                contexto.put(variavel, resultado);
+
+                return resultado.floatValue();
         }
 
         return 0.1f;
+    }
+
+    /**
+     * Avalia expressão.
+     *
+     * @param codigo O identificador único da expressão.
+     *
+     * @return O valor da expressão.
+     */
+    private BigDecimal avaliaExpressao(int codigo) {
+        // Recupera a expressão
+        String sentenca = regras.getSentenca(codigo);
+        Expression exp = new Expression(sentenca);
+
+        // Variáveis utilizadas na avaliação da expressão
+        List<String> utilizadas = regras.getDependencias(codigo);
+
+        // Recuperar o contexto
+        for (String dependeDe : utilizadas) {
+            BigDecimal valor = contexto.get(dependeDe);
+            exp.setVariable(dependeDe, valor);
+        }
+
+        // Avalia
+        BigDecimal resultadoSentenca = exp.eval();
+        return resultadoSentenca;
     }
 }
