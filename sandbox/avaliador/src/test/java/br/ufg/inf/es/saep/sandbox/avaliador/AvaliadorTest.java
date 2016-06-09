@@ -56,5 +56,8 @@ public class AvaliadorTest {
 
         resultado = avaliador.avalia(null, 3);
         assertEquals(1f, resultado, 0.0001);
+
+        resultado = avaliador.avalia(registros, 6);
+        assertEquals(4f, resultado, 0.0001);
     }
 }

@@ -92,9 +92,17 @@ public class Avaliador implements AvaliaRegraService {
                 contexto.put(variavel, resultado);
 
                 return resultado.floatValue();
+
+            case Regras.SOMATORIO:
+                BigDecimal somatorio = new BigDecimal(0);
+                for(int i = 0; i < registros.size(); i++) {
+                    somatorio = somatorio.add(avaliaExpressaoSomatorio(codigo, i, registros.get(0)));
+                }
+
+                return somatorio.floatValue();
         }
 
-        return 0.1f;
+        return -999f;
     }
 
     /**
@@ -105,10 +113,14 @@ public class Avaliador implements AvaliaRegraService {
      * @return O valor da expressão.
      */
     private BigDecimal avaliaExpressao(int codigo) {
-        // Recupera a expressão
-        String sentenca = regras.getSentenca(codigo);
-        Expression exp = new Expression(sentenca);
+        Expression exp = getExpression(codigo);
 
+        recuperaContexto(codigo, exp);
+
+        return exp.eval();
+    }
+
+    private void recuperaContexto(int codigo, Expression exp) {
         // Variáveis utilizadas na avaliação da expressão
         List<String> utilizadas = regras.getDependencias(codigo);
 
@@ -117,9 +129,33 @@ public class Avaliador implements AvaliaRegraService {
             BigDecimal valor = contexto.get(dependeDe);
             exp.setVariable(dependeDe, valor);
         }
+    }
 
-        // Avalia
-        BigDecimal resultadoSentenca = exp.eval();
-        return resultadoSentenca;
+    private Expression getExpression(int codigo) {
+        // Recupera a expressão
+        String sentenca = regras.getSentenca(codigo);
+        return new Expression(sentenca);
+    }
+
+    private BigDecimal avaliaExpressaoSomatorio(int codigo, int registro, Registro repo) {
+        Expression exp = getExpression(codigo);
+
+        // Variáveis utilizadas na avaliação da expressão
+        // e que não dependem do registro fornecido.
+        recuperaContexto(codigo, exp);
+
+        recuperaRegistro(codigo, exp, registro, repo);
+
+        return exp.eval();
+    }
+
+    private void recuperaRegistro(int codigo, Expression exp, int registro, Registro repo) {
+        List<String> utilizadas = regras.getDependencias(codigo);
+
+        // Recuperar o contexto
+        for (String dependeDe : utilizadas) {
+            BigDecimal valor = repo.get(codigo, dependeDe);
+            exp.setVariable(dependeDe, valor);
+        }
     }
 }

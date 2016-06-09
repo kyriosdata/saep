@@ -23,47 +23,49 @@ public class Regras {
     public static final int PONTOS_POR_RELATO = 0;
     public static final int EXPRESSAO = 1;
     public static final int CONDICIONAL = 2;
+    public static final int SOMATORIO = 3;
+    public static final int MEDIA = 4;
 
     /**
      * Estratégia sugerida para substituir abaixo: vetor de bytes.
      */
-    private List<Integer> tipos = new ArrayList<Integer>();
+    private List<Integer> tipo = new ArrayList<Integer>();
     private List<Float> pontos = new ArrayList<Float>();
-    private List<String> sentencas = new ArrayList<String>();
-    private List<String> variaveis = new ArrayList<String>();
+    private List<String> sentenca = new ArrayList<String>();
+    private List<String> variavel = new ArrayList<String>();
     private List<Integer> entao = new ArrayList<Integer>();
     private List<Integer> senao = new ArrayList<Integer>();
 
     /**
      * Define lista de variáveis que devem ser definidas para se avaliar
-     * uma dada variável.
+     * a expressão.
      */
     private Map<Integer, List<String>> dependencias = new HashMap<Integer, List<String>>();
 
     public Regras() {
         // CODIGO: 0
-        tipos.add(PONTOS_POR_RELATO); // pontos por relato
+        tipo.add(PONTOS_POR_RELATO); // pontos por relato
         pontos.add(1.1f);
-        sentencas.add("");
-        variaveis.add("x");
+        sentenca.add("");
+        variavel.add("x");
         dependencias.put(0, new ArrayList<String>(0));
         entao.add(-1);
         senao.add(-1);
 
         // CODIGO: 1
-        tipos.add(EXPRESSAO); // pontos por relato
+        tipo.add(EXPRESSAO); // pontos por relato
         pontos.add(0f);
-        sentencas.add("8.97");
-        variaveis.add("y");
+        sentenca.add("8.97");
+        variavel.add("y");
         dependencias.put(1, new ArrayList<String>(0));
         entao.add(-1);
         senao.add(-1);
 
         // CODIGO: 2
-        tipos.add(EXPRESSAO); // pontos por relato
+        tipo.add(EXPRESSAO); // pontos por relato
         pontos.add(0f);
-        sentencas.add("x + y");
-        variaveis.add("z");
+        sentenca.add("x + y");
+        variavel.add("z");
         ArrayList<String> utilizadas = new ArrayList<String>(0);
         utilizadas.add("x");
         utilizadas.add("y");
@@ -72,10 +74,10 @@ public class Regras {
         senao.add(-1);
 
         // CODIGO: 3
-        tipos.add(CONDICIONAL);
+        tipo.add(CONDICIONAL);
         pontos.add(0f);
-        sentencas.add("z > 10");
-        variaveis.add("c");
+        sentenca.add("z > 10");
+        variavel.add("c");
         ArrayList<String> empregadas = new ArrayList<String>(0);
         empregadas.add("z");
         dependencias.put(3, empregadas);
@@ -83,20 +85,31 @@ public class Regras {
         senao.add(5);
 
         // CODIGO: 4 (entao de 3)
-        tipos.add(EXPRESSAO); // pontos por relato
+        tipo.add(EXPRESSAO); // pontos por relato
         pontos.add(0f);
-        sentencas.add("1");
-        variaveis.add("c"); // Mesmo da regra condicional
+        sentenca.add("1");
+        variavel.add("c"); // Mesmo da regra condicional
         dependencias.put(4, new ArrayList<String>(0));
         entao.add(-1);
         senao.add(-1);
 
         // CODIGO: 5 (senao de 3)
-        tipos.add(EXPRESSAO); // pontos por relato
+        tipo.add(EXPRESSAO); // pontos por relato
         pontos.add(0f);
-        sentencas.add("0");
-        variaveis.add("c"); // Mesmo da regra condicional
+        sentenca.add("0");
+        variavel.add("c"); // Mesmo da regra condicional
         dependencias.put(5, new ArrayList<String>(0));
+        entao.add(-1);
+        senao.add(-1);
+
+        // CODIGO: 6
+        tipo.add(SOMATORIO);
+        pontos.add(0f);
+        sentenca.add("(c + 1) * 2");
+        variavel.add("s"); // Mesmo da regra condicional
+        ArrayList<String> deps = new ArrayList<String>(0);
+        deps.add("c");
+        dependencias.put(6, deps);
         entao.add(-1);
         senao.add(-1);
     }
@@ -110,7 +123,7 @@ public class Regras {
      * da sentença cujo código é fornecido.
      */
     public int getTipo(int codigo) {
-        return tipos.get(codigo);
+        return tipo.get(codigo);
     }
 
     /**
@@ -138,7 +151,7 @@ public class Regras {
      * @return A sentença ou expressão associada ao código.
      */
     public String getSentenca(int codigo) {
-        return sentencas.get(codigo);
+        return sentenca.get(codigo);
     }
 
     /**
@@ -172,7 +185,7 @@ public class Regras {
      * @return O nome da variável.
      */
     public String getVariavel(int codigo) {
-        return variaveis.get(codigo);
+        return variavel.get(codigo);
     }
 
     public List<String> getDependencias(int codigo) {
