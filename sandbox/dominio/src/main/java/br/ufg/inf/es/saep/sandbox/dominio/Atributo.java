@@ -15,6 +15,10 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  */
 public class Atributo {
 
+    public static final int LOGICO = 0;
+    public static final int REAL = 1;
+    public static final int STRING = 2;
+
     /**
      * O nome do atributo, por exemplo,
      * "cha" ou "nome".
@@ -28,7 +32,7 @@ public class Atributo {
      * apenas valores inteiros podem ser
      * assumidos pelo atributo em questão.
      */
-    private TipoPrimitivo tipo;
+    private int tipo;
 
     /**
      * Informação adicional que detalha o uso
@@ -40,7 +44,7 @@ public class Atributo {
      */
     private String descricao;
 
-    public Atributo(String nome, String descricao, TipoPrimitivo tipo) {
+    public Atributo(String nome, String descricao, int tipo) {
         this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
@@ -60,7 +64,7 @@ public class Atributo {
      *
      * @return O tipo do atributo.
      */
-    public TipoPrimitivo getTipo() {
+    public int getTipo() {
         return tipo;
     }
 }

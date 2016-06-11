@@ -15,12 +15,12 @@ public class TipoTest {
         // O nome da disciplina
         Atributo nome = new Atributo("nome",
                 "nome da disciplina",
-                TipoPrimitivo.STRING);
+                Atributo.STRING);
 
         // A carga horária da disciplina
         Atributo cha = new Atributo("cha",
                 "carga horária da disciplina",
-                TipoPrimitivo.REAL);
+                Atributo.REAL);
 
         Set<Atributo> atributos = new HashSet<Atributo>(2);
         atributos.add(nome);

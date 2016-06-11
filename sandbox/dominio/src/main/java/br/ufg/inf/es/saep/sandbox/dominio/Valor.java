@@ -2,7 +2,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
  * Encapsula um valor para um dos tipos
- * definidos em {@link TipoPrimitivo}.
+ * de atributo.
  *
  * O código que cria uma instância dessa classe
  * é responsável por chamar o método get

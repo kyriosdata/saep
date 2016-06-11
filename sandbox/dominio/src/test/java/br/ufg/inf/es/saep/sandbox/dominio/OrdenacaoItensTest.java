@@ -18,7 +18,7 @@ public class OrdenacaoItensTest {
 
     @Test
     public void umItemOrdenacaoTrivial() {
-        Atributo resultado = new Atributo("um", "descrica", TipoPrimitivo.REAL);
+        Atributo resultado = new Atributo("um", "descrica", Atributo.REAL);
 
         Regra regra = new Regra("10", 0, 0, new ArrayList<Atributo>(0));
 
@@ -40,11 +40,11 @@ public class OrdenacaoItensTest {
         // Ensino a distância: y => ry (usa "y" resultado em "ry")
         // Ensino: rz = rx + ry (usa "rx" e "ry" resultado em "rz")
 
-        Atributo x = new Atributo("x", "x", TipoPrimitivo.REAL);
-        Atributo rx = new Atributo("rx", "rx", TipoPrimitivo.REAL);
-        Atributo y = new Atributo("y", "y", TipoPrimitivo.REAL);
-        Atributo ry = new Atributo("ry", "ry", TipoPrimitivo.REAL);
-        Atributo rz = new Atributo("rz", "rz", TipoPrimitivo.REAL);
+        Atributo x = new Atributo("x", "x", Atributo.REAL);
+        Atributo rx = new Atributo("rx", "rx", Atributo.REAL);
+        Atributo y = new Atributo("y", "y", Atributo.REAL);
+        Atributo ry = new Atributo("ry", "ry", Atributo.REAL);
+        Atributo rz = new Atributo("rz", "rz", Atributo.REAL);
 
         // Regra: "x" (simples propriedade)
         List<Atributo> atributosX = new ArrayList<Atributo>(1);
@@ -85,13 +85,13 @@ public class OrdenacaoItensTest {
         Ordenacao or = new Ordenacao();
 
         // a = 10
-        Atributo a = new Atributo("a", "descricao", TipoPrimitivo.REAL);
+        Atributo a = new Atributo("a", "descricao", Atributo.REAL);
         Regra ra = new Regra("10", 10, 0, new ArrayList<Atributo>(0));
-        Atributo r = new Atributo("a", "a", TipoPrimitivo.REAL);
+        Atributo r = new Atributo("a", "a", Atributo.REAL);
         ItemAvaliado itemA = new ItemAvaliado(ra, "a = 10", r);
 
         // b = a + 1
-        Atributo b = new Atributo("b", "descricao", TipoPrimitivo.REAL);
+        Atributo b = new Atributo("b", "descricao", Atributo.REAL);
         ArrayList<Atributo> atributos = new ArrayList<Atributo>(0);
         atributos.add(a);
         Regra rb = new Regra("a + 1", 11, 0, atributos);
@@ -114,9 +114,9 @@ public class OrdenacaoItensTest {
     @Test
     public void cadItemInseridoUmaUnicaVez() {
         // Atributos: a, b e c
-        Atributo a = new Atributo("a", "descricao", TipoPrimitivo.REAL);
-        Atributo b = new Atributo("b", "descricao", TipoPrimitivo.REAL);
-        Atributo c = new Atributo("c", "descricao", TipoPrimitivo.REAL);
+        Atributo a = new Atributo("a", "descricao", Atributo.REAL);
+        Atributo b = new Atributo("b", "descricao", Atributo.REAL);
+        Atributo c = new Atributo("c", "descricao", Atributo.REAL);
 
         // Regras: "a=1", "b=a+1" e "c=a+2"
         Regra ra = new Regra("1", 0, 0, new ArrayList<Atributo>());
