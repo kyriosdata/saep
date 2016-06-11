@@ -20,9 +20,9 @@ public class OrdenacaoItensTest {
     public void umItemOrdenacaoTrivial() {
         Atributo resultado = new Atributo("um", "descrica", TipoPrimitivo.REAL);
 
-        Regra regra = new Regra(new Expressao("10"), 0, 0, new ArrayList<Atributo>(0));
+        Regra regra = new Regra("10", 0, 0, new ArrayList<Atributo>(0));
 
-        ItemAvaliado ia = new ItemAvaliado(null, regra, "d", resultado);
+        ItemAvaliado ia = new ItemAvaliado(regra, "d", resultado);
 
         // Itens cuja execução deve ser ordenada
         List<ItemAvaliado> itens = new ArrayList<ItemAvaliado>(1);
@@ -49,12 +49,12 @@ public class OrdenacaoItensTest {
         // Regra: "x" (simples propriedade)
         List<Atributo> atributosX = new ArrayList<Atributo>(1);
         atributosX.add(x);
-        Regra regraX = new Regra(new Expressao("x"), 0, 0, atributosX);
+        Regra regraX = new Regra("x", 0, 0, atributosX);
 
         // Regra: "y" (simples propriedade)
         List<Atributo> atributosY = new ArrayList<Atributo>(1);
         atributosY.add(y);
-        Regra regraY = new Regra(new Expressao("y"), 0, 0, atributosY);
+        Regra regraY = new Regra("y", 0, 0, atributosY);
 
         // Regra: "rx + ry" (depende de itens avaliados)
         // (não consome simples propriedades, mas resultados
@@ -62,11 +62,11 @@ public class OrdenacaoItensTest {
         List<Atributo> atributosZ = new ArrayList<Atributo>();
         atributosZ.add(rx);
         atributosZ.add(ry);
-        Regra regraZ = new Regra(new Expressao("rx + ry"), 0, 0, atributosZ);
+        Regra regraZ = new Regra("rx + ry", 0, 0, atributosZ);
 
-        ItemAvaliado ix = new ItemAvaliado(null, regraX, "x", rx);
-        ItemAvaliado iy = new ItemAvaliado(null, regraY, "y", ry);
-        ItemAvaliado iz = new ItemAvaliado(null, regraZ, "z", rz);
+        ItemAvaliado ix = new ItemAvaliado(regraX, "x", rx);
+        ItemAvaliado iy = new ItemAvaliado(regraY, "y", ry);
+        ItemAvaliado iz = new ItemAvaliado(regraZ, "z", rz);
 
         List<ItemAvaliado> itens = new ArrayList<ItemAvaliado>(1);
         itens.add(ix);
@@ -86,16 +86,16 @@ public class OrdenacaoItensTest {
 
         // a = 10
         Atributo a = new Atributo("a", "descricao", TipoPrimitivo.REAL);
-        Regra ra = new Regra(new Expressao("10"), 10, 0, new ArrayList<Atributo>(0));
+        Regra ra = new Regra("10", 10, 0, new ArrayList<Atributo>(0));
         Atributo r = new Atributo("a", "a", TipoPrimitivo.REAL);
-        ItemAvaliado itemA = new ItemAvaliado(null, ra, "a = 10", r);
+        ItemAvaliado itemA = new ItemAvaliado(ra, "a = 10", r);
 
         // b = a + 1
         Atributo b = new Atributo("b", "descricao", TipoPrimitivo.REAL);
         ArrayList<Atributo> atributos = new ArrayList<Atributo>(0);
         atributos.add(a);
-        Regra rb = new Regra(new Expressao("a + 1"), 11, 0, atributos);
-        ItemAvaliado itemB = new ItemAvaliado(null, rb, "b = a + 1", b);
+        Regra rb = new Regra("a + 1", 11, 0, atributos);
+        ItemAvaliado itemB = new ItemAvaliado(rb, "b = a + 1", b);
 
         // Itens que devem ser ordenados (itemA e itemB)
         List<ItemAvaliado> itens = new ArrayList<ItemAvaliado>(2);
@@ -119,18 +119,18 @@ public class OrdenacaoItensTest {
         Atributo c = new Atributo("c", "descricao", TipoPrimitivo.REAL);
 
         // Regras: "a=1", "b=a+1" e "c=a+2"
-        Regra ra = new Regra(new Expressao("1"), 0, 0, new ArrayList<Atributo>());
-        ItemAvaliado ia = new ItemAvaliado(null, ra, "a=1", a);
+        Regra ra = new Regra("1", 0, 0, new ArrayList<Atributo>());
+        ItemAvaliado ia = new ItemAvaliado(ra, "a=1", a);
 
         List<Atributo> dependentesB = new ArrayList<Atributo>();
         dependentesB.add(a);
-        Regra rb = new Regra(new Expressao("a+1"), 0, 0, dependentesB);
-        ItemAvaliado ib = new ItemAvaliado(null, rb, "b=a+1", b);
+        Regra rb = new Regra("a+1", 0, 0, dependentesB);
+        ItemAvaliado ib = new ItemAvaliado(rb, "b=a+1", b);
 
         List<Atributo> dependentesC = new ArrayList<Atributo>();
         dependentesC.add(a);
-        Regra rc = new Regra(new Expressao("a+2"), 0, 0, dependentesC);
-        ItemAvaliado ic = new ItemAvaliado(null, rc, "c=a+2", c);
+        Regra rc = new Regra("a+2", 0, 0, dependentesC);
+        ItemAvaliado ic = new ItemAvaliado(rc, "c=a+2", c);
 
         Ordenacao oi = new Ordenacao();
         ArrayList<ItemAvaliado> itens = new ArrayList<ItemAvaliado>();

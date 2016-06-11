@@ -12,7 +12,21 @@ import java.util.List;
  * avaliação identificadaPor um item avaliado.
  */
 public class Regra {
-    private Expressao expressao;
+
+    public static final int PONTOS_POR_RELATO = 0;
+    public static final int EXPRESSAO = 1;
+    public static final int CONDICIONAL = 2;
+    public static final int SOMATORIO = 3;
+    public static final int MEDIA = 4;
+
+    /**
+     * O valor de uma das constantes acima.
+     */
+    private int tipo;
+    private String expressao;
+    private String entao;
+    private String senao;
+    private int pontos;
     private List<Atributo> dependeDe;
     private double valorMaximo;
     private double valorMinimo;
@@ -31,7 +45,7 @@ public class Regra {
      *
      * @return A expressão empregada pela regra.
      */
-    public Expressao getExpressao() {
+    public String getExpressao() {
         return expressao;
     }
 
@@ -60,7 +74,7 @@ public class Regra {
      * @param expressao A expressão empregada na
      *                  avaliação da regra.
      */
-    public Regra(Expressao expressao) {
+    public Regra(String expressao) {
         this.expressao = expressao;
     }
 
@@ -77,7 +91,7 @@ public class Regra {
      *                  a essa lista devem estar disponíveis (previamente
      *                  avaliados).
      */
-    public Regra(Expressao expressao, double valorMaximo, double valorMinimo, List<Atributo> dependeDe) {
+    public Regra(String expressao, double valorMaximo, double valorMinimo, List<Atributo> dependeDe) {
         this.expressao = expressao;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;

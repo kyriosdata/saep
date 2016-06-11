@@ -16,14 +16,6 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 public class ItemAvaliado {
 
     /**
-     * Tipo avaliado pelo item.
-     * Um item que é avaliado é,
-     * necessariamente, de um dos
-     * tipos disponíveis.
-     */
-    private Tipo tipo;
-
-    /**
      * Regra cuja execução produz o valor
      * ou pontuação para o item avaliado.
      */
@@ -42,15 +34,6 @@ public class ItemAvaliado {
      * identificador do resultado.
      */
     private Atributo resultado;
-
-    /**
-     * Recupera o tipo do item avaliado.
-     *
-     * @return O tipo do item.
-     */
-    public Tipo getTipo() {
-        return tipo;
-    }
 
     /**
      * Recupera a regra identificadaPor avaliação do item.
@@ -82,14 +65,12 @@ public class ItemAvaliado {
     /**
      * Cria um item que pode ser avaliado.
      *
-     * @param tipo
      * @param regra Regra empregado na avaliação do item.
-     *@param descricao Descrição do item.
-     *@param resultado Código único do resultado (nome).
+     * @param descricao Descrição do item.
+     * @param resultado Código único do resultado (nome).
 
      */
-    public ItemAvaliado(Tipo tipo, Regra regra, String descricao, Atributo resultado) {
-        this.tipo = tipo;
+    public ItemAvaliado(Regra regra, String descricao, Atributo resultado) {
         this.regra = regra;
         this.descricao = descricao;
         this.resultado = resultado;

@@ -36,7 +36,7 @@ public class Avaliador implements AvaliaRegraService {
         int total = relatos.size();
 
         // Expressão a ser avaliada
-        String expressao = item.getRegra().getExpressao().getExpressao();
+        String expressao = item.getRegra().getExpressao();
         Expression exp = new Expression(expressao);
 
         // Assume expressão constante, sem necessidade de definir contexto
