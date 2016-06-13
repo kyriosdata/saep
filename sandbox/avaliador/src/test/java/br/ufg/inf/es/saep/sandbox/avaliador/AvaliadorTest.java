@@ -4,7 +4,10 @@ import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,15 +25,16 @@ public class AvaliadorTest {
 
     @Test
     public void semRegistroZeroPontos() {
-        ArrayList<Registro> registros = new ArrayList<Registro>(0);
+        List<Map<String,BigDecimal>> valores = new ArrayList<Map<String, BigDecimal>>(0);
+        Registros registros = new Registros(valores);
         float resultado = avaliador.avalia(registros, 0);
         assertEquals(0f, resultado, 0.0001);
     }
 
     @Test
     public void umRegistroPontuacaoCorrespondente() {
-        ArrayList<Registro> registros = new ArrayList<Registro>(1);
-        registros.add(null);
+        List<Map<String,BigDecimal>> valores = new ArrayList<Map<String, BigDecimal>>(0);
+        Registros registros = new Registros(valores);
         float resultado = avaliador.avalia(registros, 0);
         assertEquals(1.1f, resultado, 0.0001);
     }
@@ -43,8 +47,9 @@ public class AvaliadorTest {
 
     @Test
     public void expressaoQueDependeDeOutras() {
-        ArrayList<Registro> registros = new ArrayList<Registro>(1);
-        registros.add(null);
+        List<Map<String,BigDecimal>> valores = new ArrayList<Map<String, BigDecimal>>(0);
+        Registros registros = new Registros(valores);
+
         float resultado = avaliador.avalia(registros, 0);
         assertEquals(1.1f, resultado, 0.0001);
 

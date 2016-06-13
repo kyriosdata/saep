@@ -1,22 +1,34 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Map;
 
 /**
  * Interface de operações oferecidas por um serviço
- * que avalia uma regra.
+ * que avalia regras.
  */
 public interface AvaliaRegraService {
 
     /**
-     * Avalia a regra para o conjunto de relatos fornecido.
+     * Avalia o conjunto de relatos fornecido.
      *
-     * @param relatos O conjunto de relatos sobre o qual a
-     *                regra será avaliada.
+     * @param registros O conjunto de relatos a ser avaliado.
      *
-     * @param item Item que avalia o conjunto de relatos.
-     *
-     * @return Pontuação resultado da avaliação da regra.
+     * @return Resultados (pontuações) obtidas pela avaliação
+     * dos relatos.
      */
-    Pontuacao avalia(List<Relato> relatos, ItemAvaliado item);
+    Map<String,BigDecimal> avalia(Registros registros);
+
+    /**
+     * Avalia o conjunto de registros conforme a sentença
+     * cujo código é fornecido.
+     *
+     * @param registros Conjunto de registros a ser avaliado.
+     *
+     * @param codigo Código único da sentença a ser utilizada
+     *               na avaliação dos registros.
+     *
+     * @return Pontuação obtida pela avaliação.
+     */
+    float avalia(Registros registros, int codigo);
 }

@@ -31,18 +31,8 @@ public class Avaliador implements AvaliaRegraService {
         this.regras = regras;
     }
 
-    public Pontuacao avalia(List<Relato> relatos, ItemAvaliado item) {
-        // Cardinalidade do conjunto de relatos
-        int total = relatos.size();
-
-        // Expressão a ser avaliada
-        String expressao = item.getRegra().getExpressao();
-        Expression exp = new Expression(expressao);
-
-        // Assume expressão constante, sem necessidade de definir contexto
-        double resultado = exp.eval().doubleValue();
-
-        return new Pontuacao(item, resultado);
+    public Map<String, BigDecimal> avalia(Registros registros) {
+        return null;
     }
 
     /**
@@ -56,7 +46,7 @@ public class Avaliador implements AvaliaRegraService {
      *
      * @return Pontuação obtida pela avaliação.
      */
-    public float avalia(List<Registro> registros, int codigo) {
+    public float avalia(Registros registros, int codigo) {
 
         // Recupera variável associado ao resultado
         // (identificador do depósito do resultado)
@@ -65,7 +55,7 @@ public class Avaliador implements AvaliaRegraService {
         switch (regras.getTipo(codigo)) {
             case Regras.PONTOS_POR_RELATO:
                 float ppr = regras.getPontosPorRelato(codigo);
-                float pontos = ppr * registros.size();
+                float pontos = ppr * registros.getTotal();
 
                 // Atualiza contexto
                 contexto.put(variavel, new BigDecimal(pontos));
@@ -95,8 +85,8 @@ public class Avaliador implements AvaliaRegraService {
 
             case Regras.SOMATORIO:
                 BigDecimal somatorio = new BigDecimal(0);
-                for(int i = 0; i < registros.size(); i++) {
-                    somatorio = somatorio.add(avaliaExpressaoSomatorio(codigo, i, registros.get(0)));
+                for(int i = 0; i < registros.getTotal(); i++) {
+                    somatorio = somatorio.add(avaliaExpressaoSomatorio(codigo, i, registros));
                 }
 
                 return somatorio.floatValue();
@@ -106,23 +96,38 @@ public class Avaliador implements AvaliaRegraService {
     }
 
     /**
-     * Avalia expressão.
+     * Avalia expressão associada a uma regra.
      *
-     * @param codigo O identificador único da expressão.
+     * @param regra O identificador único da regra.
      *
-     * @return O valor da expressão.
+     * @return O valor da expressão associada à regra.
      */
-    private BigDecimal avaliaExpressao(int codigo) {
-        Expression exp = getExpression(codigo);
+    private BigDecimal avaliaExpressao(int regra) {
+        Expression exp = recuperaExpressao(regra);
 
-        recuperaContexto(codigo, exp);
+        defineContexto(regra, exp);
 
         return exp.eval();
     }
 
-    private void recuperaContexto(int codigo, Expression exp) {
+    /**
+     * Define contexto de valores de variáveis empregados pela
+     * expressão que avalia a regra.
+     *
+     * Antes da avaliação de uma expressão é necessário
+     * definir os valores das variáveis empregadas pela
+     * expressão. Por exemplo, se a expressão é "x + 1",
+     * então antes de avaliá-la é necessário definir o
+     * valor "x", ou o contexto da expressão.
+     *
+     * @param regra O identificador único da regra.
+     *
+     * @param exp A expressão para a qual o contexto
+     *            é definido.
+     */
+    private void defineContexto(int regra, Expression exp) {
         // Variáveis utilizadas na avaliação da expressão
-        List<String> utilizadas = regras.getDependencias(codigo);
+        List<String> utilizadas = regras.getDependencias(regra);
 
         // Recuperar o contexto
         for (String dependeDe : utilizadas) {
@@ -131,31 +136,53 @@ public class Avaliador implements AvaliaRegraService {
         }
     }
 
-    private Expression getExpression(int codigo) {
-        // Recupera a expressão
-        String sentenca = regras.getSentenca(codigo);
-        return new Expression(sentenca);
+    /**
+     * Recupera a expressão que define a avaliação de
+     * uma regra.
+     *
+     * @param regra O identificador único da regra.
+     *
+     * @return {@link Expression} empregada para avaliar
+     * a regra.
+     */
+    private Expression recuperaExpressao(int regra) {
+        return new Expression(regras.getSentenca(regra));
     }
 
-    private BigDecimal avaliaExpressaoSomatorio(int codigo, int registro, Registro repo) {
-        Expression exp = getExpression(codigo);
+    private BigDecimal avaliaExpressaoSomatorio(int codigo, int registro, Registros repo) {
+        Expression exp = recuperaExpressao(codigo);
 
         // Variáveis utilizadas na avaliação da expressão
         // e que não dependem do registro fornecido.
-        recuperaContexto(codigo, exp);
+        defineContexto(codigo, exp);
 
-        recuperaRegistro(codigo, exp, registro, repo);
+        defineContextoPorCampos(codigo, exp, registro, repo);
 
         return exp.eval();
     }
 
-    private void recuperaRegistro(int codigo, Expression exp, int registro, Registro repo) {
-        List<String> utilizadas = regras.getDependencias(codigo);
+    /**
+     * Define valores de atributos do registro (relato) no contexto
+     * da expressão empregada na avaliação da regra.
+     *
+     * Uma expressão pode fazer uso de variáveis definidas por outras
+     * regras, por exemplo, "x + 1" onde o "x" identifica o valor
+     * produzido por uma regra, enquanto para "10 * ch / 32", o valor
+     * de "ch" decorre não de uma regra, mas de um atributo de um
+     * relato.
+     *
+     * @param regra O identificador da regra.
+     * @param exp A expressão para a qual o contexto é definido.
+     * @param registro O identificador único do registro (relato).
+     * @param repo O repositório contendo valores de relatos.
+     */
+    private void defineContextoPorCampos(int regra, Expression exp, int registro, Registros repo) {
+        List<String> utilizadas = regras.getDependencias(regra);
 
-        // Recuperar o contexto
-        for (String dependeDe : utilizadas) {
-            BigDecimal valor = repo.get(codigo, dependeDe);
-            exp.setVariable(dependeDe, valor);
+        // Recuperar o atributo (valor) do registro (relato)
+        for (String campo : utilizadas) {
+            BigDecimal valor = repo.get(registro, campo);
+            exp.setVariable(campo, valor);
         }
     }
 }
