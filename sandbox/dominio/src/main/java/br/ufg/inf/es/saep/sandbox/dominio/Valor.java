@@ -2,24 +2,30 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
  * Encapsula um valor para um dos tipos
- * de atributo.
+ * de um dado atributo de um relato.
  *
- * O código que cria uma instância dessa classe
- * é responsável por chamar o método get
- * correspondente.
+ * Um relato é descrito por uma coleção de
+ * valores, por exemplo, um relato correspondente
+ * a um "livro" pode ter atributos como "titulo"
+ * e "numeroPaginas", dentre outros. Um valor
+ * correspondente para "titulo" de um dado relato
+ * pode ser "Amar e ser livre", enquanto o valor
+ * para "numeroPaginas" pode ser 209, por exemplo.
+ *
+ * Uma instância dessa classe é empregada para
+ * reter qualquer um desses valores. A recuperação
+ * do valor depende do uso do método <b>get</b>
+ * correspondente ao tipo. Cabe a quem envia uma
+ * mensagem para uma instância de valor fazer
+ * uso do método correto.
  */
 public class Valor {
-
-    /**
-     * O nome e o tipo do valor.
-     */
-    private Atributo atributo;
 
     /**
      * Contêiner para o valor numérico
      * da instância.
      */
-    private double real;
+    private float real;
 
     /**
      * Contêiner para o valor lógico
@@ -40,8 +46,7 @@ public class Valor {
      * @param valor Sequência de caracteres
      *              do valor.
      */
-    public Valor(Atributo atributo, String valor) {
-        this.atributo = atributo;
+    public Valor(String valor) {
         this.string = valor;
     }
 
@@ -52,8 +57,7 @@ public class Valor {
      * @param valor Número real correspondente
      *              ao valor.
      */
-    public Valor(Atributo atributo, double valor) {
-        this.atributo = atributo;
+    public Valor(float valor) {
         real = valor;
     }
 
@@ -64,8 +68,7 @@ public class Valor {
      * @param valor Valor lógico a ser
      *              retido pela instância.
      */
-    public Valor(Atributo atributo, boolean valor) {
-        this.atributo = atributo;
+    public Valor(boolean valor) {
         logico = valor;
     }
 
@@ -88,7 +91,7 @@ public class Valor {
      * {@code false} correspondente à
      * instância.
      */
-    public boolean getLogico() {
+    public boolean getBoolean() {
         return logico;
     }
 
@@ -99,17 +102,7 @@ public class Valor {
      * @return O valor numérico correspondente
      * à instância.
      */
-    public double getReal() {
+    public float getFloat() {
         return real;
-    }
-
-    /**
-     * Recupera o atributo do valor.
-     *
-     * @return O atributo que define o nome
-     * e o tipo do valor.
-     */
-    public Atributo getAtributo() {
-        return atributo;
     }
 }

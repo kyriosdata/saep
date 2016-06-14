@@ -5,17 +5,17 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 /**
- * Registros de uma atividade ou produto.
+ * Conjunto de relatos sobre o qual uma avaliação
+ * é realizada.
  */
-public class Registros {
-    private List<Map<String,BigDecimal>> valores;
+public class Relatos {
 
-    public Registros(List<Map<String,BigDecimal>> valores) {
+    private List<Relato> valores;
+
+    public Relatos(List<Relato> valores) {
         this.valores = valores;
     }
 
@@ -25,10 +25,10 @@ public class Registros {
      *
      * @param atributo O nome do atributo.
      * @param registro O identificador único do relato.
-     *
      * @return O valor do atributo do registro.
      */
-    public BigDecimal get(int registro, String atributo) {
+    public Valor get(int registro, String atributo) {
+
         return valores.get(registro).get(atributo);
     }
 

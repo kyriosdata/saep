@@ -25,26 +25,31 @@ import java.util.Map;
  *
  */
 public class Relato implements Alteravel {
-    private Tipo tipo;
+    private String tipo;
     private Map<String, Valor> valorPorNome;
 
     /**
      * Cria um relato a partir do tipo e valores correspondentes
      * fornecidos.
      *
-     * @param tipo A identificação do tipo do relato.
+     * @param tipo O código do tipo do relato.
      *
      * @param valores Conjunto identificadaPor valores para os tipos
      *                do relato.
      */
-    public Relato(Tipo tipo, List<Valor> valores) {
+    public Relato(String tipo, Map<String, Valor> valores) {
         this.tipo = tipo;
+        valorPorNome = valores;
+    }
 
-        valorPorNome = new HashMap<String, Valor>(valores.size());
-
-        for(Valor valor : valores) {
-            String nome = valor.getAtributo().getNome();
-            valorPorNome.put(nome, valor);
-        }
+    /**
+     * Recupera o valor do atributo.
+     *
+     * @param atributo O identificador único do atributo.
+     *
+     * @return O valor do atributo.
+     */
+    public Valor get(String atributo) {
+        return valorPorNome.get(atributo);
     }
 }

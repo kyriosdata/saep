@@ -7,7 +7,7 @@ public class ValorTest {
     @Test
     public void umValorLogico() {
         Atributo atributo = new Atributo("exercito", "serviu?", Atributo.LOGICO);
-        Valor verdadeiro = new Valor(atributo, false);
+        Valor verdadeiro = new Valor(false);
     }
 }
 

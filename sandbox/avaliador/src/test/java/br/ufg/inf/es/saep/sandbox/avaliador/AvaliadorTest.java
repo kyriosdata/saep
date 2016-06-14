@@ -4,8 +4,8 @@ import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,16 +25,26 @@ public class AvaliadorTest {
 
     @Test
     public void semRegistroZeroPontos() {
-        List<Map<String,BigDecimal>> valores = new ArrayList<Map<String, BigDecimal>>(0);
-        Registros registros = new Registros(valores);
+        Map<String,Valor> valores = new HashMap<>(0);
+        Relato relato = new Relato("EG", valores);
+
+        List<Relato> relatos = new ArrayList<>(1);
+        relatos.add(relato);
+        Relatos registros = new Relatos(relatos);
+
         float resultado = avaliador.avalia(registros, 0);
         assertEquals(0f, resultado, 0.0001);
     }
 
     @Test
     public void umRegistroPontuacaoCorrespondente() {
-        List<Map<String,BigDecimal>> valores = new ArrayList<Map<String, BigDecimal>>(0);
-        Registros registros = new Registros(valores);
+        Map<String,Valor> valores = new HashMap<>(0);
+        Relato relato = new Relato("EG", valores);
+
+        List<Relato> relatos = new ArrayList<>(1);
+        relatos.add(relato);
+        Relatos registros = new Relatos(relatos);
+
         float resultado = avaliador.avalia(registros, 0);
         assertEquals(1.1f, resultado, 0.0001);
     }
@@ -47,8 +57,12 @@ public class AvaliadorTest {
 
     @Test
     public void expressaoQueDependeDeOutras() {
-        List<Map<String,BigDecimal>> valores = new ArrayList<Map<String, BigDecimal>>(0);
-        Registros registros = new Registros(valores);
+        Map<String,Valor> valores = new HashMap<>(0);
+        Relato relato = new Relato("EG", valores);
+
+        List<Relato> relatos = new ArrayList<>(1);
+        relatos.add(relato);
+        Relatos registros = new Relatos(relatos);
 
         float resultado = avaliador.avalia(registros, 0);
         assertEquals(1.1f, resultado, 0.0001);

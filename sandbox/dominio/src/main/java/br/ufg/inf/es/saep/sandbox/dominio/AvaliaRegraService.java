@@ -1,34 +1,58 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.math.BigDecimal;
 import java.util.Map;
 
 /**
- * Interface de operações oferecidas por um serviço
- * que avalia regras.
+ * Interface a ser implementada por qualquer classe cujas
+ * instâncias serão empregadas para a avaliação de regras
+ * de progressão, promoção ou estágio probatório na UFG.
+ * <p>
+ * O objeto a ser empregada para avaliação deve possuir
+ * construtor padrão (sem argumento) e, na sequência,
+ * deverá receber a mensagem {@link #defineRegras(Regras)}
+ * por meio do qual as regras a serem empregadas são
+ * fornecidas. Isso cria uma oportunidade de "aquecimento"
+ * ou preparação antes da execução de avaliações,
+ * ocorrida por meio de mensagens enviadas pelo método
+ * {@link #avalia(Relatos)}.
+ * <p>
+ * O resultado é uma coleção de "pontuações", valores
+ * associados a sequências de caracteres, onde cada uma
+ * delas identifica um resultado relevante a ser
+ * considerado em uma avaliação.
+ * <p>
+ * Observe que a implementação dessa interface não produz um
+ * "relatório", mas os valores que serão empregados na
+ * produção de um relatório para uma avaliação.
+ *
+ * @see Relatos
+ * @see Regras
  */
 public interface AvaliaRegraService {
 
     /**
      * Avalia o conjunto de relatos fornecido.
+     * <p>
+     * A avaliação dos relatos produz valores, um para cada
+     * um dos identificadores de regras, ou variáveis nas
+     * quais os resultados são depositados.
+     * <p>
+     * Isso significa que os identificadores de resultados
+     * devem ser únicos.
      *
-     * @param registros O conjunto de relatos a ser avaliado.
-     *
+     * @param relatos O conjunto de relatos a ser avaliado.
      * @return Resultados (pontuações) obtidas pela avaliação
      * dos relatos.
+     * @see #defineRegras(Regras)
      */
-    Map<String,BigDecimal> avalia(Registros registros);
+    Map<String, Valor> avalia(Relatos relatos);
 
     /**
-     * Avalia o conjunto de registros conforme a sentença
-     * cujo código é fornecido.
+     * Define o conjunto de regras sobre as quais uma avaliação
+     * é realizada.
      *
-     * @param registros Conjunto de registros a ser avaliado.
-     *
-     * @param codigo Código único da sentença a ser utilizada
-     *               na avaliação dos registros.
-     *
-     * @return Pontuação obtida pela avaliação.
+     * @param regras O conjunto de regras.
+     * @see #avalia(Relatos)
      */
-    float avalia(Registros registros, int codigo);
+    void defineRegras(Regras regras);
 }

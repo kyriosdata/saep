@@ -19,7 +19,7 @@ public class Avaliador implements AvaliaRegraService {
      * A chave de acesso é o identificador do atributo (nome)
      * associado à expressão avaliada.
      */
-    private Map<String,BigDecimal> contexto = new HashMap<String, BigDecimal>();
+    private Map<String, Valor> contexto = new HashMap<>();
 
     /**
      * Serviço de acesso às informações de configuração do SAEP.
@@ -31,22 +31,24 @@ public class Avaliador implements AvaliaRegraService {
         this.regras = regras;
     }
 
-    public Map<String, BigDecimal> avalia(Registros registros) {
-        return null;
+    public Map<String, Valor> avalia(Relatos relatos) {
+        return contexto;
+    }
+
+    public void defineRegras(Regras regras) {
+
     }
 
     /**
-     * Avalia o conjunto de registros conforme a sentença
+     * Avalia o conjunto de relatos conforme a sentença
      * cujo código é fornecido.
      *
-     * @param registros Conjunto de registros a ser avaliado.
-     *
-     * @param codigo Código único da sentença a ser utilizada
-     *               na avaliação dos registros.
-     *
+     * @param relatos Conjunto de relatos a ser avaliado.
+     * @param codigo  Código único da sentença a ser utilizada
+     *                na avaliação dos relatos.
      * @return Pontuação obtida pela avaliação.
      */
-    public float avalia(Registros registros, int codigo) {
+    public float avalia(Relatos relatos, int codigo) {
 
         // Recupera variável associado ao resultado
         // (identificador do depósito do resultado)
@@ -55,38 +57,38 @@ public class Avaliador implements AvaliaRegraService {
         switch (regras.getTipo(codigo)) {
             case Regras.PONTOS_POR_RELATO:
                 float ppr = regras.getPontosPorRelato(codigo);
-                float pontos = ppr * registros.getTotal();
+                float pontos = ppr * relatos.getTotal();
 
                 // Atualiza contexto
-                contexto.put(variavel, new BigDecimal(pontos));
+                contexto.put(variavel, new Valor(pontos));
                 return pontos;
 
             case Regras.EXPRESSAO:
-                BigDecimal valor = avaliaExpressao(codigo);
+                float valor = avaliaExpressao(codigo);
 
                 // Deposita resultado produzido no contexto
-                contexto.put(variavel, valor);
+                contexto.put(variavel, new Valor(valor));
 
-                return valor.floatValue();
+                return valor;
 
             case Regras.CONDICIONAL:
-                BigDecimal condicao = avaliaExpressao(codigo);
-                int cexpr = condicao == BigDecimal.ZERO
+                float condicao = avaliaExpressao(codigo);
+                int cexpr = condicao == 0
                         ? regras.getCodigoSentencaSenao(codigo)
                         : regras.getCodigoSentencaEntao(codigo);
 
                 // Avalia "então" ou "senão"
-                BigDecimal resultado = avaliaExpressao(cexpr);
+                float resultado = avaliaExpressao(cexpr);
 
                 // Deposita resultado produzido no contexto
-                contexto.put(variavel, resultado);
+                contexto.put(variavel, new Valor(resultado));
 
-                return resultado.floatValue();
+                return resultado;
 
             case Regras.SOMATORIO:
                 BigDecimal somatorio = new BigDecimal(0);
-                for(int i = 0; i < registros.getTotal(); i++) {
-                    somatorio = somatorio.add(avaliaExpressaoSomatorio(codigo, i, registros));
+                for (int i = 0; i < relatos.getTotal(); i++) {
+                    somatorio = somatorio.add(avaliaExpressaoSomatorio(codigo, i, relatos));
                 }
 
                 return somatorio.floatValue();
@@ -99,21 +101,20 @@ public class Avaliador implements AvaliaRegraService {
      * Avalia expressão associada a uma regra.
      *
      * @param regra O identificador único da regra.
-     *
      * @return O valor da expressão associada à regra.
      */
-    private BigDecimal avaliaExpressao(int regra) {
+    private float avaliaExpressao(int regra) {
         Expression exp = recuperaExpressao(regra);
 
         defineContexto(regra, exp);
 
-        return exp.eval();
+        return exp.eval().floatValue();
     }
 
     /**
      * Define contexto de valores de variáveis empregados pela
      * expressão que avalia a regra.
-     *
+     * <p>
      * Antes da avaliação de uma expressão é necessário
      * definir os valores das variáveis empregadas pela
      * expressão. Por exemplo, se a expressão é "x + 1",
@@ -121,9 +122,8 @@ public class Avaliador implements AvaliaRegraService {
      * valor "x", ou o contexto da expressão.
      *
      * @param regra O identificador único da regra.
-     *
-     * @param exp A expressão para a qual o contexto
-     *            é definido.
+     * @param exp   A expressão para a qual o contexto
+     *              é definido.
      */
     private void defineContexto(int regra, Expression exp) {
         // Variáveis utilizadas na avaliação da expressão
@@ -131,8 +131,10 @@ public class Avaliador implements AvaliaRegraService {
 
         // Recuperar o contexto
         for (String dependeDe : utilizadas) {
-            BigDecimal valor = contexto.get(dependeDe);
-            exp.setVariable(dependeDe, valor);
+            Valor valor = contexto.get(dependeDe);
+            float real = valor.getFloat();
+            BigDecimal bd = new BigDecimal(real);
+            exp.setVariable(dependeDe, bd);
         }
     }
 
@@ -141,7 +143,6 @@ public class Avaliador implements AvaliaRegraService {
      * uma regra.
      *
      * @param regra O identificador único da regra.
-     *
      * @return {@link Expression} empregada para avaliar
      * a regra.
      */
@@ -149,7 +150,7 @@ public class Avaliador implements AvaliaRegraService {
         return new Expression(regras.getSentenca(regra));
     }
 
-    private BigDecimal avaliaExpressaoSomatorio(int codigo, int registro, Registros repo) {
+    private BigDecimal avaliaExpressaoSomatorio(int codigo, int registro, Relatos repo) {
         Expression exp = recuperaExpressao(codigo);
 
         // Variáveis utilizadas na avaliação da expressão
@@ -164,25 +165,26 @@ public class Avaliador implements AvaliaRegraService {
     /**
      * Define valores de atributos do registro (relato) no contexto
      * da expressão empregada na avaliação da regra.
-     *
+     * <p>
      * Uma expressão pode fazer uso de variáveis definidas por outras
      * regras, por exemplo, "x + 1" onde o "x" identifica o valor
      * produzido por uma regra, enquanto para "10 * ch / 32", o valor
      * de "ch" decorre não de uma regra, mas de um atributo de um
      * relato.
      *
-     * @param regra O identificador da regra.
-     * @param exp A expressão para a qual o contexto é definido.
+     * @param regra    O identificador da regra.
+     * @param exp      A expressão para a qual o contexto é definido.
      * @param registro O identificador único do registro (relato).
-     * @param repo O repositório contendo valores de relatos.
+     * @param repo     O repositório contendo valores de relatos.
      */
-    private void defineContextoPorCampos(int regra, Expression exp, int registro, Registros repo) {
+    private void defineContextoPorCampos(int regra, Expression exp, int registro, Relatos repo) {
         List<String> utilizadas = regras.getDependencias(regra);
 
         // Recuperar o atributo (valor) do registro (relato)
         for (String campo : utilizadas) {
-            BigDecimal valor = repo.get(registro, campo);
-            exp.setVariable(campo, valor);
+            Valor valor = repo.get(registro, campo);
+            BigDecimal bd = new BigDecimal(valor.getFloat());
+            exp.setVariable(campo, bd);
         }
     }
 }

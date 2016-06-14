@@ -8,6 +8,21 @@
     <artifactId>avaliador</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
     <dependencies>
         <!-- http://mvnrepository.com/artifact/com.udojava/EvalEx -->
         <dependency>
@@ -15,12 +30,7 @@
             <artifactId>EvalEx</artifactId>
             <version>1.2</version>
         </dependency>
-        <dependency>
-            <groupId>br.ufg.inf.es.saep.sandbox</groupId>
-            <artifactId>dominio</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>br.ufg.inf.es.saep.sandbox</groupId>
             <artifactId>dominio</artifactId>
