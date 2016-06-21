@@ -1,5 +1,7 @@
 package br.ufg.inf.es.saep.sandbox.avaliador;
 
+import br.ufg.inf.es.saep.sandbox.dominio.Regra;
+import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import com.udojava.evalex.Expression;
 import org.junit.Test;
 

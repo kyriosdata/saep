@@ -34,7 +34,7 @@ public class AvaliadorService {
         // Identifica grupos de relatos pelo tipo, ou seja,
         // agrupa todos os "libros sem corpo editorial", "ensino graduação",
         // e assim sucessivamente.
-        Map<String, List<Relato>> relatosPorTipo = montaRelatosPorTipo(relatos);
+        Map<String, List<Avaliavel>> relatosPorTipo = montaRelatosPorTipo(relatos);
 
         for (ItemAvaliado item : ordenados) {
             Regra regra = item.getRegra();
@@ -42,7 +42,7 @@ public class AvaliadorService {
             // A avaliação da regra de um item pode depender dos
             // relatos correspondentes. Nesse caso, recupere-os.
             String tipo = item.getTipo();
-            List<Relato> considerados = relatosPorTipo.get(tipo);
+            List<Avaliavel> considerados = relatosPorTipo.get(tipo);
 
             // Avalie a regra, para o contexto disponível.
             Valor valor = regraService.avaliaRegra(regra, contexto, considerados);
@@ -62,12 +62,12 @@ public class AvaliadorService {
      * @return Dicionário que reúne os relatos fornecidos pelos tipos
      * correspondentes.
      */
-    private Map<String, List<Relato>> montaRelatosPorTipo(List<Relato> relatos) {
-        Map<String, List<Relato>> relatosPorTipo = new HashMap<>();
+    private Map<String, List<Avaliavel>> montaRelatosPorTipo(List<Relato> relatos) {
+        Map<String, List<Avaliavel>> relatosPorTipo = new HashMap<>();
         for (Relato relato : relatos) {
             String tipo = relato.getTipo();
 
-            List<Relato> lista = relatosPorTipo.get(tipo);
+            List<Avaliavel> lista = relatosPorTipo.get(tipo);
             if (lista == null) {
                 lista = new ArrayList<>();
                 relatosPorTipo.put(tipo, lista);

@@ -20,5 +20,5 @@ import java.util.Map;
  * @see Regras
  */
 public interface AvaliaRegraService {
-    Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Relato> relatos);
+    Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos);
 }

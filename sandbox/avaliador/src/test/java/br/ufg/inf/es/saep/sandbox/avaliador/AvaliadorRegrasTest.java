@@ -4,10 +4,7 @@ import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,8 +16,82 @@ public class AvaliadorRegrasTest {
 
     @Before
     public void setUp() {
-        Regras regras = new Regras();
-        avaliador = new Avaliador(regras);
+        avaliador = new Avaliador();
+    }
+
+    @Test(expected = SaepException.class)
+    public void avaliaExpressaoSemVariavelDefinidaGeraExcecao() {
+        int tipo = Regra.EXPRESSAO;
+        List<String> deps = new ArrayList<>(1);
+        deps.add("a");
+        Regra r = new Regra(tipo, "1 + a", null, null, 0,deps, 100, 0);
+
+        avaliador.avaliaRegra(r, new HashMap<>(0), null);
+    }
+
+    @Test(expected = SaepException.class)
+    public void somatorioSemVariavelGeraExcecao() {
+        int tipo = Regra.SOMATORIO;
+        Regra r = new Regra(tipo, "a", null, null, 0, Arrays.asList("a"), 100, 0);
+
+        List<Avaliavel> relatos = new ArrayList<>(1);
+        relatos.add(new Relato("livro", new HashMap<>(0)));
+
+        Map<String, Valor> ctx = new HashMap<>(0);
+        Valor resultado = avaliador.avaliaRegra(r, ctx, relatos);
+        assertEquals(16f, resultado.getFloat(), 0.0001f);
+    }
+
+    @Test
+    public void somatorio() {
+        int tipo = Regra.SOMATORIO;
+        List<String> deps = new ArrayList<>(2);
+        deps.add("a");
+        deps.add("b");
+        Regra r = new Regra(tipo, "a * b", null, null, 0, deps, 100, 0);
+
+        Map<String, Valor> dados1 = new HashMap<>(2);
+        dados1.put("a", new Valor(2));
+        dados1.put("b", new Valor(2));
+        Relato r1 = new Relato("livro", dados1);
+
+        Map<String, Valor> dados2 = new HashMap<>(2);
+        dados2.put("a", new Valor(3));
+        dados2.put("b", new Valor(4));
+        Relato r2 = new Relato("artigo", dados2);
+
+        List<Avaliavel> relatos = new ArrayList<>(2);
+        relatos.add(r1);
+        relatos.add(r2);
+
+        Map<String, Valor> ctx = new HashMap<>(0);
+        Valor resultado = avaliador.avaliaRegra(r, ctx, relatos);
+        assertEquals(16f, resultado.getFloat(), 0.0001f);
+    }
+
+    @Test
+    public void media() {
+        int tipo = Regra.MEDIA;
+        List<String> deps = new ArrayList<>(1);
+        deps.add("a");
+
+        Regra r = new Regra(tipo, "a", null, null, 0, deps, 100, 0);
+
+        Map<String, Valor> dados1 = new HashMap<>(2);
+        dados1.put("a", new Valor(2));
+        Relato r1 = new Relato("livro", dados1);
+
+        Map<String, Valor> dados2 = new HashMap<>(2);
+        dados2.put("a", new Valor(3));
+        Relato r2 = new Relato("artigo", dados2);
+
+        List<Avaliavel> relatos = new ArrayList<>(2);
+        relatos.add(r1);
+        relatos.add(r2);
+
+        Map<String, Valor> ctx = new HashMap<>(0);
+        Valor resultado = avaliador.avaliaRegra(r, ctx, relatos);
+        assertEquals(2.5f, resultado.getFloat(), 0.0001f);
     }
 
     @Test
@@ -28,7 +99,7 @@ public class AvaliadorRegrasTest {
         int tipo = Regra.PONTOS_POR_RELATO;
         Regra regra = new Regra(tipo, null, null, null, 13, null, 100, 0);
 
-        List<Relato> relatos = new ArrayList<>(0);
+        List<Avaliavel> relatos = new ArrayList<>(0);
 
         Valor resultado = avaliador.avaliaRegra(regra, null, relatos);
         assertEquals(0f, resultado.getFloat(), 0.0001);
@@ -40,7 +111,7 @@ public class AvaliadorRegrasTest {
         int ppr = 13;
         Regra regra = new Regra(tipo, null, null, null, ppr, null, 100, 0);
 
-        List<Relato> relatos = new ArrayList<>(1);
+        List<Avaliavel> relatos = new ArrayList<>(1);
         relatos.add(null);
 
         Valor resultado = avaliador.avaliaRegra(regra, null, relatos);
@@ -75,7 +146,7 @@ public class AvaliadorRegrasTest {
     @Test
     public void cadeiaDeTresDependencias() {
         Relato relato = new Relato("EG", new HashMap<>(0));
-        List<Relato> listaDeRelatos = new ArrayList<>(1);
+        List<Avaliavel> listaDeRelatos = new ArrayList<>(1);
         listaDeRelatos.add(relato);
 
         // Um relato de dado tipo, 11 pontos.

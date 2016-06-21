@@ -9,30 +9,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Implementação do serviço de avaliação de regra usando
- * Java Expression Evaluator (https://github.com/uklimaschewski/EvalEx).
+ * Implementação do serviço de avaliação de regra usando a ferramenta
+ * <a href="https://github.com/uklimaschewski/EvalEx">Java Expression
+ * Evaluator</a>.
  */
 public class Avaliador implements AvaliaRegraService {
 
-    /**
-     * Depósito de valores produzidos pela avaliação de expressões.
-     * A chave de acesso é o identificador do atributo (nome)
-     * associado à expressão avaliada.
-     */
-    private Map<String, Valor> contexto = new HashMap<>();
-
-    /**
-     * Serviço de acesso às informações de configuração do SAEP.
-     * Possivelmente deverá ser "injetado".
-     */
-    private Regras regras = new Regras();
-
-    public Avaliador(Regras regras) {
-        this.regras = regras;
-    }
-
     @Override
-    public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Relato> relatos) {
+    public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
         switch (regra.getTipo()) {
             case Regras.PONTOS_POR_RELATO:
                 float pontosPorRelato = regra.getPontosPorRelato();
@@ -46,9 +30,49 @@ public class Avaliador implements AvaliaRegraService {
                 valor = ajustaLimites(regra, valor);
 
                 return new Valor(valor);
+
+            case Regras.SOMATORIO:
+                float somatorio = somatorio(regra, relatos);
+
+                somatorio = ajustaLimites(regra, somatorio);
+
+                return new Valor(somatorio);
+
+            case Regras.MEDIA:
+                float parcial = somatorio(regra, relatos);
+                parcial /= relatos.size();
+
+                parcial = ajustaLimites(regra, parcial);
+
+                return new Valor(parcial);
         }
 
         return new Valor(-999f);
+    }
+
+    private float somatorio(Regra regra, List<Avaliavel> relatos) {
+        float somatorio = 0;
+        Expression exp = new Expression(regra.getExpressao());
+
+        for (Avaliavel relato : relatos) {
+            for (String variavel : regra.getDependeDe()) {
+                Valor valor = relato.get(variavel);
+                if (valor == null) {
+                    continue;
+                }
+
+                float valor1 = valor.getFloat();
+                exp.setVariable(variavel, new BigDecimal(valor1));
+            }
+
+            try {
+                somatorio += exp.eval().floatValue();
+            } catch (RuntimeException rex) {
+                throw new SaepException("Falha na avalição de regra: " + rex.getMessage());
+            }
+        }
+
+        return somatorio;
     }
 
     private float ajustaLimites(Regra regra, float valor) {
@@ -68,16 +92,27 @@ public class Avaliador implements AvaliaRegraService {
 
         defineContexto(regra, contexto, exp);
 
-        return exp.eval().floatValue();
+        try {
+            BigDecimal valor = exp.eval();
+            return valor.floatValue();
+        } catch (RuntimeException re) {
+            throw new SaepException("Avaliação de expressão: " + re.getMessage());
+        }
     }
 
     private void defineContexto(Regra regra, Map<String, Valor> contexto, Expression exp) {
-        // Variáveis utilizadas na avaliação da expressão
         List<String> utilizadas = regra.getDependeDe();
 
         // Recuperar o contexto
         for (String dependeDe : utilizadas) {
             Valor valor = contexto.get(dependeDe);
+
+            // Variável pode não estar disponível no contexto.
+            // Provavelmente acarretará erro de execução.
+            if (valor == null) {
+                continue;
+            }
+
             float real = valor.getFloat();
             BigDecimal bd = new BigDecimal(real);
             exp.setVariable(dependeDe, bd);
