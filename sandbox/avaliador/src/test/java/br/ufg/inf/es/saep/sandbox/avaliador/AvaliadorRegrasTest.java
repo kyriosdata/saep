@@ -29,7 +29,6 @@ public class AvaliadorRegrasTest {
         Regra regra = new Regra(tipo, null, null, null, 13, null, 100, 0);
 
         List<Relato> relatos = new ArrayList<>(0);
-        Relatos registros = new Relatos(relatos);
 
         Valor resultado = avaliador.avaliaRegra(regra, null, relatos);
         assertEquals(0f, resultado.getFloat(), 0.0001);
