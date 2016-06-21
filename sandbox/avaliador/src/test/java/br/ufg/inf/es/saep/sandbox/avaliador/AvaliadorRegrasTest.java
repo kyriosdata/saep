@@ -75,27 +75,34 @@ public class AvaliadorRegrasTest {
 
     @Test
     public void cadeiaDeTresDependencias() {
-        Map<String,Valor> valores = new HashMap<>(0);
-        Relato relato = new Relato("EG", valores);
-
+        Relato relato = new Relato("EG", new HashMap<>(0));
         List<Relato> listaDeRelatos = new ArrayList<>(1);
         listaDeRelatos.add(relato);
 
-        Relatos relatos = new Relatos(listaDeRelatos);
+        // Um relato de dado tipo, 11 pontos.
+        // Máximo corrige para 10.
+        int tipo = Regra.PONTOS_POR_RELATO;
+        Regra r = new Regra(tipo, null, null, null,11, null, 10, 0);
 
-        float resultado = avaliador.avalia(relatos, 0);
-        assertEquals(1.1f, resultado, 0.0001);
+        Valor parcial = avaliador.avaliaRegra(r, null, listaDeRelatos);
+        assertEquals(10f, parcial.getFloat(), 0.0001f);
 
-        resultado = avaliador.avalia(null, 1);
-        assertEquals(8.97f, resultado, 0.0001);
+        Map<String, Valor> ctx = new HashMap<>(2);
+        ctx.put("dez", parcial);
 
-        resultado = avaliador.avalia(null, 2);
-        assertEquals(10.07f, resultado, 0.0001);
+        tipo = Regra.EXPRESSAO;
+        List<String> dependeDe = new ArrayList<>(1);
+        dependeDe.add("dez");
+        r = new Regra(tipo, "23.1 * dez", null, null, 0, dependeDe, 250, 0);
+        parcial = avaliador.avaliaRegra(r, ctx, null);
+        assertEquals(231f, parcial.getFloat(), 0.0001f);
 
-        resultado = avaliador.avalia(null, 3);
-        assertEquals(1f, resultado, 0.0001);
+        ctx.put("v231", parcial);
 
-        resultado = avaliador.avalia(relatos, 6);
-        assertEquals(4f, resultado, 0.0001);
+        tipo = Regra.EXPRESSAO;
+        dependeDe.add("v231");
+        r = new Regra(tipo, "v231 - 31 + dez", null, null, 0, dependeDe, 250, 0);
+        parcial = avaliador.avaliaRegra(r, ctx, null);
+        assertEquals(210f, parcial.getFloat(), 0.0001f);
     }
 }
