@@ -31,25 +31,36 @@ public class Avaliador implements AvaliaRegraService {
         this.regras = regras;
     }
 
-    public Map<String, Valor> avalia(Radoc relatos) {
-        return contexto;
-    }
-
-    public void defineRegras(Regras regras) {
-
-    }
-
     @Override
     public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Relato> relatos) {
         switch (regra.getTipo()) {
             case Regras.PONTOS_POR_RELATO:
-                float ppr = regra.getPontosPorRelato();
-                float pontos = ppr * relatos.size();
+                float pontosPorRelato = regra.getPontosPorRelato();
+                float total = pontosPorRelato * relatos.size();
+                total = ajustaLimites(regra, total);
 
-                return new Valor(pontos);
+                return new Valor(total);
+
+            case Regras.EXPRESSAO:
+                float valor = avaliaExpressao(regra, contexto, regra.getExpressao());
+                valor = ajustaLimites(regra, valor);
+
+                return new Valor(valor);
         }
 
         return new Valor(-999f);
+    }
+
+    private float ajustaLimites(Regra regra, float valor) {
+        if (valor < regra.getValorMinimo()) {
+            return regra.getValorMinimo();
+        }
+
+        if (valor > regra.getValorMaximo()) {
+            return regra.getValorMaximo();
+        }
+
+        return valor;
     }
 
     /**
@@ -124,6 +135,14 @@ public class Avaliador implements AvaliaRegraService {
         return exp.eval().floatValue();
     }
 
+    private float avaliaExpressao(Regra regra, Map<String, Valor> contexto, String expressao) {
+        Expression exp = new Expression(expressao);
+
+        defineContexto(regra, contexto, exp);
+
+        return exp.eval().floatValue();
+    }
+
     /**
      * Define contexto de valores de variáveis empregados pela
      * expressão que avalia a regra.
@@ -141,6 +160,19 @@ public class Avaliador implements AvaliaRegraService {
     private void defineContexto(int regra, Expression exp) {
         // Variáveis utilizadas na avaliação da expressão
         List<String> utilizadas = regras.getDependencias(regra);
+
+        // Recuperar o contexto
+        for (String dependeDe : utilizadas) {
+            Valor valor = contexto.get(dependeDe);
+            float real = valor.getFloat();
+            BigDecimal bd = new BigDecimal(real);
+            exp.setVariable(dependeDe, bd);
+        }
+    }
+
+    private void defineContexto(Regra regra, Map<String, Valor> contexto, Expression exp) {
+        // Variáveis utilizadas na avaliação da expressão
+        List<String> utilizadas = regra.getDependeDe();
 
         // Recuperar o contexto
         for (String dependeDe : utilizadas) {

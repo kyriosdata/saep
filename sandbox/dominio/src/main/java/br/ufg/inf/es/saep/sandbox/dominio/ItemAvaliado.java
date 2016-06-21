@@ -38,13 +38,10 @@ public class ItemAvaliado {
     private String tipo;
 
     /**
-     * Atributo por meio do qual o item
-     * avaliado pode ter o seu valor
-     * recuperado. Observe que não inclui
-     * o valor propriamente dito, mas o
-     * identificador do resultado.
+     * Nome da variável que guardará
+     * o resultado da avaliação do item.
      */
-    private String resultado;
+    private String variavel;
 
     /**
      * Recupera a regra identificadaPor avaliação do item.
@@ -65,12 +62,13 @@ public class ItemAvaliado {
     }
 
     /**
-     * Recupera o resultado único associado ao item.
+     * Recupera o identificador (nome) da variável que deverá
+     * guardar o variavel da avaliação do item.
      *
      * @return Código único do item.
      */
-    public String getResultado() {
-        return resultado;
+    public String getVariavel() {
+        return variavel;
     }
 
     public String getTipo() {
@@ -82,12 +80,12 @@ public class ItemAvaliado {
      *
      * @param regra Regra empregado na avaliação do item.
      * @param descricao Descrição do item.
-     * @param resultado Código único do resultado (nome).
+     * @param variavel Código único do variavel (nome).
 
      */
-    public ItemAvaliado(Regra regra, String descricao, String resultado) {
+    public ItemAvaliado(Regra regra, String descricao, String variavel) {
         this.regra = regra;
         this.descricao = descricao;
-        this.resultado = resultado;
+        this.variavel = variavel;
     }
 }

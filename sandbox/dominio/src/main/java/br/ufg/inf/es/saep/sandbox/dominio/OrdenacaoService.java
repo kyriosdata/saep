@@ -43,7 +43,7 @@ public class OrdenacaoService {
         Set<String> inseridos = new HashSet<String>(size);
 
         for(ItemAvaliado item : itens) {
-            itemPorNome.put(item.getResultado(), item);
+            itemPorNome.put(item.getVariavel(), item);
         }
 
         // TODAS OS ITENS SERÃO INSERIDOS
@@ -85,6 +85,6 @@ public class OrdenacaoService {
         ordenados.add(item);
 
         // Acrescenta nome do atributo aos já inseridos
-        inseridos.add(item.getResultado());
+        inseridos.add(item.getVariavel());
     }
 }

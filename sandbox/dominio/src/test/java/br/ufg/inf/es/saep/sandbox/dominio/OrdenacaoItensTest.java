@@ -28,7 +28,7 @@ public class OrdenacaoItensTest {
 
         List<ItemAvaliado> ordenados = new OrdenacaoService().ordena(itens);
         assertEquals(1, ordenados.size());
-        assertEquals("um", ordenados.get(0).getResultado());
+        assertEquals("um", ordenados.get(0).getVariavel());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class OrdenacaoItensTest {
         List<ItemAvaliado> ordenados = or.ordena(itens);
 
         assertEquals(3, ordenados.size());
-        assertEquals("rz", ordenados.get(2).getResultado());
+        assertEquals("rz", ordenados.get(2).getVariavel());
     }
 
     @Test
@@ -97,8 +97,8 @@ public class OrdenacaoItensTest {
 
         // Verifica que itemA precede itemB
         assertEquals(2, ordenados.size());
-        assertEquals("a", ordenados.get(0).getResultado());
-        assertEquals("b", ordenados.get(1).getResultado());
+        assertEquals("a", ordenados.get(0).getVariavel());
+        assertEquals("b", ordenados.get(1).getVariavel());
     }
 
     @Test

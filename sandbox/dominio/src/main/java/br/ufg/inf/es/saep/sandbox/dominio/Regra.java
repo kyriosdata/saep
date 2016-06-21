@@ -5,6 +5,7 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,8 +48,8 @@ public class Regra {
     private int pontosPorRelato;
 
     private List<String> dependeDe;
-    private double valorMaximo;
-    private double valorMinimo;
+    private float valorMaximo;
+    private float valorMinimo;
 
     public float getPontosPorRelato() {
         return pontosPorRelato;
@@ -78,7 +79,7 @@ public class Regra {
      *
      * @return Valor máximo identificadaPor pontuação admitido pela regra.
      */
-    public double getValorMaximo() {
+    public float getValorMaximo() {
         return valorMaximo;
     }
 
@@ -87,7 +88,7 @@ public class Regra {
      *
      * @return O valor mínimo admitido pela regra.
      */
-    public double getValorMinimo() {
+    public float getValorMinimo() {
         return valorMinimo;
     }
 
@@ -111,10 +112,28 @@ public class Regra {
      *                  a essa lista devem estar disponíveis (previamente
      *                  avaliados).
      */
-    public Regra(String expressao, double valorMaximo, double valorMinimo, List<String> dependeDe) {
+    public Regra(String expressao, float valorMaximo, float valorMinimo, List<String> dependeDe) {
         this.expressao = expressao;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
         this.dependeDe = dependeDe;
+    }
+
+    public Regra(int tipo,
+                 String expressao,
+                 String entao,
+                 String senao,
+                 int pontosPorRelato,
+                 List<String> dependeDe,
+                 float valorMaximo,
+                 float valorMinimo) {
+        this.tipo = tipo;
+        this.expressao = expressao;
+        this.entao = entao;
+        this.senao = senao;
+        this.pontosPorRelato = pontosPorRelato;
+        this.dependeDe = dependeDe == null ? new ArrayList<>(0) : dependeDe;
+        this.valorMaximo = valorMaximo;
+        this.valorMinimo = valorMinimo;
     }
 }
