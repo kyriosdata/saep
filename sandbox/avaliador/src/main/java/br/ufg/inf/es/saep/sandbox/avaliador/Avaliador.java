@@ -31,12 +31,25 @@ public class Avaliador implements AvaliaRegraService {
         this.regras = regras;
     }
 
-    public Map<String, Valor> avalia(Relatos relatos) {
+    public Map<String, Valor> avalia(Radoc relatos) {
         return contexto;
     }
 
     public void defineRegras(Regras regras) {
 
+    }
+
+    @Override
+    public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Relato> relatos) {
+        switch (regra.getTipo()) {
+            case Regras.PONTOS_POR_RELATO:
+                float ppr = regra.getPontosPorRelato();
+                float pontos = ppr * relatos.size();
+
+                return new Valor(pontos);
+        }
+
+        return new Valor(-999f);
     }
 
     /**
@@ -183,8 +196,10 @@ public class Avaliador implements AvaliaRegraService {
         // Recuperar o atributo (valor) do registro (relato)
         for (String campo : utilizadas) {
             Valor valor = repo.get(registro, campo);
-            BigDecimal bd = new BigDecimal(valor.getFloat());
-            exp.setVariable(campo, bd);
+            if (valor != null) {
+                BigDecimal bd = new BigDecimal(valor.getFloat());
+                exp.setVariable(campo, bd);
+            }
         }
     }
 }

@@ -12,6 +12,9 @@ import java.util.Set;
  * um grupo. Por exemplo, "aulas presenciais na graduação"
  * e "aulas do ensino a distância na graduação" são
  * tipos do grupo "graduação".
+ *
+ * <p>Adicionalmente, grupos podem ser formados por
+ * outros grupos e tipos.
  */
 public class Grupo extends Tipo {
     private Set<Tipo> tipos;

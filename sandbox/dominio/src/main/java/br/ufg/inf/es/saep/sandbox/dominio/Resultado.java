@@ -8,8 +8,8 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Reúne as pontuações ou resultado obtido pela
- * aplicação de uma resolução a um relatório.
+ * Reúne as pontuações obtidas pela aplicação
+ * das regras de uma resolução a um conjunto de relatos.
  */
 public class Resultado {
     private Resolucao resolucao;

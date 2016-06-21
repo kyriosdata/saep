@@ -5,11 +5,17 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * Relatório contendo relatos associados a um docente.
+ * Conjunto de relatos associados a um docente em um dado ano base.
+ *
+ * <p>Eventualmente um mesmo docente, em um dado ano, pode possuir
+ * mais de um RADOC, decorrente, por exemplo, da correação de alguma
+ * informação.
+ *
  */
 public class Radoc {
 
@@ -37,5 +43,17 @@ public class Radoc {
         }
 
         this.relatos = relatos;
+    }
+
+    /**
+     * Identifica, dentre os relatos do RADOC, aqueles
+     * de um dado tipo.
+     *
+     * @param tipo O tipo de relato.
+     * @return Conjunto de relatos do tipo.
+     */
+    public List<Relato> relatosPorTipo(String tipo) {
+        // TODO não implementado
+        return new ArrayList<>(0);
     }
 }

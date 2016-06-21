@@ -6,11 +6,13 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Representa item avaliado por uma resolução.
- * Qualquer elemento que direta ou indiretamente
+ * Representa um item avaliado por uma resolução.
+ * Ou seja, qualquer elemento que direta ou indiretamente
  * produz um valor considerado por uma
- * resolução é representado por uma instância
- * dessa classe.
+ * resolução.
+ *
+ * <p>Uma resolução é definida por meio do conjunto de
+ * itens avaliados por ela.
  *
  */
 public class ItemAvaliado {
@@ -27,13 +29,22 @@ public class ItemAvaliado {
     private String descricao;
 
     /**
+     * Retém o tipo avaliado, se for o caso.
+     * Convém ressaltar que nem toda avaliação é
+     * sobre um conjunto de relatos de determinado
+     * tipo. Quando não for, o valor dessa propriedade
+     * é irrelevante.
+     */
+    private String tipo;
+
+    /**
      * Atributo por meio do qual o item
      * avaliado pode ter o seu valor
      * recuperado. Observe que não inclui
      * o valor propriamente dito, mas o
      * identificador do resultado.
      */
-    private Atributo resultado;
+    private String resultado;
 
     /**
      * Recupera a regra identificadaPor avaliação do item.
@@ -58,8 +69,12 @@ public class ItemAvaliado {
      *
      * @return Código único do item.
      */
-    public Atributo getResultado() {
+    public String getResultado() {
         return resultado;
+    }
+
+    public String getTipo() {
+        return tipo;
     }
 
     /**
@@ -70,7 +85,7 @@ public class ItemAvaliado {
      * @param resultado Código único do resultado (nome).
 
      */
-    public ItemAvaliado(Regra regra, String descricao, Atributo resultado) {
+    public ItemAvaliado(Regra regra, String descricao, String resultado) {
         this.regra = regra;
         this.descricao = descricao;
         this.resultado = resultado;

@@ -1,5 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,9 +15,9 @@ import java.util.Map;
  * fornecidas. Isso cria uma oportunidade de "aquecimento"
  * ou preparação antes da execução de avaliações,
  * ocorrida por meio de mensagens enviadas pelo método
- * {@link #avalia(Relatos)}.
- * <p>
- * O resultado é uma coleção de "pontuações", valores
+ * {@link #avalia(Radoc)}.
+ *
+ * <p>O resultado é uma coleção de "pontuações", valores
  * associados a sequências de caracteres, onde cada uma
  * delas identifica um resultado relevante a ser
  * considerado em uma avaliação.
@@ -45,14 +46,16 @@ public interface AvaliaRegraService {
      * dos relatos.
      * @see #defineRegras(Regras)
      */
-    Map<String, Valor> avalia(Relatos relatos);
+    Map<String, Valor> avalia(Radoc relatos);
 
     /**
      * Define o conjunto de regras sobre as quais uma avaliação
      * é realizada.
      *
      * @param regras O conjunto de regras.
-     * @see #avalia(Relatos)
+     * @see #avalia(Radoc)
      */
     void defineRegras(Regras regras);
+
+    Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Relato> relatos);
 }

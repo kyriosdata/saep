@@ -6,14 +6,16 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
- * Resultado da avaliação de um RADOC.
+ * Resultado da avaliação de um processo de progressão,
+ * promoção ou estágio probatório.
  *
- * Inclui o relatório sobre o qual o parecer é
- * emitido, juntamente com as eventuais alterações,
- * tanto dos relatos quanto de pontuações produzidas
- * pelo SAEP.
+ * <p>Um parecer envolve pelo menos um RADOC. Convém
+ * ressaltar que no caso de estágio probatório, por
+ * exemplo, vários RADOCs são empregados.
+ *
  */
 public class Parecer {
 
@@ -43,4 +45,8 @@ public class Parecer {
     private Resultado resultado;
     private String descricao;
     private List<Alteracao> alteracoes;
+
+    public Parecer() {
+        this.guid = UUID.randomUUID().toString();
+    }
 }

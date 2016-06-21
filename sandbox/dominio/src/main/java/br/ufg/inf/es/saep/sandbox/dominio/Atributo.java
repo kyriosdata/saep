@@ -6,6 +6,10 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
+ * Um atributo permite identificar cada um
+ * dos possíveis valores que podem ser empregados
+ * na descrição de um relato e/ou em uma expressão.
+ *
  * Um atributo define um nome e um tipo que
  * define o conjunto de valores que uma
  * "variável" com esse nome pode assumir.

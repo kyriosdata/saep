@@ -5,11 +5,27 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Regra é o mecanismo identificadaPor definição da forma identificadaPor
- * avaliação identificadaPor um item avaliado.
+ * Uma regra estabelece um valor para um conjunto
+ * de objetos avaliáveis (que implementam a interface
+ * {@link Avaliavel}).
+ *
+ * <p>Em um caso comum, uma regra é estabelecida para
+ * identificar quantos pontos são obtidos por relatos
+ * de um dado tipo, por exemplo, quantos pontos por
+ * livro publicado com corpo editorial.
+ *
+ * <p>Uma regra pode ser empregada para obter a média
+ * de pontos obtidos com o ensino em determinado período.
+ * Nesse caso, não se trata de uma simples contagem ou
+ * consulta a propriedades de relatos. A regra em questão
+ * é aplicada sobre um conjunto de entrada no qual cada
+ * elemento possui um atributo devidamente identificado,
+ * sobre o qual a média será calculada.
  */
 public class Regra {
 
@@ -23,13 +39,20 @@ public class Regra {
      * O valor de uma das constantes acima.
      */
     private int tipo;
+
     private String expressao;
     private String entao;
     private String senao;
-    private int pontos;
-    private List<Atributo> dependeDe;
+
+    private int pontosPorRelato;
+
+    private List<String> dependeDe;
     private double valorMaximo;
     private double valorMinimo;
+
+    public float getPontosPorRelato() {
+        return pontosPorRelato;
+    }
 
     /**
      * Lista de dependeDe diretamente empregados
@@ -38,7 +61,7 @@ public class Regra {
      * @return Lista de dependeDe diretamente empregados
      * para avaliação da regra.
      */
-    public List<Atributo> getDependeDe() { return dependeDe; }
+    public List<String> getDependeDe() { return dependeDe; }
 
     /**
      * Recupera a expressão.
@@ -69,14 +92,11 @@ public class Regra {
     }
 
     /**
-     * Cria regra a partir da expressão fornecida
-     * sem restrição identificadaPor limites.
-     * @param expressao A expressão empregada na
-     *                  avaliação da regra.
+     * Recupera o tipo da regra.
+     *
+     * @return O inteiro que identifica o tipo da regra.
      */
-    public Regra(String expressao) {
-        this.expressao = expressao;
-    }
+    public int getTipo() { return tipo; }
 
     /**
      * Cria regra a partir da expressão e dos valores identificadaPor limite
@@ -91,7 +111,7 @@ public class Regra {
      *                  a essa lista devem estar disponíveis (previamente
      *                  avaliados).
      */
-    public Regra(String expressao, double valorMaximo, double valorMinimo, List<Atributo> dependeDe) {
+    public Regra(String expressao, double valorMaximo, double valorMinimo, List<String> dependeDe) {
         this.expressao = expressao;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;

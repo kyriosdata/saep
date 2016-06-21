@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0</version>
 	
-    <name>SAPE (experimentações)</name>
+    <name>SAEP (sandbox)</name>
 	<url>https://github.com/kyriosdata/saep</url>
 	<inceptionYear>2016</inceptionYear>
 
@@ -24,6 +24,7 @@
     <modules>
         <module>dominio</module>
 		<module>avaliador</module>
+		<module>boot</module>
     </modules>
 
     <build>

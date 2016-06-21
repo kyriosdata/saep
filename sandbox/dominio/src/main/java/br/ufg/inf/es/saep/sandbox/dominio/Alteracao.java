@@ -6,21 +6,19 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Encapsula uma alteração no RADOC (Relato) ou
- * em valor produzido pelo SAEP (Pontuacao).
+ * Encapsula uma alteração em um relato ou
+ * em pontuação produzida pelo SAEP.
  *
- * O elemento original não é alterado. Em vez
- * disso, uma referência é mantida, assim como
- * a referência para o item que substitui o
- * original.
+ * O elemento original não é alterado, mas uma
+ * cópia do mesmo.
  */
 public class Alteracao {
-    private Alteravel antigo;
-    private Alteravel novo;
+    private Avaliavel original;
+    private Avaliavel novo;
     private String justificativa;
 
-    public Alteracao(Alteravel origem, Alteravel destino, String justificativa) {
-        this.antigo = origem;
+    public Alteracao(Avaliavel origem, Avaliavel destino, String justificativa) {
+        this.original = origem;
         this.novo = origem;
         this.justificativa = justificativa;
     }

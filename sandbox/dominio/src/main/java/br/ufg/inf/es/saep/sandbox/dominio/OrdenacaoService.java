@@ -8,8 +8,10 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.*;
 
 /**
- * Fornece ORDENAÇÃO topológica a ser seguida
- * para execução das regras.
+ * Fornece ordenação dos itens avaliados, ordenação
+ * topológica, que assegura que uma regra só será
+ * avaliada se os valores dos quais depende já estão
+ * disponíveis.
  *
  * A sequência retornada pelo método {@link #ordena(List)}
  * fornece uma ordem que pode ser empregada para executar
@@ -18,10 +20,11 @@ import java.util.*;
  * foram executados.
  *
  */
-public class Ordenacao {
+public class OrdenacaoService {
 
     /**
-     * Ordena topologicamente os itens avaliados.
+     * Ordena topologicamente um conjunto de itens a serem
+     * ordenados.
      *
      * @param itens Itens a serem ordenadas.
      *
@@ -40,7 +43,7 @@ public class Ordenacao {
         Set<String> inseridos = new HashSet<String>(size);
 
         for(ItemAvaliado item : itens) {
-            itemPorNome.put(item.getResultado().getNome(), item);
+            itemPorNome.put(item.getResultado(), item);
         }
 
         // TODAS OS ITENS SERÃO INSERIDOS
@@ -61,12 +64,11 @@ public class Ordenacao {
         // primeiro. Ou seja, se "a depende de b", então
         // "a" será inserido após o "b" ser inserido.
 
-        for(Atributo atributo : item.getRegra().getDependeDe()) {
-            String nome = atributo.getNome();
+        for(String atributo : item.getRegra().getDependeDe()) {
 
             // Se esse atributo já faz parte da sequência,
             // então já foi contemplado, passe para o próximo.
-            if (inseridos.contains(nome)) {
+            if (inseridos.contains(atributo)) {
                 continue;
             }
 
@@ -74,8 +76,8 @@ public class Ordenacao {
             // de um item. Nesse caso, é uma propriedade de um relato,
             // ou seja, valor fornecido (não obtido por execução de
             // regra).
-            if (itemPorNome.containsKey(nome)) {
-                insereItem(itemPorNome.get(nome), itemPorNome, ordenados, inseridos);
+            if (itemPorNome.containsKey(atributo)) {
+                insereItem(itemPorNome.get(atributo), itemPorNome, ordenados, inseridos);
             }
         }
 
@@ -83,6 +85,6 @@ public class Ordenacao {
         ordenados.add(item);
 
         // Acrescenta nome do atributo aos já inseridos
-        inseridos.add(item.getResultado().getNome());
+        inseridos.add(item.getResultado());
     }
 }

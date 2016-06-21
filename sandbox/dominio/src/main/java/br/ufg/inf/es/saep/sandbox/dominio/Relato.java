@@ -5,8 +5,6 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,16 +13,11 @@ import java.util.Map;
  *
  * Cada relato é de um tipo específico, que
  * representa um tipo de atividade ou tipo de
- * produto. Esse tipo é mantido por uma instância
- * de {@link Tipo}. O tipo ainda define com
- * precisão os atributos correspondentes.
- *
- * Cada um dos valores do relato está associado
- * a um {@link Atributo} definido pelo tipo
- * do relato.
+ * produto. Esse tipo é identificado por
+ * {@link #tipo}.
  *
  */
-public class Relato implements Alteravel {
+public class Relato implements Avaliavel {
     private String tipo;
     private Map<String, Valor> valorPorNome;
 
@@ -51,5 +44,9 @@ public class Relato implements Alteravel {
      */
     public Valor get(String atributo) {
         return valorPorNome.get(atributo);
+    }
+
+    public String getTipo() {
+        return tipo;
     }
 }

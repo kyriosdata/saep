@@ -6,58 +6,35 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Identifica resultado (pontuação) da avaliação de um
- * item.
- *
- * Um item avaliado por uma resolução faz uso de
- * condições (valores lógicos) e de valores numéricos.
- * Para efeito dessa classe, o menor double possível
- * representa o valor lógico {@code false}, enquanto
- * o maior double possível representa o valor lógico
- * {@code true}.
+ * Identifica valor (pontuação) associado a um
+ * dado nome.
  *
  */
-public class Pontuacao implements Alteravel {
+public class Pontuacao implements Avaliavel {
 
     /**
-     * O item avaliado cuja pontuação retém
-     * o valor.
+     * O nome do identificador da pontuação.
      */
-    private ItemAvaliado itemAvaliado;
+    private String atributo;
 
     /**
      * O valor da pontuação.
      */
-    private double valor;
+    private Valor valor;
 
     /**
-     * Cria a pontuação obtida para um dado item avaliado.
+     * Cria uma pontuação.
      *
-     * @param itemAvaliado Item cuja pontuação foi obtida.
+     * @param nome O nome da pontuação.
      *
-     * @param valor Valor obtido da pontuação.
+     * @param valor O valor da pontuação.
      */
-    public Pontuacao(ItemAvaliado itemAvaliado, double valor) {
-        this.itemAvaliado = itemAvaliado;
+    public Pontuacao(String nome, Valor valor) {
+        this.atributo = nome;
         this.valor = valor;
     }
 
-    /**
-     * Verifica se o valor lógico da pontuação
-     * é verdadeiro.
-     *
-     * @return {@code true} se o valor da pontuação
-     * é o valor lógico verdadeiro.
-     */
-    public boolean isTrue() {
-        return valor < 0;
-    }
-
-    /**
-     * Recupera o valor numérico da pontuação.
-     * @return
-     */
-    public double getValor() {
-        return valor;
+    public Valor get(String atributo) {
+        return new Valor(-1);
     }
 }
