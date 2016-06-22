@@ -42,7 +42,8 @@ public class Parecer {
      * Inclui aquelas pontuações que alteram
      * outras.
      */
-    private Resultado resultado;
+    private List<Pontuacao> pontuacoes;
+
     private String descricao;
     private List<Alteracao> alteracoes;
 

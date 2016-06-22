@@ -6,8 +6,8 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Identifica valor (pontuação) associado a um
- * dado nome.
+ * Identifica valor (pontuação) associado a uma
+ * variável.
  *
  */
 public class Pontuacao implements Avaliavel {

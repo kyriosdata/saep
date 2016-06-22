@@ -17,7 +17,6 @@ import java.util.Map;
  * "relatório", mas os valores que serão empregados na
  * produção de um relatório para uma avaliação.
  *
- * @see Regras
  */
 public interface AvaliaRegraService {
     Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos);

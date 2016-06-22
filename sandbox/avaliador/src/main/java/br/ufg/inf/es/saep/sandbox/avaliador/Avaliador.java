@@ -18,27 +18,27 @@ public class Avaliador implements AvaliaRegraService {
     @Override
     public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
         switch (regra.getTipo()) {
-            case Regras.PONTOS_POR_RELATO:
+            case Regra.PONTOS_POR_RELATO:
                 float pontosPorRelato = regra.getPontosPorRelato();
                 float total = pontosPorRelato * relatos.size();
                 total = ajustaLimites(regra, total);
 
                 return new Valor(total);
 
-            case Regras.EXPRESSAO:
+            case Regra.EXPRESSAO:
                 float valor = avaliaExpressao(regra, contexto, regra.getExpressao());
                 valor = ajustaLimites(regra, valor);
 
                 return new Valor(valor);
 
-            case Regras.SOMATORIO:
+            case Regra.SOMATORIO:
                 float somatorio = somatorio(regra, relatos);
 
                 somatorio = ajustaLimites(regra, somatorio);
 
                 return new Valor(somatorio);
 
-            case Regras.MEDIA:
+            case Regra.MEDIA:
                 float parcial = somatorio(regra, relatos);
                 parcial /= relatos.size();
 
