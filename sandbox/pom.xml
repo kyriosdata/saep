@@ -7,7 +7,7 @@
     <groupId>br.ufg.inf.es.saep</groupId>
     <artifactId>sandbox</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.0.0</version>
 	
     <name>SAEP (sandbox)</name>
 	<url>https://github.com/kyriosdata/saep</url>
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
