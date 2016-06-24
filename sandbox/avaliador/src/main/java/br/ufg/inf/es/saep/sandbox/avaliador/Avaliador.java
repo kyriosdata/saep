@@ -4,7 +4,6 @@ import br.ufg.inf.es.saep.sandbox.dominio.*;
 import com.udojava.evalex.Expression;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class Avaliador implements AvaliaRegraService {
 
     @Override
     public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
-        switch (regra.getTipo()) {
+        switch (regra.getTipoRegra()) {
             case Regra.PONTOS_POR_RELATO:
                 float pontosPorRelato = regra.getPontosPorRelato();
                 float total = pontosPorRelato * relatos.size();

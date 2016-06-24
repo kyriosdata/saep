@@ -6,18 +6,16 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * Uma regra estabelece um valor para um conjunto
+ * Uma regra define como avaliar um conjunto
  * de objetos avaliáveis (que implementam a interface
  * {@link Avaliavel}).
  *
  * <p>Em um caso comum, uma regra é estabelecida para
  * identificar quantos pontos são obtidos por relatos
- * de um dado tipo, por exemplo, quantos pontos por
+ * de um dado tipoRegra, por exemplo, quantos pontos por
  * livro publicado com corpo editorial.
  *
  * <p>Uma regra pode ser empregada para obter a média
@@ -39,7 +37,21 @@ public class Regra {
     /**
      * O valor de uma das constantes acima.
      */
-    private int tipo;
+    private int tipoRegra;
+
+    /**
+     * Retém o tipoRegra avaliado, se for o caso.
+     * Convém ressaltar que nem toda avaliação é
+     * sobre um conjunto de relatos de determinado
+     * tipoRegra. Quando não for, o valor dessa propriedade
+     * é irrelevante.
+     */
+    private String tipo;
+
+    /**
+     * Descrição do item avaliado.
+     */
+    private String descricao;
 
     private String expressao;
     private String entao;
@@ -50,6 +62,76 @@ public class Regra {
     private List<String> dependeDe;
     private float valorMaximo;
     private float valorMinimo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipoRegra(int tipoRegra) {
+        this.tipoRegra = tipoRegra;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setExpressao(String expressao) {
+        this.expressao = expressao;
+    }
+
+    public void setEntao(String entao) {
+        this.entao = entao;
+    }
+
+    public void setSenao(String senao) {
+        this.senao = senao;
+    }
+
+    public void setPontosPorRelato(int pontosPorRelato) {
+        this.pontosPorRelato = pontosPorRelato;
+    }
+
+    public void setDependeDe(List<String> dependeDe) {
+        this.dependeDe = dependeDe;
+    }
+
+    public void setValorMaximo(float valorMaximo) {
+        this.valorMaximo = valorMaximo;
+    }
+
+    public void setValorMinimo(float valorMinimo) {
+        this.valorMinimo = valorMinimo;
+    }
+
+    public void setVariavel(String variavel) {
+        this.variavel = variavel;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public String getEntao() {
+        return entao;
+    }
+
+    public String getSenao() {
+        return senao;
+    }
+
+    public String getVariavel() {
+        return variavel;
+    }
+
+    /**
+     * Nome da variável que guardará
+     * o resultado da avaliação da regra.
+     */
+    private String variavel;
 
     public float getPontosPorRelato() {
         return pontosPorRelato;
@@ -93,11 +175,11 @@ public class Regra {
     }
 
     /**
-     * Recupera o tipo da regra.
+     * Recupera o tipoRegra da regra.
      *
-     * @return O inteiro que identifica o tipo da regra.
+     * @return O inteiro que identifica o tipoRegra da regra.
      */
-    public int getTipo() { return tipo; }
+    public int getTipoRegra() { return tipoRegra; }
 
     /**
      * Cria regra a partir da expressão e dos valores identificadaPor limite
@@ -119,7 +201,7 @@ public class Regra {
         this.dependeDe = dependeDe;
     }
 
-    public Regra(int tipo,
+    public Regra(int tipoRegra,
                  String expressao,
                  String entao,
                  String senao,
@@ -127,7 +209,7 @@ public class Regra {
                  List<String> dependeDe,
                  float valorMaximo,
                  float valorMinimo) {
-        this.tipo = tipo;
+        this.tipoRegra = tipoRegra;
         this.expressao = expressao;
         this.entao = entao;
         this.senao = senao;
