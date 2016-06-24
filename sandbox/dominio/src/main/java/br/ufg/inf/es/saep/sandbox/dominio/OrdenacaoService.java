@@ -31,32 +31,32 @@ public class OrdenacaoService {
      * @return Sequência de itens a serem executadas
      * nessa ordem.
      */
-    public static List<ItemAvaliado> ordena(List<ItemAvaliado> itens) {
+    public static List<Regra> ordena(List<Regra> itens) {
         int size = itens.size();
-        List<ItemAvaliado> ordenados = new ArrayList<ItemAvaliado>(size);
+        List<Regra> ordenados = new ArrayList<Regra>(size);
 
         // Um item dá origem a um resultado identificado
         // pelo nome do atributo. Precisamos identificar,
         // no sentido inverso, o item cujo resultado é
         // identificado por um dado nome.
-        Map<String, ItemAvaliado> itemPorNome = new HashMap<String, ItemAvaliado>(size);
+        Map<String, Regra> itemPorNome = new HashMap<String, Regra>(size);
         Set<String> inseridos = new HashSet<String>(size);
 
-        for(ItemAvaliado item : itens) {
+        for(Regra item : itens) {
             itemPorNome.put(item.getVariavel(), item);
         }
 
         // TODAS OS ITENS SERÃO INSERIDOS
-        for (ItemAvaliado item : itens) {
+        for (Regra item : itens) {
             insereItem(item, itemPorNome, ordenados, inseridos);
         }
 
         return ordenados;
     }
 
-    private static void insereItem(ItemAvaliado item,
-                            Map<String, ItemAvaliado> itemPorNome,
-                            List<ItemAvaliado> ordenados,
+    private static void insereItem(Regra item,
+                            Map<String, Regra> itemPorNome,
+                            List<Regra> ordenados,
                             Set<String> inseridos) {
 
         // Observe que antes de inserir o "item", os
@@ -64,7 +64,7 @@ public class OrdenacaoService {
         // primeiro. Ou seja, se "a depende de b", então
         // "a" será inserido após o "b" ser inserido.
 
-        for(String atributo : item.getRegra().getDependeDe()) {
+        for(String atributo : item.getDependeDe()) {
 
             // Se esse atributo já faz parte da sequência,
             // então já foi contemplado, passe para o próximo.

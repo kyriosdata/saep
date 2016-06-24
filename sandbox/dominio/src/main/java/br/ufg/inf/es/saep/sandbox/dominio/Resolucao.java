@@ -8,7 +8,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Representa um conjunto de itens por meio
@@ -45,7 +45,7 @@ public class Resolucao {
     /**
      * Conjunto de itens avaliados pela resolução.
      */
-    private Set<ItemAvaliado> itens;
+    private List<Regra> itens;
 
     private Resolucao(){
         // Usado pelo Jackson (JSON)
@@ -57,14 +57,14 @@ public class Resolucao {
      * @param identificador Identificador da resolução.
      * @param descricao
      * @param dataAprovacao Data identificadaPor aprovação da resolução.
-     * @param itens Conjunto identificadaPor itens que são avaliados pela
+     * @param regras Conjunto identificadaPor itens que são avaliados pela
      *
      * */
-    public Resolucao(String identificador, String descricao, Date dataAprovacao, Set<ItemAvaliado> itens) {
+    public Resolucao(String identificador, String descricao, Date dataAprovacao, List<Regra> regras) {
         this.descricao = descricao;
         this.dataAprovacao = dataAprovacao;
         this.identificador = identificador;
-        this.itens = itens;
+        this.itens = regras;
     }
 
     /**
@@ -91,7 +91,7 @@ public class Resolucao {
      *
      * @return Conjunto identificadaPor itens avaliados pela resolução.
      */
-    public Set<ItemAvaliado> getItens() {
+    public List<Regra> getRegras() {
         return itens;
     }
 }

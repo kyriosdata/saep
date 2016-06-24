@@ -194,11 +194,18 @@ public class Regra {
      *                  a essa lista devem estar disponíveis (previamente
      *                  avaliados).
      */
-    public Regra(String expressao, float valorMaximo, float valorMinimo, List<String> dependeDe) {
+    public Regra(String expressao,
+                 float valorMaximo,
+                 float valorMinimo,
+                 List<String> dependeDe,
+                 String descricao,
+                 String variavel) {
         this.expressao = expressao;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
         this.dependeDe = dependeDe;
+        this.descricao = descricao;
+        this.variavel = variavel;
     }
 
     public Regra(int tipoRegra,
