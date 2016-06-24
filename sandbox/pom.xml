@@ -23,8 +23,6 @@
 		
     <modules>
         <module>dominio</module>
-		<module>avaliador</module>
-		<module>boot</module>
     </modules>
 
     <build>
