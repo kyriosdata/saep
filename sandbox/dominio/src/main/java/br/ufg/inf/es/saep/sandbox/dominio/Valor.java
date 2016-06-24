@@ -1,8 +1,8 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Encapsula um valor para um dos tipos
- * de um dado atributo de um relato.
+ * Encapsula um valor, que pode ser uma sequência
+ * de caracteres, lógico ou um {@code float}.
  *
  * Um relato é descrito por uma coleção de
  * valores, por exemplo, um relato correspondente

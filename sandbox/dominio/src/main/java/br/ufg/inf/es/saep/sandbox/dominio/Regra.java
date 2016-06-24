@@ -10,8 +10,8 @@ import java.util.List;
 
 /**
  * Uma regra define como avaliar um conjunto
- * de objetos avaliáveis (que implementam a interface
- * {@link Avaliavel}).
+ * de objetos avaliáveis. Um objeto é avaliável
+ * se implementam a interface {@link Avaliavel}).
  *
  * <p>Em um caso comum, uma regra é estabelecida para
  * identificar quantos pontos são obtidos por relatos

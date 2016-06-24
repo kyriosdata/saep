@@ -6,7 +6,8 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Marca serviço e objeto que pode ser avaliado por uma regra.
+ * Serviço oferecido por objeto que pode
+ * ser avaliado por uma regra.
  */
 public interface Avaliavel {
 
