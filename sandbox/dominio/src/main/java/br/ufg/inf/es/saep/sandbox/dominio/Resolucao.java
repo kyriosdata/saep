@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Representa um conjunto de itens por meio
- * dos um RADOC é avaliado.
+ * Reúne regras para avaliação de processos
+ * de promoção, progressão e estágio probatório.
  *
- * A legislação da Universidade Federal identificadaPor Goiás (UFG)
+ * A legislação da Universidade Federal de Goiás (UFG)
  * está organizada por meio de resoluções. Uma instância dessa
  * classe simplesmente registra os itens relevantes ou aqueles
  * considerados em uma avaliação.
@@ -25,14 +25,14 @@ public class Resolucao {
      * Identificador único da resolução (uso interno).
      * Contraste com {#link {@link #identificador}.
      */
-    private String guid;
+    private String id;
 
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd/MM/yyyy", timezone = "GMT-2")
     private Date dataAprovacao;
 
     /**
      * Identificador da resolução (uso externo, por exemplo,
-     * usuários). Contraste com {@link #guid}.
+     * usuários). Contraste com {@link #id}.
      */
     private String identificador;
 
@@ -43,7 +43,7 @@ public class Resolucao {
     private String descricao;
 
     /**
-     * Conjunto de itens avaliados pela resolução.
+     * Conjunto de regras definido pela resolução.
      */
     private List<Regra> itens;
 
