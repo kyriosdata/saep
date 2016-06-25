@@ -15,7 +15,7 @@ public class ResolucaoRepositoryJsonTest {
     public void recuperacaoArquivoTrivial() {
         ResolucaoRepositoryJson repo = new ResolucaoRepositoryJson();
         String identificador = getResourcesDir() + "resolucao.json";
-        Resolucao res = repo.identificadaPor(identificador);
+        Resolucao res = repo.byId(identificador);
         assertNotNull(res);
 
         System.out.println(res.getDataAprovacao());

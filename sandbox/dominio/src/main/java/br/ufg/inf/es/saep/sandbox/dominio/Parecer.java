@@ -44,7 +44,21 @@ public class Parecer {
      */
     private List<Pontuacao> pontuacoes;
 
-    private String descricao;
+    /**
+     * O texto do parecer propriamente dito, ou
+     * fundamentação.
+     */
+    private String fundamentacao;
+
+    /**
+     * Conjunto de alterações realizadas tanto
+     * na entrada (relatos) quanto em pontuações
+     * fornecidas automaticamente pelo SAEP.
+     *
+     * Observe que os valores definidos pelas
+     * alterações possuem prioridade sobre os
+     * valores "originais".
+     */
     private List<Alteracao> alteracoes;
 
     public Parecer() {

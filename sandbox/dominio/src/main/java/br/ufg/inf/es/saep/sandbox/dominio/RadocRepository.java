@@ -8,6 +8,17 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 /**
  * Abstração dos serviços de persistência de RADOC.
  *
+ * <p>Um RADOC é uma coleção de relatos. Os serviços
+ * não incluem a edição de um RADOC, processo realizado
+ * ao longo de um ano letivo, onde as informações são
+ * fornecidas a vários sistemas distintos.
+ *
+ * <p>O registro de um RADOC pelo SAEP é para
+ * assegurar que mudanças externas nas informações
+ * que compõem um RADOC não tornem inconsistentes
+ * os pareceres correspondentes.
+ *
+ * @see Radoc
  */
 public interface RadocRepository {
 
@@ -20,11 +31,11 @@ public interface RadocRepository {
      * @return O {@code Radoc} correspondente ao
      * identificador fornecido.
      */
-    Radoc identificadoPor(String identificador);
+    Radoc byId(String identificador);
 
     /**
-     * Conjunto de relatos que formam um RADOC, no
-     * formato JSON.
+     * Conjunto de relatos de atividades e produtos
+     * associados a um docente.
      *
      * <p>Um conjunto de relatos é extraído de fonte
      * externa de informação. Uma cópia é mantida pelo
@@ -32,13 +43,20 @@ public interface RadocRepository {
      * longo do tempo. Convém ressaltar que informações
      * desses relatórios podem ser alteradas continuamente.
      *
-     * @param relatos
-     * @return
+     * @param radoc O conjunto de relatos a ser persistido.
+     *
+     * @return O identificador único do RADOC ou o valor
+     * {@code null}, caso a persistência não seja realizada
+     * de forma satisfatória, por exemplo, o identificador
+     * já existe.
      */
-    String persistir(String relatos);
+    String persistir(Radoc radoc);
 
     /**
      * Remove o RADOC.
+     *
+     * <p>Após essa operação o RADOC correspondente não
+     * estará disponível para consulta.
      *
      * @param identificador O identificador do RADOC.
      */

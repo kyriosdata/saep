@@ -32,9 +32,9 @@ public class Radoc {
     private List<Relato> relatos;
 
     /**
-     * Cria um relatório identificadaPor relatos.
+     * Cria um relatório byId relatos.
      *
-     * @param relatos Conjunto identificadaPor relatos que fazem parte
+     * @param relatos Conjunto byId relatos que fazem parte
      *                do relatório.
      */
     public Radoc(List<Relato> relatos) {

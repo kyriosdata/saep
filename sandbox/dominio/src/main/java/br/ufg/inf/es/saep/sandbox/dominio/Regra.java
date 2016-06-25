@@ -159,7 +159,7 @@ public class Regra {
      * Recupera o valor máximo admitido para
      * o resultado da regra.
      *
-     * @return Valor máximo identificadaPor pontuação admitido pela regra.
+     * @return Valor máximo byId pontuação admitido pela regra.
      */
     public float getValorMaximo() {
         return valorMaximo;
@@ -182,7 +182,7 @@ public class Regra {
     public int getTipoRegra() { return tipoRegra; }
 
     /**
-     * Cria regra a partir da expressão e dos valores identificadaPor limite
+     * Cria regra a partir da expressão e dos valores byId limite
      * admitidos.
      *
      * @param expressao A expressão que define o valor da regra.

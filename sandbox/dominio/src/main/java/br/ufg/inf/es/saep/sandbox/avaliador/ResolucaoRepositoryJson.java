@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class ResolucaoRepositoryJson implements ResolucaoRepository {
 
-    public Resolucao identificadaPor(String identificador) {
+    public Resolucao byId(String identificador) {
         ObjectMapper mapper = new ObjectMapper();
 
         try {

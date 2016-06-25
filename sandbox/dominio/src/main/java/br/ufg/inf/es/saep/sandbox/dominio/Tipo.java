@@ -89,7 +89,7 @@ public class Tipo {
     }
 
     /**
-     * Cria tipo definido pelo conjunto identificadaPor atributos.
+     * Cria tipo definido pelo conjunto byId atributos.
      * @param nome O nome pelo qual o tipo é conhecido.
      * @param codigo Código único que identifica o tipo.
      * @param descricao Informação adicional sobre o tipo.
@@ -104,9 +104,9 @@ public class Tipo {
     }
 
     /**
-     * Recupera conjunto identificadaPor atributos do tipo.
+     * Recupera conjunto byId atributos do tipo.
      *
-     * @return O conjunto identificadaPor atributos que define o
+     * @return O conjunto byId atributos que define o
      * tipo.
      */
     public Set<Atributo> getAtributos() {

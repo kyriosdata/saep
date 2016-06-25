@@ -8,6 +8,12 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 /**
  * Abstração dos serviços de persistência de pareceres.
  *
+ * Um parecer é o resultado produzido pela avaliação
+ * de um conjunto de relatos (RADOC) conforme uma dada
+ * resolução. O parecer pode ser produzido pela Comissão
+ * de Avaliação Docente (CAD) ou automaticamente pelo
+ * SAEP.
+ *
  */
 public interface ParecerRepository {
 
@@ -27,6 +33,17 @@ public interface ParecerRepository {
      * @param parecer O parecer a ser persistido.
      */
     void persisteParecer(Parecer parecer);
+
+    /**
+     * Altera a fundamentação do parecer.
+     *
+     * <p>Fundamentação é o texto propriamente dito do
+     * parecer. Não confunda com as alterações de
+     * valores (dados de relatos ou das pontuações).
+     *
+     * @param fundamentacao Novo texto da pontuação.
+     */
+    void atualizaFundamentacao(String fundamentacao);
 
     /**
      * Recupera o parecer pelo identificador.

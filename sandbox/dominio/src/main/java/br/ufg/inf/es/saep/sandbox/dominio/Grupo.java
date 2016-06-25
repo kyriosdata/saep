@@ -22,7 +22,7 @@ public class Grupo extends Tipo {
     /**
      * Cria um grupo (reunião de tipos).
      *
-     * @param tipos Conjunto identificadaPor tipos contidos no grupo.
+     * @param tipos Conjunto byId tipos contidos no grupo.
      * @param nome     O nome do grupo.
      * @param descricao A descrição do grupo.
      * @param codigo    O código do grupo.

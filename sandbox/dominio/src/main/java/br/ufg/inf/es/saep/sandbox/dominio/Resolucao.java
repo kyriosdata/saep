@@ -56,8 +56,8 @@ public class Resolucao {
      * identificados.
      * @param identificador Identificador da resolução.
      * @param descricao
-     * @param dataAprovacao Data identificadaPor aprovação da resolução.
-     * @param regras Conjunto identificadaPor itens que são avaliados pela
+     * @param dataAprovacao Data byId aprovação da resolução.
+     * @param regras Conjunto byId itens que são avaliados pela
      *
      * */
     public Resolucao(String identificador, String descricao, Date dataAprovacao, List<Regra> regras) {
@@ -68,9 +68,9 @@ public class Resolucao {
     }
 
     /**
-     * Recupera a data identificadaPor aprovação da resolução.
+     * Recupera a data byId aprovação da resolução.
      *
-     * @return Data identificadaPor aprovação da resolução.
+     * @return Data byId aprovação da resolução.
      */
     public Date getDataAprovacao() {
         return dataAprovacao;
@@ -86,10 +86,10 @@ public class Resolucao {
     }
 
     /**
-     * Recupera o conjunto identificadaPor itens que são avaliados
+     * Recupera o conjunto byId itens que são avaliados
      * pela resolução.
      *
-     * @return Conjunto identificadaPor itens avaliados pela resolução.
+     * @return Conjunto byId itens avaliados pela resolução.
      */
     public List<Regra> getRegras() {
         return itens;

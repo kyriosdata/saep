@@ -11,6 +11,17 @@ import java.util.List;
  * Serviços oferecidos para abstração da implementação da
  * persistência de resoluções.
  *
+ * <p>Uma resolução é formada por um conjunto de regras.
+ * Está além do escopo do SAEP a edição de resoluções.
+ * Dessa forma, a persistência não inclui atualização,
+ * mas apenas consulta, acréscimo e remoção.
+ *
+ * <p>Dada a sensibilidade, os raros usuários autorizados
+ * e a frequência, a edição pode ser realizada por pessoal
+ * técnico que produzirá uma instância de {@link Radoc} a
+ * ser recebida pelo presente repositório.
+ *
+ * @see Resolucao
  */
 public interface ResolucaoRepository {
 
@@ -27,7 +38,7 @@ public interface ResolucaoRepository {
      *
      * @see #persiste(Resolucao)
      */
-    Resolucao identificadaPor(String identificador);
+    Resolucao byId(String identificador);
 
     /**
      * Persiste uma nova resolução.
@@ -41,7 +52,7 @@ public interface ResolucaoRepository {
      * possivelmente por já existir resolução com
      * identificador semelhante.
      *
-     * @see #identificadaPor(String)
+     * @see #byId(String)
      */
     String persiste(Resolucao resolucao);
 
