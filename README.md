@@ -1,5 +1,5 @@
 # SAEP
-Sistema de Apoio à Elaboração de Parecer (SAEP) é um sistema desenvolvido como parte de disciplinas do curso de Engenharia de Software do Instituto de Informática (UFG). 
+Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar a edição de pareceres de processos de progressão, promoção e avaliação de estágio probatório da Universidade Federal de Goiás (UFG). O SAEP é desenvolvido no contexto da Fábrica de Software do Instituto de Informática (UFG). 
 
 [<img src="https://api.travis-ci.org/kyriosdata/saep.svg?branch=master">](https://travis-ci.org/kyriosdata/saep)
 [![Dependency Status](https://www.versioneye.com/user/projects/576c3729cd6d51003e92099e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576c3729cd6d51003e92099e)
