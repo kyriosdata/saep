@@ -5,6 +5,7 @@ Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar 
 [![Dependency Status](https://www.versioneye.com/user/projects/576c3729cd6d51003e92099e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576c3729cd6d51003e92099e)
 [![Coverage Status](https://coveralls.io/repos/github/kyriosdata/saep/badge.svg)](https://coveralls.io/github/kyriosdata/saep)
 [![Issue Count](https://codeclimate.com/github/kyriosdata/saep/badges/issue_count.svg)](https://codeclimate.com/github/kyriosdata/saep)
+[![Code Climate](https://codeclimate.com/github/kyriosdata/saep/badges/gpa.svg)](https://codeclimate.com/github/kyriosdata/saep)
 [<img src="https://img.shields.io/badge/saep-preliminar-yellow.svg">](https://github.com/kyriosdata/saep)
 
 Documentos disponíveis:
