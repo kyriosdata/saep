@@ -8,8 +8,40 @@
     <!-- mvn source:jar (os fontes em jar)          -->
 
     <groupId>com.github.kyriosdata.saep</groupId>
-    <artifactId>dominio</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>saep-dominio</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+
+    <name>com.github.kyriosdata.sape:saep-dominio</name>
+    <description>Modelo de Domínio do Sistema de Apoio à Elaboração
+    de Pareceres (SAEP), composto por um único 'bounded context'.</description>
+    <url>https://github.com/kyriosdata/saep</url>
+
+    <licenses>
+        <license>
+            <name>Creative Commons Attribution 4.0 International (CC BY 4.0)</name>
+            <comments>A atribuição deve conter, explicitamente, a seguinte linha:
+                Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
+            </comments>
+            <url>https://creativecommons.org/licenses/by/4.0/</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>kyriosdata</id>
+            <name>Fábio Nogueira de Lucena</name>
+            <email>fabio@inf.ufg.br</email>
+            <organization>Instituto de Informática (UFG)</organization>
+            <organizationUrl>http://www.inf.ufg.br</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/kyriosdata/saep.git</connection>
+        <developerConnection>scm:git:https://github.com/kyriosdata/saep.git</developerConnection>
+        <url>https://github.com/kyriosdata/saep</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

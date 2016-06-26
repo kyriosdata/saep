@@ -18,6 +18,8 @@
 			<id>kyriosdata</id>
 			<name>Fábio Nogueira de Lucena</name>
 			<email>fabio@inf.ufg.br</email>
+            <organization>Instituto de Informática (UFG)</organization>
+            <organizationUrl>http://www.inf.ufg.br</organizationUrl>
 		</developer>
 	</developers>
 		
