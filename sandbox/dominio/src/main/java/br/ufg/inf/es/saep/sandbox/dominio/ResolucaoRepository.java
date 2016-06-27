@@ -76,4 +76,36 @@ public interface ResolucaoRepository {
      * @return Identificadores das resoluções disponíveis.
      */
     List<String> resolucoes();
+
+    /**
+     * Persiste o tipo fornecido.
+     * @param tipo
+     */
+    void persiste(Tipo tipo);
+
+    /**
+     * Recupera o tipo com o código fornecido.
+     *
+     * @param codigo O código único do tipo.
+     *
+     * @return A instância de {@link Tipo} cujo
+     * código único é fornecido. Retorna {@code null}
+     * caso não exista tipo com o código indicado.
+     */
+    Tipo byCodigo(String codigo);
+
+    /**
+     * Recupera a lista de tipos cujos nomes
+     * são similares àquele fornecido.
+     *
+     * Um nome é dito similar se contém a sequência
+     * indicada.
+     *
+     * @param nome Sequência que será empregada para
+     *             localizar tipos por nome.
+     *
+     * @return A coleção de tipos cujos nomes satisfazem
+     * um padrão de semelhança com a sequência indicada.
+     */
+    List<Tipo> byNome(String nome);
 }

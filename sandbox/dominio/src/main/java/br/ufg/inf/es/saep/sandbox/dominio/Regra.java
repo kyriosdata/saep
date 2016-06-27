@@ -40,10 +40,9 @@ public class Regra {
     private int tipoRegra;
 
     /**
-     * Retém o tipoRegra avaliado, se for o caso.
-     * Convém ressaltar que nem toda avaliação é
-     * sobre um conjunto de relatos de determinado
-     * tipoRegra. Quando não for, o valor dessa propriedade
+     * Identificador único de um tipo de relato.
+     * Nem toda regra, convém destacar, refere-se
+     * a um relato. Se esse for o caso, esse valor
      * é irrelevante.
      */
     private String tipo;

@@ -8,6 +8,9 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.Set;
 
 /**
+ * Um grupo permite reunir tipos e grupos, formando
+ * uma hierarquia.
+ *
  * Tipos de relato podem estar classificados em
  * um grupo. Por exemplo, "aulas presenciais na graduação"
  * e "aulas do ensino a distância na graduação" são
