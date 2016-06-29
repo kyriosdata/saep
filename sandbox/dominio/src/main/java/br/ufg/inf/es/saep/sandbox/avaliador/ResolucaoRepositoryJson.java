@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Implementação JSON.
  */
-public class ResolucaoRepositoryJson implements ResolucaoRepository {
+public abstract class ResolucaoRepositoryJson implements ResolucaoRepository {
 
     public Resolucao byId(String identificador) {
         ObjectMapper mapper = new ObjectMapper();
