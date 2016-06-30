@@ -5,7 +5,9 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Encapsula conjunto de valores que caracterizam

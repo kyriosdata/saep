@@ -5,6 +5,9 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Identifica valor (pontuação) associado a uma
  * variável.

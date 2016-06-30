@@ -98,11 +98,11 @@ public class Tipo {
      */
     public Tipo(String codigo, String nome, String descricao, Set<Atributo> atributos) {
         if (codigo == null || codigo.isEmpty()) {
-            throw new CampoObrigatorioNaoFornecidoException("codigo");
+            throw new CampoExigidoNaoFornecidoException("codigo");
         }
 
         if (atributos == null || atributos.size() == 0) {
-            throw new CampoObrigatorioNaoFornecidoException("atributos");
+            throw new CampoExigidoNaoFornecidoException("atributos");
         }
 
         this.nome = nome;
@@ -119,5 +119,25 @@ public class Tipo {
      */
     public Set<Atributo> getAtributos() {
         return atributos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Tipo tipo = (Tipo) o;
+
+        return codigo.equals(tipo.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return codigo.hashCode();
     }
 }

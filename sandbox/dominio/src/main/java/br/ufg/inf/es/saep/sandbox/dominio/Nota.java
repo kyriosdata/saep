@@ -24,7 +24,7 @@ public class Nota {
 
     public Nota(Avaliavel origem, Avaliavel destino, String justificativa) {
         this.original = origem;
-        this.novo = origem;
+        this.novo = destino;
         this.justificativa = justificativa;
     }
 }
