@@ -8,7 +8,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Serviços oferecidos para oferecer uma noção de coleções
+ * Operações para oferecer uma noção de coleções
  * de resoluções em memória.
  *
  * <p>Uma resolução é formada por um conjunto de regras.
