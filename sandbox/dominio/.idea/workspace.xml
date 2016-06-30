@@ -1253,7 +1253,7 @@
       <workItem from="1467294443667" duration="2946000" />
       <workItem from="1467299153658" duration="3115000" />
       <workItem from="1467305708678" duration="3747000" />
-      <workItem from="1467320844128" duration="1977000" />
+      <workItem from="1467320844128" duration="2008000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -1346,7 +1346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467323023736</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refinamento do modelo">
+      <created>1467323100784</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1467323100784</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1382,7 +1389,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58473000" />
+    <option name="totallyTimeSpent" value="58504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1099" extended-state="6" />
