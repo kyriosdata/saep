@@ -49,6 +49,9 @@ public interface ResolucaoRepository {
     /**
      * Persiste uma resolução.
      *
+     * @throws CampoExigidoNaoFornecidoException Caso o identificador não
+     * seja fornecido.
+     *
      * @param resolucao A resolução a ser persistida.
      *
      * @return O identificador único da resolução, conforme
@@ -69,10 +72,6 @@ public interface ResolucaoRepository {
      *
      * @see #persiste(Resolucao)
      *
-     * @throws ReferenciaExistenteImpedeRemocaoException Existe
-     * entidade que faz referência para a resolução que, portanto,
-     * não pode ser removida.
-     *
      * @param identificador O identificador (uso externo) da
      *                      resolução a ser removida.
      *
@@ -92,9 +91,20 @@ public interface ResolucaoRepository {
 
     /**
      * Persiste o tipo fornecido.
-     * @param tipo
+     * @param tipo O objeto a ser persistido.
      */
-    void persiste(Tipo tipo);
+    void persisteTipo(Tipo tipo);
+
+    /**
+     * Remove o tipo.
+     *
+     * @throws ReferenciaExistenteImpedeRemocaoException O tipo
+     * é empregado por pelo menos uma resolução.
+     *
+     * @param codigo O identificador do tipo a
+     *               ser removido.
+     */
+    void removeTipo(String codigo);
 
     /**
      * Recupera o tipo com o código fornecido.
@@ -105,7 +115,7 @@ public interface ResolucaoRepository {
      * código único é fornecido. Retorna {@code null}
      * caso não exista tipo com o código indicado.
      */
-    Tipo byCodigo(String codigo);
+    Tipo tipoPeloCodigo(String codigo);
 
     /**
      * Recupera a lista de tipos cujos nomes
@@ -120,5 +130,5 @@ public interface ResolucaoRepository {
      * @return A coleção de tipos cujos nomes satisfazem
      * um padrão de semelhança com a sequência indicada.
      */
-    List<Tipo> byNome(String nome);
+    List<Tipo> tiposPeloNome(String nome);
 }
