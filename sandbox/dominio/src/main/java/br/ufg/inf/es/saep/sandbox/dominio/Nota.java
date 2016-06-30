@@ -12,10 +12,9 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * CAD.
  *
  * <p>Observe que o valor original não é alterado, nem
- * substituído por outro. Ou seja, o valor fornecido
- * por meio de uma Nota é considerado,
- * em vez do "original". Uma nota permite claramente
- * identificar essas "alterações".
+ * substituído por outro. Ou seja, o valor fornecido,
+ * por meio de uma Nota, é considerado em vez do "original",
+ * que não é alterado.
  *
  */
 public class Nota {

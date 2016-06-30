@@ -59,7 +59,22 @@ public class Regra {
     private int pontosPorRelato;
 
     private List<String> dependeDe;
+
+    /**
+     * Valor máximo admitido para a avaliação da regra.
+     * Se a avaliação de uma regra produzir um valor
+     * acima do valor indicado por essa propriedade,
+     * então o valor produzido é substituído pelo
+     * valor da propriedade.
+     */
     private float valorMaximo;
+
+    /**
+     * Valor mínimo aditimido para o resultado
+     * da avaliação da regra. Se um valor inferior
+     * é obtido, então o valor resultante é
+     * substituído pelo valor dessa propriedade.
+     */
     private float valorMinimo;
 
     public String getTipo() {

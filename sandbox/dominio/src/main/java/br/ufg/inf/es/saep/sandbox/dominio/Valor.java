@@ -7,7 +7,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
  * Encapsula um valor, que pode ser uma sequência
- * de caracteres, lógico ou um {@code float}.
+ * de caracteres, um {@code boolean} ou um {@code float}.
  *
  * Um relato é descrito por uma coleção de
  * valores, por exemplo, um relato correspondente

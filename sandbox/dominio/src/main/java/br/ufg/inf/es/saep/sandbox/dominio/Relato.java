@@ -46,7 +46,31 @@ public class Relato implements Avaliavel {
         return valorPorNome.get(atributo);
     }
 
+    /**
+     * Recupera o tipo do relato.
+     *
+     * @return O identificador único do tipo do relato.
+     */
     public String getTipo() {
         return tipo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Relato relato = (Relato) o;
+
+        if (!tipo.equals(relato.tipo)) return false;
+        return valorPorNome.equals(relato.valorPorNome);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = tipo.hashCode();
+        result = 31 * result + valorPorNome.hashCode();
+        return result;
     }
 }

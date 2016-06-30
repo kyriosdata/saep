@@ -90,13 +90,21 @@ public class Tipo {
 
     /**
      * Cria tipo definido pelo conjunto byId atributos.
-     * @param nome O nome pelo qual o tipo é conhecido.
      * @param codigo Código único que identifica o tipo.
+     * @param nome O nome pelo qual o tipo é conhecido.
      * @param descricao Informação adicional sobre o tipo.
      * @param atributos Atributos que caracterizam o tipo.
 
      */
-    public Tipo(String nome, String codigo, String descricao, Set<Atributo> atributos) {
+    public Tipo(String codigo, String nome, String descricao, Set<Atributo> atributos) {
+        if (codigo == null || codigo.isEmpty()) {
+            throw new CampoObrigatorioNaoFornecidoException("codigo");
+        }
+
+        if (atributos == null || atributos.size() == 0) {
+            throw new CampoObrigatorioNaoFornecidoException("atributos");
+        }
+
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;

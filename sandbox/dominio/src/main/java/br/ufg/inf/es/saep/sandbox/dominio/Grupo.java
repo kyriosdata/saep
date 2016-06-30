@@ -37,7 +37,7 @@ public class Grupo extends Tipo {
                  String descricao,
                  Set<Atributo> atributos,
                  Set<Tipo> tipos) {
-        super(nome, codigo, descricao, atributos);
+        super(codigo, nome, descricao, atributos);
         this.tipos = tipos;
     }
 

@@ -18,8 +18,14 @@ import java.util.List;
  *
  * <p>Dada a sensibilidade, os raros usuários autorizados
  * e a frequência, a edição pode ser realizada por pessoal
- * técnico que produzirá uma instância de {@link Radoc} a
+ * técnico que produzirá uma instância de {@link Resolucao} a
  * ser recebida pelo presente repositório.
+ *
+ * <p>Não existe opção para atualizar uma {@link Resolucao}.
+ * Um parecer disponível, se tem a resolução correspondente
+ * alterada, pode dar origem a um resultado distinto.
+ * Em consequência, não existe opção para atualização de
+ * {@link Resolucao}.
  *
  * @see Resolucao
  */
@@ -41,7 +47,7 @@ public interface ResolucaoRepository {
     Resolucao byId(String identificador);
 
     /**
-     * Persiste uma nova resolução.
+     * Persiste uma resolução.
      *
      * @param resolucao A resolução a ser persistida.
      *
@@ -53,12 +59,19 @@ public interface ResolucaoRepository {
      * identificador semelhante.
      *
      * @see #byId(String)
+     * @see #remove(String)
      */
     String persiste(Resolucao resolucao);
 
     /**
      * Remove a resolução com o identificador
      * fornecido.
+     *
+     * @see #persiste(Resolucao)
+     *
+     * @throws ReferenciaExistenteImpedeRemocaoException Existe
+     * entidade que faz referência para a resolução que, portanto,
+     * não pode ser removida.
      *
      * @param identificador O identificador (uso externo) da
      *                      resolução a ser removida.

@@ -90,4 +90,13 @@ public class Atributo {
     public int hashCode() {
         return nome.hashCode();
     }
+
+    /**
+     * Recupera a descrição do atributo.
+     *
+     * @return Descrição do atributo.
+     */
+    public String getDescricao() {
+        return descricao;
+    }
 }

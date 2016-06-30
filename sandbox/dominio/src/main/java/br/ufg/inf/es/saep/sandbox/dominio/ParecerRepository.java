@@ -22,6 +22,9 @@ public interface ParecerRepository {
     /**
      * Adiciona a alteração ao parecer.
      *
+     * @throws IdentificadorUnicoException Caso o identificador
+     * fornecido não identifique um parecer existente.
+     *
      * @param parecer O identificador único do parecer.
      *
      * @param nota A alteração a ser acrescentada ao
@@ -32,7 +35,12 @@ public interface ParecerRepository {
     /**
      * Acrescenta o parecer ao repositório.
      *
+     * @throws IdentificadorUnicoException Caso um
+     * identificador único não seja fornecido ou já exista entidade
+     * persistida com esse identificador.
+     *
      * @param parecer O parecer a ser persistido.
+     *
      */
     void persisteParecer(Parecer parecer);
 
@@ -42,6 +50,9 @@ public interface ParecerRepository {
      * <p>Fundamentação é o texto propriamente dito do
      * parecer. Não confunda com as alterações de
      * valores (dados de relatos ou de pontuações).
+     *
+     * @throws IdentificadorUnicoException Caso o identificador
+     * fornecido não identifique um parecer.
      *
      * @param parecer O identificador único do parecer.
      * @param fundamentacao Novo texto da fundamentação do parecer.
@@ -85,6 +96,10 @@ public interface ParecerRepository {
      * SAEP para consistência de pareceres efetuados ao
      * longo do tempo. Convém ressaltar que informações
      * desses relatórios podem ser alteradas continuamente.
+     *
+     * @throws IdentificadorUnicoException Caso o identificador
+     * único do objeto a se persistido não esteja definido ou
+     * já exista entidade com esse identificador.
      *
      * @param radoc O conjunto de relatos a ser persistido.
      *
