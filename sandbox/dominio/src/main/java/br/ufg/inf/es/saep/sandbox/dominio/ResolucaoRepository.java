@@ -8,8 +8,8 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Serviços oferecidos para abstração da implementação da
- * persistência de resoluções.
+ * Serviços oferecidos para oferecer uma noção de coleções
+ * de resoluções em memória.
  *
  * <p>Uma resolução é formada por um conjunto de regras.
  * Está além do escopo do SAEP a edição de resoluções.
