@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" />
     </list>
     <ignored path="dominio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +26,7 @@
     </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -72,8 +71,8 @@
       <file leaf-file-name="ResolucaoRepository.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="240">
+              <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -1254,7 +1253,7 @@
       <workItem from="1467294443667" duration="2946000" />
       <workItem from="1467299153658" duration="3115000" />
       <workItem from="1467305708678" duration="3747000" />
-      <workItem from="1467320844128" duration="1894000" />
+      <workItem from="1467320844128" duration="1977000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -1340,7 +1339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467322468479</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refinamento do modelo">
+      <created>1467323023736</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1467323023736</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1376,7 +1382,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58390000" />
+    <option name="totallyTimeSpent" value="58473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1099" extended-state="6" />
@@ -1866,8 +1872,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="240">
+          <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
           <folding />
         </state>
       </provider>
