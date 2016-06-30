@@ -6,7 +6,7 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Encapsula operações de serviços de persistência de pareceres.
+ * Oferece noção de coleções de pareceres em memória.
  *
  * <p>Um parecer é o resultado produzido pela avaliação
  * de um conjunto de relatos (RADOC) conforme uma dada
@@ -20,7 +20,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 public interface ParecerRepository {
 
     /**
-     * Adiciona a alteração ao parecer.
+     * Adiciona nota ao parecer.
      *
      * @throws IdentificadorUnicoException Caso o identificador
      * fornecido não identifique um parecer existente.
@@ -30,7 +30,17 @@ public interface ParecerRepository {
      * @param nota A alteração a ser acrescentada ao
      * pareder.
      */
-    void adicionaAlteracao(String parecer, Nota nota);
+    void adicionaNota(String parecer, Nota nota);
+
+    /**
+     * Remove a nota cujo item Avaliavel original é
+     * fornedido.
+     *
+     * @param original Instância de {@link Avaliavel} que participa
+     *                 da {@link Nota} a ser removida como origem.
+     *
+     */
+    void removeNota(Avaliavel original);
 
     /**
      * Acrescenta o parecer ao repositório.
@@ -74,7 +84,7 @@ public interface ParecerRepository {
      *
      * @param id O identificador único do parecer.
      */
-    void remove(String id);
+    void removeParecer(String id);
 
     /**
      * Recupera o RADOC identificado pelo argumento.

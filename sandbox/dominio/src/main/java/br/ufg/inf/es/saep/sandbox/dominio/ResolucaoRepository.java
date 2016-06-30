@@ -8,7 +8,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Operações para oferecer uma noção de coleções
+ * Operações para oferecer a noção de coleções
  * de resoluções em memória.
  *
  * <p>Uma resolução é formada por um conjunto de regras.
@@ -35,16 +35,16 @@ public interface ResolucaoRepository {
      * Recupera a instância de {@code Resolucao} correspondente
      * ao identificador.
      *
-     * @param identificador O identificador único da resolução a
+     * @param id O identificador único da resolução a
      *                      ser recuperada.
      *
-     * @return {@code Resolucao} identificada por {@code identificador}.
+     * @return {@code Resolucao} identificada por {@code id}.
      * O retorno {@code null} indica que não existe resolução
      * com o identificador fornecido.
      *
      * @see #persiste(Resolucao)
      */
-    Resolucao byId(String identificador);
+    Resolucao byId(String id);
 
     /**
      * Persiste uma resolução.
@@ -98,7 +98,7 @@ public interface ResolucaoRepository {
     /**
      * Remove o tipo.
      *
-     * @throws ReferenciaExistenteImpedeRemocaoException O tipo
+     * @throws ResolucaoUsaTipoException O tipo
      * é empregado por pelo menos uma resolução.
      *
      * @param codigo O identificador do tipo a

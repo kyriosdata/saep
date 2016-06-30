@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ReferenciaExistenteImpedeRemocaoException.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoUsaTipoException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" />
     </list>
     <ignored path="dominio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,21 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResolucaoRepository.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResolucaoRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+            <state relative-caret-position="1272">
+              <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParecerRepository.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ParecerRepository.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+            <state relative-caret-position="-34">
+              <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -116,7 +119,7 @@
                 <node x="-1086.0" y="286.0">br.ufg.inf.es.saep.sandbox.dominio.CampoExigidoNaoFornecidoException</node>
                 <node x="733.5144230769231" y="-24.0">br.ufg.inf.es.saep.sandbox.dominio.Valor</node>
                 <node x="-784.75" y="223.0">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
-                <node x="-804.0" y="996.0">br.ufg.inf.es.saep.sandbox.dominio.ReferenciaExistenteImpedeRemocaoException</node>
+                <node x="-804.0" y="996.0">br.ufg.inf.es.saep.sandbox.dominio.ResolucaoUsaTipoException</node>
                 <node x="428.04647435897436" y="717.0">br.ufg.inf.es.saep.sandbox.dominio.Parecer</node>
                 <node x="343.25" y="254.5">br.ufg.inf.es.saep.sandbox.dominio.Nota</node>
                 <node x="-391.75" y="118.0">br.ufg.inf.es.saep.sandbox.dominio.Regra</node>
@@ -346,7 +349,6 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Valor.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorUnicoNaoFornecidoException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ReferenciaExistenteImpedeRemocaoException.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ValorTest.java" />
@@ -361,6 +363,7 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Avaliavel.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
       </list>
     </option>
   </component>
@@ -1253,7 +1256,7 @@
       <workItem from="1467294443667" duration="2946000" />
       <workItem from="1467299153658" duration="3115000" />
       <workItem from="1467305708678" duration="3747000" />
-      <workItem from="1467320844128" duration="2616000" />
+      <workItem from="1467320844128" duration="3202000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -1374,7 +1377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467323779468</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refinamento do modelo">
+      <created>1467323835808</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1467323835808</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1410,7 +1420,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59112000" />
+    <option name="totallyTimeSpent" value="59698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1099" extended-state="6" />
@@ -1583,7 +1593,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ReferenciaExistenteImpedeRemocaoException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoUsaTipoException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
@@ -1734,14 +1744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/br.ufg.inf.es.saep.sandbox.dominio">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1769,7 +1771,7 @@
             <node x="-1086.0" y="286.0">br.ufg.inf.es.saep.sandbox.dominio.CampoExigidoNaoFornecidoException</node>
             <node x="733.5144230769231" y="-24.0">br.ufg.inf.es.saep.sandbox.dominio.Valor</node>
             <node x="-784.75" y="223.0">br.ufg.inf.es.saep.sandbox.dominio.Atributo</node>
-            <node x="-804.0" y="996.0">br.ufg.inf.es.saep.sandbox.dominio.ReferenciaExistenteImpedeRemocaoException</node>
+            <node x="-804.0" y="996.0">br.ufg.inf.es.saep.sandbox.dominio.ResolucaoUsaTipoException</node>
             <node x="428.04647435897436" y="717.0">br.ufg.inf.es.saep.sandbox.dominio.Parecer</node>
             <node x="343.25" y="254.5">br.ufg.inf.es.saep.sandbox.dominio.Nota</node>
             <node x="-391.75" y="118.0">br.ufg.inf.es.saep.sandbox.dominio.Regra</node>
@@ -1900,8 +1902,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+        <state relative-caret-position="1272">
+          <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
           <folding />
         </state>
       </provider>

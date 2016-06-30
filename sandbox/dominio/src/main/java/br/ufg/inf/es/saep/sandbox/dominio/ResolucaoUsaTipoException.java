@@ -9,9 +9,9 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * Indica a existência de referência para o objeto que se
  * deseja remover.
  */
-public class ReferenciaExistenteImpedeRemocaoException extends RuntimeException {
+public class ResolucaoUsaTipoException extends RuntimeException {
 
-    public ReferenciaExistenteImpedeRemocaoException(String mensagem) {
+    public ResolucaoUsaTipoException(String mensagem) {
         super(mensagem);
     }
 }
