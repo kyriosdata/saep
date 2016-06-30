@@ -112,7 +112,7 @@ public class Regra {
      * Quantidade de pontos definidos por item
      * {@link Avaliavel}.
      */
-    private float pontosPorRelato;
+    private float pontosPorItem;
 
     /**
      * Lista de identificadores de atributos que são
@@ -147,24 +147,71 @@ public class Regra {
      */
     private String variavel;
 
+    /**
+     * Recupera o tipo do relato associado à regra.
+     * O retorno desse método é útil apenas quando o
+     * tipo da regras é {@link #PONTOS}.
+     *
+     * @return O identificador do tipo de relato.
+     */
     public String getTipoRelato() {
         return tipoRelato;
     }
 
+    /**
+     * Recupera a expressão associada à regra.
+     *
+     * @return A expressão empregada pela regra.
+     */
+    public String getExpressao() {
+        return expressao;
+    }
+
+    /**
+     * Recupera a expressão "então" associada à regra
+     * do tipo {@link #CONDICIONAL}.
+     *
+     * @return A expressão "então".
+     */
     public String getEntao() {
         return entao;
     }
 
+    /**
+     * Recupera a expressão "senão" associada à regra
+     * do tipo {@link #CONDICIONAL}.
+     *
+     * @return A expressão "senão".
+     */
     public String getSenao() {
         return senao;
     }
 
+    /**
+     * Recupera o identificador da variável
+     * que irá reter o resultado da avaliação da regra.
+     *
+     * <p>Esse identificador permite que regras
+     * possam ser definidas com base nos resultados de
+     * outras regras, e não apenas de atributos de
+     * itens que podem ser avaliados.
+     *
+     * @return O identificador que dá nome ao resultado da
+     * avaliação da regra.
+     *
+     */
     public String getVariavel() {
         return variavel;
     }
 
-    public float getPontosPorRelato() {
-        return pontosPorRelato;
+    /**
+     * Recupera a quantidade de pontos atribuída a cada
+     * item para obtenção do valor da regra.
+     *
+     * @return Pontos por item avaliável.
+     */
+    public float getPontosPorItem() {
+        return pontosPorItem;
     }
 
     /**
@@ -177,15 +224,6 @@ public class Regra {
      */
     public List<String> getDependeDe() {
         return dependeDe;
-    }
-
-    /**
-     * Recupera a expressão.
-     *
-     * @return A expressão empregada pela regra.
-     */
-    public String getExpressao() {
-        return expressao;
     }
 
     /**
@@ -246,7 +284,7 @@ public class Regra {
                  String expressao,
                  String entao,
                  String senao,
-                 int pontosPorRelato,
+                 int pontosPorItem,
                  List<String> dependeDe,
                  float valorMaximo,
                  float valorMinimo) {
@@ -254,7 +292,7 @@ public class Regra {
         this.expressao = expressao;
         this.entao = entao;
         this.senao = senao;
-        this.pontosPorRelato = pontosPorRelato;
+        this.pontosPorItem = pontosPorItem;
         this.dependeDe = dependeDe == null ? new ArrayList<>(0) : dependeDe;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
