@@ -46,7 +46,7 @@ public class AvaliadorService {
 
             // A avaliação da regra de um item pode depender dos
             // relatos correspondentes. Nesse caso, recupere-os.
-            String tipo = regra.getTipo();
+            String tipo = regra.getTipoRelato();
             List<Avaliavel> considerados = relatosPorTipo.get(tipo);
 
             // Avalie a regra, para o contexto disponível.

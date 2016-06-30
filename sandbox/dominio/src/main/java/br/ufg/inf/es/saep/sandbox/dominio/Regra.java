@@ -12,12 +12,12 @@ import java.util.List;
  * Uma regra define como avaliar um conjunto
  * de objetos avaliáveis. Um objeto é avaliável
  * se implementam a interface {@link Avaliavel}).
- *
+ * <p>
  * <p>Em um caso comum, uma regra é estabelecida para
  * identificar quantos pontos são obtidos por relatos
  * de um dado tipoRegra, por exemplo, quantos pontos por
  * livro publicado com corpo editorial.
- *
+ * <p>
  * <p>Uma regra pode ser empregada para obter a média
  * de pontos obtidos com o ensino em determinado período.
  * Nesse caso, não se trata de uma simples contagem ou
@@ -28,36 +28,100 @@ import java.util.List;
  */
 public class Regra {
 
-    public static final int PONTOS_POR_RELATO = 0;
+    /**
+     * Identificador de tipoRelato de regra cuja pontuação é
+     * obtida da quantidade de relatos multiplicada pelos
+     * pontos para cada relato.
+     */
+    public static final int PONTOS = 0;
+
+    /**
+     * Identificador de tipoRelato de regra cuja pontuação é
+     * obtida da avaliação da expressão da regra.
+     */
     public static final int EXPRESSAO = 1;
+
+    /**
+     * Identificador de tipoRelato de regra cuja pontuação
+     * resultante é a avaliação da expressão "então"
+     * ou a avaliação da expressão "senão", conforme
+     * a avaliação da condição seja, respectivamente,
+     * verdadeira ou falsa.
+     */
     public static final int CONDICIONAL = 2;
+
+    /**
+     * Identificador de tipoRelato de regra cuja pontuação
+     * é obtida do somatório da avaliação da expressão
+     * da regra para um dado conjunto de {@link Avaliavel}
+     * de entrada.
+     */
     public static final int SOMATORIO = 3;
+
+    /**
+     * Identificador de tipoRelato de regra cuja pontuação é
+     * obtida da média da avaliação da expressão da regra
+     * para cada um dos elementos do conjunto de
+     * {@link Avaliavel}.
+     */
     public static final int MEDIA = 4;
 
     /**
-     * O valor de uma das constantes acima.
+     * Um dos valores: {@link #EXPRESSAO}, {@link #CONDICIONAL},
+     * {@link #SOMATORIO}, {@link #MEDIA}, {@link #PONTOS}.
      */
     private int tipoRegra;
 
     /**
-     * Identificador único de um tipo de relato.
+     * Identificador único de um tipoRelato de relato.
      * Nem toda regra, convém destacar, refere-se
      * a um relato. Se esse for o caso, esse valor
      * é irrelevante.
      */
-    private String tipo;
+    private String tipoRelato;
 
     /**
-     * Descrição do item avaliado.
+     * Descrição da regra.
      */
     private String descricao;
 
+    /**
+     * Expressão a ser avaliada para obtenção do
+     * resultado da avaliação da regra. Caso a
+     * regra seja condicional, então essa expressão
+     * é lógica. Caso a regra seja uma contagem por
+     * pontos, então o valor é irrelevante.
+     */
     private String expressao;
+
+    /**
+     * Expressão a ser avaliada e cujo resultado torna-se
+     * o resultado da regra condicional caso a condição
+     * seja verdadeira.
+     */
     private String entao;
+
+    /**
+     * Expressão a ser avaliada e cujo resultado torna-se
+     * o resultado da regra condicional caso a condição
+     * seja falsa.
+     */
     private String senao;
 
-    private int pontosPorRelato;
+    /**
+     * Quantidade de pontos definidos por item
+     * {@link Avaliavel}.
+     */
+    private float pontosPorRelato;
 
+    /**
+     * Lista de identificadores de atributos que são
+     * empregados pela expressão que avalia a regra.
+     * Caso a regra seja condicional, então acumula
+     * os identificados das expressões "então" e
+     * "senão". Se a regra é do tipoRelato pontos por item
+     * avaliável, então a lista é vazia.
+     */
     private List<String> dependeDe;
 
     /**
@@ -77,56 +141,14 @@ public class Regra {
      */
     private float valorMinimo;
 
-    public String getTipo() {
-        return tipo;
-    }
+    /**
+     * Nome da variável (atributo) que guardará
+     * o resultado da avaliação da regra.
+     */
+    private String variavel;
 
-    public void setTipoRegra(int tipoRegra) {
-        this.tipoRegra = tipoRegra;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setExpressao(String expressao) {
-        this.expressao = expressao;
-    }
-
-    public void setEntao(String entao) {
-        this.entao = entao;
-    }
-
-    public void setSenao(String senao) {
-        this.senao = senao;
-    }
-
-    public void setPontosPorRelato(int pontosPorRelato) {
-        this.pontosPorRelato = pontosPorRelato;
-    }
-
-    public void setDependeDe(List<String> dependeDe) {
-        this.dependeDe = dependeDe;
-    }
-
-    public void setValorMaximo(float valorMaximo) {
-        this.valorMaximo = valorMaximo;
-    }
-
-    public void setValorMinimo(float valorMinimo) {
-        this.valorMinimo = valorMinimo;
-    }
-
-    public void setVariavel(String variavel) {
-        this.variavel = variavel;
-    }
-
-    public String getDescricao() {
-        return descricao;
+    public String getTipoRelato() {
+        return tipoRelato;
     }
 
     public String getEntao() {
@@ -141,12 +163,6 @@ public class Regra {
         return variavel;
     }
 
-    /**
-     * Nome da variável que guardará
-     * o resultado da avaliação da regra.
-     */
-    private String variavel;
-
     public float getPontosPorRelato() {
         return pontosPorRelato;
     }
@@ -155,10 +171,13 @@ public class Regra {
      * Lista de dependeDe diretamente empregados
      * pela expressão cuja avaliação dá origem à
      * pontuação da regra.
+     *
      * @return Lista de dependeDe diretamente empregados
      * para avaliação da regra.
      */
-    public List<String> getDependeDe() { return dependeDe; }
+    public List<String> getDependeDe() {
+        return dependeDe;
+    }
 
     /**
      * Recupera a expressão.
@@ -193,20 +212,21 @@ public class Regra {
      *
      * @return O inteiro que identifica o tipoRegra da regra.
      */
-    public int getTipoRegra() { return tipoRegra; }
+    public int getTipoRegra() {
+        return tipoRegra;
+    }
 
     /**
      * Cria regra a partir da expressão e dos valores byId limite
      * admitidos.
      *
-     * @param expressao A expressão que define o valor da regra.
-     *
+     * @param expressao   A expressão que define o valor da regra.
      * @param valorMaximo O valor máximo admitido pela avaliação da regra.
      * @param valorMinimo O valor mínimo admitido pela avaliação da regra.
-     * @param dependeDe Lista de atributos dos quais a regra depende. Ou seja,
-     *                  antes da avaliação da regra, os itens correspondentes
-     *                  a essa lista devem estar disponíveis (previamente
-     *                  avaliados).
+     * @param dependeDe   Lista de atributos dos quais a regra depende. Ou seja,
+     *                    antes da avaliação da regra, os itens correspondentes
+     *                    a essa lista devem estar disponíveis (previamente
+     *                    avaliados).
      */
     public Regra(String expressao,
                  float valorMaximo,

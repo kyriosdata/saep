@@ -96,7 +96,7 @@ public class AvaliadorRegrasTest {
 
     @Test
     public void semRegistroZeroPontos() {
-        int tipo = Regra.PONTOS_POR_RELATO;
+        int tipo = Regra.PONTOS;
         Regra regra = new Regra(tipo, null, null, null, 13, null, 100, 0);
 
         List<Avaliavel> relatos = new ArrayList<>(0);
@@ -107,7 +107,7 @@ public class AvaliadorRegrasTest {
 
     @Test
     public void umRegistroPontuacaoCorrespondente() {
-        int tipo = Regra.PONTOS_POR_RELATO;
+        int tipo = Regra.PONTOS;
         int ppr = 13;
         Regra regra = new Regra(tipo, null, null, null, ppr, null, 100, 0);
 
@@ -151,7 +151,7 @@ public class AvaliadorRegrasTest {
 
         // Um relato de dado tipo, 11 pontos.
         // Máximo corrige para 10.
-        int tipo = Regra.PONTOS_POR_RELATO;
+        int tipo = Regra.PONTOS;
         Regra r = new Regra(tipo, null, null, null,11, null, 10, 0);
 
         Valor parcial = avaliador.avaliaRegra(r, null, listaDeRelatos);
