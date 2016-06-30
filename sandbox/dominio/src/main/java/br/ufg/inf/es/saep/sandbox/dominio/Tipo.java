@@ -104,9 +104,9 @@ public class Tipo {
     }
 
     /**
-     * Recupera conjunto byId atributos do tipo.
+     * Recupera conjunto de atributos do tipo.
      *
-     * @return O conjunto byId atributos que define o
+     * @return O conjunto de atributos que define o
      * tipo.
      */
     public Set<Atributo> getAtributos() {

@@ -19,7 +19,7 @@ public class AvaliadorRegrasTest {
         avaliador = new Avaliador();
     }
 
-    @Test(expected = SaepException.class)
+    @Test(expected = AvaliacaoRegraException.class)
     public void avaliaExpressaoSemVariavelDefinidaGeraExcecao() {
         int tipo = Regra.EXPRESSAO;
         List<String> deps = new ArrayList<>(1);
@@ -29,7 +29,7 @@ public class AvaliadorRegrasTest {
         avaliador.avaliaRegra(r, new HashMap<>(0), null);
     }
 
-    @Test(expected = SaepException.class)
+    @Test(expected = AvaliacaoRegraException.class)
     public void somatorioSemVariavelGeraExcecao() {
         int tipo = Regra.SOMATORIO;
         Regra r = new Regra(tipo, "a", null, null, 0, Arrays.asList("a"), 100, 0);

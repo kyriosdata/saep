@@ -16,6 +16,7 @@ import java.util.UUID;
  * ressaltar que no caso de estágio probatório, por
  * exemplo, vários RADOCs são empregados.
  *
+ * @see Radoc
  */
 public class Parecer {
 
@@ -59,7 +60,7 @@ public class Parecer {
      * alterações possuem prioridade sobre os
      * valores "originais".
      */
-    private List<Alteracao> alteracoes;
+    private List<Nota> alteracoes;
 
     public Parecer() {
         this.guid = UUID.randomUUID().toString();

@@ -49,6 +49,10 @@ public class Atributo {
     private String descricao;
 
     public Atributo(String nome, String descricao, int tipo) {
+        if (nome == null || nome.isEmpty()) {
+            throw new IllegalArgumentException("nome invalido");
+        }
+
         this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
@@ -70,5 +74,20 @@ public class Atributo {
      */
     public int getTipo() {
         return tipo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Atributo atributo = (Atributo) o;
+
+        return nome.equals(atributo.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return nome.hashCode();
     }
 }

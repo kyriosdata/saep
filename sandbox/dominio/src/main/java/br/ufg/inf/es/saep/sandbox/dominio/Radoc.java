@@ -6,15 +6,19 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Conjunto de relatos associados a um docente em um dado ano base.
  *
  * <p>Eventualmente um mesmo docente, em um dado ano, pode possuir
- * mais de um RADOC, decorrente, por exemplo, da correação de alguma
+ * mais de um RADOC, decorrente, por exemplo, da correção de alguma
  * informação.
+ *
+ * <p>Convém destacar que um RADOC pode ser referenciado por mais
+ * de um parecer.
+ *
+ * @see Parecer
  *
  */
 public class Radoc {

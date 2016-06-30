@@ -6,14 +6,16 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Abstração dos serviços de persistência de pareceres.
+ * Encapsula operações de serviços de persistência de pareceres.
  *
- * Um parecer é o resultado produzido pela avaliação
+ * <p>Um parecer é o resultado produzido pela avaliação
  * de um conjunto de relatos (RADOC) conforme uma dada
  * resolução. O parecer pode ser produzido pela Comissão
  * de Avaliação Docente (CAD) ou automaticamente pelo
  * SAEP.
  *
+ * @see Parecer
+ * @see Radoc
  */
 public interface ParecerRepository {
 
@@ -22,10 +24,10 @@ public interface ParecerRepository {
      *
      * @param parecer O identificador único do parecer.
      *
-     * @param alteracao A alteração a ser acrescentada ao
+     * @param nota A alteração a ser acrescentada ao
      * pareder.
      */
-    void adicionaAlteracao(String parecer, Alteracao alteracao);
+    void adicionaAlteracao(String parecer, Nota nota);
 
     /**
      * Acrescenta o parecer ao repositório.
@@ -39,11 +41,12 @@ public interface ParecerRepository {
      *
      * <p>Fundamentação é o texto propriamente dito do
      * parecer. Não confunda com as alterações de
-     * valores (dados de relatos ou das pontuações).
+     * valores (dados de relatos ou de pontuações).
      *
-     * @param fundamentacao Novo texto da pontuação.
+     * @param parecer O identificador único do parecer.
+     * @param fundamentacao Novo texto da fundamentação do parecer.
      */
-    void atualizaFundamentacao(String fundamentacao);
+    void atualizaFundamentacao(String parecer, String fundamentacao);
 
     /**
      * Recupera o parecer pelo identificador.
@@ -61,4 +64,47 @@ public interface ParecerRepository {
      * @param id O identificador único do parecer.
      */
     void remove(String id);
+
+    /**
+     * Recupera o RADOC identificado pelo argumento.
+     *
+     * @param identificador O identificador único do
+     *                      RADOC.
+     *
+     * @return O {@code Radoc} correspondente ao
+     * identificador fornecido.
+     */
+    Radoc radocById(String identificador);
+
+    /**
+     * Conjunto de relatos de atividades e produtos
+     * associados a um docente.
+     *
+     * <p>Um conjunto de relatos é extraído de fonte
+     * externa de informação. Uma cópia é mantida pelo
+     * SAEP para consistência de pareceres efetuados ao
+     * longo do tempo. Convém ressaltar que informações
+     * desses relatórios podem ser alteradas continuamente.
+     *
+     * @param radoc O conjunto de relatos a ser persistido.
+     *
+     * @return O identificador único do RADOC ou o valor
+     * {@code null}, caso a persistência não seja realizada
+     * de forma satisfatória, por exemplo, o identificador
+     * já existe.
+     */
+    String persisteRadoc(Radoc radoc);
+
+    /**
+     * Remove o RADOC.
+     *
+     * <p>Após essa operação o RADOC correspondente não
+     * estará disponível para consulta.
+     *
+     * <p>Não é permitida a remoção de um RADOC para o qual
+     * há pelo menos um parecer referenciando-o.
+     *
+     * @param identificador O identificador do RADOC.
+     */
+    void removeRadoc(String identificador);
 }

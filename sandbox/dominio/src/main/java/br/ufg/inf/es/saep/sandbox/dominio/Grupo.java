@@ -20,6 +20,7 @@ import java.util.Set;
  * outros grupos e tipos.
  */
 public class Grupo extends Tipo {
+
     private Set<Tipo> tipos;
 
     /**

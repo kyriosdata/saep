@@ -27,7 +27,6 @@ public class Resolucao {
      */
     private String id;
 
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd/MM/yyyy", timezone = "GMT-2")
     private Date dataAprovacao;
 
     /**
