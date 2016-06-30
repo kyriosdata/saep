@@ -1,10 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import org.junit.Test;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
