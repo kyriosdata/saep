@@ -23,7 +23,7 @@ public class Parecer {
     /**
      * Identificador único do parecer.
      */
-    private String guid;
+    private String id;
 
     /**
      * Resolução com base na qual o parecer
@@ -63,6 +63,6 @@ public class Parecer {
     private List<Nota> alteracoes;
 
     public Parecer() {
-        this.guid = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString();
     }
 }

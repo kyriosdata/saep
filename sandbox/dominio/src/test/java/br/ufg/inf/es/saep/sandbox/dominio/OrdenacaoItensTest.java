@@ -12,7 +12,7 @@ public class OrdenacaoItensTest {
     @Test
     public void semItensOrdenacaoTrivial() {
         OrdenacaoService or = new OrdenacaoService();
-        List<Regra> itens = new ArrayList<Regra>();
+        List<Regra> itens = new ArrayList<>();
         assertEquals(itens.size(), or.ordena(itens).size());
     }
 
@@ -21,7 +21,7 @@ public class OrdenacaoItensTest {
         Regra regra = new Regra("10", 0, 0, new ArrayList<String>(0), "d", "um");
 
         // Itens cuja execução deve ser ordenada
-        List<Regra> itens = new ArrayList<Regra>(1);
+        List<Regra> itens = new ArrayList<>(1);
         itens.add(regra);
 
         List<Regra> ordenados = new OrdenacaoService().ordena(itens);
@@ -74,7 +74,6 @@ public class OrdenacaoItensTest {
         Regra ra = new Regra("10", 10, 0, new ArrayList<>(0), "a = 10", "a");
 
         // b = a + 1
-        Atributo b = new Atributo("b", "descricao", Atributo.REAL);
         ArrayList<String> atributos = new ArrayList<>(0);
         atributos.add("a");
         Regra rb = new Regra("a + 1", 11, 0, atributos, "b = a + 1", "b");

@@ -5,8 +5,6 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 import java.util.List;
 
@@ -54,7 +52,7 @@ public class Resolucao {
      * Cria uma resolução a partir dos argumentos
      * identificados.
      * @param identificador Identificador da resolução.
-     * @param descricao
+     * @param descricao A descrição (caput) da resolução.
      * @param dataAprovacao Data byId aprovação da resolução.
      * @param regras Conjunto byId itens que são avaliados pela
      *

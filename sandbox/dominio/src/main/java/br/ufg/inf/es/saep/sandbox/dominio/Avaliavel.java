@@ -5,8 +5,6 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.util.Set;
-
 /**
  * Serviço oferecido por objeto que pode
  * ser avaliado por uma regra.

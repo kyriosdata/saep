@@ -23,15 +23,15 @@ public class AvaliaExpressaoTest {
         String somatorio = "k * (x + y)";
 
         // Recupera variáveis empregadas pela expressão
-        List<String> variaveis = new ArrayList<String>(2);
+        List<String> variaveis = new ArrayList<>(2);
         variaveis.add("x");
         variaveis.add("y");
 
         // Recuperar conjunto de relatos pertinentes (digamos 3)
-        Map<String, Double> relato1 = new HashMap<String, Double>(2);
-        Map<String, Double> relato2 = new HashMap<String, Double>(2);
-        Map<String, Double> relato3 = new HashMap<String, Double>(2);
-        List<Map<String, Double>> relatos = new ArrayList<Map<String, Double>>(3);
+        Map<String, Double> relato1 = new HashMap<>(2);
+        Map<String, Double> relato2 = new HashMap<>(2);
+        Map<String, Double> relato3 = new HashMap<>(2);
+        List<Map<String, Double>> relatos = new ArrayList<>(3);
         relatos.add(relato1);
         relatos.add(relato2);
         relatos.add(relato3);

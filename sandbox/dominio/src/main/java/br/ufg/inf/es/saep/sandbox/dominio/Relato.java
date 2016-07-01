@@ -5,9 +5,7 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Encapsula conjunto de valores que caracterizam
@@ -64,8 +62,8 @@ public class Relato implements Avaliavel {
 
         Relato relato = (Relato) o;
 
-        if (!tipo.equals(relato.tipo)) return false;
-        return valorPorNome.equals(relato.valorPorNome);
+        return tipo.equals(relato.tipo)
+                && valorPorNome.equals(relato.valorPorNome);
 
     }
 
