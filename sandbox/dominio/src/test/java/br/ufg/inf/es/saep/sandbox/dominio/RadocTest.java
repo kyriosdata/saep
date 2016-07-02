@@ -26,17 +26,17 @@ public class RadocTest {
         relatos.add(new Relato("a", valores));
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void idNullGeraExcecao() {
         new Radoc(null, 0, new ArrayList<>());
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void idVazioGeraExcecao() {
         new Radoc("", 0, new ArrayList<>());
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void relatosNullGeraExcecao() {
         new Radoc("id", 0, null);
     }

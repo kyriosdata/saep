@@ -16,12 +16,12 @@ public class PontuacaoTest {
         assertEquals(-21.4f, p.getValor().getFloat(), 0.0001d);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void nomeNullGeraExcecao() {
         new Pontuacao(null, new Valor("o"));
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void valorNullGeraExcecao() {
         new Pontuacao("o", null);
     }

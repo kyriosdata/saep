@@ -38,11 +38,11 @@ public class Pontuacao implements Avaliavel {
     public Pontuacao(String nome, Valor valor) {
 
         if (nome == null || nome.isEmpty()) {
-            throw new CampoExigidoNaoFornecidoException("nome");
+            throw new CampoExigidoNaoFornecido("nome");
         }
 
         if (valor == null) {
-            throw new CampoExigidoNaoFornecidoException("valor");
+            throw new CampoExigidoNaoFornecido("valor");
         }
 
         this.atributo = nome;

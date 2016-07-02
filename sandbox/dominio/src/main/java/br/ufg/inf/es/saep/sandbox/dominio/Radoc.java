@@ -50,11 +50,11 @@ public class Radoc {
      */
     public Radoc(String id, int anoBase, List<Relato> relatos) {
         if (id == null || id.isEmpty()) {
-            throw new CampoExigidoNaoFornecidoException("id");
+            throw new CampoExigidoNaoFornecido("id");
         }
 
         if (relatos == null) {
-            throw new CampoExigidoNaoFornecidoException("relatos");
+            throw new CampoExigidoNaoFornecido("relatos");
         }
 
         this.id = id;

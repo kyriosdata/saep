@@ -12,22 +12,22 @@ import static org.junit.Assert.assertNotEquals;
 
 public class TipoTest {
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirIdentificadorNaoNull() {
         new Tipo(null, "n", "d", null);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirIdentificadorNaoVazio() {
         new Tipo("", "n", "d", null);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirAtributos() {
         new Tipo("c", "n", "d", null);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirPeloMenosUmAtributo() {
         Set<Atributo> atrs = new HashSet<>(0);
         new Tipo("c", "n", "d", atrs);
@@ -85,7 +85,7 @@ public class TipoTest {
 
         Tipo t = new Tipo("APG", NOME, DESCRICAO, atributos);
 
-        assertEquals("APG", t.getCodigo());
+        assertEquals("APG", t.getId());
         assertEquals(NOME, t.getNome());
         assertEquals(DESCRICAO, t.getDescricao());
         assertEquals(2, t.getAtributos().size());
@@ -108,19 +108,19 @@ public class TipoTest {
         assertEquals(2, ensino.getTipos().size());
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void grupoDevePossuirCodigo() {
         new Grupo(null, "a", "d", null, null);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void grupoDevePossuirPeloMenosUmAtributo() {
         Set<Atributo> atribs = new HashSet<>(1);
 
         new Grupo("c", "a", "d", atribs, null);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void grupoDevePossuirPeloMenosUmTipo() {
         Set<Atributo> atribs = new HashSet<>(1);
         atribs.add(new Atributo("n", "d", Atributo.REAL));

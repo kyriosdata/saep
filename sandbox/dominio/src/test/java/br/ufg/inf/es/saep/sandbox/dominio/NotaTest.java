@@ -18,19 +18,19 @@ public class NotaTest {
         assertEquals("simples erro", n.getJustificativa());
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void origemNullGeraExcecao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
         new Nota(null, o, "simples erro");
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void destinoNullGeraExcecao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
         new Nota(o, null, "simples erro");
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void justificativaNullGeraExcecao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
         new Nota(o, o, null);

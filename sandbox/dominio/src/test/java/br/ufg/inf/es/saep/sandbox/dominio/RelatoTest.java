@@ -22,22 +22,22 @@ public class RelatoTest {
         vazio = new HashMap<>(0);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoNaoPodeSerNull() {
         new Relato(null, valores);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoNaoPodeSerVazio() {
         new Relato("", valores);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void valoresNaoPodeSerNull() {
         new Relato("tipo", null);
     }
 
-    @Test(expected = CampoExigidoNaoFornecidoException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void valoresNaoPodeSerVazio() {
         new Relato("tipo", vazio);
     }

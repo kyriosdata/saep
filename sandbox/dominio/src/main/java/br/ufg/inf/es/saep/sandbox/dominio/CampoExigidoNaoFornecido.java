@@ -9,9 +9,9 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * Indica situação excepcional ao avaliar uma
  * regra.
  */
-public class CampoExigidoNaoFornecidoException extends RuntimeException {
+public class CampoExigidoNaoFornecido extends RuntimeException {
 
-    public CampoExigidoNaoFornecidoException(String mensagem) {
+    public CampoExigidoNaoFornecido(String mensagem) {
         super(mensagem);
     }
 }

@@ -41,7 +41,7 @@ public class Tipo {
      *
      * <p>Trata-se de uma chave natural.
      */
-    private String codigo;
+    private String id;
 
     /**
      * Nome pelo qual o tipo é conhecido,
@@ -67,8 +67,8 @@ public class Tipo {
      *
      * @return Identificador único do tipo.
      */
-    public String getCodigo() {
-        return codigo;
+    public String getId() {
+        return id;
     }
 
     /**
@@ -92,23 +92,27 @@ public class Tipo {
 
     /**
      * Cria tipo definido pelo conjunto byId atributos.
-     * @param codigo Código único que identifica o tipo.
+     * @param id Código único que identifica o tipo.
      * @param nome O nome pelo qual o tipo é conhecido.
      * @param descricao Informação adicional sobre o tipo.
      * @param atributos Atributos que caracterizam o tipo.
 
      */
-    public Tipo(String codigo, String nome, String descricao, Set<Atributo> atributos) {
-        if (codigo == null || codigo.isEmpty()) {
-            throw new CampoExigidoNaoFornecidoException("codigo");
+    public Tipo(String id, String nome, String descricao, Set<Atributo> atributos) {
+        if (id == null || id.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("id");
+        }
+
+        if (nome == null || nome.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("id");
         }
 
         if (atributos == null || atributos.size() == 0) {
-            throw new CampoExigidoNaoFornecidoException("atributos");
+            throw new CampoExigidoNaoFornecido("atributos");
         }
 
         this.nome = nome;
-        this.codigo = codigo;
+        this.id = id;
         this.descricao = descricao;
         this.atributos = atributos;
     }
@@ -135,11 +139,11 @@ public class Tipo {
 
         Tipo tipo = (Tipo) o;
 
-        return codigo.equals(tipo.codigo);
+        return id.equals(tipo.id);
     }
 
     @Override
     public int hashCode() {
-        return codigo.hashCode();
+        return id.hashCode();
     }
 }

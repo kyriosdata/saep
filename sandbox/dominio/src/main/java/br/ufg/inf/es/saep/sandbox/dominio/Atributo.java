@@ -51,12 +51,18 @@ public class Atributo {
      * ser algo como "nome completo do periódico,
      * por exemplo, International Journal of Health
      * Informatics.".
+     *
+     * <p>A descrição não é obrigatória.
      */
     private String descricao;
 
     public Atributo(String nome, String descricao, int tipo) {
         if (nome == null || nome.isEmpty()) {
-            throw new IllegalArgumentException("nome invalido");
+            throw new CampoExigidoNaoFornecido("nome");
+        }
+
+        if (tipo < LOGICO || tipo > STRING) {
+            throw new TipoInvalido("tipo");
         }
 
         this.nome = nome;
@@ -74,9 +80,11 @@ public class Atributo {
     }
 
     /**
-     * Recupera o tipo primitivo do atributo.
+     * Recupera o tipo do atributo
      *
-     * @return O tipo do atributo.
+     * @return O tipo do atributo, ou seja, o
+     * valor {@link #LOGICO}, {@link #REAL} ou
+     * {@link #STRING}.
      */
     public int getTipo() {
         return tipo;

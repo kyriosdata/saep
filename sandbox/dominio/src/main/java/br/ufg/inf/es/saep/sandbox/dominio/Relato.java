@@ -35,11 +35,11 @@ public class Relato implements Avaliavel {
      */
     public Relato(String tipo, Map<String, Valor> valores) {
         if (tipo == null || tipo.isEmpty()) {
-            throw new CampoExigidoNaoFornecidoException("tipo");
+            throw new CampoExigidoNaoFornecido("tipo");
         }
 
         if (valores == null || valores.size() == 0) {
-            throw new CampoExigidoNaoFornecidoException("valores");
+            throw new CampoExigidoNaoFornecido("valores");
         }
 
         this.tipo = tipo;

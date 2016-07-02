@@ -49,7 +49,7 @@ public interface ResolucaoRepository {
     /**
      * Persiste uma resolução.
      *
-     * @throws CampoExigidoNaoFornecidoException Caso o identificador não
+     * @throws CampoExigidoNaoFornecido Caso o identificador não
      * seja fornecido.
      *
      * @param resolucao A resolução a ser persistida.

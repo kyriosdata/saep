@@ -31,7 +31,7 @@ public class Grupo extends Tipo {
      * @param descricao A descrição do grupo.
      * @param atributos O conjunto de atributos definido para o grupo.
      * @param tipos     Conjunto de tipos contidos no grupo.
-     * @throws CampoExigidoNaoFornecidoException Caso o
+     * @throws CampoExigidoNaoFornecido Caso o
      *                                           conjunto de tipos seja
      *                                           {@code null} ou não
      *                                           contenha nenhum tipo.
@@ -43,7 +43,7 @@ public class Grupo extends Tipo {
         super(codigo, nome, descricao, atributos);
 
         if (tipos == null || tipos.isEmpty()) {
-            throw new CampoExigidoNaoFornecidoException("tipos");
+            throw new CampoExigidoNaoFornecido("tipos");
         }
 
         this.tipos = tipos;

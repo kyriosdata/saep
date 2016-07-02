@@ -24,15 +24,15 @@ public class Nota {
 
     public Nota(Avaliavel origem, Avaliavel destino, String justificativa) {
         if (origem == null) {
-            throw new CampoExigidoNaoFornecidoException("origem");
+            throw new CampoExigidoNaoFornecido("origem");
         }
 
         if (destino == null) {
-            throw new CampoExigidoNaoFornecidoException("destino");
+            throw new CampoExigidoNaoFornecido("destino");
         }
 
         if (justificativa == null) {
-            throw new CampoExigidoNaoFornecidoException("justificativa");
+            throw new CampoExigidoNaoFornecido("justificativa");
         }
 
         this.original = origem;
