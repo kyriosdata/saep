@@ -144,6 +144,9 @@ public class Regra {
     /**
      * Nome da variável (atributo) que guardará
      * o resultado da avaliação da regra.
+     *
+     * <p>Trata-se de chave natural para uma regra
+     * em uma dada resolução.
      */
     private String variavel;
 

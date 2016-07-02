@@ -11,11 +11,15 @@ import java.util.Set;
 /**
  * Encapsula conjunto de valores que caracterizam
  * o relato de uma atividade ou produto.
- * <p>
- * Cada relato é de um tipo específico, que
+ *
+ * <p>Cada relato é de um tipo específico, que
  * representa um tipo de atividade ou tipo de
  * produto. Esse tipo é identificado por
  * {@link #tipo}.
+ *
+ * <p>Um relato é um "value object". Ou seja, dois
+ * relatos são iguais se todos os seus atributos
+ * forem iguais.
  */
 public class Relato implements Avaliavel {
     private String tipo;

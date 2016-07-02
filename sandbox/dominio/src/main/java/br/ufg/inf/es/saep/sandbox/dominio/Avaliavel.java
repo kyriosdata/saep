@@ -8,6 +8,10 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 /**
  * Serviço oferecido por objeto que pode
  * ser avaliado por uma regra.
+ *
+ * <p>Um objeto que permite recuperar valores
+ * de seus atributos por meio de um nome
+ * (identificador), é um objeto avaliável.
  */
 public interface Avaliavel {
 

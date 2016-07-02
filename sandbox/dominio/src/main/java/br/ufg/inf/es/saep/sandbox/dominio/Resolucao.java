@@ -20,7 +20,8 @@ import java.util.List;
 public class Resolucao {
 
     /**
-     * Identificador único da resolução (uso interno).
+     * Identificador único da resolução. Desconhecido
+     * dos usuários (membros da CAD, por exemplo).
      * Contraste com {#link {@link #identificador}.
      */
     private String id;
@@ -28,8 +29,11 @@ public class Resolucao {
     private Date dataAprovacao;
 
     /**
-     * Identificador da resolução (uso externo, por exemplo,
-     * usuários). Contraste com {@link #id}.
+     * Identificador da resolução conforme percebida pelos
+     * usuários). Deveria ser uma chave natural, mas
+     * não há garantia. Por exemplo, resolução "CONSUNI 34/2012".
+     * Ou seja, é empregado aqui como um "nome de fantasia".
+     * Contraste com {@link #id}.
      */
     private String identificador;
 

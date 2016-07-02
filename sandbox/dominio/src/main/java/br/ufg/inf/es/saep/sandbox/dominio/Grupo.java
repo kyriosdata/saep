@@ -21,7 +21,7 @@ import java.util.Set;
  */
 public class Grupo extends Tipo {
 
-    private Set<Tipo> tipos;
+    private Set<String> tipos;
 
     /**
      * Cria um grupo (reunião de tipos).
@@ -39,7 +39,7 @@ public class Grupo extends Tipo {
     public Grupo(String codigo, String nome,
                  String descricao,
                  Set<Atributo> atributos,
-                 Set<Tipo> tipos) {
+                 Set<String> tipos) {
         super(codigo, nome, descricao, atributos);
 
         if (tipos == null || tipos.isEmpty()) {
@@ -54,7 +54,7 @@ public class Grupo extends Tipo {
      *
      * @return Conjunto de tipos.
      */
-    public Set<Tipo> getTipos() {
+    public Set<String> getTipos() {
         return tipos;
     }
 }

@@ -25,7 +25,13 @@ public class Atributo {
 
     /**
      * O nome do atributo, por exemplo,
-     * "cha" ou "nome".
+     * "cha" ou "nome". O nome de um atributo
+     * deve ser único em vários contextos, por
+     * exemplo, em um dado {@link Tipo}, não
+     * pode existir mais de um atributo com o
+     * mesmo nome.
+     *
+     * <p>Trata-se de uma chave natural.
      */
     private String nome;
 

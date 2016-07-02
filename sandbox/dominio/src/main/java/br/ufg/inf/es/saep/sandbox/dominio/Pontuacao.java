@@ -18,6 +18,8 @@ public class Pontuacao implements Avaliavel {
 
     /**
      * O nome do identificador da pontuação.
+     *
+     * <p>Trata-se de chave natural.
      */
     private String atributo;
 

@@ -38,6 +38,8 @@ public class Tipo {
      * por exemplo, "EG" para ensino de
      * graduação. O código é, geralmente,
      * "curto".
+     *
+     * <p>Trata-se de uma chave natural.
      */
     private String codigo;
 

@@ -99,9 +99,9 @@ public class TipoTest {
         Tipo presencial = new Tipo("presencial", "presencial", "presencial", atribs);
         Tipo ead = new Tipo("ead", "ead", "ead", atribs);
 
-        Set<Tipo> tipos = new HashSet<>();
-        tipos.add(presencial);
-        tipos.add(ead);
+        Set<String> tipos = new HashSet<>();
+        tipos.add("presencial");
+        tipos.add("ead");
 
         Grupo ensino = new Grupo("ensino", "ensino", "ensino graduação", atribs, tipos);
 
@@ -125,7 +125,7 @@ public class TipoTest {
         Set<Atributo> atribs = new HashSet<>(1);
         atribs.add(new Atributo("n", "d", Atributo.REAL));
 
-        Set<Tipo> tipos = new HashSet<>(0);
+        Set<String> tipos = new HashSet<>(0);
         new Grupo("c", "a", "d", atribs, tipos);
     }
 }
