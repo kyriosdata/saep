@@ -9,9 +9,9 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * Indica ausência de identificador único em objeto,
  * o que impede a persistência do mesmo.
  */
-public class IdentificadorUnicoException extends RuntimeException {
+public class IdentificadorDesconhecido extends RuntimeException {
 
-    public IdentificadorUnicoException(String mensagem) {
+    public IdentificadorDesconhecido(String mensagem) {
         super(mensagem);
     }
 }

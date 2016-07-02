@@ -67,62 +67,16 @@ public class Regra {
     public static final int MEDIA = 4;
 
     /**
-     * Um dos valores: {@link #EXPRESSAO}, {@link #CONDICIONAL},
-     * {@link #SOMATORIO}, {@link #MEDIA}, {@link #PONTOS}.
+     * O valor {@link #EXPRESSAO}, ou {@link #CONDICIONAL},
+     * ou {@link #SOMATORIO}, ou {@link #MEDIA} ou {@link #PONTOS},
+     * que caracteriza o tipo de regra em questão.
      */
-    private int tipoRegra;
-
-    /**
-     * Identificador único de um tipoRelato de relato.
-     * Nem toda regra, convém destacar, refere-se
-     * a um relato. Se esse for o caso, esse valor
-     * é irrelevante.
-     */
-    private String tipoRelato;
+    private int tipo;
 
     /**
      * Descrição da regra.
      */
     private String descricao;
-
-    /**
-     * Expressão a ser avaliada para obtenção do
-     * resultado da avaliação da regra. Caso a
-     * regra seja condicional, então essa expressão
-     * é lógica. Caso a regra seja uma contagem por
-     * pontos, então o valor é irrelevante.
-     */
-    private String expressao;
-
-    /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja verdadeira.
-     */
-    private String entao;
-
-    /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja falsa.
-     */
-    private String senao;
-
-    /**
-     * Quantidade de pontos definidos por item
-     * {@link Avaliavel}.
-     */
-    private float pontosPorItem;
-
-    /**
-     * Lista de identificadores de atributos que são
-     * empregados pela expressão que avalia a regra.
-     * Caso a regra seja condicional, então acumula
-     * os identificados das expressões "então" e
-     * "senão". Se a regra é do tipoRelato pontos por item
-     * avaliável, então a lista é vazia.
-     */
-    private List<String> dependeDe;
 
     /**
      * Valor máximo admitido para a avaliação da regra.
@@ -151,14 +105,87 @@ public class Regra {
     private String variavel;
 
     /**
-     * Recupera o tipo do relato associado à regra.
-     * O retorno desse método é útil apenas quando o
-     * tipo da regras é {@link #PONTOS}.
-     *
-     * @return O identificador do tipo de relato.
+     * Expressão a ser avaliada para obtenção do
+     * resultado da avaliação da regra. Caso a
+     * regra seja condicional, então essa expressão
+     * é lógica. Caso a regra seja uma contagem por
+     * pontos, então o valor é irrelevante.
      */
-    public String getTipoRelato() {
-        return tipoRelato;
+    private String expressao;
+
+    /**
+     * Expressão a ser avaliada e cujo resultado torna-se
+     * o resultado da regra condicional caso a condição
+     * seja verdadeira.
+     */
+    private String entao;
+
+    /**
+     * Expressão a ser avaliada e cujo resultado torna-se
+     * o resultado da regra condicional caso a condição
+     * seja falsa.
+     */
+    private String senao;
+
+    /**
+     * Identificador único de um tipoRelato de relato.
+     * Nem toda regra, convém destacar, refere-se
+     * a um relato. Se esse for o caso, esse valor
+     * é irrelevante.
+     */
+    private String tipoRelato;
+
+    /**
+     * Quantidade de pontos definidos por item
+     * {@link Avaliavel}.
+     */
+    private float pontosPorItem;
+
+    /**
+     * Lista de identificadores de atributos que são
+     * empregados pela expressão que avalia a regra.
+     * Caso a regra seja condicional, então acumula
+     * os identificados das expressões "então" e
+     * "senão". Se a regra é do tipoRelato pontos por item
+     * avaliável, então a lista é vazia.
+     */
+    private List<String> dependeDe;
+
+    /**
+     * Recupera o tipo da regra.
+     *
+     * @return O tipo da regra.
+     */
+    public int getTipo() {
+        return tipo;
+    }
+
+    /**
+     * Recupera a descrição da regra.
+     *
+     * @return A descrição da regra.
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * Recupera o valor máximo admitido para
+     * o resultado da regra.
+     *
+     * @return Valor máximo byId pontuação admitido pela regra.
+     */
+    public float getValorMaximo() {
+        return valorMaximo;
+    }
+
+    /**
+     * Recupera o valor mínimo admitido pela regra.
+     *
+     * @return O valor mínimo admitido pela regra.
+     */
+    public float getValorMinimo() {
+        return valorMinimo;
     }
 
     /**
@@ -168,10 +195,6 @@ public class Regra {
      */
     public String getExpressao() {
         return expressao;
-    }
-
-    public String getDescricao() {
-        return descricao;
     }
 
     /**
@@ -192,6 +215,17 @@ public class Regra {
      */
     public String getSenao() {
         return senao;
+    }
+
+    /**
+     * Recupera o tipo do relato associado à regra.
+     * O retorno desse método é útil apenas quando o
+     * tipo da regras é {@link #PONTOS}.
+     *
+     * @return O identificador do tipo de relato.
+     */
+    public String getTipoRelato() {
+        return tipoRelato;
     }
 
     /**
@@ -234,34 +268,6 @@ public class Regra {
     }
 
     /**
-     * Recupera o valor máximo admitido para
-     * o resultado da regra.
-     *
-     * @return Valor máximo byId pontuação admitido pela regra.
-     */
-    public float getValorMaximo() {
-        return valorMaximo;
-    }
-
-    /**
-     * Recupera o valor mínimo admitido pela regra.
-     *
-     * @return O valor mínimo admitido pela regra.
-     */
-    public float getValorMinimo() {
-        return valorMinimo;
-    }
-
-    /**
-     * Recupera o tipoRegra da regra.
-     *
-     * @return O inteiro que identifica o tipoRegra da regra.
-     */
-    public int getTipoRegra() {
-        return tipoRegra;
-    }
-
-    /**
      * Cria regra a partir da expressão e dos valores byId limite
      * admitidos.
      *
@@ -287,21 +293,41 @@ public class Regra {
         this.variavel = variavel;
     }
 
-    public Regra(int tipoRegra,
+    public Regra(int tipo,
+                 String descricao,
+                 float valorMaximo,
+                 float valorMinimo,
+                 String variavel,
                  String expressao,
                  String entao,
                  String senao,
+                 String tipoRelato,
                  int pontosPorItem,
-                 List<String> dependeDe,
-                 float valorMaximo,
-                 float valorMinimo) {
-        this.tipoRegra = tipoRegra;
+                 List<String> dependeDe) {
+
+        if (tipo < 0 || tipo > 4) {
+            throw new CampoExigidoNaoFornecido("tipo");
+        }
+
+        if (descricao == null || descricao.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("descricao");
+        }
+
+        if (variavel == null || variavel.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("variavel");
+        }
+
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.valorMaximo = valorMaximo;
+        this.valorMinimo = valorMinimo;
+        this.variavel = variavel;
+
         this.expressao = expressao;
         this.entao = entao;
         this.senao = senao;
+        this.tipoRelato = tipoRelato;
         this.pontosPorItem = pontosPorItem;
         this.dependeDe = dependeDe == null ? new ArrayList<>(0) : dependeDe;
-        this.valorMaximo = valorMaximo;
-        this.valorMinimo = valorMinimo;
     }
 }

@@ -22,10 +22,13 @@ public class Resolucao {
     /**
      * Identificador único da resolução. Desconhecido
      * dos usuários (membros da CAD, por exemplo).
-     * Contraste com {#link {@link #identificador}.
+     * Contraste com {#link {@link #nome}.
      */
     private String id;
 
+    /**
+     * Data de aprovação da resolução.
+     */
     private Date dataAprovacao;
 
     /**
@@ -35,7 +38,7 @@ public class Resolucao {
      * Ou seja, é empregado aqui como um "nome de fantasia".
      * Contraste com {@link #id}.
      */
-    private String identificador;
+    private String nome;
 
     /**
      * Descrição ou informação adicional sobre
@@ -46,24 +49,37 @@ public class Resolucao {
     /**
      * Conjunto de regras definido pela resolução.
      */
-    private List<Regra> itens;
+    private List<Regra> regras;
 
+    /**
+     * Recupera o nome único da resolução
+     * (surrogate key).
+     *
+     * @see #getNome()
+     *
+     * @return O nome único da resolução.
+     */
     public String getId() {
         return id;
+    }
+
+    /**
+     * Recupera o nome da resolução.
+     *
+     * @return O nome da resolução.
+     */
+    public String getNome() {
+        return nome;
     }
 
     public String getDescricao() {
         return descricao;
     }
 
-    public List<Regra> getItens() {
-        return itens;
-    }
-
     /**
      * Cria uma resolução a partir dos argumentos
      * identificados.
-     * @param id O identificador único da resolução.
+     * @param id O nome único da resolução.
      * @param descricao A descrição (caput) da resolução.
      * @param dataAprovacao Data byId aprovação da resolução.
      * @param regras Conjunto byId itens que são avaliados pela
@@ -71,13 +87,25 @@ public class Resolucao {
      * */
     public Resolucao(String id, String descricao, Date dataAprovacao, List<Regra> regras) {
         if (id == null || id.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("identificador");
+            throw new CampoExigidoNaoFornecido("nome");
         }
 
+        if (descricao == null || descricao.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("descricao");
+        }
+
+        if (dataAprovacao == null) {
+            throw new CampoExigidoNaoFornecido("dataAprovacao");
+        }
+
+        if (regras == null || regras.size() < 1) {
+            throw new CampoExigidoNaoFornecido("regras");
+        }
+
+        this.nome = id;
         this.descricao = descricao;
         this.dataAprovacao = dataAprovacao;
-        this.identificador = id;
-        this.itens = regras;
+        this.regras = regras;
     }
 
     /**
@@ -90,22 +118,13 @@ public class Resolucao {
     }
 
     /**
-     * Recupera o identificador único da resolução.
-     *
-     * @return O identificador único da resolução.
-     */
-    public String getIdentificador() {
-        return identificador;
-    }
-
-    /**
-     * Recupera o conjunto byId itens que são avaliados
+     * Recupera o conjunto de regras definido
      * pela resolução.
      *
-     * @return Conjunto byId itens avaliados pela resolução.
+     * @return Conjunto de regras definido pela resolução.
      */
     public List<Regra> getRegras() {
-        return itens;
+        return regras;
     }
 
     @Override

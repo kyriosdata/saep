@@ -16,7 +16,7 @@ public class Avaliador implements AvaliaRegraService {
 
     @Override
     public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
-        switch (regra.getTipoRegra()) {
+        switch (regra.getTipo()) {
             case Regra.PONTOS:
                 float pontosPorRelato = regra.getPontosPorItem();
                 float total = pontosPorRelato * relatos.size();

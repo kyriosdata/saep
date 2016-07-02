@@ -2,10 +2,10 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 
 import org.junit.Test;
 
-public class ResolucaoTest {
+public class RegraTest {
 
     @Test
     public void idNullGeraExcecao() {
-
+        
     }
 }

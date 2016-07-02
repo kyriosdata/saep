@@ -22,7 +22,7 @@ public interface ParecerRepository {
     /**
      * Adiciona nota ao parecer.
      *
-     * @throws IdentificadorUnicoException Caso o identificador
+     * @throws IdentificadorDesconhecido Caso o identificador
      * fornecido não identifique um parecer existente.
      *
      * @param parecer O identificador único do parecer.
@@ -45,7 +45,7 @@ public interface ParecerRepository {
     /**
      * Acrescenta o parecer ao repositório.
      *
-     * @throws IdentificadorUnicoException Caso um
+     * @throws IdentificadorDesconhecido Caso um
      * identificador único não seja fornecido ou já exista entidade
      * persistida com esse identificador.
      *
@@ -61,7 +61,7 @@ public interface ParecerRepository {
      * parecer. Não confunda com as alterações de
      * valores (dados de relatos ou de pontuações).
      *
-     * @throws IdentificadorUnicoException Caso o identificador
+     * @throws IdentificadorDesconhecido Caso o identificador
      * fornecido não identifique um parecer.
      *
      * @param parecer O identificador único do parecer.
@@ -107,7 +107,7 @@ public interface ParecerRepository {
      * longo do tempo. Convém ressaltar que informações
      * desses relatórios podem ser alteradas continuamente.
      *
-     * @throws IdentificadorUnicoException Caso o identificador
+     * @throws IdentificadorDesconhecido Caso o identificador
      * único do objeto a se persistido não esteja definido ou
      * já exista entidade com esse identificador.
      *
