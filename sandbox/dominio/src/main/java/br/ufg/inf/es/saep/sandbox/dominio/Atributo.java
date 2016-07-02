@@ -19,8 +19,22 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  */
 public class Atributo {
 
+    /**
+     * O atributo retém um valor lógico
+     * ({@code true} ou {@code false}).
+     */
     public static final int LOGICO = 0;
+
+    /**
+     * O atributo retém um valor do tipo
+     * {@code float}.
+     */
     public static final int REAL = 1;
+
+    /**
+     * O atributo retém uma sequência
+     * de caracteres ({@link String}).
+     */
     public static final int STRING = 2;
 
     /**
@@ -62,7 +76,7 @@ public class Atributo {
         }
 
         if (tipo < LOGICO || tipo > STRING) {
-            throw new TipoInvalido("tipo");
+            throw new TipoDeAtributoInvalido("tipo");
         }
 
         this.nome = nome;

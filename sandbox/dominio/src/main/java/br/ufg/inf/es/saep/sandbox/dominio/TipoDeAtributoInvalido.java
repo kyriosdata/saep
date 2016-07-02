@@ -6,12 +6,11 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Indica situação excepcional ao avaliar uma
- * regra.
+ * Indica que o tipo de atributo é inválido.
  */
-public class TipoInvalido extends RuntimeException {
+public class TipoDeAtributoInvalido extends RuntimeException {
 
-    public TipoInvalido(String mensagem) {
+    public TipoDeAtributoInvalido(String mensagem) {
         super(mensagem);
     }
 }
