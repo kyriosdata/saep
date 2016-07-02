@@ -5,7 +5,6 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -323,11 +322,33 @@ public class Regra {
         this.valorMinimo = valorMinimo;
         this.variavel = variavel;
 
-        this.expressao = expressao;
-        this.entao = entao;
-        this.senao = senao;
-        this.tipoRelato = tipoRelato;
-        this.pontosPorItem = pontosPorItem;
-        this.dependeDe = dependeDe == null ? new ArrayList<>(0) : dependeDe;
+        // A avaliação abaixo seria mais simples se herança fosse
+        // empregada. Contudo, fica como alternativa caso novos
+        // tipos de regras sejam definidos.
+
+        if (tipo == PONTOS) {
+            if (tipoRelato == null || tipoRelato.isEmpty()) {
+                throw new CampoExigidoNaoFornecido("tipoRelato");
+            }
+
+            this.tipoRelato = tipoRelato;
+            this.pontosPorItem = pontosPorItem;
+        } else {
+            if (expressao == null || expressao.isEmpty()) {
+                throw new CampoExigidoNaoFornecido("expressao");
+            }
+
+            this.expressao = expressao;
+            this.dependeDe = dependeDe;
+        }
+
+        if (tipo == CONDICIONAL) {
+            if (entao == null || entao.isEmpty()) {
+                throw new CampoExigidoNaoFornecido("entao");
+            }
+
+            this.entao = entao;
+            this.senao = senao;
+        }
     }
 }

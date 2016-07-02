@@ -102,7 +102,7 @@ public class AvaliadorRegrasTest {
     @Test
     public void semRegistroZeroPontos() {
         int tipo = Regra.PONTOS;
-        Regra regra = new Regra(tipo, "d", 100, 0, "v", null, null, null, null, 13, null);
+        Regra regra = new Regra(tipo, "d", 100, 0, "v", null, null, null, "r", 13, null);
 
         List<Avaliavel> relatos = new ArrayList<>(0);
 
@@ -114,7 +114,7 @@ public class AvaliadorRegrasTest {
     public void umRegistroPontuacaoCorrespondente() {
         int tipo = Regra.PONTOS;
         int ppr = 13;
-        Regra regra = new Regra(tipo, "d", 100, 0, "v", null, null, null, null, ppr, null);
+        Regra regra = new Regra(tipo, "d", 100, 0, "v", null, null, null, "r", ppr, null);
 
         List<Avaliavel> relatos = new ArrayList<>(1);
         relatos.add(null);
@@ -126,7 +126,7 @@ public class AvaliadorRegrasTest {
     @Test
     public void expressaoConstante() {
         int tipo = Regra.EXPRESSAO;
-        Regra regra = new Regra(tipo, "d", 100, 0, "v", "97", null, null, null, 0, null);
+        Regra regra = new Regra(tipo, "d", 100, 0, "v", "97", null, null, "r", 0, new ArrayList<>());
 
         Valor resultado = avaliador.avaliaRegra(regra, null, null);
         assertEquals(97f, resultado.getFloat(), 0.0001);
@@ -159,7 +159,7 @@ public class AvaliadorRegrasTest {
         // Um relato de dado tipo, 11 pontos.
         // Máximo corrige para 10.
         int tipo = Regra.PONTOS;
-        Regra r = new Regra(tipo, "d", 10, 0, "v", null, null, null, null, 11, null);
+        Regra r = new Regra(tipo, "d", 10, 0, "v", null, null, null, "r", 11, null);
 
         Valor parcial = avaliador.avaliaRegra(r, null, listaDeRelatos);
         assertEquals(10f, parcial.getFloat(), 0.0001f);

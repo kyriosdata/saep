@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RegraTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorUnicoException.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorDesconhecido.java" />
+    <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="refinamento do dominio">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/CampoExigidoNaoFornecido.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/CampoExigidoNaoFornecido.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/infraestrutura/Avaliador.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/infraestrutura/Avaliador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/infraestrutura/AvaliadorRegrasTest.java" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/infraestrutura/AvaliadorRegrasTest.java" />
     </list>
     <ignored path="dominio.iws" />
@@ -27,7 +20,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/dominio$br_ufg_inf_es_saep_sandbox_in_dominio.coverage" NAME="br.ufg.inf.es.saep.sandbox in dominio Coverage Results" MODIFIED="1467498996005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/dominio$br_ufg_inf_es_saep_sandbox_in_dominio.coverage" NAME="br.ufg.inf.es.saep.sandbox in dominio Coverage Results" MODIFIED="1467500554591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>br.ufg.inf.es.saep.sandbox.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/dominio$TipoTest.coverage" NAME="TipoTest Coverage Results" MODIFIED="1467312078842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -77,26 +70,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AvaliadorRegrasTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AvaliadorRegrasTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/infraestrutura/AvaliadorRegrasTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="213">
-              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+              <caret line="161" column="71" selection-start-line="161" selection-start-column="71" selection-end-line="161" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Regra.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Regra.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+            <state relative-caret-position="72">
+              <caret line="327" column="8" selection-start-line="327" selection-start-column="8" selection-end-line="327" selection-end-column="8" />
               <folding>
-                <element signature="e#4714#4715#0" expanded="true" />
-                <element signature="e#4741#4742#0" expanded="true" />
-                <element signature="e#6199#6200#0" expanded="true" />
-                <element signature="e#6232#6233#0" expanded="true" />
+                <element signature="e#4686#4687#0" expanded="true" />
+                <element signature="e#4713#4714#0" expanded="true" />
+                <element signature="e#6171#6172#0" expanded="true" />
+                <element signature="e#6204#6205#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -210,10 +203,10 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/infraestrutura/Avaliador.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RegraTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/infraestrutura/AvaliadorRegrasTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
       </list>
     </option>
   </component>
@@ -961,7 +954,7 @@
       <workItem from="1467299153658" duration="3115000" />
       <workItem from="1467305708678" duration="3747000" />
       <workItem from="1467320844128" duration="17755000" />
-      <workItem from="1467470024590" duration="8411000" />
+      <workItem from="1467470024590" duration="9617000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -1243,28 +1236,17 @@
       <option name="project" value="LOCAL" />
       <updated>1467485093077</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="refinamento do dominio">
+      <created>1467499014268</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1467499014268</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 18h 32m 14s.xml">
-      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 18h 41m 51s.xml">
-      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 18h 46m 25s.xml">
-      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 18h 51m 58s.xml">
-      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 19h 33m 43s.xml">
-      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 19h 34m 16s.xml">
-      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 19h 34m 39s.xml">
       <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
     </history-entry>
@@ -1277,9 +1259,27 @@
     <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 19h 36m 38s.xml">
       <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 19h 51m 44s.xml">
+      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 19h 52m 16s.xml">
+      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 20h 00m 25s.xml">
+      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 20h 01m 21s.xml">
+      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 20h 02m 23s.xml">
+      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="br_ufg_inf_es_saep_sandbox_in_dominio - 2016.07.02 at 20h 02m 36s.xml">
+      <configuration name="br.ufg.inf.es.saep.sandbox in dominio" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82662000" />
+    <option name="totallyTimeSpent" value="83868000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1848,24 +1848,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
-          <folding>
-            <element signature="e#4714#4715#0" expanded="true" />
-            <element signature="e#4741#4742#0" expanded="true" />
-            <element signature="e#6199#6200#0" expanded="true" />
-            <element signature="e#6232#6233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/infraestrutura/AvaliadorRegrasTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+          <caret line="161" column="71" selection-start-line="161" selection-start-column="71" selection-end-line="161" selection-end-column="71" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="327" column="8" selection-start-line="327" selection-start-column="8" selection-end-line="327" selection-end-column="8" />
+          <folding>
+            <element signature="e#4686#4687#0" expanded="true" />
+            <element signature="e#4713#4714#0" expanded="true" />
+            <element signature="e#6171#6172#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
