@@ -38,7 +38,9 @@ public class AvaliadorRegrasTest {
         Regra r = new Regra(tipo, "a", null, null, 0, dd, 100, 0);
 
         List<Avaliavel> relatos = new ArrayList<>(1);
-        relatos.add(new Relato("livro", new HashMap<>(0)));
+        Map<String, Valor> relato = new HashMap<>(1);
+        relato.put("atributo", new Valor("ok"));
+        relatos.add(new Relato("livro", relato));
 
         Map<String, Valor> ctx = new HashMap<>(0);
         Valor resultado = avaliador.avaliaRegra(r, ctx, relatos);
@@ -148,7 +150,9 @@ public class AvaliadorRegrasTest {
 
     @Test
     public void cadeiaDeTresDependencias() {
-        Relato relato = new Relato("EG", new HashMap<>(0));
+        Map<String, Valor> valor = new HashMap<>(1);
+        valor.put("atributo", new Valor("valor"));
+        Relato relato = new Relato("EG", valor);
         List<Avaliavel> listaDeRelatos = new ArrayList<>(1);
         listaDeRelatos.add(relato);
 
