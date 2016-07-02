@@ -37,4 +37,12 @@ public class Pontuacao implements Avaliavel {
     public Valor get(String atributo) {
         return new Valor(-1);
     }
+
+    public String getAtributo() {
+        return atributo;
+    }
+
+    public Valor getValor() {
+        return valor;
+    }
 }

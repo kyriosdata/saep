@@ -44,6 +44,18 @@ public class Resolucao {
      */
     private List<Regra> itens;
 
+    public String getId() {
+        return id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public List<Regra> getItens() {
+        return itens;
+    }
+
     private Resolucao(){
         // Usado pelo Jackson (JSON)
     }

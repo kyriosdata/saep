@@ -167,6 +167,10 @@ public class Regra {
         return expressao;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
     /**
      * Recupera a expressão "então" associada à regra
      * do tipo {@link #CONDICIONAL}.

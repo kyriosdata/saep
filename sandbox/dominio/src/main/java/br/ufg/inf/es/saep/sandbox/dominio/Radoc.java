@@ -60,4 +60,16 @@ public class Radoc {
         // TODO não implementado
         return new ArrayList<>(0);
     }
+
+    public String getGuid() {
+        return guid;
+    }
+
+    public int getAnoBase() {
+        return anoBase;
+    }
+
+    public List<Relato> getRelatos() {
+        return relatos;
+    }
 }
