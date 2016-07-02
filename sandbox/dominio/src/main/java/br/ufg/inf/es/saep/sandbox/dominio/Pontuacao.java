@@ -34,12 +34,26 @@ public class Pontuacao implements Avaliavel {
      * @param valor O valor da pontuação.
      */
     public Pontuacao(String nome, Valor valor) {
+
+        if (nome == null || nome.isEmpty()) {
+            throw new CampoExigidoNaoFornecidoException("nome");
+        }
+
+        if (valor == null) {
+            throw new CampoExigidoNaoFornecidoException("valor");
+        }
+
         this.atributo = nome;
         this.valor = valor;
     }
 
     public Valor get(String atributo) {
-        return new Valor(-1);
+
+        if (this.atributo.equals(atributo)) {
+            return valor;
+        }
+
+        return null;
     }
 
     /**
