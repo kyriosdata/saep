@@ -6,12 +6,12 @@ import static org.junit.Assert.assertEquals;
 
 public class AtributoTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void nomeNullGeraExcecao() {
         new Atributo(null, "descricao", Atributo.STRING);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void nomeVazioGeraExcecao() {
         new Atributo("", "descricao", Atributo.LOGICO);
     }

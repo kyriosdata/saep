@@ -63,20 +63,20 @@ public class Resolucao {
     /**
      * Cria uma resolução a partir dos argumentos
      * identificados.
-     * @param identificador Identificador da resolução.
+     * @param id O identificador único da resolução.
      * @param descricao A descrição (caput) da resolução.
      * @param dataAprovacao Data byId aprovação da resolução.
      * @param regras Conjunto byId itens que são avaliados pela
      *
      * */
-    public Resolucao(String identificador, String descricao, Date dataAprovacao, List<Regra> regras) {
-        if (identificador == null || identificador.isEmpty()) {
-            throw new IdentificadorUnicoException("identificador invalido");
+    public Resolucao(String id, String descricao, Date dataAprovacao, List<Regra> regras) {
+        if (id == null || id.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("identificador");
         }
 
         this.descricao = descricao;
         this.dataAprovacao = dataAprovacao;
-        this.identificador = identificador;
+        this.identificador = id;
         this.itens = regras;
     }
 
