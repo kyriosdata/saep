@@ -56,10 +56,6 @@ public class Resolucao {
         return itens;
     }
 
-    private Resolucao(){
-        // Usado pelo Jackson (JSON)
-    }
-
     /**
      * Cria uma resolução a partir dos argumentos
      * identificados.

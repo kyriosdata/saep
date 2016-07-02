@@ -19,6 +19,13 @@ public class ValorTest {
     }
 
     @Test
+    public void umValorString() {
+        final String sequencia = "sequência de caracteres";
+        Valor verdadeiro = new Valor(sequencia);
+        assertEquals(sequencia, verdadeiro.getString());
+    }
+
+    @Test
     public void umValorLogicoObtidoDeTipoIncompativelResultaFalse() {
         Valor verdadeiro = new Valor("teste");
         assertFalse(verdadeiro.getBoolean());

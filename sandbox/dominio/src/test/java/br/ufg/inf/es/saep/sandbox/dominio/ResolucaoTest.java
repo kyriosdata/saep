@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
-public class ResolucaoTrivialTest {
+public class ResolucaoTest {
 
     @Test
     public void resolucaoVazia() {
