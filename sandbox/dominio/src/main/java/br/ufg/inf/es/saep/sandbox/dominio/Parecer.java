@@ -29,14 +29,14 @@ public class Parecer {
      * Resolução com base na qual o parecer
      * é realizado.
      */
-    private Resolucao resolucao;
+    private String resolucao;
 
     /**
      * Lista de relatórios com base nos quais
      * o parecer é realizado. Em muitos casos
      * um único relatório é utilizado.
      */
-    private List<Radoc> radocs;
+    private List<String> radocs;
 
     /**
      * As pontuações obtidas pelo parecer.
@@ -60,9 +60,23 @@ public class Parecer {
      * alterações possuem prioridade sobre os
      * valores "originais".
      */
-    private List<Nota> alteracoes;
+    private List<Nota> notas;
 
     public Parecer() {
         this.id = UUID.randomUUID().toString();
+    }
+
+    public Parecer(String id,
+                   String resolucaoId,
+                   List<String> radocsIds,
+                   List<Pontuacao> pontuacoes,
+                   String fundamentacao,
+                   List<Nota> notas) {
+        this.id = id;
+        this.resolucao = resolucaoId;
+        this.radocs = radocsIds;
+        this.pontuacoes = pontuacoes;
+        this.fundamentacao = fundamentacao;
+        this.notas = notas;
     }
 }
