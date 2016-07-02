@@ -66,16 +66,16 @@ public class AvaliaExpressaoTest {
 
         // Conjunto de relatos sobre a qual a média é realizada
         // Recuperar conjunto de relatos pertinentes (digamos 3)
-        Map<String, Double> relato1 = new HashMap<String, Double>(1);
+        Map<String, Double> relato1 = new HashMap<>(1);
         relato1.put("x", 1.0);
 
-        Map<String, Double> relato2 = new HashMap<String, Double>(1);
+        Map<String, Double> relato2 = new HashMap<>(1);
         relato2.put("x", 2.0);
 
-        Map<String, Double> relato3 = new HashMap<String, Double>(1);
+        Map<String, Double> relato3 = new HashMap<>(1);
         relato3.put("x", 3.0);
 
-        List<Map<String, Double>> relatos = new ArrayList<Map<String, Double>>(3);
+        List<Map<String, Double>> relatos = new ArrayList<>(3);
         relatos.add(relato1);
         relatos.add(relato2);
         relatos.add(relato3);

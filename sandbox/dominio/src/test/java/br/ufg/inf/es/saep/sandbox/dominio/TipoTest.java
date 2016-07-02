@@ -76,7 +76,7 @@ public class TipoTest {
                 "carga horária da disciplina",
                 Atributo.REAL);
 
-        Set<Atributo> atributos = new HashSet<Atributo>(2);
+        Set<Atributo> atributos = new HashSet<>(2);
         atributos.add(nome);
         atributos.add(cha);
 
@@ -99,7 +99,7 @@ public class TipoTest {
         Tipo presencial = new Tipo("presencial", "presencial", "presencial", atribs);
         Tipo ead = new Tipo("ead", "ead", "ead", atribs);
 
-        Set<Tipo> tipos = new HashSet<Tipo>();
+        Set<Tipo> tipos = new HashSet<>();
         tipos.add(presencial);
         tipos.add(ead);
 

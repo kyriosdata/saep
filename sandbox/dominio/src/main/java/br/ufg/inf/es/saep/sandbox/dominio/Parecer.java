@@ -79,4 +79,28 @@ public class Parecer {
         this.fundamentacao = fundamentacao;
         this.notas = notas;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getResolucao() {
+        return resolucao;
+    }
+
+    public List<String> getRadocs() {
+        return radocs;
+    }
+
+    public List<Pontuacao> getPontuacoes() {
+        return pontuacoes;
+    }
+
+    public String getFundamentacao() {
+        return fundamentacao;
+    }
+
+    public List<Nota> getNotas() {
+        return notas;
+    }
 }

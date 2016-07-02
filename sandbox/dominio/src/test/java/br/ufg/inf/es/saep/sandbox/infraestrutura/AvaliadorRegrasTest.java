@@ -32,7 +32,10 @@ public class AvaliadorRegrasTest {
     @Test(expected = AvaliacaoRegraException.class)
     public void somatorioSemVariavelGeraExcecao() {
         int tipo = Regra.SOMATORIO;
-        Regra r = new Regra(tipo, "a", null, null, 0, Arrays.asList("a"), 100, 0);
+
+        List<String> dd = new ArrayList<>(1);
+        dd.add("a");
+        Regra r = new Regra(tipo, "a", null, null, 0, dd, 100, 0);
 
         List<Avaliavel> relatos = new ArrayList<>(1);
         relatos.add(new Relato("livro", new HashMap<>(0)));

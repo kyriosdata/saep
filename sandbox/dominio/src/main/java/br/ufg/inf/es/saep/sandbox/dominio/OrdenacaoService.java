@@ -33,14 +33,14 @@ public class OrdenacaoService {
      */
     public static List<Regra> ordena(List<Regra> itens) {
         int size = itens.size();
-        List<Regra> ordenados = new ArrayList<Regra>(size);
+        List<Regra> ordenados = new ArrayList<>(size);
 
         // Um item dá origem a um resultado identificado
         // pelo nome do atributo. Precisamos identificar,
         // no sentido inverso, o item cujo resultado é
         // identificado por um dado nome.
-        Map<String, Regra> itemPorNome = new HashMap<String, Regra>(size);
-        Set<String> inseridos = new HashSet<String>(size);
+        Map<String, Regra> itemPorNome = new HashMap<>(size);
+        Set<String> inseridos = new HashSet<>(size);
 
         for(Regra item : itens) {
             itemPorNome.put(item.getVariavel(), item);

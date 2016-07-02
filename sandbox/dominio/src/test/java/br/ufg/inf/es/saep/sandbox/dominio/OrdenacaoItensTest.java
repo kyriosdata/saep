@@ -18,7 +18,7 @@ public class OrdenacaoItensTest {
 
     @Test
     public void umItemOrdenacaoTrivial() {
-        Regra regra = new Regra("10", 0, 0, new ArrayList<String>(0), "d", "um");
+        Regra regra = new Regra("10", 0, 0, new ArrayList<>(0), "d", "um");
 
         // Itens cuja execução deve ser ordenada
         List<Regra> itens = new ArrayList<>(1);
