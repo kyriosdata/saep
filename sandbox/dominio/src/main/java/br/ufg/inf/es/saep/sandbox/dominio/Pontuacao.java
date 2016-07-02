@@ -47,6 +47,16 @@ public class Pontuacao implements Avaliavel {
         this.valor = valor;
     }
 
+    /**
+     * Recupera o valor da pontuação se o identificador fornecido
+     * coincide com aquele da pontuação.
+     *
+     * @param atributo O identificador único do atributo.
+     *
+     * @return O valor da pontuação ou {@code null} caso o
+     * identificador fornecido seja diferente daquele da pontuação.
+     *
+     */
     public Valor get(String atributo) {
 
         if (this.atributo.equals(atributo)) {
