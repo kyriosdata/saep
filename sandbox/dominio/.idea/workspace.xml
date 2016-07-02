@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RelatoTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RadocTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java" />
     </list>
     <ignored path="dominio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,6 +33,9 @@
       <FILTER>br.ufg.inf.es.saep.sandbox.dominio.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/dominio$RelatoTest.coverage" NAME="RelatoTest Coverage Results" MODIFIED="1467423094219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.ufg.inf.es.saep.sandbox.dominio.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/dominio$RadocTest.coverage" NAME="RadocTest Coverage Results" MODIFIED="1467426230487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>br.ufg.inf.es.saep.sandbox.dominio.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/dominio$br_ufg_inf_es_saep_sandbox_dominio_in_dominio.coverage" NAME="br.ufg.inf.es.saep.sandbox.dominio in dominio Coverage Results" MODIFIED="1467420586602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -68,10 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RelatoTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RelatoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RelatoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
+            <state relative-caret-position="2616">
               <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -83,6 +86,38 @@
                 <element signature="e#923#924#0" expanded="true" />
                 <element signature="e#1029#1030#0" expanded="true" />
                 <element signature="e#1070#1071#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RadocTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RadocTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="604">
+              <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#725#726#0" expanded="true" />
+                <element signature="e#778#779#0" expanded="true" />
+                <element signature="e#880#881#0" expanded="true" />
+                <element signature="e#931#932#0" expanded="true" />
+                <element signature="e#1037#1038#0" expanded="true" />
+                <element signature="e#1077#1078#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Radoc.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2090#2091#0" expanded="true" />
+                <element signature="e#2115#2116#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/OrdenacaoItemAvaliado.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/ResolucaoRepository.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/persistencia/resolucao.json" />
@@ -154,13 +188,14 @@
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/TipoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/infraestrutura/AvaliadorRegrasTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Parecer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/PontuacaoTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Pontuacao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Relato.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RelatoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java" />
+        <option value="$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RadocTest.java" />
       </list>
     </option>
   </component>
@@ -570,33 +605,7 @@
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
-  <component name="RunManager" selected="JUnit.RelatoTest">
-    <configuration default="false" name="AtributoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="br.ufg.inf.es.saep.sandbox.dominio.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="dominio" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="br.ufg.inf.es.saep.sandbox.dominio" />
-      <option name="MAIN_CLASS_NAME" value="br.ufg.inf.es.saep.sandbox.dominio.AtributoTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.RadocTest">
     <configuration default="false" name="br.ufg.inf.es.saep.sandbox.dominio in dominio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -687,6 +696,32 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="br.ufg.inf.es.saep.sandbox.dominio" />
       <option name="MAIN_CLASS_NAME" value="br.ufg.inf.es.saep.sandbox.dominio.RelatoTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="RadocTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="br.ufg.inf.es.saep.sandbox.dominio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="dominio" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="br.ufg.inf.es.saep.sandbox.dominio" />
+      <option name="MAIN_CLASS_NAME" value="br.ufg.inf.es.saep.sandbox.dominio.RadocTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -1119,19 +1154,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.AtributoTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.br.ufg.inf.es.saep.sandbox.dominio in dominio" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.NotaTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.PontuacaoTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.RelatoTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.br.ufg.inf.es.saep.sandbox.dominio in dominio" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.NotaTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.PontuacaoTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.RelatoTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.RadocTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.RelatoTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.br.ufg.inf.es.saep.sandbox.dominio in dominio" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.PontuacaoTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.NotaTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AtributoTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.RadocTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.RelatoTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.br.ufg.inf.es.saep.sandbox.dominio in dominio" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.PontuacaoTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.NotaTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1164,7 +1199,7 @@
       <workItem from="1467294443667" duration="2946000" />
       <workItem from="1467299153658" duration="3115000" />
       <workItem from="1467305708678" duration="3747000" />
-      <workItem from="1467320844128" duration="14421000" />
+      <workItem from="1467320844128" duration="16417000" />
     </task>
     <task id="LOCAL-00001" summary="Versão inicial do modelo de domínio.">
       <created>1464038793927</created>
@@ -1376,33 +1411,40 @@
       <option name="project" value="LOCAL" />
       <updated>1467420551335</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="refinamento do modelo">
+      <created>1467423110878</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1467423110878</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 24m 31s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 13m 10s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 25m 24s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 13m 48s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 26m 05s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 14m 59s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 27m 04s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 20m 24s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 28m 05s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 20m 40s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 28m 30s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 20m 59s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 29m 11s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 22m 08s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RelatoTest - 2016.07.01 at 22h 29m 20s.xml">
-      <configuration name="RelatoTest" configurationId="JUnit" />
+    <history-entry file="RadocTest - 2016.07.01 at 23h 23m 52s.xml">
+      <configuration name="RadocTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RelatoTest - 2016.07.01 at 22h 30m 47s.xml">
       <configuration name="RelatoTest" configurationId="JUnit" />
@@ -1412,7 +1454,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70917000" />
+    <option name="totallyTimeSpent" value="72913000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1490,7 +1532,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/peersistencia.java" />
     <entry file="file://$PROJECT_DIR$/src/test/resources/resolucao.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -1884,21 +1925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1496#1497#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1597#1598#0" expanded="true" />
-            <element signature="e#1627#1628#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -1982,7 +2008,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RelatoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
+        <state relative-caret-position="2616">
           <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1994,6 +2020,34 @@
             <element signature="e#923#924#0" expanded="true" />
             <element signature="e#1029#1030#0" expanded="true" />
             <element signature="e#1070#1071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/RadocTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2090#2091#0" expanded="true" />
+            <element signature="e#2115#2116#0" expanded="true" />
           </folding>
         </state>
       </provider>

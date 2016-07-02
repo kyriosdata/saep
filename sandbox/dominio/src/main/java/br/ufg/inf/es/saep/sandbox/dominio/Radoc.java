@@ -18,6 +18,7 @@ import java.util.List;
  * <p>Convém destacar que um RADOC pode ser referenciado por mais
  * de um parecer.
  *
+ * @see Relato
  * @see Parecer
  *
  */
@@ -26,26 +27,38 @@ public class Radoc {
     /**
      * Identificador único do relatório.
      */
-    private String guid;
+    private String id;
 
     /**
      * Ano base do relatório.
      */
     private int anoBase;
 
+    /**
+     * Relatos associados ao RADOC.
+     * Um RADOC pode possuir zero ou mais
+     * relatos.
+     */
     private List<Relato> relatos;
 
     /**
      * Cria um relatório byId relatos.
      *
+     * @param id
+     * @param anoBase
      * @param relatos Conjunto byId relatos que fazem parte
-     *                do relatório.
      */
-    public Radoc(List<Relato> relatos) {
-        if (relatos == null) {
-            throw new IllegalArgumentException("relatos");
+    public Radoc(String id, int anoBase, List<Relato> relatos) {
+        if (id == null || id.isEmpty()) {
+            throw new CampoExigidoNaoFornecidoException("id");
         }
 
+        if (relatos == null) {
+            throw new CampoExigidoNaoFornecidoException("relatos");
+        }
+
+        this.id = id;
+        this.anoBase = anoBase;
         this.relatos = relatos;
     }
 
@@ -54,21 +67,44 @@ public class Radoc {
      * de um dado tipo.
      *
      * @param tipo O tipo de relato.
-     * @return Conjunto de relatos do tipo.
+     * @return Conjunto de relatos do tipo indicado.
      */
     public List<Relato> relatosPorTipo(String tipo) {
-        // TODO não implementado
-        return new ArrayList<>(0);
+
+        List<Relato> procurados = new ArrayList<>();
+
+        for(Relato relato : relatos) {
+            if (relato.getTipo().equals(tipo)) {
+                procurados.add(relato);
+            }
+        }
+
+        return procurados;
     }
 
-    public String getGuid() {
-        return guid;
+    /**
+     * Recupera o identificador único do RADOC.
+     *
+     * @return O identificador único do RADOC.
+     */
+    public String getId() {
+        return id;
     }
 
+    /**
+     * Recupera o ano base do RADOC.
+     *
+     * @return O ano base do RADOC.
+     */
     public int getAnoBase() {
         return anoBase;
     }
 
+    /**
+     * Recupera os relatos que fazem parte do RADOC.
+     *
+     * @return O conjunto de relatos do RADOC.
+     */
     public List<Relato> getRelatos() {
         return relatos;
     }
