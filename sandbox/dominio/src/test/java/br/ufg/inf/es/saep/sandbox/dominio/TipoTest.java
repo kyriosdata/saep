@@ -33,6 +33,14 @@ public class TipoTest {
         new Tipo("c", "n", "d", atrs);
     }
 
+    @Test(expected = CampoExigidoNaoFornecido.class)
+    public void nomeDoTipoNaoPodeSerNull() {
+        Atributo atributo = new Atributo("a", "d", 1);
+        Set<Atributo> atrs = new HashSet<>(0);
+        atrs.add(atributo);
+        new Tipo("c", null, "d", atrs);
+    }
+
     @Test
     public void testesParaCasosDeIgualdade() {
         Set<Atributo> atrs = new HashSet<>(1);

@@ -267,31 +267,51 @@ public class Regra {
     }
 
     /**
-     * Cria regra a partir da expressão e dos valores byId limite
-     * admitidos.
+     * Cria uma regra.
      *
-     * @param expressao   A expressão que define o valor da regra.
-     * @param valorMaximo O valor máximo admitido pela avaliação da regra.
-     * @param valorMinimo O valor mínimo admitido pela avaliação da regra.
-     * @param dependeDe   Lista de atributos dos quais a regra depende. Ou seja,
-     *                    antes da avaliação da regra, os itens correspondentes
-     *                    a essa lista devem estar disponíveis (previamente
-     *                    avaliados).
+     * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
+     * definição de uma regra não seja fornecido.
+     *
+     * @param tipo O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
+     *             {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
+     *             {@link #SOMATORIO}.
+     *
+     * @param descricao Texto que fornece alguma explanação sobre a regra.
+     *
+     * @param valorMaximo O valor máximo a ser utilizado como resultado da
+     *                    avaliação da regra. Esse valor é empregado apenas
+     *                    se a avaliação resultar em valor superior ao
+     *                    expresso por esse parâmetro.
+     *
+     * @param valorMinimo O valor mínimo a ser utilizado como resultado da
+     *                    avaliação da regra. Esse valor é empregado apenas
+     *                    se a avaliação resultar em valor inferior ao
+     *                    expresso por esse parâmetro.
+     *
+     * @param variavel O identificador (nome) da variável que retém o
+     *                 valor da avaliação da regra.
+     *
+     * @param expressao A expressão empregada para avaliar a regra,
+     *                  conforme o tipo.
+     *
+     * @param entao A expressão que dará origem ao valor da regra caso
+     *              a condição correspondente seja avaliada como verdadeira.
+     *
+     * @param senao A expressão que dará origem ao valor da regra caso a
+     *              condição correspondente seja avaliada como falsa.
+     *
+     * @param tipoRelato Nome que identifica um relato, empregado em regras
+     *                   cuja avaliação é pontos por relato.
+     *
+     * @param pontosPorItem Total de pontos para cada relato de um dado
+     *                      tipo.
+     *
+     * @param dependeDe Lista de identificadores (atributos) que são
+     *                  empregados na avaliação da regra. Por exemplo,
+     *                  se uma regra é definida pela expressão "a + b",
+     *                  então essa regra dependente de "a" e de "b".
+     *
      */
-    public Regra(String expressao,
-                 float valorMaximo,
-                 float valorMinimo,
-                 List<String> dependeDe,
-                 String descricao,
-                 String variavel) {
-        this.expressao = expressao;
-        this.valorMaximo = valorMaximo;
-        this.valorMinimo = valorMinimo;
-        this.dependeDe = dependeDe;
-        this.descricao = descricao;
-        this.variavel = variavel;
-    }
-
     public Regra(int tipo,
                  String descricao,
                  float valorMaximo,
@@ -305,7 +325,7 @@ public class Regra {
                  List<String> dependeDe) {
 
         if (tipo < 0 || tipo > 4) {
-            throw new CampoExigidoNaoFornecido("tipo");
+            throw new TipoDeRegraInvalido("tipo");
         }
 
         if (descricao == null || descricao.isEmpty()) {
@@ -336,6 +356,10 @@ public class Regra {
         } else {
             if (expressao == null || expressao.isEmpty()) {
                 throw new CampoExigidoNaoFornecido("expressao");
+            }
+
+            if (dependeDe == null) {
+                throw new CampoExigidoNaoFornecido("dependeDe");
             }
 
             this.expressao = expressao;
