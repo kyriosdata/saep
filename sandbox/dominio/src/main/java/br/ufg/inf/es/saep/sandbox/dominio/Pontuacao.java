@@ -6,8 +6,12 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Identifica valor (pontuação) associado a uma
+ * Mantém valor (pontuação) associado a uma
  * variável.
+ *
+ * <p>Regras estabelecem a forma como valores
+ * são obtidos, enquanto as pontuações retém
+ * tais valores.
  *
  */
 public class Pontuacao implements Avaliavel {
@@ -38,10 +42,21 @@ public class Pontuacao implements Avaliavel {
         return new Valor(-1);
     }
 
+    /**
+     * Recupera o identificador da variável (atributo)
+     * da pontuação.
+     *
+     * @return O identificador da pontuação.
+     */
     public String getAtributo() {
         return atributo;
     }
 
+    /**
+     * Recupera o valor da pontuação.
+     *
+     * @return O valor da pontuação.
+     */
     public Valor getValor() {
         return valor;
     }
