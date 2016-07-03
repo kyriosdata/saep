@@ -59,8 +59,8 @@ public class OrdenacaoService {
 
     private static void insereRegra(Regra regra,
                                     Map<String, Regra> regraPorVariavel,
-                                    List<Regra> ordenados,
-                                    Set<String> inseridos) {
+                                    List<Regra> ordenadas,
+                                    Set<String> inseridas) {
 
         // Observe que antes de inserir o "item", os
         // itens dos quais esse depende são inseridos
@@ -71,7 +71,7 @@ public class OrdenacaoService {
 
             // Se esse atributo já está ordenado,
             // não há o que fazer, vá para o próximo.
-            if (inseridos.contains(variavel)) {
+            if (inseridas.contains(variavel)) {
                 continue;
             }
 
@@ -79,14 +79,15 @@ public class OrdenacaoService {
             // de uma regra. O nome da variável pode ser o identificador
             // de um atributo de um relato.
             if (regraPorVariavel.containsKey(variavel)) {
-                insereRegra(regraPorVariavel.get(variavel), regraPorVariavel, ordenados, inseridos);
+                Regra regraDaVariavel = regraPorVariavel.get(variavel);
+                insereRegra(regraDaVariavel, regraPorVariavel, ordenadas, inseridas);
             }
         }
 
         // Insere regra após aquelas das quais depende
-        ordenados.add(regra);
+        ordenadas.add(regra);
 
         // Acrescenta variável àquelas já ordenadas
-        inseridos.add(regra.getVariavel());
+        inseridas.add(regra.getVariavel());
     }
 }
