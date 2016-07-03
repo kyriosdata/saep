@@ -75,10 +75,9 @@ public class OrdenacaoService {
                 continue;
             }
 
-            // Nome não necessariamente identifica um "resultado"
-            // de um item. Nesse caso, é uma propriedade de um relato,
-            // ou seja, valor fornecido (não obtido por execução de
-            // regra).
+            // Uma variável não necessariamente identifica um "resultado"
+            // de uma regra. O nome da variável pode ser o identificador
+            // de um atributo de um relato.
             if (regraPorVariavel.containsKey(variavel)) {
                 insereRegra(regraPorVariavel.get(variavel), regraPorVariavel, ordenados, inseridos);
             }
