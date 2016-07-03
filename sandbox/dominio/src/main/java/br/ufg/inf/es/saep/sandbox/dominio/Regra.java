@@ -11,12 +11,12 @@ import java.util.List;
  * Uma regra define como avaliar um conjunto
  * de objetos avaliáveis. Um objeto é avaliável
  * se implementam a interface {@link Avaliavel}).
- * <p>
+ *
  * <p>Em um caso comum, uma regra é estabelecida para
  * identificar quantos pontos são obtidos por relatos
  * de um dado tipoRegra, por exemplo, quantos pontos por
  * livro publicado com corpo editorial.
- * <p>
+ *
  * <p>Uma regra pode ser empregada para obter a média
  * de pontos obtidos com o ensino em determinado período.
  * Nesse caso, não se trata de uma simples contagem ou

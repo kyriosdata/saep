@@ -24,14 +24,17 @@ public class AvaliadorService {
     /**
      * Realiza avaliação dos itens fornecidos.
      *
-     * @param itens Sequência de itens a serem avaliados.
+     * @param regras Sequência de regras a serem avaliadas.
+     *
+     * @param relatos Conjunto de relatos sobre os quais a avaliação
+     *                das regras será executada.
      *
      * @return Resultados produzidos pela avaliação.
      */
-    public Map<String, Valor> avalia(List<Regra> itens, List<Relato> relatos) {
+    public Map<String, Valor> avalia(List<Regra> regras, List<Relato> relatos) {
 
         // Obtém itens na ordem em que devem ser avaliados.
-        List<Regra> ordenados = OrdenacaoService.ordena(itens);
+        List<Regra> ordenados = OrdenacaoService.ordena(regras);
 
         // Retém valores produzidos pela avaliação.
         Map<String, Valor> contexto = new HashMap<>();

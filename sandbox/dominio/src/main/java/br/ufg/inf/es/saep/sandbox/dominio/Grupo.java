@@ -10,12 +10,12 @@ import java.util.Set;
 /**
  * Um grupo permite reunir tipos e grupos, formando
  * uma hierarquia.
- * <p>
- * Tipos de relato podem estar classificados em
+ *
+ * <p>Tipos de relato podem estar classificados em
  * um grupo. Por exemplo, "aulas presenciais na graduação"
  * e "aulas do ensino a distância na graduação" são
  * tipos do grupo "graduação".
- * <p>
+ *
  * <p>Adicionalmente, grupos podem ser formados por
  * outros grupos e tipos.
  */

@@ -44,9 +44,9 @@ public class Radoc {
     /**
      * Cria um relatório byId relatos.
      *
-     * @param id
-     * @param anoBase
-     * @param relatos Conjunto byId relatos que fazem parte
+     * @param id O identificador único do RADOC.
+     * @param anoBase O ano base do RADOC.
+     * @param relatos Conjunto de relatos que fazem parte do RADOC.
      */
     public Radoc(String id, int anoBase, List<Relato> relatos) {
         if (id == null || id.isEmpty()) {
