@@ -7,7 +7,7 @@
     <!-- mvn javadoc:aggregate-jar (javadoc em jar) -->
     <!-- mvn source:jar (os fontes em jar)          -->
 
-    <groupId>com.github.kyriosdata.saep</groupId>
+    <groupId>com.github.kyriosdata</groupId>
     <artifactId>saep-dominio</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
@@ -52,6 +52,10 @@
             <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
     </distributionManagement>
 
     <build>
@@ -116,6 +120,8 @@
                 </plugins>
             </build>
         </profile>
+
+        <!-- PROFILE: release -->
         <profile>
             <id>release</id>
             <build>
@@ -174,7 +180,7 @@
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                         <executions>
                             <execution>
