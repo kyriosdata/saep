@@ -8,67 +8,70 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.*;
 
 /**
- * Fornece ordenação dos itens avaliados, ordenação
- * topológica, que assegura que uma regra só será
- * avaliada se os valores dos quais depende já estão
- * disponíveis.
+ * Fornece ordenação das regras a serem avaliadas.
+ * A ordenação assegura que uma regra só será
+ * avaliada após a avaliação das regras que produzem
+ * valores dos quais ela depende. Por exemplo, se uma
+ * regra é definida pela expressão "2 * a", então deve
+ * ser avaliada apenas após a avaliação da regra que
+ * produz o resultado de "a".
  *
- * A sequência retornada pelo método {@link #ordena(List)}
+ * <p>A sequência retornada pelo método {@link #ordena(List)}
  * fornece uma ordem que pode ser empregada para executar
- * os itens avaliados na qual é assegurada que um item é
- * executado apenas se os itens dos quais dependem já
- * foram executados.
+ * as regras.
  *
  */
 public class OrdenacaoService {
 
     /**
-     * Ordena topologicamente um conjunto de itens a serem
-     * ordenados.
+     * Ordena topologicamente um conjunto de regras a
+     * serem avaliadas.
      *
-     * @param itens Itens a serem ordenadas.
+     * @param regras Regras a serem ordenadas.
      *
      * @return Sequência de itens a serem executadas
      * nessa ordem.
      */
-    public static List<Regra> ordena(List<Regra> itens) {
-        int size = itens.size();
+    public static List<Regra> ordena(List<Regra> regras) {
+        int size = regras.size();
         List<Regra> ordenados = new ArrayList<>(size);
 
-        // Um item dá origem a um resultado identificado
-        // pelo nome do atributo. Precisamos identificar,
-        // no sentido inverso, o item cujo resultado é
-        // identificado por um dado nome.
-        Map<String, Regra> itemPorNome = new HashMap<>(size);
-        Set<String> inseridos = new HashSet<>(size);
+        // Uma regra dá origem a um resultado identificado
+        // pelo nome da variável da regra. Precisamos
+        // identificar, no sentido inverso, a regra cuja
+        // variável é identificada por um dado nome.
+        Map<String, Regra> regraPorVariavel = new HashMap<>(size);
 
-        for(Regra item : itens) {
-            itemPorNome.put(item.getVariavel(), item);
+        for(Regra regra : regras) {
+            regraPorVariavel.put(regra.getVariavel(), regra);
         }
 
-        // TODAS OS ITENS SERÃO INSERIDOS
-        for (Regra item : itens) {
-            insereItem(item, itemPorNome, ordenados, inseridos);
+        // Mantém aqueles já ordenados em estrutura que otmiza consulta
+        Set<String> inseridos = new HashSet<>(size);
+
+        // TODAS AS REGRAS SERÃO INSERIDAS
+        for (Regra regra : regras) {
+            insereRegra(regra, regraPorVariavel, ordenados, inseridos);
         }
 
         return ordenados;
     }
 
-    private static void insereItem(Regra item,
-                            Map<String, Regra> itemPorNome,
-                            List<Regra> ordenados,
-                            Set<String> inseridos) {
+    private static void insereRegra(Regra regra,
+                                    Map<String, Regra> regraPorVariavel,
+                                    List<Regra> ordenados,
+                                    Set<String> inseridos) {
 
         // Observe que antes de inserir o "item", os
         // itens dos quais esse depende são inseridos
         // primeiro. Ou seja, se "a depende de b", então
         // "a" será inserido após o "b" ser inserido.
 
-        for(String atributo : item.getDependeDe()) {
+        for(String variavel : regra.getDependeDe()) {
 
-            // Se esse atributo já faz parte da sequência,
-            // então já foi contemplado, passe para o próximo.
-            if (inseridos.contains(atributo)) {
+            // Se esse atributo já está ordenado,
+            // não há o que fazer, vá para o próximo.
+            if (inseridos.contains(variavel)) {
                 continue;
             }
 
@@ -76,15 +79,15 @@ public class OrdenacaoService {
             // de um item. Nesse caso, é uma propriedade de um relato,
             // ou seja, valor fornecido (não obtido por execução de
             // regra).
-            if (itemPorNome.containsKey(atributo)) {
-                insereItem(itemPorNome.get(atributo), itemPorNome, ordenados, inseridos);
+            if (regraPorVariavel.containsKey(variavel)) {
+                insereRegra(regraPorVariavel.get(variavel), regraPorVariavel, ordenados, inseridos);
             }
         }
 
-        // Insere item após componentes
-        ordenados.add(item);
+        // Insere regra após aquelas das quais depende
+        ordenados.add(regra);
 
-        // Acrescenta nome do atributo aos já inseridos
-        inseridos.add(item.getVariavel());
+        // Acrescenta variável àquelas já ordenadas
+        inseridos.add(regra.getVariavel());
     }
 }
