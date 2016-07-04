@@ -13,3 +13,15 @@ Documentos disponíveis:
 * [API](http://docs.saep.apiary.io/) (API preliminar de acesso ao SAEP)
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Faça a atribuição de autoria à "Fábrica de Software - Instituto de Informática (UFG)".
+
+## Como usar?
+
+Basta inserir a dependencia abaixo em seu arquivo pom.xml (maven):
+
+<pre>
+&lt;dependency&gt;
+  &lt;groupId&gt;com.github.kyriosdata.saep&lt;/groupId&gt;
+  &lt;artifactId&gt;saep-dominio&lt;/artifactId&gt;
+  &lt;version&gt;1.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
