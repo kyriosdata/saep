@@ -7,12 +7,12 @@
     <!-- mvn javadoc:aggregate-jar (javadoc em jar) -->
     <!-- mvn source:jar (os fontes em jar)          -->
 
-    <groupId>com.github.kyriosdata</groupId>
+    <groupId>com.github.kyriosdata.saep</groupId>
     <artifactId>saep-dominio</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 
-    <name>com.github.kyriosdata.sape:saep-dominio</name>
+    <name>com.github.kyriosdata.saep:saep-dominio</name>
     <description>Modelo de Domínio do Sistema de Apoio à Elaboração
     de Pareceres (SAEP), composto por um único 'bounded context'.</description>
     <url>https://github.com/kyriosdata/saep</url>

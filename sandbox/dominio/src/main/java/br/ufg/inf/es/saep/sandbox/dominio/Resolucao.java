@@ -80,12 +80,12 @@ public class Resolucao {
      * Cria uma resolução a partir dos argumentos
      * identificados.
      * @param id O nome único da resolução.
+     * @param nome O nome pelo qual seres humanos identificam a resolução.
      * @param descricao A descrição (caput) da resolução.
      * @param dataAprovacao Data byId aprovação da resolução.
      * @param regras Conjunto byId itens que são avaliados pela
-     *
-     * */
-    public Resolucao(String id, String descricao, Date dataAprovacao, List<Regra> regras) {
+     */
+    public Resolucao(String id, String nome, String descricao, Date dataAprovacao, List<Regra> regras) {
         if (id == null || id.isEmpty()) {
             throw new CampoExigidoNaoFornecido("nome");
         }
@@ -102,7 +102,8 @@ public class Resolucao {
             throw new CampoExigidoNaoFornecido("regras");
         }
 
-        this.nome = id;
+        this.id = id;
+        this.nome = nome;
         this.descricao = descricao;
         this.dataAprovacao = dataAprovacao;
         this.regras = regras;
