@@ -36,18 +36,19 @@ public interface ParecerRepository {
      * Remove a nota cujo item Avaliavel original é
      * fornedido.
      *
+     * @param id O identificador único do parecer.
      * @param original Instância de {@link Avaliavel} que participa
      *                 da {@link Nota} a ser removida como origem.
      *
      */
-    void removeNota(Avaliavel original);
+    void removeNota(String id, Avaliavel original);
 
     /**
      * Acrescenta o parecer ao repositório.
      *
-     * @throws IdentificadorDesconhecido Caso um
-     * identificador único não seja fornecido ou já exista entidade
-     * persistida com esse identificador.
+     * @throws IdentificadorExistente Caso o
+     * identificador seja empregado por parecer
+     * existente (já persistido).
      *
      * @param parecer O parecer a ser persistido.
      *
@@ -82,6 +83,10 @@ public interface ParecerRepository {
     /**
      * Remove o parecer.
      *
+     * <p>Se o identificador fornecido é inválido
+     * ou não correspondente a um parecer existente,
+     * nenhuma situação excepcional é gerada.
+     *
      * @param id O identificador único do parecer.
      */
     void removeParecer(String id);
@@ -107,16 +112,13 @@ public interface ParecerRepository {
      * longo do tempo. Convém ressaltar que informações
      * desses relatórios podem ser alteradas continuamente.
      *
-     * @throws IdentificadorDesconhecido Caso o identificador
-     * único do objeto a se persistido não esteja definido ou
-     * já exista entidade com esse identificador.
+     * @throws IdentificadorExistente Caso o identificador
+     * do objeto a ser persistido seja empregado por
+     * RADOC existente.
      *
      * @param radoc O conjunto de relatos a ser persistido.
      *
-     * @return O identificador único do RADOC ou o valor
-     * {@code null}, caso a persistência não seja realizada
-     * de forma satisfatória, por exemplo, o identificador
-     * já existe.
+     * @return O identificador único do RADOC.
      */
     String persisteRadoc(Radoc radoc);
 
