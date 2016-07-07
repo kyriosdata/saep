@@ -6,14 +6,14 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Indica que o identificador já existe,
- * situação não esperada.
+ * Indica que o identificador já foi empregado por outro
+ * objeto, ou seja, situação não esperada.
  */
 public class IdentificadorExistente extends RuntimeException {
 
     /**
-     * Indica o nome do identificador duplicado ou já
-     * existente (situação não esperada).
+     * Indica o nome do identificador cuja tentativa de
+     * reutilização gera a exceção.
      *
      * @param campo Nome do campo cujo valor não está
      *              disponível ou é incorreto.
