@@ -25,15 +25,15 @@ public interface ParecerRepository {
      * @throws IdentificadorDesconhecido Caso o identificador
      * fornecido não identifique um parecer existente.
      *
-     * @param parecer O identificador único do parecer.
+     * @param id O identificador único do parecer.
      *
      * @param nota A alteração a ser acrescentada ao
      * pareder.
      */
-    void adicionaNota(String parecer, Nota nota);
+    void adicionaNota(String id, Nota nota);
 
     /**
-     * Remove a nota cujo item Avaliavel original é
+     * Remove a nota cujo item {@link Avaliavel} original é
      * fornedido.
      *
      * @param id O identificador único do parecer.
@@ -61,6 +61,11 @@ public interface ParecerRepository {
      * <p>Fundamentação é o texto propriamente dito do
      * parecer. Não confunda com as alterações de
      * valores (dados de relatos ou de pontuações).
+     *
+     * <p>Após a chamada a esse método, o parecer alterado
+     * pode ser recuperado pelo método {@link #byId(String)}.
+     * Observe que uma instância disponível antes dessa chamada
+     * torna-se "inválida".
      *
      * @throws IdentificadorDesconhecido Caso o identificador
      * fornecido não identifique um parecer.

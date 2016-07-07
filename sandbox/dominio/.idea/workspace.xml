@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorDesconhecido.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorDesconhecido.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorExistente.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorExistente.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
     </list>
     <ignored path="dominio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,16 +59,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ResolucaoRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -83,11 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParecerRepository.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ParecerRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2664">
-              <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
+            <state relative-caret-position="-216">
+              <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Avaliador.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/infraestrutura/Avaliador.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -235,10 +233,10 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/CampoExigidoNaoFornecido.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorDuplicado.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Regra.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorDesconhecido.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorExistente.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
       </list>
     </option>
   </component>
@@ -402,6 +400,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infraestrutura" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1011,14 +1013,7 @@
       <workItem from="1467662476979" duration="835000" />
       <workItem from="1467751975943" duration="1797000" />
       <workItem from="1467755831047" duration="2532000" />
-      <workItem from="1467861086474" duration="764000" />
-    </task>
-    <task id="LOCAL-00006" summary="implementa interface (apenas provisoriamente)">
-      <created>1464644352209</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1464644352209</updated>
+      <workItem from="1467861086474" duration="1059000" />
     </task>
     <task id="LOCAL-00007" summary="bounded context atualizado">
       <created>1467036722287</created>
@@ -1356,7 +1351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467861383223</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="pequenos ajustes na documentacao">
+      <created>1467861968262</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1467861968262</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1392,7 +1394,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102452000" />
+    <option name="totallyTimeSpent" value="102747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1409,6 +1411,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1428,7 +1431,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3992205" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39920557" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32571995" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25612354" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1464,7 +1466,8 @@
     <MESSAGE value="maven (ajustes)" />
     <MESSAGE value="refinamento do domínio" />
     <MESSAGE value="pontosPorItem iniciado com int em vez de float" />
-    <option name="LAST_COMMIT_MESSAGE" value="pontosPorItem iniciado com int em vez de float" />
+    <MESSAGE value="pequenos ajustes na documentacao" />
+    <option name="LAST_COMMIT_MESSAGE" value="pequenos ajustes na documentacao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1741,13 +1744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/infraestrutura/Avaliador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1927,8 +1923,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2664">
-          <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
+        <state relative-caret-position="-216">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/infraestrutura/Avaliador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
