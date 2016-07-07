@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5a87c73-2761-4a77-8f38-52aa9858e9cf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="dominio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,14 +59,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ResolucaoRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1704">
-              <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#3912#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="410">
+              <caret line="169" column="40" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Avaliador.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Avaliador.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/infraestrutura/Avaliador.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
@@ -228,7 +226,6 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/AvaliadorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Grupo.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Radoc.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/Resolucao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/CampoExigidoNaoFornecido.java" />
@@ -237,6 +234,7 @@
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorDesconhecido.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/IdentificadorExistente.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ParecerRepository.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -1013,14 +1011,7 @@
       <workItem from="1467662476979" duration="835000" />
       <workItem from="1467751975943" duration="1797000" />
       <workItem from="1467755831047" duration="2532000" />
-      <workItem from="1467861086474" duration="1059000" />
-    </task>
-    <task id="LOCAL-00007" summary="bounded context atualizado">
-      <created>1467036722287</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1467036722287</updated>
+      <workItem from="1467861086474" duration="1613000" />
     </task>
     <task id="LOCAL-00008" summary="refinamento do modelo">
       <created>1467306520060</created>
@@ -1358,7 +1349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467861968262</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="documentacao">
+      <created>1467862262275</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1467862262276</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1394,7 +1392,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102747000" />
+    <option name="totallyTimeSpent" value="103301000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1467,7 +1465,8 @@
     <MESSAGE value="refinamento do domínio" />
     <MESSAGE value="pontosPorItem iniciado com int em vez de float" />
     <MESSAGE value="pequenos ajustes na documentacao" />
-    <option name="LAST_COMMIT_MESSAGE" value="pequenos ajustes na documentacao" />
+    <MESSAGE value="documentacao" />
+    <option name="LAST_COMMIT_MESSAGE" value="documentacao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1844,14 +1843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/ufg/inf/es/saep/sandbox/dominio/ResolucaoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1704">
@@ -1933,6 +1924,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="169" column="40" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
           <folding />
         </state>
       </provider>
