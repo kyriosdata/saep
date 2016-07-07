@@ -11,12 +11,12 @@ import java.util.List;
  * Uma regra define como avaliar um conjunto
  * de objetos avaliáveis. Um objeto é avaliável
  * se implementam a interface {@link Avaliavel}).
- *
+ * <p>
  * <p>Em um caso comum, uma regra é estabelecida para
  * identificar quantos pontos são obtidos por relatos
  * de um dado tipoRegra, por exemplo, quantos pontos por
  * livro publicado com corpo editorial.
- *
+ * <p>
  * <p>Uma regra pode ser empregada para obter a média
  * de pontos obtidos com o ensino em determinado período.
  * Nesse caso, não se trata de uma simples contagem ou
@@ -97,7 +97,7 @@ public class Regra {
     /**
      * Nome da variável (atributo) que guardará
      * o resultado da avaliação da regra.
-     *
+     * <p>
      * <p>Trata-se de chave natural para uma regra
      * em uma dada resolução.
      */
@@ -230,7 +230,7 @@ public class Regra {
     /**
      * Recupera o identificador da variável
      * que irá reter o resultado da avaliação da regra.
-     *
+     * <p>
      * <p>Esse identificador permite que regras
      * possam ser definidas com base nos resultados de
      * outras regras, e não apenas de atributos de
@@ -238,7 +238,6 @@ public class Regra {
      *
      * @return O identificador que dá nome ao resultado da
      * avaliação da regra.
-     *
      */
     public String getVariavel() {
         return variavel;
@@ -269,48 +268,35 @@ public class Regra {
     /**
      * Cria uma regra.
      *
-     * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
-     * definição de uma regra não seja fornecido.
-     *
-     * @param tipo O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
-     *             {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
-     *             {@link #SOMATORIO}.
-     *
-     * @param descricao Texto que fornece alguma explanação sobre a regra.
-     *
-     * @param valorMaximo O valor máximo a ser utilizado como resultado da
-     *                    avaliação da regra. Esse valor é empregado apenas
-     *                    se a avaliação resultar em valor superior ao
-     *                    expresso por esse parâmetro.
-     *
-     * @param valorMinimo O valor mínimo a ser utilizado como resultado da
-     *                    avaliação da regra. Esse valor é empregado apenas
-     *                    se a avaliação resultar em valor inferior ao
-     *                    expresso por esse parâmetro.
-     *
-     * @param variavel O identificador (nome) da variável que retém o
-     *                 valor da avaliação da regra.
-     *
-     * @param expressao A expressão empregada para avaliar a regra,
-     *                  conforme o tipo.
-     *
-     * @param entao A expressão que dará origem ao valor da regra caso
-     *              a condição correspondente seja avaliada como verdadeira.
-     *
-     * @param senao A expressão que dará origem ao valor da regra caso a
-     *              condição correspondente seja avaliada como falsa.
-     *
-     * @param tipoRelato Nome que identifica um relato, empregado em regras
-     *                   cuja avaliação é pontos por relato.
-     *
+     * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
+     *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
+     *                      {@link #SOMATORIO}.
+     * @param descricao     Texto que fornece alguma explanação sobre a regra.
+     * @param valorMaximo   O valor máximo a ser utilizado como resultado da
+     *                      avaliação da regra. Esse valor é empregado apenas
+     *                      se a avaliação resultar em valor superior ao
+     *                      expresso por esse parâmetro.
+     * @param valorMinimo   O valor mínimo a ser utilizado como resultado da
+     *                      avaliação da regra. Esse valor é empregado apenas
+     *                      se a avaliação resultar em valor inferior ao
+     *                      expresso por esse parâmetro.
+     * @param variavel      O identificador (nome) da variável que retém o
+     *                      valor da avaliação da regra.
+     * @param expressao     A expressão empregada para avaliar a regra,
+     *                      conforme o tipo.
+     * @param entao         A expressão que dará origem ao valor da regra caso
+     *                      a condição correspondente seja avaliada como verdadeira.
+     * @param senao         A expressão que dará origem ao valor da regra caso a
+     *                      condição correspondente seja avaliada como falsa.
+     * @param tipoRelato    Nome que identifica um relato, empregado em regras
+     *                      cuja avaliação é pontos por relato.
      * @param pontosPorItem Total de pontos para cada relato de um dado
      *                      tipo.
-     *
-     * @param dependeDe Lista de identificadores (atributos) que são
-     *                  empregados na avaliação da regra. Por exemplo,
-     *                  se uma regra é definida pela expressão "a + b",
-     *                  então essa regra dependente de "a" e de "b".
-     *
+     * @param dependeDe     Lista de identificadores (atributos) que são
+     *                      empregados na avaliação da regra. Por exemplo,
+     *                      se uma regra é definida pela expressão "a + b",
+     * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
+     *                                  definição de uma regra não seja fornecido.
      */
     public Regra(int tipo,
                  String descricao,
@@ -321,7 +307,7 @@ public class Regra {
                  String entao,
                  String senao,
                  String tipoRelato,
-                 int pontosPorItem,
+                 float pontosPorItem,
                  List<String> dependeDe) {
 
         if (tipo < 0 || tipo > 4) {
