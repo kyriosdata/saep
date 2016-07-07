@@ -72,7 +72,7 @@ public interface ResolucaoRepository {
      *
      * @see #persiste(Resolucao)
      *
-     * @param identificador O identificador (uso externo) da
+     * @param identificador O identificador único da
      *                      resolução a ser removida.
      *
      * @return O valor {@code true} se a operação foi

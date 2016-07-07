@@ -2,7 +2,7 @@
 Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar a edição de pareceres de processos de progressão, promoção e avaliação de estágio probatório da Universidade Federal de Goiás (UFG). O SAEP é desenvolvido no contexto da Fábrica de Software do Instituto de Informática (UFG). 
 
 [<img src="https://api.travis-ci.org/kyriosdata/saep.svg?branch=master">](https://travis-ci.org/kyriosdata/saep)
-[![Dependency Status](https://www.versioneye.com/user/projects/576c3729cd6d51003e92099e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576c3729cd6d51003e92099e)
+[![Dependency Status](https://www.versioneye.com/user/projects/576c3769cd6d510048bab371/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576c3769cd6d510048bab371)
 [![Coverage Status](https://coveralls.io/repos/github/kyriosdata/saep/badge.svg?branch=master&bust=1)](https://coveralls.io/github/kyriosdata/saep?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4acefbc4abe4cd78c6b77b04a57ab22)](https://www.codacy.com/app/fabio_5/saep?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kyriosdata/saep&amp;utm_campaign=Badge_Grade)
 [<img src="https://img.shields.io/badge/saep-preliminar-yellow.svg">](https://github.com/kyriosdata/saep)
@@ -22,6 +22,6 @@ Basta inserir a dependencia abaixo em seu arquivo pom.xml (maven):
 &lt;dependency&gt;
   &lt;groupId&gt;com.github.kyriosdata.saep&lt;/groupId&gt;
   &lt;artifactId&gt;saep-dominio&lt;/artifactId&gt;
-  &lt;version&gt;1.0.1&lt;/version&gt;
+  &lt;version&gt;1.0.3&lt;/version&gt;
 &lt;/dependency&gt;
 </pre>

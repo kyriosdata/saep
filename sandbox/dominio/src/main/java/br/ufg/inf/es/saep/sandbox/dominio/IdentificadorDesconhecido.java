@@ -7,7 +7,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
  * Indica ausência de identificador único em objeto,
- * o que impede a persistência do mesmo.
+ * o que o torna um objeto inconsistente.
  */
 public class IdentificadorDesconhecido extends RuntimeException {
 
