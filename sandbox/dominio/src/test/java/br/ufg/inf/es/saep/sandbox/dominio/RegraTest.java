@@ -101,8 +101,10 @@ public class RegraTest {
 
     @Test
     public void regrasSaoIguaisSeVariaveisIguais() {
-        Regra r1 = new Regra("v", Regra.EXPRESSAO, "d", -1, 4, "a", "b", "c", null, 0, dd);
-        Regra r2 = new Regra("v", Regra.PONTOS, "d", -1, 4, "a", "b", "c", null, 0, dd);
+        Regra r1 = new Regra("variavel (key)", Regra.EXPRESSAO, "d", -1, 4, "a", "b", "c", "r", 0, dd);
+        Regra r2 = new Regra("variavel (key)", Regra.PONTOS, "d", -1, 4, "a", "b", "c", "r", 0, dd);
 
+        assertEquals(r1, r2);
+        assertEquals(r1.hashCode(), r2.hashCode());
     }
 }
