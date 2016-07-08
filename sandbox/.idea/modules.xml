@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dominio/dominio.iml" filepath="$PROJECT_DIR$/dominio/dominio.iml" />
       <module fileurl="file://$PROJECT_DIR$/sandbox.iml" filepath="$PROJECT_DIR$/sandbox.iml" />
     </modules>
   </component>

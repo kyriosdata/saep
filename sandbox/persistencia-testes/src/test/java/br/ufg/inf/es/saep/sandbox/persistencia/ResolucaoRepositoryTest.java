@@ -1,11 +1,15 @@
 package br.ufg.inf.es.saep.sandbox.persistencia;
 
-import br.ufg.inf.es.saep.sandbox.dominio.*;
+import br.ufg.inf.es.saep.sandbox.dominio.Regra;
+import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
+import br.ufg.inf.es.saep.sandbox.dominio.ResolucaoRepository;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -15,7 +19,7 @@ import static org.junit.Assert.assertNull;
  */
 public class ResolucaoRepositoryTest {
 
-    private final String REPOSITORIO = "br.ufg.inf.es.saep.sandbox.persistencia.ResolucaoRepositoryRam";
+    private static final String REPOSITORIO = "br.ufg.inf.es.saep.sandbox.persistencia.ResolucaoRepositoryRam";
     private ResolucaoRepository repo;
 
     @Before
@@ -35,7 +39,7 @@ public class ResolucaoRepositoryTest {
         Regra regra = new Regra(Regra.PONTOS, "pontos", 10, 0, "p", null, null, null, "t", 1, dd);
         List<Regra> regras = new ArrayList<>();
         regras.add(regra);
-        Resolucao r = new Resolucao("r", "resolução r", new Date(), regras);
+        Resolucao r = new Resolucao("r", "nome", "resolução r", new Date(), regras);
 
         assertEquals("r", repo.persiste(r));
 
