@@ -44,9 +44,10 @@ public class Avaliador implements AvaliaRegraService {
                 parcial = ajustaLimites(regra, parcial);
 
                 return new Valor(parcial);
-        }
 
-        return new Valor(-999f);
+            default:
+                throw new TipoDeRegraInvalido("avaliaRegra");
+        }
     }
 
     private float somatorio(Regra regra, List<Avaliavel> relatos) {
