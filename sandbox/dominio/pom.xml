@@ -13,9 +13,20 @@
     <version>1.0.3</version>
 
     <name>com.github.kyriosdata.saep:saep-dominio</name>
-    <description>Modelo de Domínio do Sistema de Apoio à Elaboração
-    de Pareceres (SAEP), composto por um único 'bounded context'.</description>
+
+    <description>
+        Modelo de Domínio do Sistema de Apoio à Elaboração
+        de Pareceres (SAEP), composto por um único 'bounded context'.
+    </description>
+
     <url>https://github.com/kyriosdata/saep</url>
+
+    <organization>
+        <name>Instituto de Informática (UFG) - Fábrica de Software</name>
+        <url>http://www.inf.ufg.br</url>
+    </organization>
+
+    <inceptionYear>2016</inceptionYear>
 
     <licenses>
         <license>
@@ -78,6 +89,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -101,12 +113,16 @@
                         <executions>
                             <execution>
                                 <id>default-prepare-agent</id>
-                                <goals><goal>prepare-agent</goal></goals>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
                             </execution>
                             <execution>
                                 <id>default-report</id>
                                 <phase>prepare-package</phase>
-                                <goals><goal>report</goal></goals>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
                             </execution>
                         </executions>
                     </plugin>
