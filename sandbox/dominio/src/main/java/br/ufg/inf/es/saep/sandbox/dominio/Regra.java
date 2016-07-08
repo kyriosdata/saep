@@ -24,6 +24,10 @@ import java.util.List;
  * é aplicada sobre um conjunto de entrada no qual cada
  * elemento possui um atributo devidamente identificado,
  * sobre o qual a média será calculada.
+ *
+ * <p>O resultado da avaliação de uma regra é depositada
+ * em uma variável. Em consequência, para um determinado
+ * conjunto de regras, a variável deve ser única.
  */
 public class Regra {
 
@@ -97,7 +101,7 @@ public class Regra {
     /**
      * Nome da variável (atributo) que guardará
      * o resultado da avaliação da regra.
-     *
+     * <p>
      * <p>Trata-se de chave natural para uma regra
      * em uma dada resolução.
      */
@@ -268,6 +272,10 @@ public class Regra {
     /**
      * Cria uma regra.
      *
+     * @param variavel      O identificador (nome) da variável que retém o
+     *                      valor da avaliação da regra. Em um dado conjunto de
+     *                      regras, existe uma variável distinta para cada uma
+     *                      delas.
      * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
      *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
      *                      {@link #SOMATORIO}.
@@ -280,8 +288,6 @@ public class Regra {
      *                      avaliação da regra. Esse valor é empregado apenas
      *                      se a avaliação resultar em valor inferior ao
      *                      expresso por esse parâmetro.
-     * @param variavel      O identificador (nome) da variável que retém o
-     *                      valor da avaliação da regra.
      * @param expressao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
      * @param entao         A expressão que dará origem ao valor da regra caso
@@ -298,11 +304,11 @@ public class Regra {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public Regra(int tipo,
+    public Regra(String variavel,
+                 int tipo,
                  String descricao,
                  float valorMaximo,
                  float valorMinimo,
-                 String variavel,
                  String expressao,
                  String entao,
                  String senao,
@@ -310,16 +316,16 @@ public class Regra {
                  float pontosPorItem,
                  List<String> dependeDe) {
 
+        if (variavel == null || variavel.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("variavel");
+        }
+
         if (tipo < 0 || tipo > 4) {
             throw new TipoDeRegraInvalido("tipo");
         }
 
         if (descricao == null || descricao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("descricao");
-        }
-
-        if (variavel == null || variavel.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("variavel");
         }
 
         this.tipo = tipo;
@@ -360,5 +366,20 @@ public class Regra {
             this.entao = entao;
             this.senao = senao;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Regra regra = (Regra) o;
+
+        return variavel.equals(regra.variavel);
+    }
+
+    @Override
+    public int hashCode() {
+        return variavel.hashCode();
     }
 }

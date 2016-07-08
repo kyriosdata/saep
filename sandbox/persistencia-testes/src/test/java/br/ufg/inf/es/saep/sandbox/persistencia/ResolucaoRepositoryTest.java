@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
  */
 public class ResolucaoRepositoryTest {
 
-    private final String REPOSITORIO = "br.ufg.inf.es.saep.sandbox.persistencia.ResolucaoRepositoryRam";
+    private static final String REPOSITORIO = "br.ufg.inf.es.saep.sandbox.persistencia.ResolucaoRepositoryRam";
     private ResolucaoRepository repo;
 
     @Before
@@ -35,7 +35,7 @@ public class ResolucaoRepositoryTest {
         Regra regra = new Regra(Regra.PONTOS, "pontos", 10, 0, "p", null, null, null, "t", 1, dd);
         List<Regra> regras = new ArrayList<>();
         regras.add(regra);
-        Resolucao r = new Resolucao("r", "resolução r", new Date(), regras);
+        Resolucao r = new Resolucao("r", "regra r", "resolução r", new Date(), regras);
 
         assertEquals("r", repo.persiste(r));
 

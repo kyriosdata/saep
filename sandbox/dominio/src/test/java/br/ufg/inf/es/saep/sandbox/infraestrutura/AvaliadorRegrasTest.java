@@ -24,7 +24,7 @@ public class AvaliadorRegrasTest {
         int tipo = Regra.EXPRESSAO;
         List<String> deps = new ArrayList<>(1);
         deps.add("a");
-        Regra r = new Regra(tipo, "d", 100, 0, "v", "1 + a", null, null, null, 0,deps);
+        Regra r = new Regra("v", tipo, "d", 100, 0, "1 + a", null, null, null, 0,deps);
 
         avaliador.avaliaRegra(r, new HashMap<>(0), null);
     }
@@ -35,7 +35,7 @@ public class AvaliadorRegrasTest {
 
         List<String> dd = new ArrayList<>(1);
         dd.add("a");
-        Regra r = new Regra(tipo, "d", 100, 0, "v", "a", null, null, null, 0, dd);
+        Regra r = new Regra("v", tipo, "d", 100, 0, "a", null, null, null, 0, dd);
 
         List<Avaliavel> relatos = new ArrayList<>(1);
         Map<String, Valor> relato = new HashMap<>(1);
@@ -53,7 +53,7 @@ public class AvaliadorRegrasTest {
         List<String> deps = new ArrayList<>(2);
         deps.add("a");
         deps.add("b");
-        Regra r = new Regra(tipo, "d", 100, 0, "v", "a * b", null, null, null, 0, deps);
+        Regra r = new Regra("v", tipo, "d", 100, 0, "a * b", null, null, null, 0, deps);
 
         Map<String, Valor> dados1 = new HashMap<>(2);
         dados1.put("a", new Valor(2));
@@ -80,7 +80,7 @@ public class AvaliadorRegrasTest {
         List<String> deps = new ArrayList<>(1);
         deps.add("a");
 
-        Regra r = new Regra(tipo, "d", 100, 0, "v", "a", null, null, null, 0, deps);
+        Regra r = new Regra("v", tipo, "d", 100, 0, "a", null, null, null, 0, deps);
 
         Map<String, Valor> dados1 = new HashMap<>(2);
         dados1.put("a", new Valor(2));
@@ -102,7 +102,7 @@ public class AvaliadorRegrasTest {
     @Test
     public void semRegistroZeroPontos() {
         int tipo = Regra.PONTOS;
-        Regra regra = new Regra(tipo, "d", 100, 0, "v", null, null, null, "r", 13, null);
+        Regra regra = new Regra("v", tipo, "d", 100, 0, null, null, null, "r", 13, null);
 
         List<Avaliavel> relatos = new ArrayList<>(0);
 
@@ -114,7 +114,7 @@ public class AvaliadorRegrasTest {
     public void umRegistroPontuacaoCorrespondente() {
         int tipo = Regra.PONTOS;
         int ppr = 13;
-        Regra regra = new Regra(tipo, "d", 100, 0, "v", null, null, null, "r", ppr, null);
+        Regra regra = new Regra("v", tipo, "d", 100, 0, null, null, null, "r", ppr, null);
 
         List<Avaliavel> relatos = new ArrayList<>(1);
         relatos.add(null);
@@ -126,7 +126,7 @@ public class AvaliadorRegrasTest {
     @Test
     public void expressaoConstante() {
         int tipo = Regra.EXPRESSAO;
-        Regra regra = new Regra(tipo, "d", 100, 0, "v", "97", null, null, "r", 0, new ArrayList<>());
+        Regra regra = new Regra("v", tipo, "d", 100, 0, "97", null, null, "r", 0, new ArrayList<>());
 
         Valor resultado = avaliador.avaliaRegra(regra, null, null);
         assertEquals(97f, resultado.getFloat(), 0.0001);
@@ -138,7 +138,7 @@ public class AvaliadorRegrasTest {
         List<String> dependeDe = new ArrayList<>(1);
         dependeDe.add("quatro");
 
-        Regra regra = new Regra(tipo, "d", 100, 0, "v", "25 * quatro", null, null, null, 0, dependeDe);
+        Regra regra = new Regra("v", tipo, "d", 100, 0, "25 * quatro", null, null, null, 0, dependeDe);
 
         // Apenas a variável "quatro" está definida
         Map<String, Valor> contexto = new HashMap<>(1);
@@ -159,7 +159,7 @@ public class AvaliadorRegrasTest {
         // Um relato de dado tipo, 11 pontos.
         // Máximo corrige para 10.
         int tipo = Regra.PONTOS;
-        Regra r = new Regra(tipo, "d", 10, 0, "v", null, null, null, "r", 11, null);
+        Regra r = new Regra("v", tipo, "d", 10, 0, null, null, null, "r", 11, null);
 
         Valor parcial = avaliador.avaliaRegra(r, null, listaDeRelatos);
         assertEquals(10f, parcial.getFloat(), 0.0001f);
@@ -170,7 +170,7 @@ public class AvaliadorRegrasTest {
         tipo = Regra.EXPRESSAO;
         List<String> dependeDe = new ArrayList<>(1);
         dependeDe.add("dez");
-        r = new Regra(tipo, "d", 250, 0, "v", "23.1 * dez", null, null, null, 0, dependeDe);
+        r = new Regra("v", tipo, "d", 250, 0, "23.1 * dez", null, null, null, 0, dependeDe);
         parcial = avaliador.avaliaRegra(r, ctx, null);
         assertEquals(231f, parcial.getFloat(), 0.0001f);
 
@@ -178,7 +178,7 @@ public class AvaliadorRegrasTest {
 
         tipo = Regra.EXPRESSAO;
         dependeDe.add("v231");
-        r = new Regra(tipo, "d", 250, 0, "v", "v231 - 31 + dez", null, null, null, 0, dependeDe);
+        r = new Regra("v", tipo, "d", 250, 0, "v231 - 31 + dez", null, null, null, 0, dependeDe);
         parcial = avaliador.avaliaRegra(r, ctx, null);
         assertEquals(210f, parcial.getFloat(), 0.0001f);
     }
