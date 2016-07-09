@@ -21,62 +21,62 @@ public class RegraTest {
 
     @Test(expected = TipoDeRegraInvalido.class)
     public void tipoInvalidoGeraExcecao() {
-        new Regra(-1, "d", 0, 0, "v", "1", null, null, "t", 0, dd);
+        new Regra("v", -1, "d", 0, 0, "1", null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void descricaoNullGeraExcecao() {
-        new Regra(1, null, 0, 0, "v", "1", null, null, "t", 0, dd);
+        new Regra("v", 1, null, 0, 0, "1", null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void descricaoVaziaGeraExcecao() {
-        new Regra(1, "", 0, 0, "v", "1", null, null, "t", 0, dd);
+        new Regra("v", 1, "", 0, 0, "1", null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void variavelNullGeraExcecao() {
-        new Regra(1, "d", 0, 0, null, "1", null, null, "t", 0, dd);
+        new Regra(null, 1, "d", 0, 0, "1", null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void variavelVaziaGeraExcecao() {
-        new Regra(1, "d", 0, 0, "", "1", null, null, "t", 0, dd);
+        new Regra("", 1, "d", 0, 0, "1", null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoObrigatorioSeRegraPorPontos() {
-        new Regra(Regra.PONTOS, "d", 0, 0, "v", "1", null, null, null, 0, dd);
+        new Regra("v", Regra.PONTOS, "d", 0, 0, "1", null, null, null, 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoNaoPodeSerVazioSeRegraPorPontos() {
-        new Regra(Regra.PONTOS, "d", 0, 0, "v", "1", null, null, "", 0, dd);
+        new Regra("v", Regra.PONTOS, "d", 0, 0, "1", null, null, "", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void expressaoNullGeraExcecao() {
-        new Regra(1, "d", 0, 0, "v", null, null, null, "t", 0, dd);
+        new Regra("v", 1, "d", 0, 0, null, null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void expressaoVaziaGeraExcecao() {
-        new Regra(1, "d", 0, 0, "v", "", null, null, "t", 0, dd);
+        new Regra("v", 1, "d", 0, 0, "", null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void dependeDeNullGeraExcecao() {
-        new Regra(1, "d", 0, 0, "v", "1", null, null, "t", 0, null);
+        new Regra("v", 1, "d", 0, 0, "1", null, null, "t", 0, null);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void seCondicionalEntaoNullGeraExcecao() {
-        new Regra(Regra.CONDICIONAL, "d", 0, 0, "v", "1", null, null, "t", 0, dd);
+        new Regra("v", Regra.CONDICIONAL, "d", 0, 0, "1", null, null, "t", 0, dd);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void seCondicionalEntaoVazioGeraExcecao() {
-        new Regra(Regra.CONDICIONAL, "d", 0, 0, "v", "1", "", null, "t", 0, dd);
+        new Regra("v", Regra.CONDICIONAL, "d", 0, 0, "1", "", null, "t", 0, dd);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class RegraTest {
         int t = Regra.CONDICIONAL;
         Regra r;
 
-        r = new Regra(t, "d", -1, 4, "v", "a", "b", "c", null, 0, dd);
+        r = new Regra("v", t, "d", -1, 4, "a", "b", "c", null, 0, dd);
 
         assertEquals(t, r.getTipo());
         assertEquals("d", r.getDescricao());
@@ -97,5 +97,14 @@ public class RegraTest {
         assertNull(r.getTipoRelato());
         assertEquals(0, r.getPontosPorItem(), 0.0001d);
         assertEquals("a", dd.get(0));
+    }
+
+    @Test
+    public void regrasSaoIguaisSeVariaveisIguais() {
+        Regra r1 = new Regra("variavel (key)", Regra.EXPRESSAO, "d", -1, 4, "a", "b", "c", "r", 0, dd);
+        Regra r2 = new Regra("variavel (key)", Regra.PONTOS, "d", -1, 4, "a", "b", "c", "r", 0, dd);
+
+        assertEquals(r1, r2);
+        assertEquals(r1.hashCode(), r2.hashCode());
     }
 }

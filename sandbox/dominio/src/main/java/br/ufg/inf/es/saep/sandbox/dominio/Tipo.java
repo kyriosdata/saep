@@ -111,8 +111,8 @@ public class Tipo {
             throw new CampoExigidoNaoFornecido("atributos");
         }
 
-        this.nome = nome;
         this.id = id;
+        this.nome = nome;
         this.descricao = descricao;
         this.atributos = atributos;
     }
