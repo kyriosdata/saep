@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 
 public class RegraTest {
@@ -104,7 +105,9 @@ public class RegraTest {
         Regra r1 = new Regra("variavel (key)", Regra.EXPRESSAO, "d", -1, 4, "a", "b", "c", "r", 0, dd);
         Regra r2 = new Regra("variavel (key)", Regra.PONTOS, "d", -1, 4, "a", "b", "c", "r", 0, dd);
 
+        assertEquals(r1, r1);
         assertEquals(r1, r2);
         assertEquals(r1.hashCode(), r2.hashCode());
+        assertNotEquals(r1, "nao pode ser igual");
     }
 }

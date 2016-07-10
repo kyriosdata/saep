@@ -55,9 +55,9 @@ public class OrdenacaoItensTest {
         Regra regraZ = new Regra("rz", 1, "z", 0, 0, "rx + ry", null, null, null, 0, atributosZ);
 
         List<Regra> itens = new ArrayList<>(1);
+        itens.add(regraZ);
         itens.add(regraX);
         itens.add(regraY);
-        itens.add(regraZ);
 
         OrdenacaoService or = new OrdenacaoService();
         List<Regra> ordenados = or.ordena(itens);

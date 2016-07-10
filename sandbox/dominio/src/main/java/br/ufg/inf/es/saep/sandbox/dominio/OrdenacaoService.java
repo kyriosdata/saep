@@ -51,16 +51,21 @@ public class OrdenacaoService {
 
         // TODAS AS REGRAS SERÃO INSERIDAS
         for (Regra regra : regras) {
-            insereRegra(regra, regraPorVariavel, ordenados, inseridos);
+            insereRegrasAposComponentes(regra, regraPorVariavel, ordenados, inseridos);
         }
 
         return ordenados;
     }
 
-    private static void insereRegra(Regra regra,
-                                    Map<String, Regra> regraPorVariavel,
-                                    List<Regra> ordenadas,
-                                    Set<String> inseridas) {
+    private static void insereRegrasAposComponentes(Regra regra,
+                                                    Map<String, Regra> regraPorVariavel,
+                                                    List<Regra> ordenadas,
+                                                    Set<String> inseridas) {
+
+        // Regra já foi considerada.
+        if (inseridas.contains(regra.getVariavel())) {
+            return;
+        }
 
         // Observe que antes de inserir o "item", os
         // itens dos quais esse depende são inseridos
@@ -77,10 +82,11 @@ public class OrdenacaoService {
 
             // Uma variável não necessariamente identifica um "resultado"
             // de uma regra. O nome da variável pode ser o identificador
-            // de um atributo de um relato.
+            // de um atributo de um relato. O teste abaixo considera
+            // variáveis definidas por regras.
             if (regraPorVariavel.containsKey(variavel)) {
                 Regra regraDaVariavel = regraPorVariavel.get(variavel);
-                insereRegra(regraDaVariavel, regraPorVariavel, ordenadas, inseridas);
+                insereRegrasAposComponentes(regraDaVariavel, regraPorVariavel, ordenadas, inseridas);
             }
         }
 
