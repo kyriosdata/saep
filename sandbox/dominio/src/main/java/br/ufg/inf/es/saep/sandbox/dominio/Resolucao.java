@@ -77,6 +77,25 @@ public class Resolucao {
     }
 
     /**
+     * Recupera a data byId aprovação da resolução.
+     *
+     * @return Data byId aprovação da resolução.
+     */
+    public Date getDataAprovacao() {
+        return dataAprovacao;
+    }
+
+    /**
+     * Recupera o conjunto de regras definido
+     * pela resolução.
+     *
+     * @return Conjunto de regras definido pela resolução.
+     */
+    public List<Regra> getRegras() {
+        return regras;
+    }
+
+    /**
      * Cria uma resolução a partir dos argumentos
      * identificados.
      * @param id O nome único da resolução.
@@ -107,25 +126,6 @@ public class Resolucao {
         this.descricao = descricao;
         this.dataAprovacao = dataAprovacao;
         this.regras = regras;
-    }
-
-    /**
-     * Recupera a data byId aprovação da resolução.
-     *
-     * @return Data byId aprovação da resolução.
-     */
-    public Date getDataAprovacao() {
-        return dataAprovacao;
-    }
-
-    /**
-     * Recupera o conjunto de regras definido
-     * pela resolução.
-     *
-     * @return Conjunto de regras definido pela resolução.
-     */
-    public List<Regra> getRegras() {
-        return regras;
     }
 
     @Override

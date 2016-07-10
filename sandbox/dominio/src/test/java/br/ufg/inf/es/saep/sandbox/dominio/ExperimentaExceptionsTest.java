@@ -23,5 +23,10 @@ public class ExperimentaExceptionsTest {
     public void identificadorDesconhecidoGeraExcecao() {
         throw new IdentificadorDesconhecido("x");
     }
+
+    @Test(expected = ResolucaoUsaTipoException.class)
+    public void removerTipoUsadoGeraExcecao() {
+        throw new ResolucaoUsaTipoException("x");
+    }
 }
 
