@@ -10,7 +10,7 @@
     <groupId>com.github.kyriosdata.saep</groupId>
     <artifactId>saep-dominio</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <name>com.github.kyriosdata.saep:saep-dominio</name>
 
