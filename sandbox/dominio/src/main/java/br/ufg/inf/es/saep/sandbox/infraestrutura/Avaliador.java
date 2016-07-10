@@ -30,6 +30,19 @@ public class Avaliador implements AvaliaRegraService {
 
                 return new Valor(valor);
 
+            case Regra.CONDICIONAL:
+                float condicao = avaliaExpressao(regra, contexto, regra.getExpressao());
+                float entaoOuSenao;
+                if (condicao != 0f) {
+                    entaoOuSenao = avaliaExpressao(regra, contexto, regra.getEntao());
+                } else {
+                    entaoOuSenao = avaliaExpressao(regra, contexto, regra.getSenao());
+                }
+
+                entaoOuSenao = ajustaLimites(regra, entaoOuSenao);
+
+                return new Valor(entaoOuSenao);
+
             case Regra.SOMATORIO:
                 float somatorio = somatorio(regra, relatos);
 

@@ -19,6 +19,16 @@ public class AvaliadorRegrasTest {
         avaliador = new Avaliador();
     }
 
+    @Test(expected = TipoDeRegraInvalido.class)
+    public void tipoDeRegraInvalidoGeraExcecao() {
+        List<String> deps = new ArrayList<>(1);
+        deps.add("a");
+
+        Regra r = new Regra("r", -1, "d", 1, 0, "a", null, null, null, 0, deps);
+
+        avaliador.avaliaRegra(r, new HashMap<>(0), null);
+    }
+
     @Test(expected = AvaliacaoRegraException.class)
     public void avaliaExpressaoSemVariavelDefinidaGeraExcecao() {
         int tipo = Regra.EXPRESSAO;
@@ -181,5 +191,31 @@ public class AvaliadorRegrasTest {
         r = new Regra("v", tipo, "d", 250, 0, "v231 - 31 + dez", null, null, null, 0, dependeDe);
         parcial = avaliador.avaliaRegra(r, ctx, null);
         assertEquals(210f, parcial.getFloat(), 0.0001f);
+    }
+
+    @Test
+    public void expressaoCondicional() {
+        int tipo = Regra.CONDICIONAL;
+
+        List<String> dd = new ArrayList<>(1);
+        dd.add("condicao");
+        dd.add("oito");
+        dd.add("nove");
+
+        Regra regra = new Regra("c", tipo, "d", 10, 0, "condicao", "oito", "nove", null, 0, dd);
+
+        // Primeiro: false (0)
+        Map<String, Valor> contexto = new HashMap<>(1);
+        contexto.put("condicao", new Valor(0));
+        contexto.put("oito", new Valor(8));
+        contexto.put("nove", new Valor(9));
+
+        Valor resultado = avaliador.avaliaRegra(regra, contexto, null);
+        assertEquals(9f, resultado.getFloat(), 0.0001);
+
+        // Segunda: true (1)
+        contexto.put("condicao", new Valor(1));
+        resultado = avaliador.avaliaRegra(regra, contexto, null);
+        assertEquals(8f, resultado.getFloat(), 0.0001);
     }
 }
