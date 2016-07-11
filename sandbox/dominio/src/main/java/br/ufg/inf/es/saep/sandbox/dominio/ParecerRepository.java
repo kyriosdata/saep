@@ -20,7 +20,9 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 public interface ParecerRepository {
 
     /**
-     * Adiciona nota ao parecer.
+     * Adiciona nota ao parecer. Caso a nota a ser acrescentada
+     * se refira a um item {@link Avaliavel} para o qual já
+     * exista uma nota, então a corrente substitui a anterior.
      *
      * @throws IdentificadorDesconhecido Caso o identificador
      * fornecido não identifique um parecer existente.

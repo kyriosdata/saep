@@ -52,6 +52,9 @@ public interface ResolucaoRepository {
      * @throws CampoExigidoNaoFornecido Caso o identificador não
      * seja fornecido.
      *
+     * @throws IdentificadorExistente Caso uma resolução com identificador
+     * igual àquele fornecido já exista.
+     *
      * @param resolucao A resolução a ser persistida.
      *
      * @return O identificador único da resolução, conforme
@@ -91,6 +94,10 @@ public interface ResolucaoRepository {
 
     /**
      * Persiste o tipo fornecido.
+     *
+     * @throws IdentificadorExistente Caso o tipo já
+     * esteja persistido no repositório.
+     *
      * @param tipo O objeto a ser persistido.
      */
     void persisteTipo(Tipo tipo);
