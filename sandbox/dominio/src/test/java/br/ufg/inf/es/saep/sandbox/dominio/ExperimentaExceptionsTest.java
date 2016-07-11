@@ -28,5 +28,10 @@ public class ExperimentaExceptionsTest {
     public void removerTipoUsadoGeraExcecao() {
         throw new ResolucaoUsaTipoException("x");
     }
+
+    @Test(expected = ExisteParecerReferenciandoRadoc.class)
+    public void naoPodeRemoverRadocComParecerQueReferenciaEle() {
+        throw new ExisteParecerReferenciandoRadoc("x");
+    }
 }
 
