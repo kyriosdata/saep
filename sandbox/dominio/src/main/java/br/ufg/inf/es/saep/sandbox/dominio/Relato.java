@@ -59,6 +59,17 @@ public class Relato implements Avaliavel {
     }
 
     /**
+     * Recupera o conjunto de variáveis (identificadores)
+     * dos valores do relato.
+     *
+     * @return Conjunto de identificadores dos valores do
+     * relato.
+     */
+    public Set<String> getVariaveis() {
+        return valores.keySet();
+    }
+
+    /**
      * Recupera o tipo do relato.
      *
      * @return O identificador único do tipo do relato.
