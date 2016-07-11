@@ -101,7 +101,7 @@ public class Regra {
     /**
      * Nome da variável (atributo) que guardará
      * o resultado da avaliação da regra.
-     * <p>
+     *
      * <p>Trata-se de chave natural para uma regra
      * em uma dada resolução.
      */
@@ -234,7 +234,7 @@ public class Regra {
     /**
      * Recupera o identificador da variável
      * que irá reter o resultado da avaliação da regra.
-     * <p>
+     *
      * <p>Esse identificador permite que regras
      * possam ser definidas com base nos resultados de
      * outras regras, e não apenas de atributos de
