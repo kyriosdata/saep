@@ -22,6 +22,6 @@ Basta inserir a dependencia abaixo em seu arquivo pom.xml (maven):
 &lt;dependency&gt;
   &lt;groupId&gt;com.github.kyriosdata.saep&lt;/groupId&gt;
   &lt;artifactId&gt;saep-dominio&lt;/artifactId&gt;
-  &lt;version&gt;1.0.4&lt;/version&gt;
+  &lt;version&gt;1.0.5&lt;/version&gt;
 &lt;/dependency&gt;
 </pre>
