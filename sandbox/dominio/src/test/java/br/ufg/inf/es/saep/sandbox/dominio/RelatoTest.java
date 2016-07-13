@@ -109,5 +109,12 @@ public class RelatoTest {
         assertEquals(r1, r2);
         assertEquals(r1.hashCode(), r2.hashCode());
     }
+
+    @Test
+    public void qualquerRelatoPossuiPeloMenosUmaValor() {
+        Relato relatoComUmValorApenas = new Relato("h", valores);
+        assertEquals(1, relatoComUmValorApenas.getVariaveis().size());
+
+    }
 }
 
