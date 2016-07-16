@@ -50,15 +50,6 @@ public class Atributo {
     private String nome;
 
     /**
-     * A identificação do conjunto de valores
-     * associado ao atributo. Por exemplo,
-     * um atributo "inteiro" significa que
-     * apenas valores inteiros podem ser
-     * assumidos pelo atributo em questão.
-     */
-    private int tipo;
-
-    /**
      * Informação adicional que detalha o uso
      * esperado do tipo (informação de ajuda).
      * Por exemplo, para o Atributo "nome", pode
@@ -70,6 +61,26 @@ public class Atributo {
      */
     private String descricao;
 
+    /**
+     * A identificação do conjunto de valores
+     * associado ao atributo. Por exemplo,
+     * um atributo "inteiro" significa que
+     * apenas valores inteiros podem ser
+     * assumidos pelo atributo em questão.
+     */
+    private int tipo;
+
+    /**
+     * Cria um atributo.
+     *
+     * @param nome O nome do atributo.
+     *
+     * @param descricao A descrição do atributo.
+     *
+     * @param tipo O tipo do atributo. O tipo define o domínio
+     *             de valores que uma instância do atributo
+     *             pode assumir.
+     */
     public Atributo(String nome, String descricao, int tipo) {
         if (nome == null || nome.isEmpty()) {
             throw new CampoExigidoNaoFornecido("nome");
