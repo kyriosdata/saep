@@ -1,8 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.persistencia;
 
-import br.ufg.inf.es.saep.sandbox.dominio.Parecer;
-import br.ufg.inf.es.saep.sandbox.dominio.ParecerRepository;
-import br.ufg.inf.es.saep.sandbox.dominio.Regra;
+import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,6 +49,19 @@ public class ParecerRepositoryTest {
 
     @Test
     public void insereRecuperaParecer() {
-        Parecer p = new Parecer();
+        List<String> radocsIds = new ArrayList<>(1);
+        radocsIds.add("radocId");
+
+        List<Pontuacao> pontuacoes = new ArrayList<>(1);
+        pontuacoes.add(new Pontuacao("x", new Valor(true)));
+
+        List<Nota> notas = new ArrayList<>(0);
+
+        Parecer p = new Parecer("1", "rid", radocsIds, pontuacoes, "f", notas);
+
+        repo.persisteParecer(p);
+
+        Parecer r = repo.byId("1");
+
     }
 }

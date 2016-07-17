@@ -90,6 +90,23 @@ public class Parecer {
                    List<Pontuacao> pontuacoes,
                    String fundamentacao,
                    List<Nota> notas) {
+
+        if (id == null || id.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("id");
+        }
+
+        if (resolucaoId == null || resolucaoId.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("resolucaoId");
+        }
+
+        if (radocsIds == null || radocsIds.size() == 0) {
+            throw new CampoExigidoNaoFornecido("radocsIds");
+        }
+
+        if (pontuacoes == null || pontuacoes.size() == 0) {
+            throw new CampoExigidoNaoFornecido("radocsIds");
+        }
+
         this.id = id;
         this.resolucao = resolucaoId;
         this.radocs = radocsIds;
@@ -132,27 +149,79 @@ public class Parecer {
                 notas);
     }
 
+    /**
+     * Recupera o identificador único do parecer.
+     *
+     * @return O identificador do parecer.
+     */
     public String getId() {
         return id;
     }
 
-    public String getResolucao() {
+    /**
+     * Recupera o identificador da resolução utilizada pelo parecer.
+     *
+     * @return O identificador da resolução utilizada pelo parecer.
+     */
+    public String getResolucaoId() {
         return resolucao;
     }
 
-    public List<String> getRadocs() {
+    /**
+     * Recupera os identificadores dos RADOCs sobre os quais o
+     * parecer é elaborado.
+     *
+     * @return Identificadores de RADOCs.
+     */
+    public List<String> getRadocsIds() {
         return radocs;
     }
 
+    /**
+     * Recupera os resultados, ou pontuações obtidas na
+     * elaboração do parecer.
+     *
+     * @return Pontuações obtidas pelo parecer.
+     */
     public List<Pontuacao> getPontuacoes() {
         return pontuacoes;
     }
 
+    /**
+     * Recupera o texto que fundamenta o parecer.
+     *
+     * @return Texto de fundamentação do parecer.
+     */
     public String getFundamentacao() {
         return fundamentacao;
     }
 
+    /**
+     * Recupera as notas eventualmente registradas pelo parecer.
+     *
+     * @return Notas utilizadas pelo parecer.
+     */
     public List<Nota> getNotas() {
         return notas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Parecer parecer = (Parecer) o;
+
+        return id.equals(parecer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }
