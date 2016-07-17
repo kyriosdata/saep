@@ -1,15 +1,10 @@
 package br.ufg.inf.es.saep.sandbox.persistencia;
 
-import br.ufg.inf.es.saep.sandbox.dominio.Regra;
-import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
-import br.ufg.inf.es.saep.sandbox.dominio.ResolucaoRepository;
+import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -54,7 +49,7 @@ public class ResolucaoRepositoryTest {
     @Test
     public void recuperaResolucaoInserida() {
         List<String> dd = new ArrayList<>();
-        Regra regra = new Regra(Regra.PONTOS, "pontos", 10, 0, "p", null, null, null, "t", 1, dd);
+        Regra regra = new Regra("p", Regra.PONTOS, "pontos", 10, 0, null, null, null, "t", 1, dd);
         List<Regra> regras = new ArrayList<>();
         regras.add(regra);
         Resolucao r = new Resolucao("r", "nome", "resolução r", new Date(), regras);
