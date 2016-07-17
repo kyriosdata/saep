@@ -328,12 +328,6 @@ public class Regra {
             throw new CampoExigidoNaoFornecido("descricao");
         }
 
-        this.tipo = tipo;
-        this.descricao = descricao;
-        this.valorMaximo = valorMaximo;
-        this.valorMinimo = valorMinimo;
-        this.variavel = variavel;
-
         // A avaliação abaixo seria mais simples se herança fosse
         // empregada. Contudo, fica como alternativa caso novos
         // tipos de regras sejam definidos.
@@ -366,6 +360,12 @@ public class Regra {
             this.entao = entao;
             this.senao = senao;
         }
+
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.valorMaximo = valorMaximo;
+        this.valorMinimo = valorMinimo;
+        this.variavel = variavel;
     }
 
     @Override
