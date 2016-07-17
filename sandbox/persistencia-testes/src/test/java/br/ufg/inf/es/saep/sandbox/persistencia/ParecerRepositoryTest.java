@@ -4,9 +4,7 @@ import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -23,6 +21,7 @@ public class ParecerRepositoryTest {
     private List<String> radocsIds;
     private List<Pontuacao> pontuacoes;
     private List<Nota> notas;
+    private Radoc radoc;
 
     /**
      * Assume que a classe definida por {@link #REPOSITORIO} possui um
@@ -44,6 +43,15 @@ public class ParecerRepositoryTest {
         pontuacoes.add(new Pontuacao("x", new Valor(true)));
 
         notas = new ArrayList<>(0);
+
+        // Monta radoc trivial
+        Map<String, Valor> valores = new HashMap<>();
+        valores.put("v", new Valor(123f));
+
+        Relato relato = new Relato("r", valores);
+        List<Relato> relatos = new ArrayList<>();
+        relatos.add(relato);
+        radoc = new Radoc("r", 2016, relatos);
     }
 
     @Test
@@ -64,20 +72,6 @@ public class ParecerRepositoryTest {
     }
 
     @Test
-    public void atualizaFundamentacaoDeParecer() {
-        Parecer p = new Parecer("rid", radocsIds, pontuacoes, "f", notas);
-        repo.persisteParecer(p);
-        String id = p.getId();
-
-        Parecer r = repo.parecerById(id);
-        assertEquals("f", r.getFundamentacao());
-
-        repo.atualizaFundamentacao(id, "nova fundamentação");
-        r = repo.parecerById(id);
-        assertEquals("nova fundamentação", r.getFundamentacao());
-    }
-
-    @Test
     public void removeParecer() {
         Parecer p = new Parecer("rid", radocsIds, pontuacoes, "f", notas);
         repo.persisteParecer(p);
@@ -91,21 +85,15 @@ public class ParecerRepositoryTest {
     }
 
     @Test
-    public void acrescentaNota() {
-        Parecer p = new Parecer("rid", radocsIds, pontuacoes, "f", notas);
-        repo.persisteParecer(p);
-        String id = p.getId();
+    public void insereRecuperaRemoveRadoc() {
 
-        // Verifica ausência de notas
-        assertEquals(0, repo.parecerById(id).getNotas().size());
+        repo.persisteRadoc(radoc);
+        String id = radoc.getId();
 
-        Avaliavel original = new Pontuacao("o", new Valor(false));
-        Avaliavel novo = new Pontuacao("o", new Valor(true));
+        Radoc r = repo.radocById(id);
+        assertEquals(radoc, r);
 
-        repo.adicionaNota(id, new Nota(original, novo, "?"));
-
-        Parecer r = repo.parecerById(id);
-        List<Nota> notas = r.getNotas();
-        assertEquals(1, notas.size());
+        repo.removeRadoc(id);
+        assertNull(repo.radocById(id));
     }
 }
