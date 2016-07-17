@@ -10,11 +10,21 @@ import java.util.UUID;
 
 /**
  * Resultado da avaliação de um processo de progressão,
- * promoção ou estágio probatório.
- * <p>
- * <p>Um parecer envolve pelo menos um RADOC. Convém
- * ressaltar que no caso de estágio probatório, por
+ * promoção ou estágio probatório. Um parecer, portanto,
+ * registra o resultado de uma avaliação.
+ *
+ * <p>Um parecer envolve pelo menos um RADOC avaliado com
+ * base em uma resolução. No caso de estágio probatório, por
  * exemplo, vários RADOCs são empregados.
+ *
+ * <p>Um parecer é obtido da aplicação de regras aos relatos,
+ * o que produz pontuações, que também podem ser empregadas
+ * por regras. A definição de pontuações é automática e baseada
+ * nas regras. A CAD, contudo, no processo de produção de
+ * um parecer, pode "substituir" o valor de uma pontuação por
+ * outro, assim como também pode interferir no resultado
+ * obtido por uma pontuação ao alterar o valor de um
+ * relato.
  *
  * @see Radoc
  */

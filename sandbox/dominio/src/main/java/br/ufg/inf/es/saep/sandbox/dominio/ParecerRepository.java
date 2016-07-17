@@ -53,53 +53,6 @@ public interface ParecerRepository {
     Parecer parecerById(String id);
 
     /**
-     * Altera a fundamentação do parecer.
-     *
-     * <p>Fundamentação é o texto propriamente dito do
-     * parecer. Não confunda com as alterações de
-     * valores (dados de relatos ou de pontuações).
-     *
-     * <p>Após a chamada a esse método, o parecer alterado
-     * pode ser recuperado pelo método {@link #parecerById(String)}.
-     * Observe que uma instância disponível antes dessa chamada
-     * torna-se "inválida".
-     *
-     * @throws IdentificadorDesconhecido Caso o identificador
-     * fornecido não identifique um parecer.
-     *
-     * @param parecer O identificador único do parecer.
-     * @param fundamentacao Novo texto da fundamentação do parecer.
-     */
-    void atualizaFundamentacao(String parecer, String fundamentacao);
-
-
-    /**
-     * Adiciona nota ao parecer. Caso a nota a ser acrescentada
-     * se refira a um item {@link Avaliavel} para o qual já
-     * exista uma nota, então a corrente substitui a anterior.
-     *
-     * @throws IdentificadorDesconhecido Caso o identificador
-     * fornecido não identifique um parecer existente.
-     *
-     * @param id O identificador único do parecer.
-     *
-     * @param nota A alteração a ser acrescentada ao
-     * pareder.
-     */
-    void adicionaNota(String id, Nota nota);
-
-    /**
-     * Remove a nota cujo item {@link Avaliavel} original é
-     * fornedido.
-     *
-     * @param id O identificador único do parecer.
-     * @param original Instância de {@link Avaliavel} que participa
-     *                 da {@link Nota} a ser removida como origem.
-     *
-     */
-    void removeNota(String id, Avaliavel original);
-
-    /**
      * Conjunto de relatos de atividades e produtos
      * associados a um docente.
      *

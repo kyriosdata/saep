@@ -16,8 +16,17 @@ public class ParecerRepositoryRam implements ParecerRepository {
     }
 
     @Override
-    public void adicionaNota(String s, Nota nota) {
+    public void adicionaNota(String id, Nota nota) {
+        Parecer toUpdate = parecerById(id);
 
+        Parecer novo = new Parecer(id,
+                toUpdate.getResolucaoId(),
+                toUpdate.getRadocsIds(),
+                toUpdate.getPontuacoes(),
+                toUpdate.getFundamentacao(),
+                toUpdate.getNotas());
+        pareceres.remove(id);
+        pareceres.put(id, novo);
     }
 
     @Override
@@ -32,18 +41,26 @@ public class ParecerRepositoryRam implements ParecerRepository {
     }
 
     @Override
-    public void atualizaFundamentacao(String s, String s1) {
-
+    public void atualizaFundamentacao(String id, String fundamentacao) {
+        Parecer toUpdate = parecerById(id);
+        Parecer novo = new Parecer(id,
+                toUpdate.getResolucaoId(),
+                toUpdate.getRadocsIds(),
+                toUpdate.getPontuacoes(),
+                fundamentacao,
+                toUpdate.getNotas());
+        pareceres.remove(id);
+        pareceres.put(id, novo);
     }
 
     @Override
-    public Parecer byId(String s) {
+    public Parecer parecerById(String s) {
         return pareceres.get(s);
     }
 
     @Override
     public void removeParecer(String s) {
-
+        pareceres.remove(s);
     }
 
     @Override

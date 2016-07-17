@@ -15,6 +15,10 @@ import java.util.Map;
  */
 public class AvaliadorService {
 
+    private List<Nota> notas;
+
+    private String fundamentacao;
+
     private AvaliaRegraService regraService;
 
     public AvaliadorService(AvaliaRegraService regraService) {
@@ -87,4 +91,74 @@ public class AvaliadorService {
         return relatosPorTipo;
     }
 
+    /**
+     * Adiciona nota ao parecer.
+     *
+     * <p>Caso a nota a ser acrescentada
+     * se refira a um item {@link Avaliavel} para o qual já
+     * exista uma nota, então esse nota existente é
+     * substituída por aquela fornecida. Caso contrário, a
+     * nota é simplesmente acrescentada.
+     *
+     * <p>A adição de uma nota possivelmente altera o
+     * conjunto de pontuações do parecer, dado que o valor de
+     * um relato é substituído por outro, ou até mesmo o valor
+     * de uma pontuação. Esse método não atualiza a pontuação
+     * de um parecer.
+     *
+     * @throws CampoExigidoNaoFornecido Caso a nota
+     * seja {@code null}.
+     *
+     * @param nota A nota a ser acrescentada ao
+     * pareder.
+     */
+    public void adicionaNota(Nota nota) {
+        if (nota == null) {
+            throw new CampoExigidoNaoFornecido("nota");
+        }
+
+        if (notas == null) {
+            notas = new ArrayList<>(1);
+            notas.add(nota);
+            return;
+        }
+
+        for(Nota n : notas) {
+            Avaliavel original = n.getItemOriginal();
+            Avaliavel novo = nota.getItemOriginal();
+            if (original.equals(novo)) {
+                notas.remove(n);
+                notas.add(nota);
+                return;
+            }
+        }
+
+        notas.add(nota);
+    }
+
+    /**
+     * Altera a fundamentação do parecer.
+     *
+     * <p>Fundamentação é o texto propriamente dito do
+     * parecer. Não confunda com as alterações de
+     * valores (dados de relatos ou de pontuações).
+     *
+     * @throws IdentificadorDesconhecido Caso o identificador
+     * fornecido não identifique um parecer.
+     *
+     * @param parecer O identificador único do parecer.
+     * @param fundamentacao Novo texto da fundamentação do parecer.
+     */
+    void atualizaFundamentacao(String parecer, String fundamentacao){}
+
+    /**
+     * Remove a nota cujo item {@link Avaliavel} original é
+     * fornedido.
+     *
+     * @param id O identificador único do parecer.
+     * @param original Instância de {@link Avaliavel} que participa
+     *                 da {@link Nota} a ser removida como origem.
+     *
+     */
+    void removeNota(String id, Avaliavel original) {}
 }
