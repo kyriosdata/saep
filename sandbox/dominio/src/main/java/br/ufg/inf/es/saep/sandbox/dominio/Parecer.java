@@ -65,10 +65,8 @@ public class Parecer {
     /**
      * Cria instância de parecer.
      *
-     * <p>Construtor relevante para o cenário em que
-     * um parecer é recuperado de algum meio de persistência e,
-     * nesse caso, o identificador correspondente também é
-     * conhecido.
+     * <p>Construtor relevante para construção de parecer
+     * a partir de dados em meio persistente.
      *
      * @param id O identificador único do parecer.
      *
