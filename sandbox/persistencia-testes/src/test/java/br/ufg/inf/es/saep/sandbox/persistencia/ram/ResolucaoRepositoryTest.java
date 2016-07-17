@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
  */
 public class ResolucaoRepositoryTest {
 
-    private static final String REPOSITORIO = "ResolucaoRepositoryRam";
+    private static final String REPOSITORIO = "br.ufg.inf.es.saep.sandbox.persistencia.ram.ResolucaoRepositoryRam";
     private ResolucaoRepository repo;
     private List<String> dependencias;
     private Regra regra;

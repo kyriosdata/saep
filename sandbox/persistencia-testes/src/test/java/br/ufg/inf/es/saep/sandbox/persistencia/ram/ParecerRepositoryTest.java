@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
  */
 public class ParecerRepositoryTest {
 
-    private static final String REPOSITORIO = "ParecerRepositoryRam";
+    private static final String REPOSITORIO = "br.ufg.inf.es.saep.sandbox.persistencia.ram.ParecerRepositoryRam";
     private ParecerRepository repo;
 
     private List<String> radocsIds;

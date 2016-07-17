@@ -84,6 +84,12 @@
             <artifactId>saep-dominio</artifactId>
             <version>1.0.5</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>gcloud-java</artifactId>
+            <version>0.2.5</version>
+        </dependency>
     </dependencies>
 
     <profiles>
