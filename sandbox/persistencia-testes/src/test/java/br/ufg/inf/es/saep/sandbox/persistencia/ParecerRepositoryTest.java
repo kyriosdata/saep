@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /**
@@ -62,6 +63,6 @@ public class ParecerRepositoryTest {
         repo.persisteParecer(p);
 
         Parecer r = repo.byId("1");
-
+        assertEquals(p, r);
     }
 }

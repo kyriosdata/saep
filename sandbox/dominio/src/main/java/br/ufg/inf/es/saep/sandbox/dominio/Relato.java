@@ -30,7 +30,7 @@ public class Relato implements Avaliavel {
      * fornecidos.
      *
      * @param tipo    O código do tipo do relato.
-     * @param valores Conjunto byId valores para os tipos
+     * @param valores Conjunto parecerById valores para os tipos
      *                do relato.
      */
     public Relato(String tipo, Map<String, Valor> valores) {

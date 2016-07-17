@@ -20,6 +20,60 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 public interface ParecerRepository {
 
     /**
+     * Acrescenta o parecer ao repositório.
+     *
+     * @throws IdentificadorExistente Caso o
+     * identificador seja empregado por parecer
+     * existente (já persistido).
+     *
+     * @param parecer O parecer a ser persistido.
+     *
+     */
+    void persisteParecer(Parecer parecer);
+
+    /**
+     * Remove o parecer.
+     *
+     * <p>Se o identificador fornecido é inválido
+     * ou não correspondente a um parecer existente,
+     * nenhuma situação excepcional é gerada.
+     *
+     * @param id O identificador único do parecer.
+     */
+    void removeParecer(String id);
+
+    /**
+     * Recupera o parecer pelo identificador.
+     *
+     * @param id O identificador do parecer.
+     *
+     * @return O parecer recuperado ou o valor {@code null},
+     * caso o identificador não defina um parecer.
+     */
+    Parecer parecerById(String id);
+
+    /**
+     * Altera a fundamentação do parecer.
+     *
+     * <p>Fundamentação é o texto propriamente dito do
+     * parecer. Não confunda com as alterações de
+     * valores (dados de relatos ou de pontuações).
+     *
+     * <p>Após a chamada a esse método, o parecer alterado
+     * pode ser recuperado pelo método {@link #parecerById(String)}.
+     * Observe que uma instância disponível antes dessa chamada
+     * torna-se "inválida".
+     *
+     * @throws IdentificadorDesconhecido Caso o identificador
+     * fornecido não identifique um parecer.
+     *
+     * @param parecer O identificador único do parecer.
+     * @param fundamentacao Novo texto da fundamentação do parecer.
+     */
+    void atualizaFundamentacao(String parecer, String fundamentacao);
+
+
+    /**
      * Adiciona nota ao parecer. Caso a nota a ser acrescentada
      * se refira a um item {@link Avaliavel} para o qual já
      * exista uma nota, então a corrente substitui a anterior.
@@ -44,70 +98,6 @@ public interface ParecerRepository {
      *
      */
     void removeNota(String id, Avaliavel original);
-
-    /**
-     * Acrescenta o parecer ao repositório.
-     *
-     * @throws IdentificadorExistente Caso o
-     * identificador seja empregado por parecer
-     * existente (já persistido).
-     *
-     * @param parecer O parecer a ser persistido.
-     *
-     */
-    void persisteParecer(Parecer parecer);
-
-    /**
-     * Altera a fundamentação do parecer.
-     *
-     * <p>Fundamentação é o texto propriamente dito do
-     * parecer. Não confunda com as alterações de
-     * valores (dados de relatos ou de pontuações).
-     *
-     * <p>Após a chamada a esse método, o parecer alterado
-     * pode ser recuperado pelo método {@link #byId(String)}.
-     * Observe que uma instância disponível antes dessa chamada
-     * torna-se "inválida".
-     *
-     * @throws IdentificadorDesconhecido Caso o identificador
-     * fornecido não identifique um parecer.
-     *
-     * @param parecer O identificador único do parecer.
-     * @param fundamentacao Novo texto da fundamentação do parecer.
-     */
-    void atualizaFundamentacao(String parecer, String fundamentacao);
-
-    /**
-     * Recupera o parecer pelo identificador.
-     *
-     * @param id O identificador do parecer.
-     *
-     * @return O parecer recuperado ou o valor {@code null},
-     * caso o identificador não defina um parecer.
-     */
-    Parecer byId(String id);
-
-    /**
-     * Remove o parecer.
-     *
-     * <p>Se o identificador fornecido é inválido
-     * ou não correspondente a um parecer existente,
-     * nenhuma situação excepcional é gerada.
-     *
-     * @param id O identificador único do parecer.
-     */
-    void removeParecer(String id);
-
-    /**
-     * Recupera o RADOC identificado pelo argumento.
-     *
-     * @param identificador O identificador único do
-     *                      RADOC.
-     *
-     * @return O {@code Radoc} correspondente ao
-     * identificador fornecido.
-     */
-    Radoc radocById(String identificador);
 
     /**
      * Conjunto de relatos de atividades e produtos
@@ -145,4 +135,15 @@ public interface ParecerRepository {
      * @param identificador O identificador do RADOC.
      */
     void removeRadoc(String identificador);
+
+    /**
+     * Recupera o RADOC identificado pelo argumento.
+     *
+     * @param identificador O identificador único do
+     *                      RADOC.
+     *
+     * @return O {@code Radoc} correspondente ao
+     * identificador fornecido.
+     */
+    Radoc radocById(String identificador);
 }

@@ -42,7 +42,7 @@ public class Radoc {
     private List<Relato> relatos;
 
     /**
-     * Cria um relatório byId relatos.
+     * Cria um relatório parecerById relatos.
      *
      * @param id O identificador único do RADOC.
      * @param anoBase O ano base do RADOC.

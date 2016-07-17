@@ -176,7 +176,7 @@ public class Regra {
      * Recupera o valor máximo admitido para
      * o resultado da regra.
      *
-     * @return Valor máximo byId pontuação admitido pela regra.
+     * @return Valor máximo parecerById pontuação admitido pela regra.
      */
     public float getValorMaximo() {
         return valorMaximo;

@@ -91,7 +91,7 @@ public class Tipo {
     }
 
     /**
-     * Cria tipo definido pelo conjunto byId atributos.
+     * Cria tipo definido pelo conjunto parecerById atributos.
      * @param id Código único que identifica o tipo.
      * @param nome O nome pelo qual o tipo é conhecido.
      * @param descricao Informação adicional sobre o tipo.

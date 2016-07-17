@@ -38,7 +38,7 @@ public class ParecerRepositoryRam implements ParecerRepository {
 
     @Override
     public Parecer byId(String s) {
-        return null;
+        return pareceres.get(s);
     }
 
     @Override

@@ -77,9 +77,9 @@ public class Resolucao {
     }
 
     /**
-     * Recupera a data byId aprovação da resolução.
+     * Recupera a data parecerById aprovação da resolução.
      *
-     * @return Data byId aprovação da resolução.
+     * @return Data parecerById aprovação da resolução.
      */
     public Date getDataAprovacao() {
         return dataAprovacao;
@@ -101,8 +101,8 @@ public class Resolucao {
      * @param id O nome único da resolução.
      * @param nome O nome pelo qual seres humanos identificam a resolução.
      * @param descricao A descrição (caput) da resolução.
-     * @param dataAprovacao Data byId aprovação da resolução.
-     * @param regras Conjunto byId itens que são avaliados pela
+     * @param dataAprovacao Data parecerById aprovação da resolução.
+     * @param regras Conjunto parecerById itens que são avaliados pela
      */
     public Resolucao(String id, String nome, String descricao, Date dataAprovacao, List<Regra> regras) {
         if (id == null || id.isEmpty()) {
