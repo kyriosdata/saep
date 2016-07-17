@@ -1,18 +1,21 @@
-package br.ufg.inf.es.saep.sandbox.persistencia;
+package br.ufg.inf.es.saep.sandbox.persistencia.gds;
 
-import br.ufg.inf.es.saep.sandbox.dominio.*;
+import br.ufg.inf.es.saep.sandbox.dominio.Parecer;
+import br.ufg.inf.es.saep.sandbox.dominio.ParecerRepository;
+import br.ufg.inf.es.saep.sandbox.dominio.Radoc;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Implementação em RAM (apenas para ilustrar sugestão de teste).
+ * Implementação do repositório usando Google Datastore.
  */
-public class ParecerRepositoryRam implements ParecerRepository {
+public class ParecerRepositoryGds implements ParecerRepository {
 
     private Map<String, Parecer> pareceres;
     private Map<String, Radoc> radocs;
 
-    public ParecerRepositoryRam() {
+    public ParecerRepositoryGds() {
 
         pareceres = new HashMap<>();
         radocs = new HashMap<>();

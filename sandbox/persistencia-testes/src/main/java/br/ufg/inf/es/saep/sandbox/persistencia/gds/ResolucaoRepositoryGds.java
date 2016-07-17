@@ -1,4 +1,4 @@
-package br.ufg.inf.es.saep.sandbox.persistencia;
+package br.ufg.inf.es.saep.sandbox.persistencia.gds;
 
 import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
 import br.ufg.inf.es.saep.sandbox.dominio.ResolucaoRepository;
@@ -7,14 +7,14 @@ import br.ufg.inf.es.saep.sandbox.dominio.Tipo;
 import java.util.*;
 
 /**
- * Implementação em RAM (apenas para ilustrar testes).
+ * Implementação do repositório usando Google Datastore.
  */
-public class ResolucaoRepositoryRam implements ResolucaoRepository {
+public class ResolucaoRepositoryGds implements ResolucaoRepository {
 
     private Map<String, Resolucao> resolucoes;
     private Map<String, Tipo> tipos;
 
-    public ResolucaoRepositoryRam() {
+    public ResolucaoRepositoryGds() {
         resolucoes = new HashMap<>();
         tipos = new HashMap<>();
     }

@@ -1,4 +1,4 @@
-package br.ufg.inf.es.saep.sandbox.persistencia;
+package br.ufg.inf.es.saep.sandbox.persistencia.ram;
 
 import br.ufg.inf.es.saep.sandbox.dominio.*;
 import org.junit.Before;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
  */
 public class ResolucaoRepositoryTest {
 
-    private static final String REPOSITORIO = "br.ufg.inf.es.saep.sandbox.persistencia.ResolucaoRepositoryRam";
+    private static final String REPOSITORIO = "ResolucaoRepositoryRam";
     private ResolucaoRepository repo;
     private List<String> dependencias;
     private Regra regra;
