@@ -1,11 +1,9 @@
-package br.ufg.inf.es.saep.sandbox.persistencia.ram;
+package br.ufg.inf.es.saep.sandbox.persistencia.gds;
 
 import br.ufg.inf.es.saep.sandbox.dominio.Atributo;
 import br.ufg.inf.es.saep.sandbox.dominio.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
 import br.ufg.inf.es.saep.sandbox.dominio.Tipo;
-import br.ufg.inf.es.saep.sandbox.persistencia.gds.GoogleDatastoreFactory;
-import br.ufg.inf.es.saep.sandbox.persistencia.gds.ResolucaoRepositoryGoogleDatastore;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -21,7 +19,7 @@ import static org.junit.Assert.assertTrue;
  * empregado para realizar o processo inverso.
  *
  */
-public class GoogleDatastoreTest {
+public class ResolucaoRepositoryGoogleDatastoreTest {
 
     private static ResolucaoRepositoryGoogleDatastore repo;
 
