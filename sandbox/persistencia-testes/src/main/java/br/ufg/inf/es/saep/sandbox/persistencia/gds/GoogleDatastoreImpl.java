@@ -14,7 +14,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +25,11 @@ import java.util.List;
  */
 public class GoogleDatastoreImpl implements ResolucaoRepository {
 
-    private static String RESOLUCAO_KIND = "RESOLUCAO";
-    private static Datastore gds;
-    private static KeyFactory keyRadoc;
-    private static KeyFactory keyResolucao;
-    private static KeyFactory keyTipo;
+    private String RESOLUCAO_KIND = "RESOLUCAO";
+    private Datastore gds;
+    private KeyFactory keyResolucao;
+    private KeyFactory keyTipo;
+    private final String PAYLOAD = "objeto";
 
     public GoogleDatastoreImpl() {
 
@@ -50,7 +49,6 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
 
             gds = options.service();
 
-            keyRadoc = gds.newKeyFactory().kind("RADOC");
             keyResolucao = gds.newKeyFactory().kind(RESOLUCAO_KIND);
             keyTipo = gds.newKeyFactory().kind("TIPO");
         } catch (Exception e) {
@@ -67,50 +65,20 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
         return keyTipo.newKey(id);
     }
 
-    /**
-     * Monta entidade correspondente à resolução.
-     *
-     * @param resolucao A resolução.
-     *
-     * @return Entidade obtida da resolução.
-     *
-     * @throws IOException
-     */
-    private Entity resolucaoToEntity(Resolucao resolucao) throws IOException {
-        Key key = keyResolucao.newKey(resolucao.getId());
-        Entity re = Entity.builder(key)
-                .set("objeto", new Gson().toJson(resolucao)).build();
-
-        return re;
-    }
-
-    private Entity tipoToEntity(Tipo tipo) throws IOException {
-        Key key = getKeyTipo(tipo.getId());
-        Entity re = Entity.builder(key)
-                .set("objeto", new Gson().toJson(tipo)).build();
-
-        return re;
-    }
-
-    private Resolucao resolucaoFromEntity(String id) throws IOException {
-        Key key = keyResolucao.newKey(id);
-        Entity dsr = gds.get(key);
-
-        if (dsr == null) {
-            return null;
-        }
-
-        String objeto = dsr.getString("objeto");
-
-        Type tipo = new TypeToken<Resolucao>(){}.getType();
-        return (Resolucao)new Gson().fromJson(objeto, tipo);
-    }
-
     @Override
     public Resolucao byId(String s) {
         try {
-            return resolucaoFromEntity(s);
-        } catch (IOException e) {
+            Entity dsr = gds.get(getKeyResolucao(s));
+
+            if (dsr == null) {
+                return null;
+            }
+
+            String objeto = dsr.getString(PAYLOAD);
+
+            Type tipo = new TypeToken<Resolucao>(){}.getType();
+            return (Resolucao)new Gson().fromJson(objeto, tipo);
+        } catch (Exception e) {
             return null;
         }
     }
@@ -118,11 +86,14 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
     @Override
     public String persiste(Resolucao resolucao) {
         try {
-            Entity entidade = resolucaoToEntity(resolucao);
+            Key key = getKeyResolucao(resolucao.getId());
+            String json = new Gson().toJson(resolucao);
+
+            Entity entidade = Entity.builder(key).set(PAYLOAD, json).build();
             gds.put(entidade);
 
             return resolucao.getId();
-        } catch (IOException e) {
+        } catch (Exception e) {
             return null;
         }
     }
@@ -130,8 +101,7 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
     @Override
     public boolean remove(String s) {
         try {
-            Key key = getKeyResolucao(s);
-            gds.delete(key);
+            gds.delete(getKeyResolucao(s));
             return true;
         } catch (Exception exp) {
             return false;
@@ -154,36 +124,34 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
     @Override
     public void persisteTipo(Tipo tipo) {
         try {
-            Entity entidade = tipoToEntity(tipo);
-            gds.put(entidade);
-        } catch (IOException e) {
-            // Nada definido aqui, provavelmente
-            // contrato incompleto!!!
+            Key key = getKeyTipo(tipo.getId());
+            String json = new Gson().toJson(tipo);
+
+            gds.put(Entity.builder(key).set(PAYLOAD, json).build());
+        } catch (Exception e) {
+            // TODO Nada definido aqui, contrato incompleto!!!
         }
     }
 
     @Override
     public void removeTipo(String s) {
         try {
-            Key key = getKeyTipo(s);
-            gds.delete(key);
+            gds.delete(getKeyTipo(s));
         } catch (Exception exp) {
-            // Nada definido aqui, provavelmente
-            // contrato incompleto!!!
+            // TODO Nada definido aqui, contrato incompleto!!!
         }
     }
 
     @Override
     public Tipo tipoPeloCodigo(String s) {
         try {
-            Key key = keyTipo.newKey(s);
-            Entity dsr = gds.get(key);
+            Entity dsr = gds.get(getKeyTipo(s));
 
             if (dsr == null) {
                 return null;
             }
 
-            String objeto = dsr.getString("objeto");
+            String objeto = dsr.getString(PAYLOAD);
 
             Type tipo = new TypeToken<Tipo>(){}.getType();
             return (Tipo)new Gson().fromJson(objeto, tipo);
