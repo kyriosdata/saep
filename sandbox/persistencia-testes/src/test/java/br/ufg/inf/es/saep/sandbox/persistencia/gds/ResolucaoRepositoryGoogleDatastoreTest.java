@@ -14,9 +14,7 @@ import static junit.framework.TestCase.*;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Experimentos preliminares com Google Datastore e Jackson.
- * Jackson para serializar objeto em String. Jackson também é
- * empregado para realizar o processo inverso.
+ * Experimentos preliminares com Google Datastore.
  *
  */
 public class ResolucaoRepositoryGoogleDatastoreTest {

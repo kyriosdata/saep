@@ -108,4 +108,24 @@ public class Radoc {
     public List<Relato> getRelatos() {
         return relatos;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Radoc radoc = (Radoc) o;
+
+        return id.equals(radoc.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

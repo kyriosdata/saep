@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class RadocTest {
 
@@ -63,6 +64,18 @@ public class RadocTest {
         assertEquals("x", r.getId());
         assertEquals(1234, r.getAnoBase());
         assertEquals(0, r.getRelatos().size());
+    }
+
+    @Test
+    public void igualdade() {
+        Radoc r1 = new Radoc("x", 0, relatos);
+
+        assertNotEquals(r1, null);
+        assertNotEquals(r1, "não pode ser igual");
+        assertNotEquals(r1, new Radoc("y", 0, relatos));
+
+        assertEquals(r1, r1);
+        assertEquals(r1, new Radoc("x", 1, relatos));
     }
 }
 
