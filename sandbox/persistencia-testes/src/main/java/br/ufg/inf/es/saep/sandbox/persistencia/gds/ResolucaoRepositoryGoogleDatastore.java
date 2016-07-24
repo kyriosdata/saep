@@ -23,15 +23,14 @@ import java.util.List;
  * Google Datastore (NoSQL).
  *
  */
-public class GoogleDatastoreImpl implements ResolucaoRepository {
+public class ResolucaoRepositoryGoogleDatastore implements ResolucaoRepository {
 
     private String RESOLUCAO_KIND = "RESOLUCAO";
+    private String TIPO_KIND = "TIPO";
     private Datastore gds;
-    private KeyFactory keyResolucao;
-    private KeyFactory keyTipo;
     private final String PAYLOAD = "objeto";
 
-    public GoogleDatastoreImpl() {
+    public ResolucaoRepositoryGoogleDatastore() {
 
         // Guardar de outro jeito (consulte issue para detalhes):
         // https://github.com/kyriosdata/saep/issues/5
@@ -48,9 +47,6 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
                     .build();
 
             gds = options.service();
-
-            keyResolucao = gds.newKeyFactory().kind(RESOLUCAO_KIND);
-            keyTipo = gds.newKeyFactory().kind("TIPO");
         } catch (Exception e) {
             // TODO Não definido no contrato (verificar)
             throw new RuntimeException("persistencia indisponivel");
@@ -58,17 +54,18 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
     }
 
     private Key getKeyResolucao(String id) {
-        return keyResolucao.newKey(id);
+        // TODO Verificar necessidade de cache para factory.
+        return gds.newKeyFactory().kind(RESOLUCAO_KIND).newKey(id);
     }
 
     private Key getKeyTipo(String id) {
-        return keyTipo.newKey(id);
+        return gds.newKeyFactory().kind(TIPO_KIND).newKey(id);
     }
 
     @Override
-    public Resolucao byId(String s) {
+    public Resolucao byId(String id) {
         try {
-            Entity dsr = gds.get(getKeyResolucao(s));
+            Entity dsr = gds.get(getKeyResolucao(id));
 
             if (dsr == null) {
                 return null;
@@ -89,8 +86,7 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
             Key key = getKeyResolucao(resolucao.getId());
             String json = new Gson().toJson(resolucao);
 
-            Entity entidade = Entity.builder(key).set(PAYLOAD, json).build();
-            gds.put(entidade);
+            gds.put(Entity.builder(key).set(PAYLOAD, json).build());
 
             return resolucao.getId();
         } catch (Exception e) {
@@ -163,6 +159,19 @@ public class GoogleDatastoreImpl implements ResolucaoRepository {
 
     @Override
     public List<Tipo> tiposPeloNome(String s) {
-        return null;
+        Query<Entity> all = Query.entityQueryBuilder().kind(TIPO_KIND).build();
+        QueryResults<Entity> resultados = gds.run(all);
+
+        List<Tipo> tipos = new ArrayList<>();
+        while (resultados.hasNext()) {
+            Entity entidade = resultados.next();
+            if (entidade.key().name().contains(s)) {
+                Type tipo = new TypeToken<Tipo>(){}.getType();
+                String objeto = entidade.getString(PAYLOAD);
+                tipos.add(new Gson().fromJson(objeto, tipo));
+            }
+        }
+
+        return tipos;
     }
 }

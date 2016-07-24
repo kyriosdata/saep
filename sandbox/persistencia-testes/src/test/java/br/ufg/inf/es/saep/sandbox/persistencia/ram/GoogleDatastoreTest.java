@@ -4,7 +4,7 @@ import br.ufg.inf.es.saep.sandbox.dominio.Atributo;
 import br.ufg.inf.es.saep.sandbox.dominio.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
 import br.ufg.inf.es.saep.sandbox.dominio.Tipo;
-import br.ufg.inf.es.saep.sandbox.persistencia.gds.GoogleDatastoreImpl;
+import br.ufg.inf.es.saep.sandbox.persistencia.gds.ResolucaoRepositoryGoogleDatastore;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -22,11 +22,11 @@ import static org.junit.Assert.assertTrue;
  */
 public class GoogleDatastoreTest {
 
-    private static GoogleDatastoreImpl instancia;
+    private static ResolucaoRepositoryGoogleDatastore instancia;
 
     @BeforeClass
     public static void setUpClass() throws IOException {
-        instancia = new GoogleDatastoreImpl();
+        instancia = new ResolucaoRepositoryGoogleDatastore();
     }
 
     @Test
@@ -50,7 +50,27 @@ public class GoogleDatastoreTest {
         assertNull(instancia.tipoPeloCodigo(t.getId()));
     }
 
-    private Tipo criaTipoComDoisAtributos() {
+    @Test
+    public void consultaTipos() {
+        Tipo t1 = criaTipoComDoisAtributos("atencao");
+        Tipo t2 = criaTipoComDoisAtributos("atibaia");
+        Tipo t3 = criaTipoComDoisAtributos("atitude");
+
+        instancia.persisteTipo(t1);
+        instancia.persisteTipo(t2);
+        instancia.persisteTipo(t3);
+
+        List<Tipo> busca1 = instancia.tiposPeloNome("at");
+        assertEquals(3, busca1.size());
+
+        List<Tipo> busca2 = instancia.tiposPeloNome("aia");
+        assertEquals(1, busca2.size());
+
+        List<Tipo> busca3 = instancia.tiposPeloNome("taia");
+        assertEquals(0, busca3.size());
+    }
+
+    private Tipo criaTipoComDoisAtributos(String id) {
         // O nome da disciplina
         Atributo nome = new Atributo("nome",
                 "nome da disciplina",
@@ -68,8 +88,11 @@ public class GoogleDatastoreTest {
         final String NOME = "Aulas presenciais na graduação";
         final String DESCRICAO = "Aulas presenciais ministradas na graduação";
 
-        String id = UUID.randomUUID().toString();
         return new Tipo(id, NOME, DESCRICAO, atributos);
+    }
+
+    private Tipo criaTipoComDoisAtributos() {
+        return criaTipoComDoisAtributos(UUID.randomUUID().toString());
     }
 
     @Test
@@ -123,7 +146,6 @@ public class GoogleDatastoreTest {
         regras.add(r1);
         regras.add(r2);
 
-        String id = UUID.randomUUID().toString();
-        return new Resolucao(id, "resolucao", "descricao", new Date(), regras);
+        return new Resolucao(UUID.randomUUID().toString(), "resolucao", "descricao", new Date(), regras);
     }
 }
