@@ -8,12 +8,14 @@
     <!-- mvn source:jar (os fontes em jar)          -->
 
     <groupId>com.github.kyriosdata.saep</groupId>
-    <artifactId>persistencia-testes</artifactId>
+    <artifactId>persistencia-gds</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
 
-    <name>com.github.kyriosdata.saep.persistencia:persistencia-testes</name>
-    <description>Testes da camada de persistência</description>
+    <name>com.github.kyriosdata.saep.persistencia:persistencia-gds</name>
+    <description>
+        Implementação da camada de persistência usando Google Datastore.
+    </description>
     <url>https://github.com/kyriosdata/saep</url>
 
     <licenses>
