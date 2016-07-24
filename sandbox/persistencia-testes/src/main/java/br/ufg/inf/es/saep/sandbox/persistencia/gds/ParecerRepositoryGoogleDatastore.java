@@ -45,9 +45,24 @@ public class ParecerRepositoryGoogleDatastore implements ParecerRepository {
         return gds.newKeyFactory().kind(RADOC_KIND).newKey(id);
     }
 
+    private boolean radocsExistem(Parecer parecer) {
+        for (String radocId : parecer.getRadocsIds()) {
+            if (radocById(radocId) == null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     @Override
     public void persisteParecer(Parecer parecer) {
         try {
+            if (!radocsExistem(parecer)) {
+                // TODO contrato não indica essa situação!?
+                return;
+            }
+
             Key key = getKeyParecer(parecer.getId());
             String json = new Gson().toJson(parecer);
 

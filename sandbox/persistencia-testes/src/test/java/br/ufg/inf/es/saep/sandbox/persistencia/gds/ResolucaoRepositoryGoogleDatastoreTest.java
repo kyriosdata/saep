@@ -66,6 +66,10 @@ public class ResolucaoRepositoryGoogleDatastoreTest {
 
         List<Tipo> busca3 = repo.tiposPeloNome("taia");
         assertEquals(0, busca3.size());
+
+        repo.removeTipo(t1.getId());
+        repo.removeTipo(t2.getId());
+        repo.removeTipo(t3.getId());
     }
 
     private Tipo criaTipoComDoisAtributos(String id) {
@@ -131,6 +135,9 @@ public class ResolucaoRepositoryGoogleDatastoreTest {
         // Deve possuir uma instância a mais
         // (assume ausência de operação concorrente)
         assertEquals(existentes.size() + 1, aposInsercao.size());
+
+        // remove resolução inserida
+        repo.remove(resolucao.getId());
     }
 
     private Resolucao criaResolucaoComDuasRegras() {

@@ -38,25 +38,50 @@ public class ParecerRepositoryGoogleDatastoreTest {
 
         Radoc recuperado = repo.radocById(id);
         assertEquals(r, recuperado);
+
+        // Após removido não pode ser recuperado
+        repo.removeRadoc(id);
+        assertNull(repo.radocById(id));
     }
 
     @Test
-    public void persisteRecuperaRemove() {
+    public void persisteRecuperaRemoveParecer() {
         String id = UUID.randomUUID().toString();
         Parecer p = criaParecer(id);
 
         // Parecer não está disponível (não persistido)
         assertNull(repo.parecerById(p.getId()));
 
-        // Persiste parecer recém-criado
+        // Tenta persistir parecer recém-criado
+        // (sem a persistência dos RADOCs nada é persistido)
         repo.persisteParecer(p);
+        assertNull(repo.parecerById(p.getId()));
 
+        // Primeiro deve persistir os RADOCs
+        // (abaixo são arbitrariamente criados com Ids esperados)
+        for (String rId : p.getRadocsIds()) {
+            Radoc r = criaRadoc(rId);
+            repo.persisteRadoc(r);
+        }
+
+        // Agora deve persistir (radocs existem)
+        repo.persisteParecer(p);
         Parecer recuperado = repo.parecerById(id);
         assertEquals(p, recuperado);
+
+        // Não remove os radocs
+        repo.removeParecer(p.getId());
+        assertNull(repo.parecerById(p.getId()));
+
+        // Remova os RADOCs criados.
+        for (String rId : p.getRadocsIds()) {
+            repo.removeRadoc(rId);
+        }
     }
 
     private Parecer criaParecer(String id) {
-        Radoc r = criaRadoc("id");
+        String guid = UUID.randomUUID().toString();
+        Radoc r = criaRadoc(guid);
 
         List<String> radocs = new ArrayList(1);
         radocs.add(r.getId());
