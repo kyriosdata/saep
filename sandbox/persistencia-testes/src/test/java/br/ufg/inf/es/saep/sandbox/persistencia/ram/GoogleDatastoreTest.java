@@ -4,6 +4,7 @@ import br.ufg.inf.es.saep.sandbox.dominio.Atributo;
 import br.ufg.inf.es.saep.sandbox.dominio.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
 import br.ufg.inf.es.saep.sandbox.dominio.Tipo;
+import br.ufg.inf.es.saep.sandbox.persistencia.gds.GoogleDatastoreFactory;
 import br.ufg.inf.es.saep.sandbox.persistencia.gds.ResolucaoRepositoryGoogleDatastore;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,11 +23,12 @@ import static org.junit.Assert.assertTrue;
  */
 public class GoogleDatastoreTest {
 
-    private static ResolucaoRepositoryGoogleDatastore instancia;
+    private static ResolucaoRepositoryGoogleDatastore repo;
 
     @BeforeClass
     public static void setUpClass() throws IOException {
-        instancia = new ResolucaoRepositoryGoogleDatastore();
+        repo = new ResolucaoRepositoryGoogleDatastore();
+        repo.setDatastore(GoogleDatastoreFactory.getInstance());
     }
 
     @Test
@@ -34,20 +36,20 @@ public class GoogleDatastoreTest {
         Tipo t = criaTipoComDoisAtributos();
 
         // Não encontra tipo não inserido
-        assertNull(instancia.tipoPeloCodigo(t.getId()));
+        assertNull(repo.tipoPeloCodigo(t.getId()));
 
         // Persiste o tipo
-        instancia.persisteTipo(t);
+        repo.persisteTipo(t);
 
         // Encontra o persistido, identico ao inserido
-        Tipo tipoRecuperado = instancia.tipoPeloCodigo(t.getId());
+        Tipo tipoRecuperado = repo.tipoPeloCodigo(t.getId());
         assertEquals(t, tipoRecuperado);
 
         // Remove o tipo persistido
-        instancia.removeTipo(tipoRecuperado.getId());
+        repo.removeTipo(tipoRecuperado.getId());
 
         // Não encontra tipo removido
-        assertNull(instancia.tipoPeloCodigo(t.getId()));
+        assertNull(repo.tipoPeloCodigo(t.getId()));
     }
 
     @Test
@@ -56,17 +58,17 @@ public class GoogleDatastoreTest {
         Tipo t2 = criaTipoComDoisAtributos("atibaia");
         Tipo t3 = criaTipoComDoisAtributos("atitude");
 
-        instancia.persisteTipo(t1);
-        instancia.persisteTipo(t2);
-        instancia.persisteTipo(t3);
+        repo.persisteTipo(t1);
+        repo.persisteTipo(t2);
+        repo.persisteTipo(t3);
 
-        List<Tipo> busca1 = instancia.tiposPeloNome("at");
+        List<Tipo> busca1 = repo.tiposPeloNome("at");
         assertEquals(3, busca1.size());
 
-        List<Tipo> busca2 = instancia.tiposPeloNome("aia");
+        List<Tipo> busca2 = repo.tiposPeloNome("aia");
         assertEquals(1, busca2.size());
 
-        List<Tipo> busca3 = instancia.tiposPeloNome("taia");
+        List<Tipo> busca3 = repo.tiposPeloNome("taia");
         assertEquals(0, busca3.size());
     }
 
@@ -100,20 +102,20 @@ public class GoogleDatastoreTest {
         Resolucao resolucao = criaResolucaoComDuasRegras();
 
         // Verifica que não existe.
-        assertNull(instancia.byId(resolucao.getId()));
+        assertNull(repo.byId(resolucao.getId()));
 
         // Realiza a inserção (criação)
-        instancia.persiste(resolucao);
+        repo.persiste(resolucao);
 
         // Recupera (agora existe)
-        Resolucao rr = instancia.byId(resolucao.getId());
+        Resolucao rr = repo.byId(resolucao.getId());
         assertNotNull(rr);
 
         // Remove o que foi recuperado
-        assertTrue(instancia.remove(resolucao.getId()));
+        assertTrue(repo.remove(resolucao.getId()));
 
         // Verifica que não existe mais.
-        assertNull(instancia.byId(resolucao.getId()));
+        assertNull(repo.byId(resolucao.getId()));
     }
 
     @Test
@@ -121,13 +123,13 @@ public class GoogleDatastoreTest {
         Resolucao resolucao = criaResolucaoComDuasRegras();
 
         // Não pode conter resolução ainda não inserida.
-        List<String> existentes = instancia.resolucoes();
+        List<String> existentes = repo.resolucoes();
         assertFalse(existentes.contains(resolucao.getId()));
 
         // Realiza a inserção (criação)
-        instancia.persiste(resolucao);
+        repo.persiste(resolucao);
 
-        List<String> aposInsercao = instancia.resolucoes();
+        List<String> aposInsercao = repo.resolucoes();
         assertTrue(aposInsercao.contains(resolucao.getId()));
 
         // Deve possuir uma instância a mais

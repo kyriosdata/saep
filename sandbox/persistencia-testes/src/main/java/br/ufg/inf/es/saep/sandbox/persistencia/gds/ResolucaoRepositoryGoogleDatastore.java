@@ -8,12 +8,10 @@ package br.ufg.inf.es.saep.sandbox.persistencia.gds;
 import br.ufg.inf.es.saep.sandbox.dominio.Resolucao;
 import br.ufg.inf.es.saep.sandbox.dominio.ResolucaoRepository;
 import br.ufg.inf.es.saep.sandbox.dominio.Tipo;
-import com.google.cloud.AuthCredentials;
 import com.google.cloud.datastore.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.FileInputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,27 +28,14 @@ public class ResolucaoRepositoryGoogleDatastore implements ResolucaoRepository {
     private Datastore gds;
     private final String PAYLOAD = "objeto";
 
-    public ResolucaoRepositoryGoogleDatastore() {
-
-        // Guardar de outro jeito (consulte issue para detalhes):
-        // https://github.com/kyriosdata/saep/issues/5
-        // (por enquanto, evita "segredo" em local público)
-        String maven = System.getenv("HOME") + "/.m2/";
-        String credencial = maven + "saep-ufg.json";
-
-        try {
-            FileInputStream json = new FileInputStream(credencial);
-
-            DatastoreOptions options = DatastoreOptions.builder()
-                    .projectId("saepufg")
-                    .authCredentials(AuthCredentials.createForJson(json))
-                    .build();
-
-            gds = options.service();
-        } catch (Exception e) {
-            // TODO Não definido no contrato (verificar)
-            throw new RuntimeException("persistencia indisponivel");
-        }
+    /**
+     * Define o objeto por meio do qual acesso aos serviços do
+     * Google Datastore serão usufruídos.
+     *
+     * @param ds Objeto de acesso ao Google Datastore.
+     */
+    public void setDatastore(Datastore ds) {
+        gds = ds;
     }
 
     private Key getKeyResolucao(String id) {
