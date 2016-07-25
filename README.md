@@ -6,6 +6,7 @@ Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar 
 [![Coverage Status](https://coveralls.io/repos/github/kyriosdata/saep/badge.svg?branch=master&bust=1)](https://coveralls.io/github/kyriosdata/saep?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4acefbc4abe4cd78c6b77b04a57ab22)](https://www.codacy.com/app/fabio_5/saep?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kyriosdata/saep&amp;utm_campaign=Badge_Grade)
 [<img src="https://img.shields.io/badge/saep-preliminar-yellow.svg">](https://github.com/kyriosdata/saep)
+[![Code Climate](https://codeclimate.com/github/kyriosdata/saep/badges/gpa.svg)](https://codeclimate.com/github/kyriosdata/saep)
 [![Javadocs](http://javadoc.io/badge/com.github.kyriosdata.saep/saep-dominio.svg)](http://javadoc.io/doc/com.github.kyriosdata.saep/saep-dominio)
 
 Documentos disponíveis:
