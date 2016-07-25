@@ -108,8 +108,8 @@ public class Atributo {
      * Recupera o tipo do atributo
      *
      * @return O tipo do atributo, ou seja, o
-     * valor {@link #LOGICO}, {@link #REAL} ou
-     * {@link #STRING}.
+     *      valor {@link #LOGICO}, {@link #REAL} ou
+     *      {@link #STRING}.
      */
     public int getTipo() {
         return tipo;
