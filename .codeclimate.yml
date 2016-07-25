@@ -5,5 +5,5 @@ engines:
 
 ratings:
     paths:
-    - "sandbox/dominio/**.java"
+    - "sandbox/dominio/src/main/**.java"
 
