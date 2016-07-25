@@ -56,8 +56,8 @@ public class Pontuacao implements Avaliavel {
      * @param atributo O identificador único do atributo.
      *
      * @return O valor da pontuação ou {@code null} caso o
-     * identificador fornecido seja diferente daquele da pontuação.
-     *
+     *      identificador fornecido seja diferente daquele
+     *      da pontuação.
      */
     public Valor get(String atributo) {
 
