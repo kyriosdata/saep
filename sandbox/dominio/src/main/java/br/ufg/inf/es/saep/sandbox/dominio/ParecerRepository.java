@@ -61,13 +61,15 @@ public interface ParecerRepository {
      * longo do tempo. Convém ressaltar que informações
      * desses relatórios podem ser alteradas continuamente.
      *
-     * @throws IdentificadorExistente Caso o identificador
-     * do objeto a ser persistido seja empregado por
-     * RADOC existente.
-     *
      * @param radoc O conjunto de relatos a ser persistido.
      *
      * @return O identificador único do RADOC.
+     *
+     * @throws IdentificadorExistente Caso o identificador
+     *      do objeto a ser persistido seja empregado por
+     *      RADOC existente.
+     *
+
      */
     String persisteRadoc(Radoc radoc);
 
@@ -95,7 +97,7 @@ public interface ParecerRepository {
      *                      RADOC.
      *
      * @return O {@code Radoc} correspondente ao
-     * identificador fornecido.
+     *      identificador fornecido.
      */
     Radoc radocById(String identificador);
 }
