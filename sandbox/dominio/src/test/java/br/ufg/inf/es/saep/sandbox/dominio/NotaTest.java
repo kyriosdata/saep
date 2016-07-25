@@ -1,6 +1,9 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import org.junit.Test;
+
+import java.util.HashMap;
+
 import static org.junit.Assert.*;
 
 public class NotaTest {
@@ -34,6 +37,17 @@ public class NotaTest {
     public void justificativaNullGeraExcecao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
         new Nota(o, o, null);
+    }
+
+    @Test(expected = AvaliaveisDeTiposDistintos.class)
+    public void tentativaDeCriarNotaComAvaliaveisDeTiposDistintos() {
+        Avaliavel o = new Pontuacao("o", new Valor("o"));
+        HashMap<String, Valor> valores = new HashMap<>(1);
+        valores.put("v", new Valor("v"));
+
+        Avaliavel d = new Relato("d", valores);
+
+        new Nota(o, d, "tentativa deve falhar");
     }
 }
 
