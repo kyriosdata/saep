@@ -30,6 +30,9 @@ public class Nota {
      * @param destino O avaliável que é "substitui" a origem.
      *
      * @param justificativa A justificativa da "substituição".
+     *
+     * @throws CampoExigidoNaoFornecido Caso qualquer um dos argumentos
+     *      seja {@code null}.
      */
     public Nota(Avaliavel origem, Avaliavel destino, String justificativa) {
         if (origem == null) {
@@ -42,6 +45,12 @@ public class Nota {
 
         if (justificativa == null) {
             throw new CampoExigidoNaoFornecido("justificativa");
+        }
+
+        String classeOrigem = origem.getClass().getName();
+        String classeDestino = destino.getClass().getName();
+        if (!classeOrigem.equals(classeDestino)) {
+            throw new AvaliaveisDeTiposDistintos();
         }
 
         this.original = origem;

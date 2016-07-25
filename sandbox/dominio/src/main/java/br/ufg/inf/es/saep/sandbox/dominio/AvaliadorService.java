@@ -33,37 +33,64 @@ public class AvaliadorService {
      * @param relatos Conjunto de relatos sobre os quais a avaliação
      *                das regras será executada.
      *
-     * @return Resultados produzidos pela avaliação.
+     * @param pontuacoes Conjunto de pontuações que fornecem valores
+     *                   "substitutos".
+     *
+     * @param parametros Conjunto de valores inicialis, possivelmente
+     *                 empregados para definição de constantes.
+     *
+     * @return Resultados produzidos pela avaliação. Cada regra dá origem
+     *      a um valor quando avaliada, o valor é associado ao nome da
+     *      variável da regra e retornado.
      */
-    public Map<String, Valor> avalia(List<Regra> regras, List<Relato> relatos) {
+    public Map<String, Valor> avalia(
+            List<Regra> regras,
+            List<Relato> relatos,
+            Map<String, Valor> pontuacoes,
+            Map<String, Valor> parametros) {
+
+        // Acumula valores produzidos pela avaliação.
+        Map<String, Valor> resultados = new HashMap<>();
+
+        // Parâmetros fornecidos devem estar disponíveis na avaliação
+        if (parametros != null) {
+            // Valores iniciais devem estar disponíveis
+            for (String key : parametros.keySet()) {
+                resultados.put(key, parametros.get(key));
+            }
+        }
 
         // Obtém itens na ordem em que devem ser avaliados.
-        List<Regra> ordenados = OrdenacaoService.ordena(regras);
+        List<Regra> ordenadas = OrdenacaoService.ordena(regras);
 
-        // Retém valores produzidos pela avaliação.
-        Map<String, Valor> contexto = new HashMap<>();
-
-        // Identifica grupos de relatos pelo tipo, ou seja,
-        // agrupa todos os "libros sem corpo editorial", "ensino graduação",
-        // e assim sucessivamente.
+        // Agrupa relatos por tipo.
         Map<String, List<Avaliavel>> relatosPorTipo = montaRelatosPorTipo(relatos);
 
-        for (Regra regra : ordenados) {
-            //Regra regra = item.getRegra();
+        for (Regra regra : ordenadas) {
 
             // A avaliação da regra de um item pode depender dos
             // relatos correspondentes. Nesse caso, recupere-os.
             String tipo = regra.getTipoRelato();
-            List<Avaliavel> considerados = relatosPorTipo.get(tipo);
+            List<Avaliavel> relatosRelevantes = relatosPorTipo.get(tipo);
 
             // Avalie a regra, para o contexto disponível.
-            Valor valor = regraService.avalia(regra, contexto, considerados);
+            Valor valor = regraService.avalia(regra, resultados, relatosRelevantes);
 
+            // Valor produzido deve ser adicionado ao contexto.
             String variavel = regra.getVariavel();
-            contexto.put(variavel, valor);
+
+            // Contudo, pode ser que uma "substituição" deva prevalecer
+            // Ou seja, o valor produzido deve ceder para o fornecido.
+            if (pontuacoes.containsKey(variavel)) {
+                valor = pontuacoes.get(variavel);
+            }
+
+            // Acrescenta o valor calculado (ou o que deve prevalecer)
+            // ao conjunto de resultados (contexto a ser utilizado).
+            resultados.put(variavel, valor);
         }
 
-        return contexto;
+        return resultados;
     }
 
     /**
@@ -134,30 +161,4 @@ public class AvaliadorService {
 
         notas.add(nota);
     }
-
-    /**
-     * Altera a fundamentação do parecer.
-     *
-     * <p>Fundamentação é o texto propriamente dito do
-     * parecer. Não confunda com as alterações de
-     * valores (dados de relatos ou de pontuações).
-     *
-     * @throws IdentificadorDesconhecido Caso o identificador
-     * fornecido não identifique um parecer.
-     *
-     * @param parecer O identificador único do parecer.
-     * @param fundamentacao Novo texto da fundamentação do parecer.
-     */
-    void atualizaFundamentacao(String parecer, String fundamentacao){}
-
-    /**
-     * Remove a nota cujo item {@link Avaliavel} original é
-     * fornedido.
-     *
-     * @param id O identificador único do parecer.
-     * @param original Instância de {@link Avaliavel} que participa
-     *                 da {@link Nota} a ser removida como origem.
-     *
-     */
-    void removeNota(String id, Avaliavel original) {}
 }
