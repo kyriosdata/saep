@@ -33,6 +33,9 @@ public class Nota {
      *
      * @throws CampoExigidoNaoFornecido Caso qualquer um dos argumentos
      *      seja {@code null}.
+     *
+     * @throws AvaliaveisDeTiposDistintos Caso os avaliáveis fornecidos
+     *      não sejam do mesmo tipo.
      */
     public Nota(Avaliavel origem, Avaliavel destino, String justificativa) {
         if (origem == null) {
@@ -50,7 +53,7 @@ public class Nota {
         String classeOrigem = origem.getClass().getName();
         String classeDestino = destino.getClass().getName();
         if (!classeOrigem.equals(classeDestino)) {
-            throw new AvaliaveisDeTiposDistintos();
+            throw new AvaliaveisDeTiposDistintos("tipos distintos");
         }
 
         this.original = origem;
