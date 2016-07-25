@@ -241,7 +241,7 @@ public class Regra {
      * itens que podem ser avaliados.
      *
      * @return O identificador que dá nome ao resultado da
-     * avaliação da regra.
+     *      avaliação da regra.
      */
     public String getVariavel() {
         return variavel;
@@ -263,7 +263,7 @@ public class Regra {
      * pontuação da regra.
      *
      * @return Lista de dependeDe diretamente empregados
-     * para avaliação da regra.
+     *      para avaliação da regra.
      */
     public List<String> getDependeDe() {
         return dependeDe;
@@ -369,16 +369,16 @@ public class Regra {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object outro) {
+        if (this == outro) {
             return true;
         }
 
-        if (o == null || getClass() != o.getClass()) {
+        if (outro == null || getClass() != outro.getClass()) {
             return false;
         }
 
-        Regra regra = (Regra) o;
+        Regra regra = (Regra) outro;
 
         return variavel.equals(regra.variavel);
     }

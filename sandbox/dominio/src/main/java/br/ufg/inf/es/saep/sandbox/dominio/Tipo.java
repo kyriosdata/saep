@@ -12,14 +12,14 @@ import java.util.Set;
  * ser relatados por um docente. Cada atividade ou
  * produto está associado a um tipo bem definido.
  *
- * O tipo define os atributos
+ * <p>O tipo define os atributos
  * que caracterizam um relato, seja esse um
  * produto ou uma atividade. Dito de outra
  * forma, define as características
  * relevantes que definem o que deve ser
  * fornecido para o relato em questão.
  *
- * Por exemplo, segunda resolução 32/2013,
+ * <p>Por exemplo, segunda resolução 32/2013,
  * CONSUNI, Anexo II, dentre as atividades de ensino,
  * na graduação, temos dois tipos, citados abaixo:
  * <ul>
@@ -27,7 +27,7 @@ import java.util.Set;
  *     <li>Aulas do ensino a distância na graduação</li>
  * </ul>
  *
- * Esses dois tipos são ilustrados acima pelos nomes
+ * <p>Esses dois tipos são ilustrados acima pelos nomes
  * correspondentes. Os códigos poderiam ser "APG" e
  * "AEADG", respectivamente.
  */
@@ -84,7 +84,7 @@ public class Tipo {
      * Recupera a descrição do tipo.
      *
      * @return Descrição ou informação adicional
-     * sobre o tipo.
+     *      sobre o tipo.
      */
     public String getDescricao() {
         return descricao;
@@ -121,23 +121,23 @@ public class Tipo {
      * Recupera conjunto de atributos do tipo.
      *
      * @return O conjunto de atributos que define o
-     * tipo.
+     *      tipo.
      */
     public Set<Atributo> getAtributos() {
         return atributos;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object outro) {
+        if (this == outro) {
             return true;
         }
 
-        if (o == null || getClass() != o.getClass()) {
+        if (outro == null || getClass() != outro.getClass()) {
             return false;
         }
 
-        Tipo tipo = (Tipo) o;
+        Tipo tipo = (Tipo) outro;
 
         return id.equals(tipo.id);
     }

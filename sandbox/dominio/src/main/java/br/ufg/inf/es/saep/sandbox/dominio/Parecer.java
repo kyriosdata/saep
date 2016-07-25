@@ -65,8 +65,8 @@ public class Parecer {
      * Conjunto de alterações realizadas tanto
      * na entrada (relatos) quanto em pontuações
      * fornecidas automaticamente pelo SAEP.
-     * <p>
-     * Observe que os valores definidos pelas
+     *
+     * <p>Observe que os valores definidos pelas
      * alterações possuem prioridade sobre os
      * valores "originais".
      */
@@ -216,16 +216,16 @@ public class Parecer {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object outro) {
+        if (this == outro) {
             return true;
         }
 
-        if (o == null || getClass() != o.getClass()) {
+        if (outro == null || getClass() != outro.getClass()) {
             return false;
         }
 
-        Parecer parecer = (Parecer) o;
+        Parecer parecer = (Parecer) outro;
 
         return id.equals(parecer.id);
     }

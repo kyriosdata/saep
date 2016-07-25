@@ -17,8 +17,6 @@ public class AvaliadorService {
 
     private List<Nota> notas;
 
-    private String fundamentacao;
-
     private AvaliaRegraService regraService;
 
     public AvaliadorService(AvaliaRegraService regraService) {
@@ -28,12 +26,16 @@ public class AvaliadorService {
     /**
      * Realiza avaliação dos itens fornecidos.
      *
-     * @param regras Sequência de regras a serem avaliadas.
+     * @param regras Sequência de regras a serem avaliadas. Possivelmente
+     *               a ordem em que são fornecidas não é a ordem esperada
+     *               ou correta de execução. Ou seja, dependências entre
+     *               as regras não necessariamente são contempladas nesse
+     *               parâmetro.
      *
      * @param relatos Conjunto de relatos sobre os quais a avaliação
      *                das regras será executada.
      *
-     * @param pontuacoes Conjunto de pontuações que fornecem valores
+     * @param substitutos Conjunto de pontuações que fornecem valores
      *                   "substitutos".
      *
      * @param parametros Conjunto de valores inicialis, possivelmente
@@ -46,7 +48,7 @@ public class AvaliadorService {
     public Map<String, Valor> avalia(
             List<Regra> regras,
             List<Relato> relatos,
-            Map<String, Valor> pontuacoes,
+            Map<String, Valor> substitutos,
             Map<String, Valor> parametros) {
 
         // Acumula valores produzidos pela avaliação.
@@ -81,8 +83,8 @@ public class AvaliadorService {
 
             // Contudo, pode ser que uma "substituição" deva prevalecer
             // Ou seja, o valor produzido deve ceder para o fornecido.
-            if (pontuacoes.containsKey(variavel)) {
-                valor = pontuacoes.get(variavel);
+            if (substitutos.containsKey(variavel)) {
+                valor = substitutos.get(variavel);
             }
 
             // Acrescenta o valor calculado (ou o que deve prevalecer)
@@ -99,7 +101,7 @@ public class AvaliadorService {
      * @param relatos Conjunto de relatos.
      *
      * @return Dicionário que reúne os relatos fornecidos pelos tipos
-     * correspondentes.
+     *      correspondentes.
      */
     private Map<String, List<Avaliavel>> montaRelatosPorTipo(List<Relato> relatos) {
         Map<String, List<Avaliavel>> relatosPorTipo = new HashMap<>();

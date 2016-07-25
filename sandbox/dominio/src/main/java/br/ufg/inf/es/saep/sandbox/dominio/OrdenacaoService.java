@@ -30,7 +30,7 @@ public class OrdenacaoService {
      * @param regras Regras a serem ordenadas.
      *
      * @return Sequência de itens a serem executadas
-     * nessa ordem.
+     *      nessa ordem.
      */
     public static List<Regra> ordena(List<Regra> regras) {
         int size = regras.size();
@@ -86,7 +86,10 @@ public class OrdenacaoService {
             // variáveis definidas por regras.
             if (regraPorVariavel.containsKey(variavel)) {
                 Regra regraDaVariavel = regraPorVariavel.get(variavel);
-                insereRegrasAposComponentes(regraDaVariavel, regraPorVariavel, ordenadas, inseridas);
+                insereRegrasAposComponentes(regraDaVariavel,
+                        regraPorVariavel,
+                        ordenadas,
+                        inseridas);
             }
         }
 

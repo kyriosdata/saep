@@ -47,7 +47,7 @@ public interface ParecerRepository {
      * @param id O identificador do parecer.
      *
      * @return O parecer recuperado ou o valor {@code null},
-     * caso o identificador não defina um parecer.
+     *      caso o identificador não defina um parecer.
      */
     Parecer parecerById(String id);
 

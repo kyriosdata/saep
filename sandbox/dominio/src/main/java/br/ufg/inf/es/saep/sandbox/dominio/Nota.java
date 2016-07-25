@@ -50,9 +50,7 @@ public class Nota {
             throw new CampoExigidoNaoFornecido("justificativa");
         }
 
-        String classeOrigem = origem.getClass().getName();
-        String classeDestino = destino.getClass().getName();
-        if (!classeOrigem.equals(classeDestino)) {
+        if (!origem.getClass().equals(destino.getClass())) {
             throw new AvaliaveisDeTiposDistintos("tipos distintos");
         }
 
