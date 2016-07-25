@@ -85,8 +85,6 @@ public interface ParecerRepository {
      * @throws ExisteParecerReferenciandoRadoc Caso exista pelo
      *      menos um parecer que faz referência para o RADOC cuja
      *      remoção foi requisitada.
-     *
-
      */
     void removeRadoc(String identificador);
 
