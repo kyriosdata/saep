@@ -1,4 +1,9 @@
+engines:
+  checkstyle:
+    enabled: true
+    channel: "beta"
+
 ratings:
     paths:
-    - "sandbox/dominio"
+    - "sandbox/dominio/**.java"
 
