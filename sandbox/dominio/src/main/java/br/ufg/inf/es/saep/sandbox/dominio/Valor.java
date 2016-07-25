@@ -9,7 +9,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * Encapsula um valor, que pode ser uma sequência
  * de caracteres, um {@code boolean} ou um {@code float}.
  *
- * Um relato é descrito por uma coleção de
+ * <p>Um relato é descrito por uma coleção de
  * valores, por exemplo, um relato correspondente
  * a um "livro" pode ter atributos como "titulo"
  * e "numeroPaginas", dentre outros. Um valor
@@ -17,7 +17,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * pode ser "Amar e ser livre", enquanto o valor
  * para "numeroPaginas" pode ser 209, por exemplo.
  *
- * Uma instância dessa classe é empregada para
+ * <p>Uma instância dessa classe é empregada para
  * reter qualquer um desses valores. A recuperação
  * do valor depende do uso do método <b>get</b>
  * correspondente ao tipo. Cabe a quem envia uma
@@ -82,7 +82,7 @@ public class Valor {
      * do valor.
      *
      * @return Sequência de caracteres da
-     * instância.
+     *      instância.
      */
     public String getString() {
         return string;
@@ -93,8 +93,8 @@ public class Valor {
      * à instância.
      *
      * @return O valor {@code true} ou
-     * {@code false} correspondente à
-     * instância.
+     *      {@code false} correspondente à
+     *      instância.
      */
     public boolean getBoolean() {
         return logico;
@@ -105,7 +105,7 @@ public class Valor {
      * armazenado na instância.
      *
      * @return O valor numérico correspondente
-     * à instância.
+     *      à instância.
      */
     public float getFloat() {
         return real;
