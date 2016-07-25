@@ -22,6 +22,15 @@ public class Nota {
     private Avaliavel novo;
     private String justificativa;
 
+    /**
+     * Cria uma instância de nota.
+     *
+     * @param origem O avaliável de origem que é "alterado".
+     *
+     * @param destino O avaliável que é "substitui" a origem.
+     *
+     * @param justificativa A justificativa da "substituição".
+     */
     public Nota(Avaliavel origem, Avaliavel destino, String justificativa) {
         if (origem == null) {
             throw new CampoExigidoNaoFornecido("origem");
