@@ -12,10 +12,10 @@ import java.util.Map;
  * <a href="https://github.com/uklimaschewski/EvalEx">Java Expression
  * Evaluator</a>.
  */
-public class Avaliador implements AvaliaRegraService {
+public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
 
     @Override
-    public Valor avaliaRegra(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
+    public Valor avalia(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
         switch (regra.getTipo()) {
             case Regra.PONTOS:
                 float pontosPorRelato = regra.getPontosPorItem();
@@ -59,7 +59,7 @@ public class Avaliador implements AvaliaRegraService {
                 return new Valor(parcial);
 
             default:
-                throw new TipoDeRegraInvalido("avaliaRegra");
+                throw new TipoDeRegraInvalido("avalia");
         }
     }
 
@@ -81,7 +81,7 @@ public class Avaliador implements AvaliaRegraService {
             try {
                 somatorio += exp.eval().floatValue();
             } catch (RuntimeException rex) {
-                throw new AvaliacaoRegraException("Falha na avalição de regra: " + rex.getMessage());
+                throw new FalhaAoAvaliarRegra("Falha: " + rex.getMessage());
             }
         }
 
@@ -101,15 +101,15 @@ public class Avaliador implements AvaliaRegraService {
     }
 
     private float avaliaExpressao(Regra regra, Map<String, Valor> contexto, String expressao) {
-        Expression exp = new Expression(expressao);
-
-        defineContexto(regra, contexto, exp);
-
         try {
+            Expression exp = new Expression(expressao);
+
+            defineContexto(regra, contexto, exp);
+
             BigDecimal valor = exp.eval();
             return valor.floatValue();
         } catch (RuntimeException re) {
-            throw new AvaliacaoRegraException("Avaliação de expressão: " + re.getMessage());
+            throw new FalhaAoAvaliarRegra("Avaliação de regra: " + re.getMessage());
         }
     }
 

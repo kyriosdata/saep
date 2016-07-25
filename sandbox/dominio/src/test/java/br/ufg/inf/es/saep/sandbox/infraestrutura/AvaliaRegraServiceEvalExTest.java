@@ -11,35 +11,40 @@ import static org.junit.Assert.assertEquals;
 /**
  * Testes do avaliador de regras
  */
-public class AvaliadorRegrasTest {
-    private Avaliador avaliador;
+public class AvaliaRegraServiceEvalExTest {
+    private AvaliaRegraServiceEvalEx avaliador;
 
     @Before
     public void setUp() {
-        avaliador = new Avaliador();
+        avaliador = new AvaliaRegraServiceEvalEx();
     }
 
-    @Test(expected = TipoDeRegraInvalido.class)
-    public void tipoDeRegraInvalidoGeraExcecao() {
-        List<String> deps = new ArrayList<>(1);
-        deps.add("a");
-
-        Regra r = new Regra("r", -1, "d", 1, 0, "a", null, null, null, 0, deps);
-
-        avaliador.avaliaRegra(r, new HashMap<>(0), null);
+    @Test(expected = NullPointerException.class)
+    public void naoAdmiteRegraNull() {
+        avaliador.avalia(null, new HashMap<>(0), null);
     }
 
-    @Test(expected = AvaliacaoRegraException.class)
+    @Test(expected = FalhaAoAvaliarRegra.class)
+    public void naoAdmiteContextoNullQuandoDependeDeVariavel() {
+        // Depende de variável cujo contexto fornecido é null!
+        ArrayList<String> dd = new ArrayList<>(0);
+        dd.add("a");
+
+        Regra regra = new Regra("v", 1, "d", 100, 0, "1", null, null, null, 0, dd);
+        avaliador.avalia(regra, null, null);
+    }
+
+    @Test(expected = FalhaAoAvaliarRegra.class)
     public void avaliaExpressaoSemVariavelDefinidaGeraExcecao() {
         int tipo = Regra.EXPRESSAO;
         List<String> deps = new ArrayList<>(1);
         deps.add("a");
         Regra r = new Regra("v", tipo, "d", 100, 0, "1 + a", null, null, null, 0,deps);
 
-        avaliador.avaliaRegra(r, new HashMap<>(0), null);
+        avaliador.avalia(r, new HashMap<>(0), null);
     }
 
-    @Test(expected = AvaliacaoRegraException.class)
+    @Test(expected = FalhaAoAvaliarRegra.class)
     public void somatorioSemVariavelGeraExcecao() {
         int tipo = Regra.SOMATORIO;
 
@@ -53,7 +58,7 @@ public class AvaliadorRegrasTest {
         relatos.add(new Relato("livro", relato));
 
         Map<String, Valor> ctx = new HashMap<>(0);
-        Valor resultado = avaliador.avaliaRegra(r, ctx, relatos);
+        Valor resultado = avaliador.avalia(r, ctx, relatos);
         assertEquals(16f, resultado.getFloat(), 0.0001f);
     }
 
@@ -80,7 +85,7 @@ public class AvaliadorRegrasTest {
         relatos.add(r2);
 
         Map<String, Valor> ctx = new HashMap<>(0);
-        Valor resultado = avaliador.avaliaRegra(r, ctx, relatos);
+        Valor resultado = avaliador.avalia(r, ctx, relatos);
         assertEquals(16f, resultado.getFloat(), 0.0001f);
     }
 
@@ -105,7 +110,7 @@ public class AvaliadorRegrasTest {
         relatos.add(r2);
 
         Map<String, Valor> ctx = new HashMap<>(0);
-        Valor resultado = avaliador.avaliaRegra(r, ctx, relatos);
+        Valor resultado = avaliador.avalia(r, ctx, relatos);
         assertEquals(2.5f, resultado.getFloat(), 0.0001f);
     }
 
@@ -116,7 +121,7 @@ public class AvaliadorRegrasTest {
 
         List<Avaliavel> relatos = new ArrayList<>(0);
 
-        Valor resultado = avaliador.avaliaRegra(regra, null, relatos);
+        Valor resultado = avaliador.avalia(regra, null, relatos);
         assertEquals(0f, resultado.getFloat(), 0.0001);
     }
 
@@ -129,7 +134,7 @@ public class AvaliadorRegrasTest {
         List<Avaliavel> relatos = new ArrayList<>(1);
         relatos.add(null);
 
-        Valor resultado = avaliador.avaliaRegra(regra, null, relatos);
+        Valor resultado = avaliador.avalia(regra, null, relatos);
         assertEquals(ppr, resultado.getFloat(), 0.0001);
     }
 
@@ -138,7 +143,7 @@ public class AvaliadorRegrasTest {
         int tipo = Regra.EXPRESSAO;
         Regra regra = new Regra("v", tipo, "d", 100, 0, "97", null, null, "r", 0, new ArrayList<>());
 
-        Valor resultado = avaliador.avaliaRegra(regra, null, null);
+        Valor resultado = avaliador.avalia(regra, null, null);
         assertEquals(97f, resultado.getFloat(), 0.0001);
     }
 
@@ -154,7 +159,7 @@ public class AvaliadorRegrasTest {
         Map<String, Valor> contexto = new HashMap<>(1);
         contexto.put("quatro", new Valor(4));
 
-        Valor resultado = avaliador.avaliaRegra(regra, contexto, null);
+        Valor resultado = avaliador.avalia(regra, contexto, null);
         assertEquals(100f, resultado.getFloat(), 0.0001);
     }
 
@@ -171,7 +176,7 @@ public class AvaliadorRegrasTest {
         int tipo = Regra.PONTOS;
         Regra r = new Regra("v", tipo, "d", 10, 0, null, null, null, "r", 11, null);
 
-        Valor parcial = avaliador.avaliaRegra(r, null, listaDeRelatos);
+        Valor parcial = avaliador.avalia(r, null, listaDeRelatos);
         assertEquals(10f, parcial.getFloat(), 0.0001f);
 
         Map<String, Valor> ctx = new HashMap<>(2);
@@ -181,7 +186,7 @@ public class AvaliadorRegrasTest {
         List<String> dependeDe = new ArrayList<>(1);
         dependeDe.add("dez");
         r = new Regra("v", tipo, "d", 250, 0, "23.1 * dez", null, null, null, 0, dependeDe);
-        parcial = avaliador.avaliaRegra(r, ctx, null);
+        parcial = avaliador.avalia(r, ctx, null);
         assertEquals(231f, parcial.getFloat(), 0.0001f);
 
         ctx.put("v231", parcial);
@@ -189,7 +194,7 @@ public class AvaliadorRegrasTest {
         tipo = Regra.EXPRESSAO;
         dependeDe.add("v231");
         r = new Regra("v", tipo, "d", 250, 0, "v231 - 31 + dez", null, null, null, 0, dependeDe);
-        parcial = avaliador.avaliaRegra(r, ctx, null);
+        parcial = avaliador.avalia(r, ctx, null);
         assertEquals(210f, parcial.getFloat(), 0.0001f);
     }
 
@@ -210,12 +215,12 @@ public class AvaliadorRegrasTest {
         contexto.put("oito", new Valor(8));
         contexto.put("nove", new Valor(9));
 
-        Valor resultado = avaliador.avaliaRegra(regra, contexto, null);
+        Valor resultado = avaliador.avalia(regra, contexto, null);
         assertEquals(9f, resultado.getFloat(), 0.0001);
 
         // Segunda: true (1)
         contexto.put("condicao", new Valor(1));
-        resultado = avaliador.avaliaRegra(regra, contexto, null);
+        resultado = avaliador.avalia(regra, contexto, null);
         assertEquals(8f, resultado.getFloat(), 0.0001);
     }
 }

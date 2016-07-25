@@ -77,5 +77,14 @@ public class RadocTest {
         assertEquals(r1, r1);
         assertEquals(r1, new Radoc("x", 1, relatos));
     }
+
+    @Test
+    public void hashCodeContrato() {
+        Radoc r1 = new Radoc("x", 0, relatos);
+        Radoc r2 = new Radoc("x", 0, relatos);
+
+        assertEquals(r1, r2);
+        assertEquals(r1.hashCode(), r2.hashCode());
+    }
 }
 

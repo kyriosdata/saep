@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Serviço de avaliação automática de RADOC.
+ * Serviço de avaliação de RADOCs.
  */
 public class AvaliadorService {
 
@@ -57,7 +57,7 @@ public class AvaliadorService {
             List<Avaliavel> considerados = relatosPorTipo.get(tipo);
 
             // Avalie a regra, para o contexto disponível.
-            Valor valor = regraService.avaliaRegra(regra, contexto, considerados);
+            Valor valor = regraService.avalia(regra, contexto, considerados);
 
             String variavel = regra.getVariavel();
             contexto.put(variavel, valor);

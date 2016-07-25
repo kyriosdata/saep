@@ -6,12 +6,12 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Indica situação excepcional ao avaliar uma
- * regra.
+ * Indica situação excepcional gerada durante a
+ * avaliação de uma regra.
  */
-public class AvaliacaoRegraException extends RuntimeException {
+public class FalhaAoAvaliarRegra extends RuntimeException {
 
-    public AvaliacaoRegraException(String mensagem) {
+    public FalhaAoAvaliarRegra(String mensagem) {
         super(mensagem);
     }
 }
