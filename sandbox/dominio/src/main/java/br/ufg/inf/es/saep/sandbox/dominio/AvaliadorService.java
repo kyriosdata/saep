@@ -106,11 +106,10 @@ public class AvaliadorService {
      * de uma pontuação. Esse método não atualiza a pontuação
      * de um parecer.
      *
-     * @throws CampoExigidoNaoFornecido Caso a nota
-     * seja {@code null}.
+     * @param nota A nota a ser acrescentada ao parecer.
      *
-     * @param nota A nota a ser acrescentada ao
-     * pareder.
+     * @throws CampoExigidoNaoFornecido Caso a nota
+     *      seja {@code null}.
      */
     public void adicionaNota(Nota nota) {
         if (nota == null) {

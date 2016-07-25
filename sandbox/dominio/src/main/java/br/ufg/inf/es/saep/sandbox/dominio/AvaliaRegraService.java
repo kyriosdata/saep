@@ -17,9 +17,9 @@ import java.util.Map;
  * associados a sequências de caracteres, onde cada uma
  * delas identifica um resultado relevante a ser
  * considerado em uma avaliação.
- * <p>
- * Observe que a implementação dessa interface não produz um
- * "relatório", mas os valores que serão empregados na
+ *
+ * <p>Observe que a implementação dessa interface não produz
+ * um "relatório", mas os valores que serão empregados na
  * produção de um relatório para uma avaliação.
  *
  */

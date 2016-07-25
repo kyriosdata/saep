@@ -22,12 +22,11 @@ public interface ParecerRepository {
     /**
      * Acrescenta o parecer ao repositório.
      *
-     * @throws IdentificadorExistente Caso o
-     * identificador seja empregado por parecer
-     * existente (já persistido).
-     *
      * @param parecer O parecer a ser persistido.
      *
+     * @throws IdentificadorExistente Caso o
+     *      identificador seja empregado por parecer
+     *      existente (já persistido).
      */
     void persisteParecer(Parecer parecer);
 
@@ -81,11 +80,13 @@ public interface ParecerRepository {
      * <p>Não é permitida a remoção de um RADOC para o qual
      * há pelo menos um parecer referenciando-o.
      *
-     * @throws ExisteParecerReferenciandoRadoc Caso exista pelo
-     * menos um parecer que faz referência para o RADOC cuja
-     * remoção foi requisitada.
-     *
      * @param identificador O identificador do RADOC.
+     *
+     * @throws ExisteParecerReferenciandoRadoc Caso exista pelo
+     *      menos um parecer que faz referência para o RADOC cuja
+     *      remoção foi requisitada.
+     *
+
      */
     void removeRadoc(String identificador);
 
