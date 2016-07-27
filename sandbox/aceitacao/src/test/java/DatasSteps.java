@@ -7,7 +7,7 @@ import java.util.Date;
 import static junit.framework.TestCase.assertEquals;
 
 public class DatasSteps {
-    @Step("Um mês a partir de uma dada data <table>")
+    @Step("Meses a partir de uma dada data <table>")
     public void simplesTabela(Table table) {
         for (TableRow row : table.getTableRows()) {
             String inicio = row.getCell("Início");

@@ -18,15 +18,22 @@ dias.
 
 Um mês contado a partir de um dia D,
 é o período que vai do dia D até o dia
-D - 1 do mês seguinte, inclusive.
+D - 1 do mês seguinte, inclusive. Naturalmente,
+essa mesma regra se aplica para o mês seguinte e
+assim sucessivamente.
 
-* Um mês a partir de uma dada data
-     |Início    |Meses|Fim|Dias|
-     |----------|-----|----------|--|
-     |01/02/2015|1|01/03/2015|28|
-     |01/02/2016|1|01/03/2016|29|
-     |01/04/2016|1|01/05/2016|30|
-     |01/03/2016|1|01/04/2016|31|
-     |02/02/2015|1|02/03/2015|28|
-     |28/02/2015|1|28/03/2015|28|
+Convém observar que a data fornecida como "Fim"
+na tabela abaixo indica o término e não faz parte
+do período em questão.
+
+* Meses a partir de uma dada data
+     |Início    |Meses|Fim       |Dias|
+     |----------|-----|----------|----|
+     |01/02/2015|1    |01/03/2015|28  |
+     |01/02/2016|1    |01/03/2016|29  |
+     |01/04/2016|1    |01/05/2016|30  |
+     |01/03/2016|1    |01/04/2016|31  |
+     |02/02/2015|1    |02/03/2015|28  |
+     |28/02/2015|1    |28/03/2015|28  |
+     |10/02/2015|36   |10/02/2018|1   |
 

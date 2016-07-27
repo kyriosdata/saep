@@ -2,5 +2,7 @@
 	"Flags": {
 		"-simple-console": "true"
 	},
-	"FailedItems": []
+	"FailedItems": [
+		"specs\\datas.spec:8"
+	]
 }
