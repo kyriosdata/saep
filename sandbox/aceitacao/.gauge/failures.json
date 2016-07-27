@@ -3,6 +3,6 @@
 		"-simple-console": "true"
 	},
 	"FailedItems": [
-		"specs\\datas.spec:8"
+		"specs\\datas.spec:40"
 	]
 }
