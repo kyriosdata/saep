@@ -111,7 +111,6 @@ public class Relato implements Avaliavel {
         }
 
         return true;
-
     }
 
     @Override

@@ -22,12 +22,7 @@ import java.util.List;
  * @see Parecer
  *
  */
-public class Radoc {
-
-    /**
-     * Identificador único do relatório.
-     */
-    private String id;
+public class Radoc extends Entidade {
 
     /**
      * Ano base do relatório.
@@ -49,15 +44,12 @@ public class Radoc {
      * @param relatos Conjunto de relatos que fazem parte do RADOC.
      */
     public Radoc(String id, int anoBase, List<Relato> relatos) {
-        if (id == null || id.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("id");
-        }
+        super(id);
 
         if (relatos == null) {
             throw new CampoExigidoNaoFornecido("relatos");
         }
 
-        this.id = id;
         this.anoBase = anoBase;
         this.relatos = relatos;
     }
@@ -83,15 +75,6 @@ public class Radoc {
     }
 
     /**
-     * Recupera o identificador único do RADOC.
-     *
-     * @return O identificador único do RADOC.
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
      * Recupera o ano base do RADOC.
      *
      * @return O ano base do RADOC.
@@ -107,25 +90,5 @@ public class Radoc {
      */
     public List<Relato> getRelatos() {
         return relatos;
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-
-        if (other == null || getClass() != other.getClass()) {
-            return false;
-        }
-
-        Radoc radoc = (Radoc) other;
-
-        return id.equals(radoc.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 }

@@ -28,12 +28,7 @@ import java.util.UUID;
  *
  * @see Radoc
  */
-public class Parecer {
-
-    /**
-     * Identificador único do parecer.
-     */
-    private String id;
+public class Parecer extends Entidade {
 
     /**
      * Resolução com base na qual o parecer
@@ -101,9 +96,7 @@ public class Parecer {
                    String fundamentacao,
                    List<Nota> notas) {
 
-        if (id == null || id.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("id");
-        }
+        super(id);
 
         if (resolucaoId == null || resolucaoId.isEmpty()) {
             throw new CampoExigidoNaoFornecido("resolucaoId");
@@ -117,7 +110,6 @@ public class Parecer {
             throw new CampoExigidoNaoFornecido("radocsIds");
         }
 
-        this.id = id;
         this.resolucao = resolucaoId;
         this.radocs = radocsIds;
         this.pontuacoes = pontuacoes;
@@ -157,15 +149,6 @@ public class Parecer {
                 pontuacoes,
                 fundamentacao,
                 notas);
-    }
-
-    /**
-     * Recupera o identificador único do parecer.
-     *
-     * @return O identificador do parecer.
-     */
-    public String getId() {
-        return id;
     }
 
     /**
@@ -213,25 +196,5 @@ public class Parecer {
      */
     public List<Nota> getNotas() {
         return notas;
-    }
-
-    @Override
-    public boolean equals(Object outro) {
-        if (this == outro) {
-            return true;
-        }
-
-        if (outro == null || getClass() != outro.getClass()) {
-            return false;
-        }
-
-        Parecer parecer = (Parecer) outro;
-
-        return id.equals(parecer.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 }

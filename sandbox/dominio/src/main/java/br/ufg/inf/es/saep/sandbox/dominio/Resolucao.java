@@ -17,14 +17,7 @@ import java.util.List;
  * classe simplesmente registra os itens relevantes ou aqueles
  * considerados em uma avaliação.
  */
-public class Resolucao {
-
-    /**
-     * Identificador único da resolução. Desconhecido
-     * dos usuários (membros da CAD, por exemplo).
-     * Contraste com {#link {@link #nome}.
-     */
-    private String id;
+public class Resolucao extends Entidade {
 
     /**
      * Data de aprovação da resolução.
@@ -50,18 +43,6 @@ public class Resolucao {
      * Conjunto de regras definido pela resolução.
      */
     private List<Regra> regras;
-
-    /**
-     * Recupera o nome único da resolução
-     * (surrogate key).
-     *
-     * @see #getNome()
-     *
-     * @return O nome único da resolução.
-     */
-    public String getId() {
-        return id;
-    }
 
     /**
      * Recupera o nome da resolução.
@@ -105,9 +86,7 @@ public class Resolucao {
      * @param regras Conjunto parecerById itens que são avaliados pela
      */
     public Resolucao(String id, String nome, String descricao, Date dataAprovacao, List<Regra> regras) {
-        if (id == null || id.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("nome");
-        }
+        super(id);
 
         if (descricao == null || descricao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("descricao");
@@ -121,30 +100,9 @@ public class Resolucao {
             throw new CampoExigidoNaoFornecido("regras");
         }
 
-        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.dataAprovacao = dataAprovacao;
         this.regras = regras;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Resolucao resolucao = (Resolucao) o;
-
-        return id.equals(resolucao.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 }

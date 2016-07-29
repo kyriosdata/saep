@@ -31,17 +31,7 @@ import java.util.Set;
  * correspondentes. Os códigos poderiam ser "APG" e
  * "AEADG", respectivamente.
  */
-public class Tipo {
-
-    /**
-     * Código único que identifica o tipo,
-     * por exemplo, "EG" para ensino de
-     * graduação. O código é, geralmente,
-     * "curto".
-     *
-     * <p>Trata-se de uma chave natural.
-     */
-    private String id;
+public class Tipo extends Entidade {
 
     /**
      * Nome pelo qual o tipo é conhecido,
@@ -61,15 +51,6 @@ public class Tipo {
      * relato do tipo.
      */
     private Set<Atributo> atributos;
-
-    /**
-     * Recupera o código único do tipo.
-     *
-     * @return Identificador único do tipo.
-     */
-    public String getId() {
-        return id;
-    }
 
     /**
      * Recupera o nome pelo qual o tipo é conhecido.
@@ -99,9 +80,7 @@ public class Tipo {
 
      */
     public Tipo(String id, String nome, String descricao, Set<Atributo> atributos) {
-        if (id == null || id.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("id");
-        }
+        super(id);
 
         if (nome == null || nome.isEmpty()) {
             throw new CampoExigidoNaoFornecido("id");
@@ -111,7 +90,6 @@ public class Tipo {
             throw new CampoExigidoNaoFornecido("atributos");
         }
 
-        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.atributos = atributos;
@@ -125,25 +103,5 @@ public class Tipo {
      */
     public Set<Atributo> getAtributos() {
         return atributos;
-    }
-
-    @Override
-    public boolean equals(Object outro) {
-        if (this == outro) {
-            return true;
-        }
-
-        if (outro == null || getClass() != outro.getClass()) {
-            return false;
-        }
-
-        Tipo tipo = (Tipo) outro;
-
-        return id.equals(tipo.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
     }
 }
