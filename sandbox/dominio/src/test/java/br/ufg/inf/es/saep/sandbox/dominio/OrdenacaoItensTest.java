@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static br.ufg.inf.es.saep.sandbox.dominio.OrdenacaoService.*;
 import static org.junit.Assert.assertEquals;
 
 public class OrdenacaoItensTest {
@@ -13,7 +14,7 @@ public class OrdenacaoItensTest {
     public void semItensOrdenacaoTrivial() {
         OrdenacaoService or = new OrdenacaoService();
         List<Regra> itens = new ArrayList<>();
-        assertEquals(itens.size(), or.ordena(itens).size());
+        assertEquals(itens.size(), ordena(itens).size());
     }
 
     @Test
@@ -24,7 +25,7 @@ public class OrdenacaoItensTest {
         List<Regra> itens = new ArrayList<>(1);
         itens.add(regra);
 
-        List<Regra> ordenados = new OrdenacaoService().ordena(itens);
+        List<Regra> ordenados = ordena(itens);
         assertEquals(1, ordenados.size());
         assertEquals("um", ordenados.get(0).getVariavel());
     }
@@ -59,8 +60,7 @@ public class OrdenacaoItensTest {
         itens.add(regraX);
         itens.add(regraY);
 
-        OrdenacaoService or = new OrdenacaoService();
-        List<Regra> ordenados = or.ordena(itens);
+        List<Regra> ordenados = ordena(itens);
 
         assertEquals(3, ordenados.size());
         assertEquals("rz", ordenados.get(2).getVariavel());
@@ -71,7 +71,7 @@ public class OrdenacaoItensTest {
         OrdenacaoService or = new OrdenacaoService();
 
         // a = 10
-        Regra ra = new Regra("a", 1, "a = 10", 10, 0, "10", null, null, null, 0, new ArrayList<String>(0));
+        Regra ra = new Regra("a", 1, "a = 10", 10, 0, "10", null, null, null, 0, new ArrayList<>(0));
 
         // b = a + 1
         ArrayList<String> atributos = new ArrayList<>(0);
@@ -84,7 +84,7 @@ public class OrdenacaoItensTest {
         itens.add(rb);
 
         // Executa operação de ordenação
-        List<Regra> ordenados = or.ordena(itens);
+        List<Regra> ordenados = ordena(itens);
 
         // Verifica que itemA precede itemB
         assertEquals(2, ordenados.size());
@@ -112,7 +112,7 @@ public class OrdenacaoItensTest {
         itens.add(rb);
         itens.add(rc);
 
-        List<Regra> ordenados = oi.ordena(itens);
+        List<Regra> ordenados = ordena(itens);
         assertEquals(3, ordenados.size());
     }
 }

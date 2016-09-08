@@ -11,7 +11,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class RadocTest {
+public class RelatorioTest {
 
     private List<Relato> relatos;
 
@@ -29,28 +29,28 @@ public class RadocTest {
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void idNullGeraExcecao() {
-        new Radoc(null, 0, new ArrayList<>());
+        new Relatorio(null, 0, new ArrayList<>());
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void idVazioGeraExcecao() {
-        new Radoc("", 0, new ArrayList<>());
+        new Relatorio("", 0, new ArrayList<>());
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void relatosNullGeraExcecao() {
-        new Radoc("id", 0, null);
+        new Relatorio("id", 0, null);
     }
 
     @Test
     public void semRelatosBuscaPorTipoRetornaZero() {
-        Radoc r = new Radoc("r", 0, new ArrayList<>());
+        Relatorio r = new Relatorio("r", 0, new ArrayList<>());
         assertEquals(0, r.relatosPorTipo("qualquer coisa").size());
     }
 
     @Test
     public void relatosPorTipo() {
-        Radoc r = new Radoc("id", 0, relatos);
+        Relatorio r = new Relatorio("id", 0, relatos);
 
         assertEquals(0, r.relatosPorTipo("x").size());
         assertEquals(0, r.relatosPorTipo(null).size());
@@ -60,7 +60,7 @@ public class RadocTest {
 
     @Test
     public void recuperaCorretamente() {
-        Radoc r = new Radoc("x", 1234, new ArrayList<>(0));
+        Relatorio r = new Relatorio("x", 1234, new ArrayList<>(0));
         assertEquals("x", r.getId());
         assertEquals(1234, r.getAnoBase());
         assertEquals(0, r.getRelatos().size());
@@ -68,20 +68,20 @@ public class RadocTest {
 
     @Test
     public void igualdade() {
-        Radoc r1 = new Radoc("x", 0, relatos);
+        Relatorio r1 = new Relatorio("x", 0, relatos);
 
         assertNotEquals(r1, null);
         assertNotEquals(r1, "não pode ser igual");
-        assertNotEquals(r1, new Radoc("y", 0, relatos));
+        assertNotEquals(r1, new Relatorio("y", 0, relatos));
 
         assertEquals(r1, r1);
-        assertEquals(r1, new Radoc("x", 1, relatos));
+        assertEquals(r1, new Relatorio("x", 1, relatos));
     }
 
     @Test
     public void hashCodeContrato() {
-        Radoc r1 = new Radoc("x", 0, relatos);
-        Radoc r2 = new Radoc("x", 0, relatos);
+        Relatorio r1 = new Relatorio("x", 0, relatos);
+        Relatorio r2 = new Relatorio("x", 0, relatos);
 
         assertEquals(r1, r2);
         assertEquals(r1.hashCode(), r2.hashCode());

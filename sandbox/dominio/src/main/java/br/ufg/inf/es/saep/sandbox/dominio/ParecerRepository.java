@@ -15,7 +15,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * SAEP.
  *
  * @see Parecer
- * @see Radoc
+ * @see Relatorio
  */
 public interface ParecerRepository {
 
@@ -61,7 +61,7 @@ public interface ParecerRepository {
      * longo do tempo. Convém ressaltar que informações
      * desses relatórios podem ser alteradas continuamente.
      *
-     * @param radoc O conjunto de relatos a ser persistido.
+     * @param relatorio O conjunto de relatos a ser persistido.
      *
      * @return O identificador único do RADOC.
      *
@@ -71,7 +71,7 @@ public interface ParecerRepository {
      *
 
      */
-    String persisteRadoc(Radoc radoc);
+    String persisteRadoc(Relatorio relatorio);
 
     /**
      * Remove o RADOC.
@@ -96,8 +96,8 @@ public interface ParecerRepository {
      * @param identificador O identificador único do
      *                      RADOC.
      *
-     * @return O {@code Radoc} correspondente ao
+     * @return O {@code Relatorio} correspondente ao
      *      identificador fornecido.
      */
-    Radoc radocById(String identificador);
+    Relatorio radocById(String identificador);
 }

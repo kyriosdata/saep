@@ -17,7 +17,10 @@ public class AvaliadorService {
 
     private List<Nota> notas;
 
-    private AvaliaRegraService regraService;
+    /**
+     * Serviço de avaliação de regra a ser utilizado peloa Avaliador.
+     */
+    private final AvaliaRegraService regraService;
 
     public AvaliadorService(AvaliaRegraService regraService) {
         this.regraService = regraService;

@@ -22,7 +22,7 @@ import java.util.List;
  * @see Parecer
  *
  */
-public class Radoc extends Entidade {
+public class Relatorio extends Entidade {
 
     /**
      * Ano base do relatório.
@@ -43,7 +43,7 @@ public class Radoc extends Entidade {
      * @param anoBase O ano base do RADOC.
      * @param relatos Conjunto de relatos que fazem parte do RADOC.
      */
-    public Radoc(String id, int anoBase, List<Relato> relatos) {
+    public Relatorio(String id, int anoBase, List<Relato> relatos) {
         super(id);
 
         if (relatos == null) {

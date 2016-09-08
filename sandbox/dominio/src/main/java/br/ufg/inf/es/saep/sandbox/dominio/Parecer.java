@@ -26,7 +26,7 @@ import java.util.UUID;
  * obtido por uma pontuação ao alterar o valor de um
  * relato.
  *
- * @see Radoc
+ * @see Relatorio
  */
 public class Parecer extends Entidade {
 
