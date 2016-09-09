@@ -6,6 +6,8 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * Encapsula um valor, que pode ser uma sequência
@@ -28,6 +30,13 @@ import java.time.LocalDate;
  * uso do método correto.
  */
 public class Valor {
+
+    /**
+     * Formato de data empregado quando fornecida em
+     * uma sequência de caracteres.
+     */
+    public static final DateTimeFormatter formatoData =
+            DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     /**
      * Contêiner para o valor numérico
@@ -87,6 +96,14 @@ public class Valor {
     }
 
     /**
+     * Cria uma instância cujo valor é uma data
+     * no formato (dd/MM/aaaa).
+     *
+     * @param data Data a ser associada ao valor.
+     */
+    public Valor(LocalDate data) { this.data = data; }
+
+    /**
      * Recupera a sequência de caracteres
      * do valor.
      *
@@ -116,7 +133,38 @@ public class Valor {
      * @return O valor numérico correspondente
      *      à instância.
      */
-    public float getFloat() {
+    public float getReal() {
         return real;
+    }
+
+    /**
+     * Recupera o valor da data armazenado
+     * na instância.
+     *
+     * @return A data armazenada na instância.
+     */
+    public LocalDate getData() { return data; }
+
+    /**
+     * Cria uma instância cujo valor armazenado é
+     * a data fornecida por meio de uma sequência de
+     * caracteres.
+     *
+     * @param data Sequência de caracteres no formato
+     *             dd/MM/aaaa.
+     *
+     * @return Instância correspondente à data fornecida
+     * como sequência de caracteres.
+     */
+    public static Valor dataFromString(String data) {
+        LocalDate parsedDate;
+
+        try {
+            parsedDate = LocalDate.parse(data, formatoData);
+        } catch (DateTimeParseException exp) {
+            return null;
+        }
+
+        return new Valor(parsedDate);
     }
 }

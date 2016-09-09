@@ -81,7 +81,7 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
                     continue;
                 }
 
-                float valor1 = valor.getFloat();
+                float valor1 = valor.getReal();
                 exp.setVariable(variavel, new BigDecimal(valor1));
             }
 
@@ -133,7 +133,7 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
                 continue;
             }
 
-            float real = valor.getFloat();
+            float real = valor.getReal();
             BigDecimal bd = new BigDecimal(real);
             exp.setVariable(dependeDe, bd);
         }

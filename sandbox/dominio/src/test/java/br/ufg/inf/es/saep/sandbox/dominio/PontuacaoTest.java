@@ -13,7 +13,7 @@ public class PontuacaoTest {
         Pontuacao p = new Pontuacao("p", new Valor(-21.4f));
 
         assertEquals("p", p.getAtributo());
-        assertEquals(-21.4f, p.getValor().getFloat(), 0.0001d);
+        assertEquals(-21.4f, p.getValor().getReal(), 0.0001d);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)

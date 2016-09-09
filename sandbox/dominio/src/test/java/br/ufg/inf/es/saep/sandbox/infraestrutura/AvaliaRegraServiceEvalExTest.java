@@ -59,7 +59,7 @@ public class AvaliaRegraServiceEvalExTest {
 
         Map<String, Valor> ctx = new HashMap<>(0);
         Valor resultado = avaliador.avalia(r, ctx, relatos);
-        assertEquals(16f, resultado.getFloat(), 0.0001f);
+        assertEquals(16f, resultado.getReal(), 0.0001f);
     }
 
     @Test
@@ -86,7 +86,7 @@ public class AvaliaRegraServiceEvalExTest {
 
         Map<String, Valor> ctx = new HashMap<>(0);
         Valor resultado = avaliador.avalia(r, ctx, relatos);
-        assertEquals(16f, resultado.getFloat(), 0.0001f);
+        assertEquals(16f, resultado.getReal(), 0.0001f);
     }
 
     @Test
@@ -111,7 +111,7 @@ public class AvaliaRegraServiceEvalExTest {
 
         Map<String, Valor> ctx = new HashMap<>(0);
         Valor resultado = avaliador.avalia(r, ctx, relatos);
-        assertEquals(2.5f, resultado.getFloat(), 0.0001f);
+        assertEquals(2.5f, resultado.getReal(), 0.0001f);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class AvaliaRegraServiceEvalExTest {
         List<Avaliavel> relatos = new ArrayList<>(0);
 
         Valor resultado = avaliador.avalia(regra, null, relatos);
-        assertEquals(0f, resultado.getFloat(), 0.0001);
+        assertEquals(0f, resultado.getReal(), 0.0001);
     }
 
     @Test
@@ -135,7 +135,7 @@ public class AvaliaRegraServiceEvalExTest {
         relatos.add(null);
 
         Valor resultado = avaliador.avalia(regra, null, relatos);
-        assertEquals(ppr, resultado.getFloat(), 0.0001);
+        assertEquals(ppr, resultado.getReal(), 0.0001);
     }
 
     @Test
@@ -144,7 +144,7 @@ public class AvaliaRegraServiceEvalExTest {
         Regra regra = new Regra("v", tipo, "d", 100, 0, "97", null, null, "r", 0, new ArrayList<>());
 
         Valor resultado = avaliador.avalia(regra, null, null);
-        assertEquals(97f, resultado.getFloat(), 0.0001);
+        assertEquals(97f, resultado.getReal(), 0.0001);
     }
 
     @Test
@@ -160,7 +160,7 @@ public class AvaliaRegraServiceEvalExTest {
         contexto.put("quatro", new Valor(4));
 
         Valor resultado = avaliador.avalia(regra, contexto, null);
-        assertEquals(100f, resultado.getFloat(), 0.0001);
+        assertEquals(100f, resultado.getReal(), 0.0001);
     }
 
     @Test
@@ -177,7 +177,7 @@ public class AvaliaRegraServiceEvalExTest {
         Regra r = new Regra("v", tipo, "d", 10, 0, null, null, null, "r", 11, null);
 
         Valor parcial = avaliador.avalia(r, null, listaDeRelatos);
-        assertEquals(10f, parcial.getFloat(), 0.0001f);
+        assertEquals(10f, parcial.getReal(), 0.0001f);
 
         Map<String, Valor> ctx = new HashMap<>(2);
         ctx.put("dez", parcial);
@@ -187,7 +187,7 @@ public class AvaliaRegraServiceEvalExTest {
         dependeDe.add("dez");
         r = new Regra("v", tipo, "d", 250, 0, "23.1 * dez", null, null, null, 0, dependeDe);
         parcial = avaliador.avalia(r, ctx, null);
-        assertEquals(231f, parcial.getFloat(), 0.0001f);
+        assertEquals(231f, parcial.getReal(), 0.0001f);
 
         ctx.put("v231", parcial);
 
@@ -195,7 +195,7 @@ public class AvaliaRegraServiceEvalExTest {
         dependeDe.add("v231");
         r = new Regra("v", tipo, "d", 250, 0, "v231 - 31 + dez", null, null, null, 0, dependeDe);
         parcial = avaliador.avalia(r, ctx, null);
-        assertEquals(210f, parcial.getFloat(), 0.0001f);
+        assertEquals(210f, parcial.getReal(), 0.0001f);
     }
 
     @Test
@@ -216,11 +216,11 @@ public class AvaliaRegraServiceEvalExTest {
         contexto.put("nove", new Valor(9));
 
         Valor resultado = avaliador.avalia(regra, contexto, null);
-        assertEquals(9f, resultado.getFloat(), 0.0001);
+        assertEquals(9f, resultado.getReal(), 0.0001);
 
         // Segunda: true (1)
         contexto.put("condicao", new Valor(1));
         resultado = avaliador.avalia(regra, contexto, null);
-        assertEquals(8f, resultado.getFloat(), 0.0001);
+        assertEquals(8f, resultado.getReal(), 0.0001);
     }
 }
