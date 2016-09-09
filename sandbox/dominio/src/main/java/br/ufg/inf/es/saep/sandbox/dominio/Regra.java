@@ -8,8 +8,8 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.List;
 
 /**
- * Uma regra define como avaliar um conjunto
- * de objetos avaliáveis. Um objeto é avaliável
+ * Uma regra define como avaliar um ou mais
+ * objetos avaliáveis. Um objeto é avaliável
  * se implementa a interface {@link Avaliavel}).
  *
  * <p>A avaliação de uma regra pode dependenter de
@@ -44,7 +44,7 @@ import java.util.List;
  * irá reter o valor final de uma regra deve ser única
  * nesse conjunto.
  */
-public class Regra {
+public abstract class Regra {
 
     /**
      * Identificador de tipoRelato de regra cuja pontuação é
@@ -139,43 +139,6 @@ public class Regra {
     private String variavel;
 
     /**
-     * Expressão a ser avaliada para obtenção do
-     * resultado da avaliação da regra. Caso a
-     * regra seja condicional, então essa expressão
-     * é lógica. Caso a regra seja uma contagem por
-     * pontos, então o valor é irrelevante.
-     */
-    private String expressao;
-
-    /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja verdadeira.
-     */
-    private String entao;
-
-    /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja falsa.
-     */
-    private String senao;
-
-    /**
-     * Identificador único de um tipoRelato de relato.
-     * Nem toda regra, convém destacar, refere-se
-     * a um relato. Se esse for o caso, esse valor
-     * é irrelevante.
-     */
-    private String tipoRelato;
-
-    /**
-     * Quantidade de pontos definidos por item
-     * {@link Avaliavel}.
-     */
-    private float pontosPorItem;
-
-    /**
      * Lista de identificadores de atributos que são
      * empregados pela expressão que avalia a regra.
      * Caso a regra seja condicional, então acumula
@@ -184,6 +147,62 @@ public class Regra {
      * avaliável, então a lista é vazia.
      */
     private List<String> dependeDe;
+
+    /**
+     * Cria uma regra.
+     *
+     * @param variavel      O identificador (nome) da variável que retém o
+     *                      valor da avaliação da regra. Em um dado conjunto de
+     *                      regras, existe uma variável distinta para cada uma
+     *                      delas.
+     * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
+     *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
+     *                      {@link #SOMATORIO}.
+     * @param descricao     Texto que fornece alguma explanação sobre a regra.
+     * @param valorMaximo   O valor máximo a ser utilizado como resultado da
+     *                      avaliação da regra. Esse valor é empregado apenas
+     *                      se a avaliação resultar em valor superior ao
+     *                      expresso por esse parâmetro.
+     * @param valorMinimo   O valor mínimo a ser utilizado como resultado da
+     *                      avaliação da regra. Esse valor é empregado apenas
+     *                      se a avaliação resultar em valor inferior ao
+     *                      expresso por esse parâmetro.
+     * @param dependeDe     Lista de identificadores (atributos) que são
+     *                      empregados na avaliação da regra. Por exemplo,
+     *                      se uma regra é definida pela expressão "a + b",
+     * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
+     *                                  definição de uma regra não seja fornecido.
+     */
+    public Regra(String variavel,
+                 int tipo,
+                 String descricao,
+                 float valorMaximo,
+                 float valorMinimo,
+                 List<String> dependeDe) {
+
+        if (variavel == null || variavel.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("variavel");
+        }
+
+        if (descricao == null || descricao.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("descricao");
+        }
+
+        // A avaliação abaixo seria mais simples se herança fosse
+        // empregada. Contudo, fica como alternativa caso novos
+        // tipos de regras sejam definidos.
+
+        if (dependeDe == null) {
+            throw new CampoExigidoNaoFornecido("dependeDe");
+        }
+
+        this.dependeDe = dependeDe;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.valorMaximo = valorMaximo;
+        this.valorMinimo = valorMinimo;
+        this.variavel = variavel;
+    }
 
     /**
      * Recupera o tipo da regra.
@@ -223,46 +242,6 @@ public class Regra {
     }
 
     /**
-     * Recupera a expressão associada à regra.
-     *
-     * @return A expressão empregada pela regra.
-     */
-    public String getExpressao() {
-        return expressao;
-    }
-
-    /**
-     * Recupera a expressão "então" associada à regra
-     * do tipo {@link #CONDICIONAL}.
-     *
-     * @return A expressão "então".
-     */
-    public String getEntao() {
-        return entao;
-    }
-
-    /**
-     * Recupera a expressão "senão" associada à regra
-     * do tipo {@link #CONDICIONAL}.
-     *
-     * @return A expressão "senão".
-     */
-    public String getSenao() {
-        return senao;
-    }
-
-    /**
-     * Recupera o tipo do relato associado à regra.
-     * O retorno desse método é útil apenas quando o
-     * tipo da regras é {@link #PONTOS}.
-     *
-     * @return O identificador do tipo de relato.
-     */
-    public String getTipoRelato() {
-        return tipoRelato;
-    }
-
-    /**
      * Recupera o identificador da variável
      * que irá reter o resultado da avaliação da regra.
      *
@@ -279,16 +258,6 @@ public class Regra {
     }
 
     /**
-     * Recupera a quantidade de pontos atribuída a cada
-     * item para obtenção do valor da regra.
-     *
-     * @return Pontos por item avaliável.
-     */
-    public float getPontosPorItem() {
-        return pontosPorItem;
-    }
-
-    /**
      * Lista de dependeDe diretamente empregados
      * pela expressão cuja avaliação dá origem à
      * pontuação da regra.
@@ -298,105 +267,6 @@ public class Regra {
      */
     public List<String> getDependeDe() {
         return dependeDe;
-    }
-
-    /**
-     * Cria uma regra.
-     *
-     * @param variavel      O identificador (nome) da variável que retém o
-     *                      valor da avaliação da regra. Em um dado conjunto de
-     *                      regras, existe uma variável distinta para cada uma
-     *                      delas.
-     * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
-     *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
-     *                      {@link #SOMATORIO}.
-     * @param descricao     Texto que fornece alguma explanação sobre a regra.
-     * @param valorMaximo   O valor máximo a ser utilizado como resultado da
-     *                      avaliação da regra. Esse valor é empregado apenas
-     *                      se a avaliação resultar em valor superior ao
-     *                      expresso por esse parâmetro.
-     * @param valorMinimo   O valor mínimo a ser utilizado como resultado da
-     *                      avaliação da regra. Esse valor é empregado apenas
-     *                      se a avaliação resultar em valor inferior ao
-     *                      expresso por esse parâmetro.
-     * @param expressao     A expressão empregada para avaliar a regra,
-     *                      conforme o tipo.
-     * @param entao         A expressão que dará origem ao valor da regra caso
-     *                      a condição correspondente seja avaliada como verdadeira.
-     * @param senao         A expressão que dará origem ao valor da regra caso a
-     *                      condição correspondente seja avaliada como falsa.
-     * @param tipoRelato    Nome que identifica um relato, empregado em regras
-     *                      cuja avaliação é pontos por relato.
-     * @param pontosPorItem Total de pontos para cada relato de um dado
-     *                      tipo.
-     * @param dependeDe     Lista de identificadores (atributos) que são
-     *                      empregados na avaliação da regra. Por exemplo,
-     *                      se uma regra é definida pela expressão "a + b",
-     * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
-     *                                  definição de uma regra não seja fornecido.
-     */
-    public Regra(String variavel,
-                 int tipo,
-                 String descricao,
-                 float valorMaximo,
-                 float valorMinimo,
-                 String expressao,
-                 String entao,
-                 String senao,
-                 String tipoRelato,
-                 float pontosPorItem,
-                 List<String> dependeDe) {
-
-        if (variavel == null || variavel.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("variavel");
-        }
-
-        if (tipo < PONTOS || tipo > DATAS_DIFERENCA) {
-            throw new TipoDeRegraInvalido("tipo");
-        }
-
-        if (descricao == null || descricao.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("descricao");
-        }
-
-        // A avaliação abaixo seria mais simples se herança fosse
-        // empregada. Contudo, fica como alternativa caso novos
-        // tipos de regras sejam definidos.
-
-        if (tipo == PONTOS) {
-            if (tipoRelato == null || tipoRelato.isEmpty()) {
-                throw new CampoExigidoNaoFornecido("tipoRelato");
-            }
-
-            this.tipoRelato = tipoRelato;
-            this.pontosPorItem = pontosPorItem;
-        } else {
-            if (expressao == null || expressao.isEmpty()) {
-                throw new CampoExigidoNaoFornecido("expressao");
-            }
-
-            if (dependeDe == null) {
-                throw new CampoExigidoNaoFornecido("dependeDe");
-            }
-
-            this.expressao = expressao;
-            this.dependeDe = dependeDe;
-        }
-
-        if (tipo == CONDICIONAL) {
-            if (entao == null || entao.isEmpty()) {
-                throw new CampoExigidoNaoFornecido("entao");
-            }
-
-            this.entao = entao;
-            this.senao = senao;
-        }
-
-        this.tipo = tipo;
-        this.descricao = descricao;
-        this.valorMaximo = valorMaximo;
-        this.valorMinimo = valorMinimo;
-        this.variavel = variavel;
     }
 
     @Override
@@ -418,4 +288,18 @@ public class Regra {
     public int hashCode() {
         return variavel.hashCode();
     }
+
+    public float ajustaLimites(float valor) {
+        if (valor < getValorMinimo()) {
+            return getValorMinimo();
+        }
+
+        if (valor > getValorMaximo()) {
+            return getValorMaximo();
+        }
+
+        return valor;
+    }
+
+    public abstract Valor avalie(List<Avaliavel> avaliaveis);
 }

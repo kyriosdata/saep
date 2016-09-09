@@ -16,7 +16,7 @@ public class ResolucaoTest {
 
     @BeforeClass
     public static void setUp() {
-        Regra r = new Regra("v", 1, "d", 1, 0, "a", null, null, null, 1, new ArrayList<>());
+        Regra r = new RegraExpressao("v", 1, "d", 1, 0, "a", null, null, null, 1, new ArrayList<>());
         regras = new ArrayList<>();
         regras.add(r);
     }

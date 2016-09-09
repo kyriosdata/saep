@@ -21,49 +21,13 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
     public Valor avalia(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
         switch (regra.getTipo()) {
             case Regra.PONTOS:
-                float pontosPorRelato = regra.getPontosPorItem();
-                float total = pontosPorRelato * relatos.size();
-                total = ajustaLimites(regra, total);
-
-                return new Valor(total);
-
             case Regra.EXPRESSAO:
-                float valor = avaliaExpressao(regra, contexto, regra.getExpressao());
-                valor = ajustaLimites(regra, valor);
-
-                return new Valor(valor);
-
             case Regra.CONDICIONAL:
-                float condicao = avaliaExpressao(regra, contexto, regra.getExpressao());
-                float entaoOuSenao;
-                if (condicao != 0f) {
-                    entaoOuSenao = avaliaExpressao(regra, contexto, regra.getEntao());
-                } else {
-                    entaoOuSenao = avaliaExpressao(regra, contexto, regra.getSenao());
-                }
-
-                entaoOuSenao = ajustaLimites(regra, entaoOuSenao);
-
-                return new Valor(entaoOuSenao);
-
             case Regra.SOMATORIO:
-                float somatorio = somatorio(regra, relatos);
-
-                somatorio = ajustaLimites(regra, somatorio);
-
-                return new Valor(somatorio);
-
             case Regra.MEDIA:
-                float parcial = somatorio(regra, relatos);
-                parcial /= relatos.size();
-
-                parcial = ajustaLimites(regra, parcial);
-
-                return new Valor(parcial);
-
             case Regra.DATAS_COMPARACAO:
-
             case Regra.DATAS_DIFERENCA:
+                return new Valor(true);
 
             default:
                 throw new TipoDeRegraInvalido("avalia");
@@ -72,7 +36,7 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
 
     private float somatorio(Regra regra, List<Avaliavel> relatos) {
         float somatorio = 0;
-        Expression exp = new Expression(regra.getExpressao());
+        Expression exp = new Expression("a");
 
         for (Avaliavel relato : relatos) {
             for (String variavel : regra.getDependeDe()) {
@@ -93,18 +57,6 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
         }
 
         return somatorio;
-    }
-
-    private float ajustaLimites(Regra regra, float valor) {
-        if (valor < regra.getValorMinimo()) {
-            return regra.getValorMinimo();
-        }
-
-        if (valor > regra.getValorMaximo()) {
-            return regra.getValorMaximo();
-        }
-
-        return valor;
     }
 
     private float avaliaExpressao(Regra regra, Map<String, Valor> contexto, String expressao) {
