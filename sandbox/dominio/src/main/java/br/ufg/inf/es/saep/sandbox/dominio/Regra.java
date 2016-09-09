@@ -302,5 +302,15 @@ public abstract class Regra {
         return valor;
     }
 
+    /**
+     * Avalia o conjunto de avaliáveis com base no contexto.
+     *
+     * @param avaliaveis Conjunto de itens a serem avaliados.
+     *
+     * @param contexto Valores de variáveis que podem ser
+     *                 necessárias para avaliação da regra.
+     *
+     * @return Resultado da avaliação da regra.
+     */
     public abstract Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto);
 }

@@ -9,24 +9,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Regra que identifica total de pontos por dada
- * classe de relato.
+ * Regra que implementa condição ("se" ou "if").
  */
-public class RegraPontosPorRelato extends Regra {
+public class RegraCondicional extends RegraExpressao {
 
     /**
-     * Identificador único de um tipoRelato de relato.
-     * Nem toda regra, convém destacar, refere-se
-     * a um relato. Se esse for o caso, esse valor
-     * é irrelevante.
+     * Expressão a ser avaliada e cujo resultado torna-se
+     * o resultado da regra condicional caso a condição
+     * seja verdadeira.
      */
-    private String tipoRelato;
 
+    private String entao;
     /**
-     * Quantidade de pontos definidos por item
-     * {@link Avaliavel}.
+     * Expressão a ser avaliada e cujo resultado torna-se
+     * o resultado da regra condicional caso a condição
+     * seja falsa.
      */
-    private float pontosPorItem;
+    private String senao;
 
     /**
      * Cria uma regra.
@@ -47,6 +46,12 @@ public class RegraPontosPorRelato extends Regra {
      *                      avaliação da regra. Esse valor é empregado apenas
      *                      se a avaliação resultar em valor inferior ao
      *                      expresso por esse parâmetro.
+     * @param expressao     A expressão empregada para avaliar a regra,
+     *                      conforme o tipo.
+     * @param entao         A expressão que dará origem ao valor da regra caso
+     *                      a condição correspondente seja avaliada como verdadeira.
+     * @param senao         A expressão que dará origem ao valor da regra caso a
+     *                      condição correspondente seja avaliada como falsa.
      * @param tipoRelato    Nome que identifica um relato, empregado em regras
      *                      cuja avaliação é pontos por relato.
      * @param pontosPorItem Total de pontos para cada relato de um dado
@@ -57,46 +62,43 @@ public class RegraPontosPorRelato extends Regra {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraPontosPorRelato(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
-        super(variavel, tipo, descricao, valorMaximo, valorMinimo, dependeDe);
-        if (tipoRelato == null || tipoRelato.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("tipoRelato");
+    public RegraCondicional(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
+        super(variavel, tipo, descricao, valorMaximo, valorMinimo, expressao, entao, senao, tipoRelato, pontosPorItem, dependeDe);
+
+        if (entao == null || entao.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("entao");
         }
 
-        this.tipoRelato = tipoRelato;
-        this.pontosPorItem = pontosPorItem;
+        this.entao = entao;
+        this.senao = senao;
     }
 
     /**
-     * Recupera o tipo do relato associado à regra.
+     * Recupera a expressão "então" associada à regra
+     * do tipo {@link #CONDICIONAL}.
      *
-     * @return O identificador do tipo de relato.
+     * @return A expressão "então".
      */
-    public String getTipoRelato() {
-        return tipoRelato;
+    public String getEntao() {
+        return entao;
     }
 
     /**
-     * Recupera a quantidade de pontos atribuída a cada
-     * item para obtenção do valor da regra.
+     * Recupera a expressão "senão" associada à regra
+     * do tipo {@link #CONDICIONAL}.
      *
-     * @return Pontos por item avaliável.
+     * @return A expressão "senão".
      */
-    public float getPontosPorItem() {
-        return pontosPorItem;
+    public String getSenao() {
+        return senao;
     }
 
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        int total = 0;
-        for (Avaliavel avaliavel : avaliaveis) {
-            if (tipoRelato.equals(avaliavel.get("classe"))) {
-                total = total + 1;
-            }
+        if (super.avalie(avaliaveis, contexto).getBoolean()) {
+            return new Valor(true);
+        } else {
+            return new Valor(false);
         }
-
-        float pontos = getPontosPorItem() * avaliaveis.size();
-
-        return new Valor(ajustaLimites(pontos));
     }
 }

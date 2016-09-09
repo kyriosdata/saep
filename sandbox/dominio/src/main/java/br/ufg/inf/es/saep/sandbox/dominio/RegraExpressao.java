@@ -21,30 +21,6 @@ public class RegraExpressao extends Regra {
      * pontos, então o valor é irrelevante.
      */
     private String expressao;
-    /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja verdadeira.
-     */
-    private String entao;
-    /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja falsa.
-     */
-    private String senao;
-    /**
-     * Identificador único de um tipoRelato de relato.
-     * Nem toda regra, convém destacar, refere-se
-     * a um relato. Se esse for o caso, esse valor
-     * é irrelevante.
-     */
-    private String tipoRelato;
-    /**
-     * Quantidade de pontos definidos por item
-     * {@link Avaliavel}.
-     */
-    private float pontosPorItem;
 
     /**
      * Cria uma regra.
@@ -88,13 +64,6 @@ public class RegraExpressao extends Regra {
         }
 
         this.expressao = expressao;
-
-            if (entao == null || entao.isEmpty()) {
-                throw new CampoExigidoNaoFornecido("entao");
-            }
-
-            this.entao = entao;
-            this.senao = senao;
     }
 
     /**
@@ -104,26 +73,6 @@ public class RegraExpressao extends Regra {
      */
     public String getExpressao() {
         return expressao;
-    }
-
-    /**
-     * Recupera a expressão "então" associada à regra
-     * do tipo {@link #CONDICIONAL}.
-     *
-     * @return A expressão "então".
-     */
-    public String getEntao() {
-        return entao;
-    }
-
-    /**
-     * Recupera a expressão "senão" associada à regra
-     * do tipo {@link #CONDICIONAL}.
-     *
-     * @return A expressão "senão".
-     */
-    public String getSenao() {
-        return senao;
     }
 
     @Override
