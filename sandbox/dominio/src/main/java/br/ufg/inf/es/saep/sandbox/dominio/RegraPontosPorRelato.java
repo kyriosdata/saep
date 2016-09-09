@@ -6,6 +6,7 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Regra que identifica total de pontos por dada
@@ -94,7 +95,7 @@ public class RegraPontosPorRelato extends Regra {
     }
 
     @Override
-    public Valor avalie(List<Avaliavel> avaliaveis) {
+    public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
         float pontosPorRelato = getPontosPorItem();
         float total = pontosPorRelato * avaliaveis.size();
 

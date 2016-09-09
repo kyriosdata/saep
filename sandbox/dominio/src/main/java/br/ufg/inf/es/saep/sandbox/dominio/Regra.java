@@ -6,6 +6,7 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Uma regra define como avaliar um ou mais
@@ -301,5 +302,5 @@ public abstract class Regra {
         return valor;
     }
 
-    public abstract Valor avalie(List<Avaliavel> avaliaveis);
+    public abstract Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto);
 }

@@ -6,6 +6,7 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Regra definida por uma expressão.
@@ -126,7 +127,7 @@ public class RegraExpressao extends Regra {
     }
 
     @Override
-    public Valor avalie(List<Avaliavel> avaliaveis) {
+    public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
         //float valor = avaliaExpressao(regra, contexto, regra.getExpressao());
         //valor = ajustaLimites(regra, valor);
 
