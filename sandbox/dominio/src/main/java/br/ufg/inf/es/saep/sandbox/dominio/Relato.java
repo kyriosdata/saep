@@ -37,21 +37,20 @@ public class Relato implements Avaliavel {
      * Cria um relato a partir do classe e atributos correspondentes
      * fornecidos.
      *
-     * @param tipo    O código do classe do relato.
-     * @param valores Conjunto parecerById atributos para os tipos
-     *                do relato.
+     * @param classe  A classe do relato (identificador).
+     * @param atributos Conjunto de atributos do relato.
      */
-    public Relato(String tipo, Map<String, Valor> valores) {
-        if (tipo == null || tipo.isEmpty()) {
+    public Relato(String classe, Map<String, Valor> atributos) {
+        if (classe == null || classe.isEmpty()) {
             throw new CampoExigidoNaoFornecido("classe");
         }
 
-        if (valores == null || valores.size() == 0) {
+        if (atributos == null || atributos.size() == 0) {
             throw new CampoExigidoNaoFornecido("atributos");
         }
 
-        this.classe = tipo;
-        this.atributos = valores;
+        this.classe = classe;
+        this.atributos = atributos;
     }
 
     /**
