@@ -19,7 +19,7 @@ import java.util.Set;
  * <p>Adicionalmente, grupos podem ser formados por
  * outros grupos e tipos.
  */
-public class Grupo extends Tipo {
+public class Grupo extends Classe {
 
     private Set<String> tipos;
 

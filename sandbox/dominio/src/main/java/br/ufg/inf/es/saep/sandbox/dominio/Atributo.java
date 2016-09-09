@@ -8,11 +8,12 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 /**
  * Um atributo permite identificar cada um
  * dos possíveis valores que podem ser empregados
- * na descrição de um relato e/ou em uma expressão.
+ * na descrição de um relato.
  *
  * <p>Um atributo define um nome e um tipo que
  * define o conjunto de valores que uma
- * "variável" com esse nome pode assumir.
+ * "variável" correspondente ao atritubo
+ * pode assumir.
  *
  * <p>Um relato é composto por um conjunto de
  * valores, cada um deles para um atributo.
@@ -38,10 +39,16 @@ public class Atributo {
     public static final int STRING = 2;
 
     /**
+     * O atributo retém uma data no formato
+     * dd/MM/aaaa.
+     */
+    public static final int DATA = 3;
+
+    /**
      * O nome do atributo, por exemplo,
      * "cha" ou "nome". O nome de um atributo
      * deve ser único em vários contextos, por
-     * exemplo, em um dado {@link Tipo}, não
+     * exemplo, em um dado {@link Classe}, não
      * pode existir mais de um atributo com o
      * mesmo nome.
      *
@@ -86,7 +93,7 @@ public class Atributo {
             throw new CampoExigidoNaoFornecido("nome");
         }
 
-        if (tipo < LOGICO || tipo > STRING) {
+        if (tipo < LOGICO || tipo > DATA) {
             throw new TipoDeAtributoInvalido("tipo");
         }
 

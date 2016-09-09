@@ -100,7 +100,7 @@ public interface ResolucaoRepository {
      *
      * @param tipo O objeto a ser persistido.
      */
-    void persisteTipo(Tipo tipo);
+    void persisteTipo(Classe tipo);
 
     /**
      * Remove o tipo.
@@ -118,11 +118,11 @@ public interface ResolucaoRepository {
      *
      * @param codigo O código único do tipo.
      *
-     * @return A instância de {@link Tipo} cujo
+     * @return A instância de {@link Classe} cujo
      * código único é fornecido. Retorna {@code null}
      * caso não exista tipo com o código indicado.
      */
-    Tipo tipoPeloCodigo(String codigo);
+    Classe tipoPeloCodigo(String codigo);
 
     /**
      * Recupera a lista de tipos cujos nomes
@@ -140,5 +140,5 @@ public interface ResolucaoRepository {
      * @return A coleção de tipos cujos nomes satisfazem
      * um padrão de semelhança com a sequência indicada.
      */
-    List<Tipo> tiposPeloNome(String nome);
+    List<Classe> tiposPeloNome(String nome);
 }

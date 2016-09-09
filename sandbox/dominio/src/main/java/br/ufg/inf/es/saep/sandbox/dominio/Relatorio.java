@@ -66,7 +66,7 @@ public class Relatorio extends Entidade {
         List<Relato> procurados = new ArrayList<>();
 
         for(Relato relato : relatos) {
-            if (relato.getTipo().equals(tipo)) {
+            if (relato.getClasse().equals(tipo)) {
                 procurados.add(relato);
             }
         }

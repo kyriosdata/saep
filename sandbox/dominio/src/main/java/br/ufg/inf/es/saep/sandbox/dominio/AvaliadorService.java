@@ -109,7 +109,7 @@ public class AvaliadorService {
     private Map<String, List<Avaliavel>> montaRelatosPorTipo(List<Relato> relatos) {
         Map<String, List<Avaliavel>> relatosPorTipo = new HashMap<>();
         for (Relato relato : relatos) {
-            String tipo = relato.getTipo();
+            String tipo = relato.getClasse();
 
             List<Avaliavel> lista = relatosPorTipo.get(tipo);
             if (lista == null) {

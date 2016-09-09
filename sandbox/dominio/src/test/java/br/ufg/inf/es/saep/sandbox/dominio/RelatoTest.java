@@ -46,7 +46,7 @@ public class RelatoTest {
     public void criaRecupera() {
         Relato r = new Relato("a", valores);
 
-        assertEquals("a", r.getTipo());
+        assertEquals("a", r.getClasse());
         assertEquals(99f, r.get("nome").getFloat(), 0.0001f);
     }
 

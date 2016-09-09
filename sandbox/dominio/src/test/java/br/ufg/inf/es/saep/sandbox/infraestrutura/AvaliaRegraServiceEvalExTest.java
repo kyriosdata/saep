@@ -28,7 +28,7 @@ public class AvaliaRegraServiceEvalExTest {
     public void naoAdmiteContextoNullQuandoDependeDeVariavel() {
         // Depende de variável cujo contexto fornecido é null!
         ArrayList<String> dd = new ArrayList<>(0);
-        dd.add("a");
+        dd.add("dependeDeRegra1_1");
 
         Regra regra = new Regra("v", 1, "d", 100, 0, "1", null, null, null, 0, dd);
         avaliador.avalia(regra, null, null);
@@ -38,8 +38,8 @@ public class AvaliaRegraServiceEvalExTest {
     public void avaliaExpressaoSemVariavelDefinidaGeraExcecao() {
         int tipo = Regra.EXPRESSAO;
         List<String> deps = new ArrayList<>(1);
-        deps.add("a");
-        Regra r = new Regra("v", tipo, "d", 100, 0, "1 + a", null, null, null, 0,deps);
+        deps.add("dependeDeRegra1_1");
+        Regra r = new Regra("v", tipo, "d", 100, 0, "1 + dependeDeRegra1_1", null, null, null, 0,deps);
 
         avaliador.avalia(r, new HashMap<>(0), null);
     }
@@ -49,8 +49,8 @@ public class AvaliaRegraServiceEvalExTest {
         int tipo = Regra.SOMATORIO;
 
         List<String> dd = new ArrayList<>(1);
-        dd.add("a");
-        Regra r = new Regra("v", tipo, "d", 100, 0, "a", null, null, null, 0, dd);
+        dd.add("dependeDeRegra1_1");
+        Regra r = new Regra("v", tipo, "d", 100, 0, "dependeDeRegra1_1", null, null, null, 0, dd);
 
         List<Avaliavel> relatos = new ArrayList<>(1);
         Map<String, Valor> relato = new HashMap<>(1);
@@ -66,18 +66,18 @@ public class AvaliaRegraServiceEvalExTest {
     public void somatorio() {
         int tipo = Regra.SOMATORIO;
         List<String> deps = new ArrayList<>(2);
-        deps.add("a");
-        deps.add("b");
-        Regra r = new Regra("v", tipo, "d", 100, 0, "a * b", null, null, null, 0, deps);
+        deps.add("dependeDeRegra1_1");
+        deps.add("dependeDeRegra1_2");
+        Regra r = new Regra("v", tipo, "d", 100, 0, "dependeDeRegra1_1 * dependeDeRegra1_2", null, null, null, 0, deps);
 
         Map<String, Valor> dados1 = new HashMap<>(2);
-        dados1.put("a", new Valor(2));
-        dados1.put("b", new Valor(2));
+        dados1.put("dependeDeRegra1_1", new Valor(2));
+        dados1.put("dependeDeRegra1_2", new Valor(2));
         Relato r1 = new Relato("livro", dados1);
 
         Map<String, Valor> dados2 = new HashMap<>(2);
-        dados2.put("a", new Valor(3));
-        dados2.put("b", new Valor(4));
+        dados2.put("dependeDeRegra1_1", new Valor(3));
+        dados2.put("dependeDeRegra1_2", new Valor(4));
         Relato r2 = new Relato("artigo", dados2);
 
         List<Avaliavel> relatos = new ArrayList<>(2);
@@ -93,16 +93,16 @@ public class AvaliaRegraServiceEvalExTest {
     public void media() {
         int tipo = Regra.MEDIA;
         List<String> deps = new ArrayList<>(1);
-        deps.add("a");
+        deps.add("dependeDeRegra1_1");
 
-        Regra r = new Regra("v", tipo, "d", 100, 0, "a", null, null, null, 0, deps);
+        Regra r = new Regra("v", tipo, "d", 100, 0, "dependeDeRegra1_1", null, null, null, 0, deps);
 
         Map<String, Valor> dados1 = new HashMap<>(2);
-        dados1.put("a", new Valor(2));
+        dados1.put("dependeDeRegra1_1", new Valor(2));
         Relato r1 = new Relato("livro", dados1);
 
         Map<String, Valor> dados2 = new HashMap<>(2);
-        dados2.put("a", new Valor(3));
+        dados2.put("dependeDeRegra1_1", new Valor(3));
         Relato r2 = new Relato("artigo", dados2);
 
         List<Avaliavel> relatos = new ArrayList<>(2);
@@ -155,7 +155,7 @@ public class AvaliaRegraServiceEvalExTest {
 
         Regra regra = new Regra("v", tipo, "d", 100, 0, "25 * quatro", null, null, null, 0, dependeDe);
 
-        // Apenas a variável "quatro" está definida
+        // Apenas dependeDeRegra1_1 variável "quatro" está definida
         Map<String, Valor> contexto = new HashMap<>(1);
         contexto.put("quatro", new Valor(4));
 

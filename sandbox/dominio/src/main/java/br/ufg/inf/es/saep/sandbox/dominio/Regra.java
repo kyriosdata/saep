@@ -10,11 +10,24 @@ import java.util.List;
 /**
  * Uma regra define como avaliar um conjunto
  * de objetos avaliáveis. Um objeto é avaliável
- * se implementam a interface {@link Avaliavel}).
+ * se implementa a interface {@link Avaliavel}).
+ *
+ * <p>A avaliação de uma regra pode dependenter de
+ * valores devidamente identificados em um contexto.
+ * Quando a regra é avaliada, a "variável" correspondente
+ * passa a existir no contexto e, dessa forma, torna-se
+ * disponível para outras regras.
+ *
+ * <p>Uma regra só é avaliada após a avaliação das
+ * regras das quais depende. A dependência entre
+ * regras é estabelecida por meio de suas variáveis.
+ * Por exemplo, uma regra que possui como "variável"
+ * o identificador "x" deve ser avaliada antes de
+ * qualquer regra que depende do identificador "x".
  *
  * <p>Em um caso comum, uma regra é estabelecida para
  * identificar quantos pontos são obtidos por relatos
- * de um dado tipoRegra, por exemplo, quantos pontos por
+ * de um dado tipo, por exemplo, quantos pontos por
  * livro publicado com corpo editorial.
  *
  * <p>Uma regra pode ser empregada para obter a média
@@ -27,7 +40,9 @@ import java.util.List;
  *
  * <p>O resultado da avaliação de uma regra é depositada
  * em uma variável. Em consequência, para um determinado
- * conjunto de regras, a variável deve ser única.
+ * conjunto de regras, o identificador da variável que
+ * irá reter o valor final de uma regra deve ser única
+ * nesse conjunto.
  */
 public class Regra {
 
@@ -70,6 +85,22 @@ public class Regra {
     public static final int MEDIA = 4;
 
     /**
+     * Identificador de tipoRelato de regra cuja pontuação é
+     * obtida da média da avaliação da expressão da regra
+     * para cada um dos elementos do conjunto de
+     * {@link Avaliavel}.
+     */
+    public static final int DATAS_COMPARACAO = 5;
+
+    /**
+     * Identificador de tipoRelato de regra cuja pontuação é
+     * obtida da média da avaliação da expressão da regra
+     * para cada um dos elementos do conjunto de
+     * {@link Avaliavel}.
+     */
+    public static final int DATAS_DIFERENCA = 6;
+
+    /**
      * O valor {@link #EXPRESSAO}, ou {@link #CONDICIONAL},
      * ou {@link #SOMATORIO}, ou {@link #MEDIA} ou {@link #PONTOS},
      * que caracteriza o tipo de regra em questão.
@@ -102,8 +133,8 @@ public class Regra {
      * Nome da variável (atributo) que guardará
      * o resultado da avaliação da regra.
      *
-     * <p>Trata-se de chave natural para uma regra
-     * em uma dada resolução.
+     * <p>Trata-se de chave natural para um dado
+     * conjunto de regras.
      */
     private String variavel;
 
@@ -320,7 +351,7 @@ public class Regra {
             throw new CampoExigidoNaoFornecido("variavel");
         }
 
-        if (tipo < 0 || tipo > 4) {
+        if (tipo < PONTOS || tipo > DATAS_DIFERENCA) {
             throw new TipoDeRegraInvalido("tipo");
         }
 

@@ -19,12 +19,12 @@ public class AvaliaExpressaoTest {
 
     @Test
     public void avaliaSomatorio() {
-        // Recuperar a expressão do somatório
-        String somatorio = "k * (x + y)";
+        // Recuperar dependeDeRegra1_1 expressão do somatório
+        String somatorio = "k * (resultadoRegra1 + y)";
 
         // Recupera variáveis empregadas pela expressão
         List<String> variaveis = new ArrayList<>(2);
-        variaveis.add("x");
+        variaveis.add("resultadoRegra1");
         variaveis.add("y");
 
         // Recuperar conjunto de relatos pertinentes (digamos 3)
@@ -36,11 +36,11 @@ public class AvaliaExpressaoTest {
         relatos.add(relato2);
         relatos.add(relato3);
 
-        relato1.put("x", 1.0);
+        relato1.put("resultadoRegra1", 1.0);
         relato1.put("y", 2.0);
-        relato2.put("x", 3.0);
+        relato2.put("resultadoRegra1", 3.0);
         relato2.put("y", 4.0);
-        relato3.put("x", 5.0);
+        relato3.put("resultadoRegra1", 5.0);
         relato3.put("y", 6.0);
 
         Expression exp = new Expression(somatorio).with("k", new BigDecimal(2));
@@ -52,7 +52,7 @@ public class AvaliaExpressaoTest {
                 exp.setVariable(variavel, new BigDecimal(relato.get(variavel)));
             }
 
-            // Avalie a expressão e acumule o resultado
+            // Avalie dependeDeRegra1_1 expressão e acumule o resultado
             soma = soma.add(exp.eval());
         }
 
@@ -62,18 +62,18 @@ public class AvaliaExpressaoTest {
     @Test
     public void avaliaMediaSimples() {
         // Recupera variável
-        String variavel = "x";
+        String variavel = "resultadoRegra1";
 
-        // Conjunto de relatos sobre a qual a média é realizada
+        // Conjunto de relatos sobre dependeDeRegra1_1 qual dependeDeRegra1_1 média é realizada
         // Recuperar conjunto de relatos pertinentes (digamos 3)
         Map<String, Double> relato1 = new HashMap<>(1);
-        relato1.put("x", 1.0);
+        relato1.put("resultadoRegra1", 1.0);
 
         Map<String, Double> relato2 = new HashMap<>(1);
-        relato2.put("x", 2.0);
+        relato2.put("resultadoRegra1", 2.0);
 
         Map<String, Double> relato3 = new HashMap<>(1);
-        relato3.put("x", 3.0);
+        relato3.put("resultadoRegra1", 3.0);
 
         List<Map<String, Double>> relatos = new ArrayList<>(3);
         relatos.add(relato1);
@@ -93,7 +93,7 @@ public class AvaliaExpressaoTest {
     @Test
     public void avaliaConstanteTrivial() {
         // Recupera tipo: expressão
-        // Recupera expressão a ser avaliada.
+        // Recupera expressão dependeDeRegra1_1 ser avaliada.
         Expression exp = new Expression("9.67");
         BigDecimal resultado = exp.eval();
         assertEquals(9.67, resultado.doubleValue(), 0.0001d);
@@ -102,7 +102,7 @@ public class AvaliaExpressaoTest {
     @Test
     public void avaliaConstanteExpressao() {
         // Recupera tipo: expressão
-        // Recupera expressão a ser avaliada
+        // Recupera expressão dependeDeRegra1_1 ser avaliada
         Expression exp = new Expression("12.3 - 0.9 / 3");
         BigDecimal resultado = exp.eval();
         assertEquals(12, resultado.doubleValue(), 0.0001d);
@@ -111,18 +111,18 @@ public class AvaliaExpressaoTest {
     @Test
     public void avaliaExpressaoComVariaveis() {
         // Recupera tipo: expressão
-        // Recupera a expressão
-        Expression exp = new Expression("10 * (ch + x)");
+        // Recupera dependeDeRegra1_1 expressão
+        Expression exp = new Expression("10 * (ch + resultadoRegra1)");
 
-        // Define o contexto (ch e x)
+        // Define o contexto (ch e resultadoRegra1)
         exp.setVariable("ch", new BigDecimal(4));
-        exp.setVariable("x", new BigDecimal(1));
+        exp.setVariable("resultadoRegra1", new BigDecimal(1));
 
         // Requisita avaliação e confere o resultado
         BigDecimal resultado = exp.eval();
         assertEquals(50, resultado.doubleValue(), 0.0001d);
 
-        exp.setVariable("x", new BigDecimal(2));
+        exp.setVariable("resultadoRegra1", new BigDecimal(2));
         BigDecimal resultadoNovo = exp.eval();
         assertEquals(60, resultadoNovo.doubleValue(), 0.0001d);
     }
@@ -133,11 +133,28 @@ public class AvaliaExpressaoTest {
         // Recupera pontuação por relato
         double pontosPorRelato = 10.2;
 
-        // Recupera a cardinalidade do conjunto em questão
+        // Recupera dependeDeRegra1_1 cardinalidade do conjunto em questão
         int totalRelatos = 5;
 
         double resposta = totalRelatos * pontosPorRelato;
 
         assertEquals(51, resposta, 0.0001d);
+    }
+
+    @Test
+    public void funcaoPersonalizada() {
+        Expression f = new Expression("10 * diferencaEmDias");
+
+        // Ajusta parâmetros para todas as funções
+        // Pode ser otimizado (apenas para aquelas usadas)
+        // Localiza variáveis associadas dependeDeRegra1_1 diferencaEmDias
+        // (por exemplo, 'd1' e 'd2'). Nesse caso, recupere
+        // os valores desses atributos, calcule dependeDeRegra1_1 diferença e
+        // deposite o resultado em 'diferencaEmDias'.
+        // Só então avalie dependeDeRegra1_1 expressão.
+
+        f.setVariable("diferencaEmDias", new BigDecimal(16));
+
+        assertEquals(160, f.eval().floatValue(), 0.0001d);
     }
 }

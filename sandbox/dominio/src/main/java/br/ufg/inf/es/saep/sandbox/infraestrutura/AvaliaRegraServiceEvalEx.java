@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Implementação do serviço de avaliação de regra usando a ferramenta
- * <a href="https://github.com/uklimaschewski/EvalEx">Java Expression
- * Evaluator</a>.
+ * Implementação do serviço de avaliação de regra usando dependeDeRegra1_1 ferramenta
+ * <dependeDeRegra1_1 href="https://github.com/uklimaschewski/EvalEx">Java Expression
+ * Evaluator</dependeDeRegra1_1>.
+ *
+ * <p>Uma alternativa é http://www.beyondlinux.com/2011/08/07/3-method-to-evaluate-expressions/.
+ *
  */
 public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
 
@@ -57,6 +60,10 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
                 parcial = ajustaLimites(regra, parcial);
 
                 return new Valor(parcial);
+
+            case Regra.DATAS_COMPARACAO:
+
+            case Regra.DATAS_DIFERENCA:
 
             default:
                 throw new TipoDeRegraInvalido("avalia");
@@ -130,5 +137,13 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
             BigDecimal bd = new BigDecimal(real);
             exp.setVariable(dependeDe, bd);
         }
+    }
+
+    private void defineContextoDatas(Regra regra, Map<String, Valor> contexto, Expression exp) {
+        List<String> identificadoresDatas = regra.getDependeDe();
+
+        Valor data1 = contexto.get(identificadoresDatas.get(0));
+        Valor data2 = contexto.get(identificadoresDatas.get(1));
+
     }
 }

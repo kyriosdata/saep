@@ -8,30 +8,12 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import java.util.Set;
 
 /**
- * Existem várias atividades e produtos que podem
- * ser relatados por um docente. Cada atividade ou
- * produto está associado a um tipo bem definido.
+ * Uma instância dessa classe permite classificar um relato.
  *
- * <p>O tipo define os atributos
- * que caracterizam um relato, seja esse um
- * produto ou uma atividade. Dito de outra
- * forma, define as características
- * relevantes que definem o que deve ser
- * fornecido para o relato em questão.
- *
- * <p>Por exemplo, segunda resolução 32/2013,
- * CONSUNI, Anexo II, dentre as atividades de ensino,
- * na graduação, temos dois tipos, citados abaixo:
- * <ul>
- *     <li>Aulas presenciais na graduação</li>
- *     <li>Aulas do ensino a distância na graduação</li>
- * </ul>
- *
- * <p>Esses dois tipos são ilustrados acima pelos nomes
- * correspondentes. Os códigos poderiam ser "APG" e
- * "AEADG", respectivamente.
+ * <p>Uma Classe define os atributos
+ * que caracterizam um relato.
  */
-public class Tipo extends Entidade {
+public class Classe extends Entidade {
 
     /**
      * Nome pelo qual o tipo é conhecido,
@@ -77,9 +59,8 @@ public class Tipo extends Entidade {
      * @param nome O nome pelo qual o tipo é conhecido.
      * @param descricao Informação adicional sobre o tipo.
      * @param atributos Atributos que caracterizam o tipo.
-
      */
-    public Tipo(String id, String nome, String descricao, Set<Atributo> atributos) {
+    public Classe(String id, String nome, String descricao, Set<Atributo> atributos) {
         super(id);
 
         if (nome == null || nome.isEmpty()) {
@@ -96,10 +77,9 @@ public class Tipo extends Entidade {
     }
 
     /**
-     * Recupera conjunto de atributos do tipo.
+     * Recupera o conjunto de atributos da classe.
      *
-     * @return O conjunto de atributos que define o
-     *      tipo.
+     * @return O conjunto de atributos que define a classe.
      */
     public Set<Atributo> getAtributos() {
         return atributos;

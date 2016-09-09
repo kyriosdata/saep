@@ -14,23 +14,23 @@ public class TipoTest {
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirIdentificadorNaoNull() {
-        new Tipo(null, "n", "d", null);
+        new Classe(null, "n", "d", null);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirIdentificadorNaoVazio() {
-        new Tipo("", "n", "d", null);
+        new Classe("", "n", "d", null);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirAtributos() {
-        new Tipo("c", "n", "d", null);
+        new Classe("c", "n", "d", null);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirPeloMenosUmAtributo() {
         Set<Atributo> atrs = new HashSet<>(0);
-        new Tipo("c", "n", "d", atrs);
+        new Classe("c", "n", "d", atrs);
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
@@ -38,7 +38,7 @@ public class TipoTest {
         Atributo atributo = new Atributo("a", "d", 1);
         Set<Atributo> atrs = new HashSet<>(0);
         atrs.add(atributo);
-        new Tipo("c", null, "d", atrs);
+        new Classe("c", null, "d", atrs);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class TipoTest {
         Set<Atributo> atrs = new HashSet<>(1);
         atrs.add(new Atributo("a", "d", Atributo.REAL));
 
-        Tipo t1 = new Tipo("c", "n", "d", atrs);
+        Classe t1 = new Classe("c", "n", "d", atrs);
 
         // igual a si proprio
         assertEquals(t1, t1);
@@ -63,10 +63,10 @@ public class TipoTest {
         Set<Atributo> atrs = new HashSet<>(1);
         atrs.add(new Atributo("a", "d", Atributo.REAL));
 
-        Tipo t1 = new Tipo("c", "n", "d", atrs);
-        Tipo t2 = new Tipo("c", "N", "D", atrs);
+        Classe t1 = new Classe("c", "n", "d", atrs);
+        Classe t2 = new Classe("c", "N", "D", atrs);
 
-        Set<Tipo> tipos = new HashSet<>(2);
+        Set<Classe> tipos = new HashSet<>(2);
         assertTrue(tipos.add(t1));
         assertFalse(tipos.add(t2));
     }
@@ -91,7 +91,7 @@ public class TipoTest {
         final String NOME = "Aulas presenciais na graduação";
         final String DESCRICAO = "Aulas presenciais ministradas na graduação";
 
-        Tipo t = new Tipo("APG", NOME, DESCRICAO, atributos);
+        Classe t = new Classe("APG", NOME, DESCRICAO, atributos);
 
         assertEquals("APG", t.getId());
         assertEquals(NOME, t.getNome());
@@ -104,8 +104,8 @@ public class TipoTest {
         Set<Atributo> atribs = new HashSet<>(1);
         atribs.add(new Atributo("c", "n", Atributo.REAL));
 
-        Tipo presencial = new Tipo("presencial", "presencial", "presencial", atribs);
-        Tipo ead = new Tipo("ead", "ead", "ead", atribs);
+        Classe presencial = new Classe("presencial", "presencial", "presencial", atribs);
+        Classe ead = new Classe("ead", "ead", "ead", atribs);
 
         Set<String> tipos = new HashSet<>();
         tipos.add("presencial");

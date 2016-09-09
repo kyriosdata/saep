@@ -5,9 +5,12 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import java.time.LocalDate;
+
 /**
  * Encapsula um valor, que pode ser uma sequência
- * de caracteres, um {@code boolean} ou um {@code float}.
+ * de caracteres, um {@code boolean}, um {@code float}
+ * ou uma data ({@code LocalDate}).
  *
  * <p>Um relato é descrito por uma coleção de
  * valores, por exemplo, um relato correspondente
@@ -43,6 +46,12 @@ public class Valor {
      * mantida pela instância.
      */
     private String string;
+
+    /**
+     * Contêiner para a data mantida
+     * pela instância.
+     */
+    private LocalDate data;
 
     /**
      * Cria uma instância cujo valor é
