@@ -9,28 +9,36 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Encapsula conjunto de valores que caracterizam
+ * Encapsula conjunto de atributos que caracterizam
  * o relato de uma atividade ou produto.
  *
- * <p>Cada relato é de um classe específico, que
- * representa um classe de atividade ou classe de
- * produto. Esse classe é identificado por
- * {@link #classe}.
+ * <p>Cada relato é de uma classe específica,
+ * identificado por {@link #classe}.
  *
  * <p>Um relato é um "value object". Ou seja, dois
  * relatos são iguais se todos os seus atributos
  * forem iguais.
  */
 public class Relato implements Avaliavel {
-    private String classe;
-    private Map<String, Valor> valores;
 
     /**
-     * Cria um relato a partir do classe e valores correspondentes
+     * Classe do relato. Suficiente para
+     * determinar o conjunto de atributos
+     * esperados.
+     */
+    private String classe;
+
+    /**
+     * Os atributos do relato.
+     */
+    private Map<String, Valor> atributos;
+
+    /**
+     * Cria um relato a partir do classe e atributos correspondentes
      * fornecidos.
      *
      * @param tipo    O código do classe do relato.
-     * @param valores Conjunto parecerById valores para os tipos
+     * @param valores Conjunto parecerById atributos para os tipos
      *                do relato.
      */
     public Relato(String tipo, Map<String, Valor> valores) {
@@ -39,11 +47,11 @@ public class Relato implements Avaliavel {
         }
 
         if (valores == null || valores.size() == 0) {
-            throw new CampoExigidoNaoFornecido("valores");
+            throw new CampoExigidoNaoFornecido("atributos");
         }
 
         this.classe = tipo;
-        this.valores = valores;
+        this.atributos = valores;
     }
 
     /**
@@ -55,18 +63,18 @@ public class Relato implements Avaliavel {
      */
     public Valor get(String atributo) {
 
-        return valores.get(atributo);
+        return atributos.get(atributo);
     }
 
     /**
      * Recupera o conjunto de variáveis (identificadores)
-     * dos valores do relato.
+     * dos atributos do relato.
      *
-     * @return Conjunto de identificadores dos valores do
+     * @return Conjunto de identificadores dos atributos do
      * relato.
      */
     public Set<String> getVariaveis() {
-        return valores.keySet();
+        return atributos.keySet();
     }
 
     /**
@@ -94,16 +102,16 @@ public class Relato implements Avaliavel {
             return false;
         }
 
-        Set<String> keys = valores.keySet();
-        Set<String> otherKeys = outro.valores.keySet();
+        Set<String> keys = atributos.keySet();
+        Set<String> otherKeys = outro.atributos.keySet();
 
         if (keys.size() != otherKeys.size()) {
             return false;
         }
 
         for (String key : keys) {
-            Valor esseValor = valores.get(key);
-            Valor outroValor = outro.valores.get(key);
+            Valor esseValor = atributos.get(key);
+            Valor outroValor = outro.atributos.get(key);
 
             if (!esseValor.equals(outroValor)) {
                 return false;
