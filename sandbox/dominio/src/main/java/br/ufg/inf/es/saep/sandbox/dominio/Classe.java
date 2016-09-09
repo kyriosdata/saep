@@ -18,6 +18,7 @@ public class Classe extends Entidade {
     /**
      * Nome pelo qual o tipo é conhecido,
      * por exemplo, "aula presencial na graduação".
+     * O valor desse campo é uma chave natural.
      */
     private String nome;
 
@@ -54,11 +55,11 @@ public class Classe extends Entidade {
     }
 
     /**
-     * Cria tipo definido pelo conjunto parecerById atributos.
-     * @param id Código único que identifica o tipo.
-     * @param nome O nome pelo qual o tipo é conhecido.
-     * @param descricao Informação adicional sobre o tipo.
-     * @param atributos Atributos que caracterizam o tipo.
+     * Cria uma classe.
+     * @param id Código único que identifica a classe.
+     * @param nome O nome pelo qual a classe é conhecida.
+     * @param descricao Informação adicional sobre a classe.
+     * @param atributos Atributos que caracterizam a classe.
      */
     public Classe(String id, String nome, String descricao, Set<Atributo> atributos) {
         super(id);

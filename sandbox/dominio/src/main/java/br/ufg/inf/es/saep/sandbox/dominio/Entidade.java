@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
+ * Creative Commons Attribution 4.0 International License.
+ */
+
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import java.util.UUID;
@@ -7,7 +12,9 @@ import java.util.UUID;
  */
 public abstract class Entidade {
 
-    // O identificador único da entidade.
+    /**
+     * Identificador único da entidade.
+     */
     private String id;
 
     /**

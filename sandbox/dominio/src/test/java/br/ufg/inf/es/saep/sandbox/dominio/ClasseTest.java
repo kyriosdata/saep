@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class TipoTest {
+public class ClasseTest {
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void tipoDevePossuirIdentificadorNaoNull() {
