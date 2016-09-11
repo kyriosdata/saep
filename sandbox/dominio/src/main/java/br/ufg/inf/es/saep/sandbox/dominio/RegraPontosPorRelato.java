@@ -95,7 +95,7 @@ public class RegraPontosPorRelato extends Regra {
             }
         }
 
-        float pontos = getPontosPorItem() * avaliaveis.size();
+        float pontos = getPontosPorItem() * total;
 
         return new Valor(ajustaLimites(pontos));
     }
