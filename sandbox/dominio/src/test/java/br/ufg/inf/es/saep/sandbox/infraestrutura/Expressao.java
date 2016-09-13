@@ -5,6 +5,18 @@
 
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
+/**
+ * Identifica uma expressão que produz um
+ * valor {@code double} quando avaliada.
+ */
 public interface Expressao {
+
+    /**
+     * Obtém o valor produzido pela execução
+     * da expressão.
+     *
+     * @return Valor {@code double} obtido da
+     * avaliação da expressão.
+     */
     double valor();
 }
