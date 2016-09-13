@@ -106,6 +106,26 @@ public class AvaliadorExpressao {
             return (() -> x.valor() - b.valor());
         }
 
+        if (consome('&')) {
+            Expressao b = termo();
+            return (() -> x.valor() * b.valor());
+        }
+
+        if (consome('|')) {
+            Expressao b = termo();
+            return (() -> x.valor() * b.valor());
+        }
+
+        if (consome('>')) {
+            Expressao b = termo();
+            return (() -> (x.valor() > b.valor()) ? 1d : 0d);
+        }
+
+        if (consome('=')) {
+            Expressao b = termo();
+            return (() -> (Math.abs(x.valor() - b.valor()) <= 0.0001d) ? 0d : 1d);
+        }
+
         return x;
     }
 

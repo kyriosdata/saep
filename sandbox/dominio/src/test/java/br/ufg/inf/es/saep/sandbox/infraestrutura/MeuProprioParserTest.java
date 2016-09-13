@@ -89,6 +89,9 @@ public class MeuProprioParserTest {
 
         expr = new AvaliadorExpressao("((80 + 1) / 9) / (3 * (2 / 2))");
         assertEquals(3, expr.valor(variaveis), 0.001d);
+
+        expr = new AvaliadorExpressao("(2 > 1) & (3 > 2)");
+        assertEquals(0, expr.getVariaveis().size());
     }
 
     @Test
