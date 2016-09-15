@@ -295,7 +295,17 @@ public abstract class Regra {
     }
 
     /**
-     * Avalia o conjunto de avaliáveis com base no contexto.
+     * Avalia a regra, produzindo um valor associado a uma
+     * variável.
+     *
+     * <p>A avaliação de uma regra depende de valores de itens
+     * avaliáveis e/ou de variáveis (depositadas no contexto).
+     * As variáveis são definidas pela avaliação de regras.
+     *
+     * <p>Uma regra deve ser chamada apenas após a avaliação
+     * de regras que produzem valores para as variáveis das
+     * quais depende. Caso contrário, valores padrão serão
+     * empregados.
      *
      * @param avaliaveis Conjunto de itens a serem avaliados.
      *
