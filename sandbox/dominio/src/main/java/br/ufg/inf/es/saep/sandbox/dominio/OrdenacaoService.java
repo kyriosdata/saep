@@ -5,6 +5,8 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
+
 import java.util.*;
 
 /**

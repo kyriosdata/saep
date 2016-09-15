@@ -3,7 +3,11 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
+
+import br.ufg.inf.es.saep.sandbox.dominio.*;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +19,7 @@ import java.util.Map;
  */
 public class AvaliadorService {
 
-    private List<Nota> notas;
+    private List<Observacao> observacoes;
 
     /**
      * Serviço de avaliação de regra a ser utilizado peloa Avaliador.
@@ -124,46 +128,46 @@ public class AvaliadorService {
     }
 
     /**
-     * Adiciona nota ao parecer.
+     * Adiciona observacao ao parecer.
      *
-     * <p>Caso a nota a ser acrescentada
+     * <p>Caso a observacao a ser acrescentada
      * se refira a um item {@link Avaliavel} para o qual já
-     * exista uma nota, então esse nota existente é
+     * exista uma observacao, então esse observacao existente é
      * substituída por aquela fornecida. Caso contrário, a
-     * nota é simplesmente acrescentada.
+     * observacao é simplesmente acrescentada.
      *
-     * <p>A adição de uma nota possivelmente altera o
+     * <p>A adição de uma observacao possivelmente altera o
      * conjunto de pontuações do parecer, dado que o valor de
      * um relato é substituído por outro, ou até mesmo o valor
      * de uma pontuação. Esse método não atualiza a pontuação
      * de um parecer.
      *
-     * @param nota A nota a ser acrescentada ao parecer.
+     * @param observacao A observacao a ser acrescentada ao parecer.
      *
-     * @throws CampoExigidoNaoFornecido Caso a nota
+     * @throws CampoExigidoNaoFornecido Caso a observacao
      *      seja {@code null}.
      */
-    public void adicionaNota(Nota nota) {
-        if (nota == null) {
-            throw new CampoExigidoNaoFornecido("nota");
+    public void adicionaNota(Observacao observacao) {
+        if (observacao == null) {
+            throw new CampoExigidoNaoFornecido("observacao");
         }
 
-        if (notas == null) {
-            notas = new ArrayList<>(1);
-            notas.add(nota);
+        if (observacoes == null) {
+            observacoes = new ArrayList<>(1);
+            observacoes.add(observacao);
             return;
         }
 
-        for(Nota n : notas) {
+        for(Observacao n : observacoes) {
             Avaliavel original = n.getItemOriginal();
-            Avaliavel novo = nota.getItemOriginal();
+            Avaliavel novo = observacao.getItemOriginal();
             if (original.equals(novo)) {
-                notas.remove(n);
-                notas.add(nota);
+                observacoes.remove(n);
+                observacoes.add(observacao);
                 return;
             }
         }
 
-        notas.add(nota);
+        observacoes.add(observacao);
     }
 }

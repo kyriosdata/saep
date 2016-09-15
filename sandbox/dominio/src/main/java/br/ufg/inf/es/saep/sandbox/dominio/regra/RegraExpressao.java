@@ -3,29 +3,28 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.regra;
+
+import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * Regra que implementa condição ("se" ou "if").
+ * Regra definida por uma expressão.
  */
-public class RegraCondicional extends RegraExpressao {
+public class RegraExpressao extends Regra {
 
     /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja verdadeira.
+     * Expressão a ser avaliada para obtenção do
+     * resultado da avaliação da regra. Caso a
+     * regra seja condicional, então essa expressão
+     * é lógica. Caso a regra seja uma contagem por
+     * pontos, então o valor é irrelevante.
      */
-
-    private String entao;
-    /**
-     * Expressão a ser avaliada e cujo resultado torna-se
-     * o resultado da regra condicional caso a condição
-     * seja falsa.
-     */
-    private String senao;
+    private String expressao;
 
     /**
      * Cria uma regra.
@@ -62,43 +61,29 @@ public class RegraCondicional extends RegraExpressao {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraCondicional(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
-        super(variavel, tipo, descricao, valorMaximo, valorMinimo, expressao, entao, senao, tipoRelato, pontosPorItem, dependeDe);
-
-        if (entao == null || entao.isEmpty()) {
-            throw new CampoExigidoNaoFornecido("entao");
+    public RegraExpressao(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
+        super(variavel, tipo, descricao, valorMaximo, valorMinimo, dependeDe);
+        if (expressao == null || expressao.isEmpty()) {
+            throw new CampoExigidoNaoFornecido("expressao");
         }
 
-        this.entao = entao;
-        this.senao = senao;
+        this.expressao = expressao;
     }
 
     /**
-     * Recupera a expressão "então" associada à regra
-     * do tipo {@link #CONDICIONAL}.
+     * Recupera a expressão associada à regra.
      *
-     * @return A expressão "então".
+     * @return A expressão empregada pela regra.
      */
-    public String getEntao() {
-        return entao;
-    }
-
-    /**
-     * Recupera a expressão "senão" associada à regra
-     * do tipo {@link #CONDICIONAL}.
-     *
-     * @return A expressão "senão".
-     */
-    public String getSenao() {
-        return senao;
+    public String getExpressao() {
+        return expressao;
     }
 
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        if (super.avalie(avaliaveis, contexto).getBoolean()) {
-            return new Valor(true);
-        } else {
-            return new Valor(false);
-        }
+        //float valor = avaliaExpressao(regra, contexto, regra.getExpressao());
+        //valor = ajustaLimites(regra, valor);
+
+        return new Valor(1);
     }
 }

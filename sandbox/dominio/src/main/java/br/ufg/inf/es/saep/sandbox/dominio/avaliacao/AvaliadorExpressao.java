@@ -3,7 +3,9 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.infraestrutura;
+package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
+
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Expressao;
 
 import java.util.HashMap;
 import java.util.HashSet;

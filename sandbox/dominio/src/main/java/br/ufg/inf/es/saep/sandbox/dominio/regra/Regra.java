@@ -3,7 +3,11 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.regra;
+
+import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 
 import java.util.List;
 import java.util.Map;
@@ -290,18 +294,6 @@ public abstract class Regra {
         return variavel.hashCode();
     }
 
-    public float ajustaLimites(float valor) {
-        if (valor < getValorMinimo()) {
-            return getValorMinimo();
-        }
-
-        if (valor > getValorMaximo()) {
-            return getValorMaximo();
-        }
-
-        return valor;
-    }
-
     /**
      * Avalia o conjunto de avaliáveis com base no contexto.
      *
@@ -313,4 +305,16 @@ public abstract class Regra {
      * @return Resultado da avaliação da regra.
      */
     public abstract Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto);
+
+    public float ajustaLimites(float valor) {
+        if (valor < getValorMinimo()) {
+            return getValorMinimo();
+        }
+
+        if (valor > getValorMaximo()) {
+            return getValorMaximo();
+        }
+
+        return valor;
+    }
 }

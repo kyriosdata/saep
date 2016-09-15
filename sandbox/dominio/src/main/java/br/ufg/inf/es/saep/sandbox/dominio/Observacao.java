@@ -5,6 +5,9 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.AvaliaveisDeTiposDistintos;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+
 /**
  * Encapsula uma observação sobre um item avaliável,
  * na qual um valor fornecido ou automaticamente gerado
@@ -17,7 +20,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * que não é alterado.
  *
  */
-public class Nota {
+public class Observacao {
     private Avaliavel original;
     private Avaliavel novo;
     private String justificativa;
@@ -37,7 +40,7 @@ public class Nota {
      * @throws AvaliaveisDeTiposDistintos Caso os avaliáveis fornecidos
      *      não sejam do mesmo tipo.
      */
-    public Nota(Avaliavel origem, Avaliavel destino, String justificativa) {
+    public Observacao(Avaliavel origem, Avaliavel destino, String justificativa) {
         if (origem == null) {
             throw new CampoExigidoNaoFornecido("origem");
         }

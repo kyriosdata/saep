@@ -3,7 +3,9 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
+
+import br.ufg.inf.es.saep.sandbox.dominio.Observacao;
 
 /**
  * Indica que os itens avaliáveis em questão são de
@@ -14,11 +16,11 @@ public class AvaliaveisDeTiposDistintos extends RuntimeException {
 
     /**
      * Cria instância de exceção gerada quando se tenta
-     * criar {@link Nota} com avaliáveis de tipos
+     * criar {@link Observacao} com avaliáveis de tipos
      * distintos.
      *
      * @param campo Informação sobre a tentativa de criar
-     *              {@link Nota} com avaliáveis de tipos
+     *              {@link Observacao} com avaliáveis de tipos
      *              distintos.
      */
     public AvaliaveisDeTiposDistintos(String campo) {

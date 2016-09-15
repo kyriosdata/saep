@@ -5,6 +5,8 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+
 import java.util.UUID;
 
 /**

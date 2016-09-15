@@ -1,5 +1,7 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.TipoDeAtributoInvalido;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

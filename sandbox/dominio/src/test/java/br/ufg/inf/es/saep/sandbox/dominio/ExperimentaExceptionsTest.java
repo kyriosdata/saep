@@ -1,5 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.*;
 import org.junit.Test;
 
 public class ExperimentaExceptionsTest {

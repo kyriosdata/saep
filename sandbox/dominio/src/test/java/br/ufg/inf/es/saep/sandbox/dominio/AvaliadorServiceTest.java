@@ -1,5 +1,7 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.avaliacao.AvaliadorService;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import br.ufg.inf.es.saep.sandbox.infraestrutura.AvaliaRegraServiceEvalEx;
 import org.junit.BeforeClass;
 import org.junit.Test;

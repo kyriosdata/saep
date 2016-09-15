@@ -5,6 +5,11 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.ResolucaoUsaTipoException;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao;
+
 import java.util.List;
 
 /**
@@ -18,33 +23,33 @@ import java.util.List;
  *
  * <p>Dada a sensibilidade, os raros usuários autorizados
  * e a frequência, a edição pode ser realizada por pessoal
- * técnico que produzirá uma instância de {@link Resolucao} a
+ * técnico que produzirá uma instância de {@link Configuracao} a
  * ser recebida pelo presente repositório.
  *
- * <p>Não existe opção para atualizar uma {@link Resolucao}.
+ * <p>Não existe opção para atualizar uma {@link Configuracao}.
  * Um parecer disponível, se tem a resolução correspondente
  * alterada, pode dar origem a um resultado distinto.
  * Em consequência, não existe opção para atualização de
- * {@link Resolucao}.
+ * {@link Configuracao}.
  *
- * @see Resolucao
+ * @see Configuracao
  */
 public interface ResolucaoRepository {
 
     /**
-     * Recupera a instância de {@code Resolucao} correspondente
+     * Recupera a instância de {@code Configuracao} correspondente
      * ao identificador.
      *
      * @param id O identificador único da resolução a
      *                      ser recuperada.
      *
-     * @return {@code Resolucao} identificada por {@code id}.
+     * @return {@code Configuracao} identificada por {@code id}.
      * O retorno {@code null} indica que não existe resolução
      * com o identificador fornecido.
      *
-     * @see #persiste(Resolucao)
+     * @see #persiste(Configuracao)
      */
-    Resolucao byId(String id);
+    Configuracao byId(String id);
 
     /**
      * Persiste uma resolução.
@@ -67,13 +72,13 @@ public interface ResolucaoRepository {
      * @see #byId(String)
      * @see #remove(String)
      */
-    String persiste(Resolucao resolucao);
+    String persiste(Configuracao resolucao);
 
     /**
      * Remove a resolução com o identificador
      * fornecido.
      *
-     * @see #persiste(Resolucao)
+     * @see #persiste(Configuracao)
      *
      * @param identificador O identificador único da
      *                      resolução a ser removida.

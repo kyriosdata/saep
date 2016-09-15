@@ -1,12 +1,14 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.AvaliaveisDeTiposDistintos;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import org.junit.Test;
 
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
-public class NotaTest {
+public class ObservacaoTest {
 
     @Test
     public void montaRecuperaCorretamenteUmaNota() {
@@ -15,7 +17,7 @@ public class NotaTest {
 
         assertNotEquals(o, s);
 
-        Nota n = new Nota(o, s, "simples erro");
+        Observacao n = new Observacao(o, s, "simples erro");
         assertEquals(o, n.getItemOriginal());
         assertEquals(s, n.getItemNovo());
         assertEquals("simples erro", n.getJustificativa());
@@ -24,19 +26,19 @@ public class NotaTest {
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void origemNullGeraExcecao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
-        new Nota(null, o, "simples erro");
+        new Observacao(null, o, "simples erro");
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void destinoNullGeraExcecao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
-        new Nota(o, null, "simples erro");
+        new Observacao(o, null, "simples erro");
     }
 
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void justificativaNullGeraExcecao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
-        new Nota(o, o, null);
+        new Observacao(o, o, null);
     }
 
     @Test(expected = AvaliaveisDeTiposDistintos.class)
@@ -47,7 +49,7 @@ public class NotaTest {
 
         Avaliavel d = new Relato("d", valores);
 
-        new Nota(o, d, "tentativa deve falhar");
+        new Observacao(o, d, "tentativa deve falhar");
     }
 }
 

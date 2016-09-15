@@ -1,6 +1,9 @@
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
 import br.ufg.inf.es.saep.sandbox.dominio.*;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.FalhaAoAvaliarRegra;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
 import org.junit.Before;
 import org.junit.Test;
 

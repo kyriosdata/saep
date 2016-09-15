@@ -3,7 +3,7 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
 
 /**
  * Indica a existência de referência para o objeto que se

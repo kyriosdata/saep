@@ -1,6 +1,9 @@
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
 import br.ufg.inf.es.saep.sandbox.dominio.*;
+import br.ufg.inf.es.saep.sandbox.dominio.avaliacao.AvaliaRegraService;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.FalhaAoAvaliarRegra;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import com.udojava.evalex.Expression;
 
 import java.math.BigDecimal;
@@ -19,19 +22,7 @@ public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
 
     @Override
     public Valor avalia(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos) {
-        switch (regra.getTipo()) {
-            case Regra.PONTOS:
-            case Regra.EXPRESSAO:
-            case Regra.CONDICIONAL:
-            case Regra.SOMATORIO:
-            case Regra.MEDIA:
-            case Regra.DATAS_COMPARACAO:
-            case Regra.DATAS_DIFERENCA:
-                return new Valor(true);
-
-            default:
-                throw new TipoDeRegraInvalido("avalia");
-        }
+        return new Valor(1);
     }
 
     private float somatorio(Regra regra, List<Avaliavel> relatos) {

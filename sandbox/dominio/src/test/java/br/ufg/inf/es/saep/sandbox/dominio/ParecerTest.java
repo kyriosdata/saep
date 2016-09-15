@@ -1,5 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,7 +72,7 @@ public class ParecerTest {
         assertEquals(radocs, p.getRadocsIds());
         assertEquals(pontuacoes, p.getPontuacoes());
         assertNull(p.getFundamentacao());
-        assertNull(p.getNotas());
+        assertNull(p.getObservacoes());
     }
 
     @Test

@@ -3,7 +3,11 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.regra;
+
+import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 
 import java.util.List;
 import java.util.Map;

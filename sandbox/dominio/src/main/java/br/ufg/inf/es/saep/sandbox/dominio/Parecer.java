@@ -5,6 +5,8 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -65,7 +67,7 @@ public class Parecer extends Entidade {
      * alterações possuem prioridade sobre os
      * valores "originais".
      */
-    private List<Nota> notas;
+    private List<Observacao> observacoes;
 
     /**
      * Cria instância de parecer.
@@ -86,7 +88,7 @@ public class Parecer extends Entidade {
      *
      * @param fundamentacao Texto que fundamenta o parecer.
      *
-     * @param notas Notas que alteram valores de pontuações e/ou
+     * @param observacoes Notas que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
     public Parecer(String id,
@@ -94,7 +96,7 @@ public class Parecer extends Entidade {
                    List<String> radocsIds,
                    List<Pontuacao> pontuacoes,
                    String fundamentacao,
-                   List<Nota> notas) {
+                   List<Observacao> observacoes) {
 
         super(id);
 
@@ -114,7 +116,7 @@ public class Parecer extends Entidade {
         this.radocs = radocsIds;
         this.pontuacoes = pontuacoes;
         this.fundamentacao = fundamentacao;
-        this.notas = notas;
+        this.observacoes = observacoes;
     }
 
     /**
@@ -135,20 +137,20 @@ public class Parecer extends Entidade {
      *
      * @param fundamentacao Texto que fundamenta o parecer.
      *
-     * @param notas Notas que alteram valores de pontuações e/ou
+     * @param observacoes Notas que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
     public Parecer(String resolucaoId,
                    List<String> radocsIds,
                    List<Pontuacao> pontuacoes,
                    String fundamentacao,
-                   List<Nota> notas) {
+                   List<Observacao> observacoes) {
         this(UUID.randomUUID().toString(),
                 resolucaoId,
                 radocsIds,
                 pontuacoes,
                 fundamentacao,
-                notas);
+                observacoes);
     }
 
     /**
@@ -190,11 +192,11 @@ public class Parecer extends Entidade {
     }
 
     /**
-     * Recupera as notas eventualmente registradas pelo parecer.
+     * Recupera as observacoes eventualmente registradas pelo parecer.
      *
      * @return Notas utilizadas pelo parecer.
      */
-    public List<Nota> getNotas() {
-        return notas;
+    public List<Observacao> getObservacoes() {
+        return observacoes;
     }
 }

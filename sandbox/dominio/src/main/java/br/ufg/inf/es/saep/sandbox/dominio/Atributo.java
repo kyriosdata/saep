@@ -5,6 +5,9 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.TipoDeAtributoInvalido;
+
 /**
  * Um atributo permite identificar cada um
  * dos possíveis valores que podem ser empregados

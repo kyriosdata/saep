@@ -1,5 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -3,7 +3,7 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.infraestrutura;
+package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 /**
  * Identifica uma expressão que produz um

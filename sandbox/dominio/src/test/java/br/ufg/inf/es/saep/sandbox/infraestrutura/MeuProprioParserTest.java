@@ -1,5 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
+import br.ufg.inf.es.saep.sandbox.dominio.avaliacao.AvaliadorExpressao;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -91,6 +92,9 @@ public class MeuProprioParserTest {
         assertEquals(3, expr.valor(variaveis), 0.001d);
 
         expr = new AvaliadorExpressao("(2 > 1) & (3 > 2)");
+        assertEquals(0, expr.getVariaveis().size());
+
+        expr = new AvaliadorExpressao("(2 > 3) & (3 > 2)");
         assertEquals(0, expr.getVariaveis().size());
     }
 

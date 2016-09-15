@@ -5,6 +5,9 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.ExisteParecerReferenciandoRadoc;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente;
+
 /**
  * Oferece noção de coleções de pareceres em memória.
  *

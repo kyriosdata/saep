@@ -3,7 +3,10 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.regra;
+
+import br.ufg.inf.es.saep.sandbox.dominio.Entidade;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
 import java.util.Date;
 import java.util.List;
@@ -17,17 +20,15 @@ import java.util.List;
  * classe simplesmente registra os itens relevantes ou aqueles
  * considerados em uma avaliação.
  */
-public class Resolucao extends Entidade {
+public class Configuracao extends Entidade {
 
     /**
-     * Data de aprovação da resolução.
+     * Data da configuração de regras.
      */
-    private Date dataAprovacao;
+    private Date data;
 
     /**
-     * Identificador da resolução conforme percebida pelos
-     * usuários). Deveria ser uma chave natural, mas
-     * não há garantia. Por exemplo, resolução "CONSUNI 34/2012".
+     * Identificador da configuração.
      * Ou seja, é empregado aqui como um "nome de fantasia".
      * Contraste com {@link #id}.
      */
@@ -35,65 +36,69 @@ public class Resolucao extends Entidade {
 
     /**
      * Descrição ou informação adicional sobre
-     * a resolução.
+     * a configuração.
      */
     private String descricao;
 
     /**
-     * Conjunto de regras definido pela resolução.
+     * Conjunto de regras definido pela configuração.
      */
     private List<Regra> regras;
 
     /**
-     * Recupera o nome da resolução.
+     * Recupera o nome da configuração.
      *
-     * @return O nome da resolução.
+     * @return O nome da configuração.
      */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Recupera a descrição da configuração.
+     *
+     * @return A descrição da configuração.
+     */
     public String getDescricao() {
         return descricao;
     }
 
     /**
-     * Recupera a data parecerById aprovação da resolução.
+     * Recupera a data de criação da configuração.
      *
-     * @return Data parecerById aprovação da resolução.
+     * @return Data de criação da resolução.
      */
-    public Date getDataAprovacao() {
-        return dataAprovacao;
+    public Date getData() {
+        return data;
     }
 
     /**
      * Recupera o conjunto de regras definido
-     * pela resolução.
+     * pela configuração.
      *
-     * @return Conjunto de regras definido pela resolução.
+     * @return Conjunto de regras definido pela configuração.
      */
     public List<Regra> getRegras() {
         return regras;
     }
 
     /**
-     * Cria uma resolução a partir dos argumentos
-     * identificados.
-     * @param id O nome único da resolução.
-     * @param nome O nome pelo qual seres humanos identificam a resolução.
-     * @param descricao A descrição (caput) da resolução.
-     * @param dataAprovacao Data parecerById aprovação da resolução.
-     * @param regras Conjunto parecerById itens que são avaliados pela
+     * Cria uma configuração.
+     * @param id O identificador único da configuração.
+     * @param nome O nome pelo qual seres humanos identificam a configuração.
+     * @param descricao A descrição da configuração.
+     * @param data A data de criação da configuração.
+     * @param regras Conjunto de regras que definem a configuração.
      */
-    public Resolucao(String id, String nome, String descricao, Date dataAprovacao, List<Regra> regras) {
+    public Configuracao(String id, String nome, String descricao, Date data, List<Regra> regras) {
         super(id);
 
         if (descricao == null || descricao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("descricao");
         }
 
-        if (dataAprovacao == null) {
-            throw new CampoExigidoNaoFornecido("dataAprovacao");
+        if (data == null) {
+            throw new CampoExigidoNaoFornecido("data");
         }
 
         if (regras == null || regras.size() < 1) {
@@ -102,7 +107,7 @@ public class Resolucao extends Entidade {
 
         this.nome = nome;
         this.descricao = descricao;
-        this.dataAprovacao = dataAprovacao;
+        this.data = data;
         this.regras = regras;
     }
 }
