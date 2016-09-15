@@ -3,17 +3,18 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio;
+package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
 
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 
 import java.util.*;
 
 /**
- * Fornece ordenação das regras a serem avaliadas.
- * A ordenação assegura que uma regra só será
+ * Ordena regras a serem avaliadas.
+ *
+ * <p>A ordenação obtida assegura que uma regra R só será
  * avaliada após a avaliação das regras que produzem
- * valores dos quais ela depende. Por exemplo, se uma
+ * valores dos quais a regra R depende. Por exemplo, se uma
  * regra é definida pela expressão "2 * a", então deve
  * ser avaliada apenas após a avaliação da regra que
  * produz o resultado de "a".
