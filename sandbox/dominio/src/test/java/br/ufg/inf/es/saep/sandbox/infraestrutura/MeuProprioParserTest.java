@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MeuProprioParserTest {
 
@@ -54,6 +55,7 @@ public class MeuProprioParserTest {
     public void expressaoComUmaVariavel() {
         AvaliadorExpressao expr = new AvaliadorExpressao("(1-y)-2");
         assertEquals(1, expr.getVariaveis().size());
+        assertTrue(expr.getVariaveis().contains("y"));
     }
 
     @Test

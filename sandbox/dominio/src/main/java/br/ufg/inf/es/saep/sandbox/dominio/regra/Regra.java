@@ -295,12 +295,40 @@ public abstract class Regra {
     }
 
     /**
-     * Avalia a regra, produzindo um valor associado a uma
-     * variável.
+     * A avaliação de uma regra produz um valor, que pode
+     * estar fora dos limites estabelecidos pela regra.
+     * Esse método ajusta um valor conforme os limites
+     * estabelecidos pela regra.
+     *
+     * <p>Um valor abaixo do limite inferior é corrigido
+     * para o limite inferior e, um valor acima do limte
+     * superior, é corrigido para o limite superior.
+     *
+     * @param valor Valor a ser ajustado.
+     *
+     * @return O valor fornecido, caso esteja dentro dos limites
+     * estabelecidos pela regra ou o valor resultante da
+     * aplicação dos limites da regra.
+     */
+    public float ajustaLimites(float valor) {
+        if (valor < getValorMinimo()) {
+            return getValorMinimo();
+        }
+
+        if (valor > getValorMaximo()) {
+            return getValorMaximo();
+        }
+
+        return valor;
+    }
+
+    /**
+     * Avalia a regra, produzindo um valor a ser associado
+     * à variável definida para a regra.
      *
      * <p>A avaliação de uma regra depende de valores de itens
-     * avaliáveis e/ou de variáveis (depositadas no contexto).
-     * As variáveis são definidas pela avaliação de regras.
+     * avaliáveis e/ou do valor de variáveis. Em tempo, as
+     * variáveis são definidas pela avaliação de regras.
      *
      * <p>Uma regra deve ser chamada apenas após a avaliação
      * de regras que produzem valores para as variáveis das
@@ -315,16 +343,4 @@ public abstract class Regra {
      * @return Resultado da avaliação da regra.
      */
     public abstract Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto);
-
-    public float ajustaLimites(float valor) {
-        if (valor < getValorMinimo()) {
-            return getValorMinimo();
-        }
-
-        if (valor > getValorMaximo()) {
-            return getValorMaximo();
-        }
-
-        return valor;
-    }
 }

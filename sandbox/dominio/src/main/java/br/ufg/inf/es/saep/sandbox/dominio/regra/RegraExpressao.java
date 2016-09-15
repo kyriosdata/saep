@@ -6,23 +6,27 @@
 package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
+import br.ufg.inf.es.saep.sandbox.dominio.avaliacao.AvaliadorExpressao;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Regra definida por uma expressão.
+ * Regra definida por uma expressão formada por constantes,
+ * variáveis (definidas em um contexto) e atributos de
+ * itens avaliáveis.
+ *
+ * <p>Uma expressão pode ser numérica, por exemplo,
+ * "ch * 12.5", ou produzir um valor lógico, "3 > 1".
  */
 public class RegraExpressao extends Regra {
 
     /**
      * Expressão a ser avaliada para obtenção do
-     * resultado da avaliação da regra. Caso a
-     * regra seja condicional, então essa expressão
-     * é lógica. Caso a regra seja uma contagem por
-     * pontos, então o valor é irrelevante.
+     * resultado da avaliação da regra.
      */
     private String expressao;
 
@@ -81,9 +85,9 @@ public class RegraExpressao extends Regra {
 
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        //float valor = avaliaExpressao(regra, contexto, regra.getExpressao());
-        //valor = ajustaLimites(regra, valor);
-
-        return new Valor(1);
+        AvaliadorExpressao expr = new AvaliadorExpressao(expressao);
+        Map<String, Double> variaveis = new HashMap<>();
+        variaveis.put("ch", new Double(256));
+        return new Valor((float)expr.valor(variaveis));
     }
 }

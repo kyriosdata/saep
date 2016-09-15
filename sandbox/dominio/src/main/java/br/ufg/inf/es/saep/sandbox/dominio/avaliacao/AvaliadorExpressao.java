@@ -33,7 +33,6 @@ public class AvaliadorExpressao {
     private Map<String, Double> contexto = new HashMap<>();
     private Expressao expressao;
     int pos = -1;
-    int tamanho;
     char ch;
 
     public AvaliadorExpressao(String expressao) {
@@ -56,7 +55,7 @@ public class AvaliadorExpressao {
     }
 
     private void proximo() {
-        ch = (++pos < tamanho) ? expr.charAt(pos) : Character.MIN_VALUE;
+        ch = (++pos < expr.length()) ? expr.charAt(pos) : Character.MIN_VALUE;
     }
 
     private boolean consome(char caractere) {
@@ -84,12 +83,10 @@ public class AvaliadorExpressao {
             return (() -> 0);
         }
 
-        tamanho = expr.length();
-
         proximo();
         Expressao x = expressao();
 
-        if (pos < tamanho) {
+        if (pos < expr.length()) {
             throw new RuntimeException("Inesperado: " + ch);
         }
 
