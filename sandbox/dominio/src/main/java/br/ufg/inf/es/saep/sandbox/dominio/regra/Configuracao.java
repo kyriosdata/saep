@@ -103,6 +103,13 @@ public class Configuracao extends Entidade {
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
+        this.regras = regras;
+    }
+
+    /**
+     * Prepara a configuração para uso.
+     */
+    public void startUp() {
 
         // Estabelece ordem adequada para execução.
         this.regras = OrdenacaoService.ordena(regras);
