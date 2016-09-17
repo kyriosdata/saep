@@ -3,9 +3,7 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
-
-import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
+package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 import java.util.*;
 

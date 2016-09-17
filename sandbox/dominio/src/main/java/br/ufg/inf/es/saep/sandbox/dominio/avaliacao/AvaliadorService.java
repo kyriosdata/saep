@@ -7,6 +7,7 @@ package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
 
 import br.ufg.inf.es.saep.sandbox.dominio.*;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 /**
  * Serviço de avaliação de relatórios.
+ *
  */
 public class AvaliadorService {
 

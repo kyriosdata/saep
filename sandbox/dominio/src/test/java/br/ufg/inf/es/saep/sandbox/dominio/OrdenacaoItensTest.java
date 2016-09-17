@@ -1,6 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import br.ufg.inf.es.saep.sandbox.dominio.avaliacao.OrdenacaoService;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.ufg.inf.es.saep.sandbox.dominio.avaliacao.OrdenacaoService.*;
+import static br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService.*;
 import static org.junit.Assert.assertEquals;
 
 public class OrdenacaoItensTest {

@@ -12,13 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Reúne regras para avaliação de processos
- * de promoção, progressão e estágio probatório.
+ * Reúne regras para a avaliação de relatórios.
  *
- * A legislação da Universidade Federal de Goiás (UFG)
- * está organizada por meio de resoluções. Uma instância dessa
- * classe simplesmente registra os itens relevantes ou aqueles
- * considerados em uma avaliação.
  */
 public class Configuracao extends Entidade {
 
@@ -108,6 +103,8 @@ public class Configuracao extends Entidade {
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
-        this.regras = regras;
+
+        // Estabelece ordem adequada para execução.
+        this.regras = OrdenacaoService.ordena(regras);
     }
 }
