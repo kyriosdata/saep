@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Serviço de avaliação de RADOCs.
+ * Serviço de avaliação de relatórios.
  */
 public class AvaliadorService {
 
@@ -147,7 +147,7 @@ public class AvaliadorService {
      * @throws CampoExigidoNaoFornecido Caso a observacao
      *      seja {@code null}.
      */
-    public void adicionaNota(Observacao observacao) {
+    public void adicionaObservacao(Observacao observacao) {
         if (observacao == null) {
             throw new CampoExigidoNaoFornecido("observacao");
         }
