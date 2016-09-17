@@ -11,39 +11,27 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Resultado da avaliação de um processo de progressão,
- * promoção ou estágio probatório. Um parecer, portanto,
- * registra o resultado de uma avaliação.
+ * Resultado da avaliação de um relatório
+ * ({@link Relatorio}) para uma dada configuração
+ * ({@link br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao}).
  *
- * <p>Um parecer envolve pelo menos um RADOC avaliado com
- * base em uma resolução. No caso de estágio probatório, por
- * exemplo, vários RADOCs são empregados.
- *
- * <p>Um parecer é obtido da aplicação de regras aos relatos,
- * o que produz pontuações, que também podem ser empregadas
- * por regras. A definição de pontuações é automática e baseada
- * nas regras. A CAD, contudo, no processo de produção de
- * um parecer, pode "substituir" o valor de uma pontuação por
- * outro, assim como também pode interferir no resultado
- * obtido por uma pontuação ao alterar o valor de um
- * relato.
- *
+ * @see br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao
  * @see Relatorio
  */
 public class Parecer extends Entidade {
 
     /**
-     * Resolução com base na qual o parecer
-     * é realizado.
+     * Identificação da configuração empregada
+     * na produção do parecer.
      */
-    private String resolucao;
+    private String configuracao;
 
     /**
      * Lista de relatórios com base nos quais
      * o parecer é realizado. Em muitos casos
      * um único relatório é utilizado.
      */
-    private List<String> radocs;
+    private List<String> relatorios;
 
     /**
      * As pontuações obtidas pelo parecer.
@@ -53,8 +41,7 @@ public class Parecer extends Entidade {
     private List<Pontuacao> pontuacoes;
 
     /**
-     * O texto do parecer propriamente dito, ou
-     * fundamentação.
+     * Texto associado ao parecer.
      */
     private String fundamentacao;
 
@@ -112,8 +99,8 @@ public class Parecer extends Entidade {
             throw new CampoExigidoNaoFornecido("radocsIds");
         }
 
-        this.resolucao = resolucaoId;
-        this.radocs = radocsIds;
+        this.configuracao = resolucaoId;
+        this.relatorios = radocsIds;
         this.pontuacoes = pontuacoes;
         this.fundamentacao = fundamentacao;
         this.observacoes = observacoes;
@@ -159,7 +146,7 @@ public class Parecer extends Entidade {
      * @return O identificador da resolução utilizada pelo parecer.
      */
     public String getResolucaoId() {
-        return resolucao;
+        return configuracao;
     }
 
     /**
@@ -169,7 +156,7 @@ public class Parecer extends Entidade {
      * @return Identificadores de RADOCs.
      */
     public List<String> getRadocsIds() {
-        return radocs;
+        return relatorios;
     }
 
     /**

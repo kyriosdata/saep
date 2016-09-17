@@ -9,15 +9,16 @@ import br.ufg.inf.es.saep.sandbox.dominio.excecoes.AvaliaveisDeTiposDistintos;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
 /**
- * Encapsula uma observação sobre um item avaliável,
- * na qual um valor fornecido ou automaticamente gerado
- * é "ignorado" em detrimento de outro, fornecido pela
- * CAD.
+ * Definição de um avaliável que deve ser utilizado
+ * em detrimento de outro.
  *
- * <p>Observe que o valor original não é alterado, nem
- * substituído por outro. Ou seja, o valor fornecido,
- * por meio de uma nota, é considerado em vez do "original",
- * que não é alterado.
+ * <p>Uma observação permite "corrigir" eventual
+ * equívoco presente em um avaliável sem alterá-lo.
+ * Dessa forma, o avaliável original não é alterado,
+ * mas associado àquele que o substitui, juntamente
+ * com uma justificativa.
+ *
+ * @see Avaliavel
  *
  */
 public class Observacao {
