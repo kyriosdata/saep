@@ -11,14 +11,38 @@ import static org.junit.Assert.assertEquals;
 /**
  * Analisador Sintático Descendente Recursivo.
  * <p>
+ * Numero ::= dígito (um ou mais)
+ * Constante ::= '-' + Numero | Numero
+ * Variavel ::= Letra (uma ou mais)
  * Expr ::= Constante | Variavel | ( Expr Operador Expr )
  */
 public class RecursiveDescetParserTest {
+
+    @Test(expected = IllegalArgumentException.class)
+    public void expressaoNullInvalida() {
+        new Parser(null).expressao();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void expressaoVaziaInvalida() {
+        new Parser("").expressao();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void expressaoSemParentesesInvalida() {
+        new Parser("x + y").expressao();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void expressaoComElementoInvalido() {
+        new Parser("@").expressao();
+    }
 
     @Test
     public void expressoesConstantes() {
         assertEquals(2.34, new Parser(" 2.34    ").expressao().valor(), 0.00001d);
         assertEquals(-4, new Parser("   -4").expressao().valor(), 0.00001d);
+        assertEquals(-4, new Parser("   -4  ").expressao().valor(), 0.00001d);
         assertEquals(1, new Parser("1").expressao().valor(), 0.00001d);
         assertEquals(0, new Parser("0").expressao().valor(), 0.00001d);
     }
@@ -33,8 +57,18 @@ public class RecursiveDescetParserTest {
         assertEquals(0, new Parser("CaSa").expressao().valor(), 0.00001d);
 
         assertEquals(9.876d, new Parser("   x").expressao().valor(ctx), 0.00001d);
+        assertEquals(9.876d, new Parser("   x ").expressao().valor(ctx), 0.00001d);
         assertEquals(8.765d, new Parser("   CaSa").expressao().valor(ctx), 0.00001d);
+        assertEquals(8.765d, new Parser("   CaSa    ").expressao().valor(ctx), 0.00001d);
         assertEquals(18.641d, new Parser("(x + CaSa)").expressao().valor(ctx), 0.00001d);
+        assertEquals(18.641d, new Parser(" (x + CaSa) ").expressao().valor(ctx), 0.00001d);
+        assertEquals(18.641d, new Parser(" ( x+CaSa )").expressao().valor(ctx), 0.00001d);
+        assertEquals(18.641d, new Parser(" ( x+   CaSa )").expressao().valor(ctx), 0.00001d);
+        assertEquals(18.641d, new Parser(" ( x+CaSa )  ").expressao().valor(ctx), 0.00001d);
+        assertEquals(18.641d, new Parser(" ( x    +CaSa )").expressao().valor(ctx), 0.00001d);
+        assertEquals(86.56314d, new Parser("(x*CaSa)").expressao().valor(ctx), 0.00001d);
+        assertEquals(1.12675d, new Parser("(x/CaSa)").expressao().valor(ctx), 0.00001d);
+        assertEquals(1.11099d, new Parser("(x-CaSa)").expressao().valor(ctx), 0.00001d);
     }
 }
 
@@ -46,11 +80,29 @@ class Parser {
     private int ultimaPosicao;
 
     public Parser(String expr) {
+        if (expr == null || expr.isEmpty()) {
+            throw new IllegalArgumentException("expressão nula ou vazia");
+        }
+
         this.expr = expr;
         ultimaPosicao = expr.length() - 1;
+
+        caractere = expr.charAt(corrente);
     }
 
     public Expressao expressao() {
+        Expressao analisada = getExpressao();
+
+        eliminaBrancos();
+
+        if (corrente < ultimaPosicao) {
+            throw new IllegalArgumentException("fim inesperado: " + caractere);
+        }
+
+        return analisada;
+    }
+
+    private Expressao getExpressao() {
         eliminaBrancos();
 
         if (isConstante()) {
@@ -61,7 +113,7 @@ class Parser {
             return new Variavel(getVariavel());
         }
 
-        if (isExpressao()) {
+        if (isExpressaoEntreParenteses()) {
             return getExpressaoEntreParenteses();
         }
 
@@ -90,12 +142,28 @@ class Parser {
         throw new IllegalArgumentException(" Operador esperado: " + caractere);
     }
 
-    private boolean isExpressao() {
+    private boolean isExpressaoEntreParenteses() {
         return caractere == '(';
     }
 
+    /**
+     * Pelo menos um dígito, possivelmente precedido
+     * pelo sinal de menos.
+     *
+     * @return {@code true} se na posição corrente da
+     * expressão encontra-se uma constante.
+     */
     private boolean isConstante() {
-        return caractere == '-' || Character.isDigit(caractere);
+        if (Character.isDigit(caractere)) {
+            return true;
+        }
+
+        if (caractere != '-') {
+            return false;
+        }
+
+        // TODO Apenas '-' gera excecao
+        return Character.isDigit(expr.charAt(corrente + 1));
     }
 
     private boolean isLetra() {
@@ -111,11 +179,18 @@ class Parser {
         char operador = getOperador();
 
         Expressao exp2 = expressao();
+
         fechaParenteses();
 
         switch (operador) {
             case '+':
                 return new Soma(exp1, exp2);
+            case '-':
+                return new Subtracao(exp1, exp2);
+            case '*':
+                return new Multiplicacao(exp1, exp2);
+            case '/':
+                return new Divisao(exp1, exp2);
             default:
                 throw new IllegalArgumentException("Operador invalido:" + caractere);
         }
@@ -161,7 +236,6 @@ class Parser {
     }
 
     private void eliminaBrancos() {
-        caractere = expr.charAt(corrente);
         while (caractere == ' ' || caractere == '\t') {
             caractere = expr.charAt(++corrente);
         }
@@ -218,6 +292,69 @@ class Soma implements Expressao {
     @Override
     public double valor(Map<String, Double> contexto) {
         return parcelaUm.valor(contexto) + parcelaDois.valor(contexto);
+    }
+}
+
+class Subtracao implements Expressao {
+
+    private Expressao parcelaUm;
+    private Expressao parcelaDois;
+
+    public Subtracao(Expressao p1, Expressao p2) {
+        parcelaUm = p1;
+        parcelaDois = p2;
+    }
+
+    @Override
+    public double valor() {
+        return parcelaUm.valor() - parcelaDois.valor();
+    }
+
+    @Override
+    public double valor(Map<String, Double> contexto) {
+        return parcelaUm.valor(contexto) - parcelaDois.valor(contexto);
+    }
+}
+
+class Multiplicacao implements Expressao {
+
+    private Expressao parcelaUm;
+    private Expressao parcelaDois;
+
+    public Multiplicacao(Expressao p1, Expressao p2) {
+        parcelaUm = p1;
+        parcelaDois = p2;
+    }
+
+    @Override
+    public double valor() {
+        return parcelaUm.valor() * parcelaDois.valor();
+    }
+
+    @Override
+    public double valor(Map<String, Double> contexto) {
+        return parcelaUm.valor(contexto) * parcelaDois.valor(contexto);
+    }
+}
+
+class Divisao implements Expressao {
+
+    private Expressao numerador;
+    private Expressao denominador;
+
+    public Divisao(Expressao p1, Expressao p2) {
+        numerador = p1;
+        denominador = p2;
+    }
+
+    @Override
+    public double valor() {
+        return numerador.valor() / denominador.valor();
+    }
+
+    @Override
+    public double valor(Map<String, Double> contexto) {
+        return numerador.valor(contexto) / denominador.valor(contexto);
     }
 }
 
