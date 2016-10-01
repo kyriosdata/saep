@@ -93,8 +93,6 @@ class Parser {
     public Expressao expressao() {
         Expressao analisada = getExpressao();
 
-        eliminaBrancos();
-
         if (corrente < ultimaPosicao) {
             throw new IllegalArgumentException("fim inesperado: " + caractere);
         }
