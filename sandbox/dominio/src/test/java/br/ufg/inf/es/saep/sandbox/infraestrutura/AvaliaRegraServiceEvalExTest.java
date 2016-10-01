@@ -175,7 +175,7 @@ public class AvaliaRegraServiceEvalExTest {
         listaDeRelatos.add(relato);
 
         // Um relato de dado tipo, 11 pontos.
-        // Máximo corrige para 10.
+        // Máximo corrige expressao 10.
         int tipo = Regra.PONTOS;
         Regra r = new RegraExpressao("v", tipo, "d", 10, 0, null, null, null, "r", 11, null);
 

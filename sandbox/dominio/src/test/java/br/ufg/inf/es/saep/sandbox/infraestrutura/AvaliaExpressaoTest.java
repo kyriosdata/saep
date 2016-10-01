@@ -47,7 +47,7 @@ public class AvaliaExpressaoTest {
         BigDecimal soma = new BigDecimal(0);
         for (Map<String, Double> relato : relatos) {
 
-            // Define contexto para o relato
+            // Define contexto expressao o relato
             for(String variavel : variaveis) {
                 exp.setVariable(variavel, new BigDecimal(relato.get(variavel)));
             }
@@ -145,8 +145,8 @@ public class AvaliaExpressaoTest {
     public void funcaoPersonalizada() {
         Expression f = new Expression("10 * diferencaEmDias");
 
-        // Ajusta parâmetros para todas as funções
-        // Pode ser otimizado (apenas para aquelas usadas)
+        // Ajusta parâmetros expressao todas as funções
+        // Pode ser otimizado (apenas expressao aquelas usadas)
         // Localiza variáveis associadas dependeDeRegra1_1 diferencaEmDias
         // (por exemplo, 'd1' e 'd2'). Nesse caso, recupere
         // os valores desses atributos, calcule dependeDeRegra1_1 diferença e

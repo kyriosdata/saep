@@ -6,11 +6,9 @@
 package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
-import br.ufg.inf.es.saep.sandbox.dominio.avaliacao.AvaliadorExpressao;
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -85,9 +83,6 @@ public class RegraExpressao extends Regra {
 
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        AvaliadorExpressao expr = new AvaliadorExpressao(expressao);
-        Map<String, Double> variaveis = new HashMap<>();
-        variaveis.put("ch", new Double(256));
-        return new Valor((float)expr.valor(variaveis));
+        return new Valor(0f);
     }
 }
