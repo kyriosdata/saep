@@ -34,6 +34,7 @@ public class RecursiveDescetParserTest {
 
         assertEquals(9.876d, new Parser("   x").expressao().valor(ctx), 0.00001d);
         assertEquals(8.765d, new Parser("   CaSa").expressao().valor(ctx), 0.00001d);
+        assertEquals(18.641d, new Parser("(x + CaSa)").expressao().valor(ctx), 0.00001d);
     }
 }
 
@@ -60,7 +61,37 @@ class Parser {
             return new Variavel(getVariavel());
         }
 
+        if (isExpressao()) {
+            return getExpressaoEntreParenteses();
+        }
+
         throw new IllegalArgumentException("Nao esperado: " + caractere);
+    }
+
+    private void fechaParenteses() {
+        eliminaBrancos();
+
+        if (caractere != ')') {
+            throw new IllegalArgumentException("Esperado fecha parenteses: " +caractere);
+        }
+    }
+
+    private char getOperador() {
+        eliminaBrancos();
+        if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/') {
+            char operador = caractere;
+
+            // consome operador
+            caractere = expr.charAt(++corrente);
+
+            return operador;
+        }
+
+        throw new IllegalArgumentException(" Operador esperado: " + caractere);
+    }
+
+    private boolean isExpressao() {
+        return caractere == '(';
     }
 
     private boolean isConstante() {
@@ -69,6 +100,25 @@ class Parser {
 
     private boolean isLetra() {
         return Character.isLetter(caractere);
+    }
+
+    private Expressao getExpressaoEntreParenteses() {
+        // consome '('
+        caractere = expr.charAt(++corrente);
+
+        Expressao exp1 = expressao();
+
+        char operador = getOperador();
+
+        Expressao exp2 = expressao();
+        fechaParenteses();
+
+        switch (operador) {
+            case '+':
+                return new Soma(exp1, exp2);
+            default:
+                throw new IllegalArgumentException("Operador invalido:" + caractere);
+        }
     }
 
     private double getConstante() {
@@ -106,7 +156,8 @@ class Parser {
             caractere = expr.charAt(++corrente);
         }
 
-        return expr.substring(inicio, corrente + 1);
+        int fim = isLetra() ? corrente + 1 : corrente;
+        return expr.substring(inicio, fim);
     }
 
     private void eliminaBrancos() {
@@ -166,7 +217,7 @@ class Soma implements Expressao {
 
     @Override
     public double valor(Map<String, Double> contexto) {
-        return 0;
+        return parcelaUm.valor(contexto) + parcelaDois.valor(contexto);
     }
 }
 
