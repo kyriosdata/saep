@@ -79,12 +79,12 @@ class Parser {
     private String expr;
     private int ultimaPosicao;
 
-    public Parser(String expr) {
-        if (expr == null || expr.isEmpty()) {
+    public Parser(String expressao) {
+        if (expressao == null || expressao.isEmpty()) {
             throw new IllegalArgumentException("expressão nula ou vazia");
         }
 
-        this.expr = expr;
+        expr = expressao.trim();
         ultimaPosicao = expr.length() - 1;
 
         caractere = expr.charAt(corrente);
@@ -172,11 +172,11 @@ class Parser {
         // consome '('
         caractere = expr.charAt(++corrente);
 
-        Expressao exp1 = expressao();
+        Expressao exp1 = getExpressao();
 
         char operador = getOperador();
 
-        Expressao exp2 = expressao();
+        Expressao exp2 = getExpressao();
 
         fechaParenteses();
 
