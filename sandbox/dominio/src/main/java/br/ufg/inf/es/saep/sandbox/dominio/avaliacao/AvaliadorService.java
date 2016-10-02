@@ -7,6 +7,7 @@ package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
 
 import br.ufg.inf.es.saep.sandbox.dominio.*;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 
@@ -18,18 +19,44 @@ import java.util.Map;
 /**
  * Serviço de avaliação de relatórios.
  *
+ * <p>A avaliação está organizada em duas fases:
+ * (a) preparação da configuração (executada uma vez
+ * por configuração) e (b) execução dos relatórios.
+ * Respectivamente são definidos os seguintes
+ * métodos responsáveis por tais fases:
+ * (a)
  */
 public class AvaliadorService {
 
     private List<Observacao> observacoes;
+    private List<Regra> ordenadas;
 
     /**
-     * Serviço de avaliação de regra a ser utilizado peloa Avaliador.
+     * Serviço de avaliação de regra a ser utilizado pelo Avaliador.
      */
     private final AvaliaRegraService regraService;
 
     public AvaliadorService(AvaliaRegraService regraService) {
         this.regraService = regraService;
+    }
+
+    /**
+     * Prepara o avaliador para execução de relatórios
+     * baseados em uma dada configuração.
+     *
+     * @param configuracao A configuração a ser utilizada
+     *                     para as avaliações.
+     */
+    public void preparacao(Configuracao configuracao) {
+
+        List<Regra> regras = configuracao.getRegras();
+
+        for (Regra regra : regras) {
+        }
+
+        // Regras devem estar ordenadas
+
+        ordenadas = OrdenacaoService.ordena(regras);
     }
 
     /**
@@ -44,10 +71,10 @@ public class AvaliadorService {
      * @param relatos Conjunto de relatos sobre os quais a avaliação
      *                das regras será executada.
      *
-     * @param substitutos Conjunto de pontuações que fornecem valores
+     * @param observacoes Conjunto de pontuações que fornecem valores
      *                   "substitutos".
      *
-     * @param parametros Conjunto de valores inicialis, possivelmente
+     * @param parametros Conjunto de valores iniciais, possivelmente
      *                 empregados para definição de constantes.
      *
      * @return Resultados produzidos pela avaliação. Cada regra dá origem
@@ -57,7 +84,7 @@ public class AvaliadorService {
     public Map<String, Valor> avalia(
             List<Regra> regras,
             List<Relato> relatos,
-            Map<String, Valor> substitutos,
+            Map<String, Valor> observacoes,
             Map<String, Valor> parametros) {
 
         // Acumula valores produzidos pela avaliação.
@@ -92,8 +119,8 @@ public class AvaliadorService {
 
             // Contudo, pode ser que uma "substituição" deva prevalecer
             // Ou seja, o valor produzido deve ceder para o fornecido.
-            if (substitutos.containsKey(variavel)) {
-                valor = substitutos.get(variavel);
+            if (observacoes.containsKey(variavel)) {
+                valor = observacoes.get(variavel);
             }
 
             // Acrescenta o valor calculado (ou o que deve prevalecer)
@@ -130,7 +157,7 @@ public class AvaliadorService {
     }
 
     /**
-     * Adiciona observacao ao parecer.
+     * Adiciona observação ao parecer.
      *
      * <p>Caso a observacao a ser acrescentada
      * se refira a um item {@link Avaliavel} para o qual já
