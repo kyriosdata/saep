@@ -1,13 +1,19 @@
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
-import br.ufg.inf.es.saep.sandbox.dominio.*;
+import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
+import br.ufg.inf.es.saep.sandbox.dominio.Relato;
+import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.FalhaAoAvaliarRegra;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.Expressao;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -31,8 +37,17 @@ public class AvaliaRegraServiceEvalExTest {
     public void regraDefinidaPorConstante() {
         ArrayList<String> dd = new ArrayList<>(0);
 
+        // Define valor a ser retornado pela avaliação da expressão
+        ExpressaoTeste et = new ExpressaoTeste();
+        et.setValorRetorno(2f);
+
+        // Parser empregado para dependencias e produção de expressão avaliável
+        ParserTeste p = new ParserTeste();
+        p.setDependencias(dd);
+        p.setExpressao(et);
+
         Regra regra = new RegraExpressao("v", 1, "d", 100, 0, "2", dd);
-        regra.preparacao(null);
+        regra.preparacao(p);
         assertEquals(2d, regra.avalie(null, null).getReal(), 0.0001d);
     }
 
@@ -224,5 +239,48 @@ public class AvaliaRegraServiceEvalExTest {
         contexto.put("condicao", new Valor(1));
         resultado = avaliador.avalia(regra, contexto, null);
         assertEquals(8f, resultado.getReal(), 0.0001);
+    }
+}
+
+class ParserTeste implements br.ufg.inf.es.saep.sandbox.dominio.regra.Parser {
+
+    private Expressao expressaoRetorno;
+    private List<String> dependencias;
+
+    public void setExpressao(Expressao exprRetorno) {
+        expressaoRetorno = exprRetorno;
+    }
+
+    public void setDependencias(List<String> deps) {
+        dependencias = deps;
+    }
+
+    @Override
+    public Expressao ast(String sentenca) {
+        return expressaoRetorno;
+    }
+
+    @Override
+    public List<String> dependencias(String sentenca) {
+        return dependencias;
+    }
+}
+
+class ExpressaoTeste implements Expressao {
+
+    private float valorRetorno;
+
+    public void setValorRetorno(float v) {
+        valorRetorno = v;
+    }
+
+    @Override
+    public float valor() {
+        return valorRetorno;
+    }
+
+    @Override
+    public float valor(Map<String, Float> contexto) {
+        return valorRetorno;
     }
 }
