@@ -70,6 +70,23 @@ public class RecursiveDescetParserTest {
         assertEquals(1.12675d, new Parser("(x/CaSa)").expressao().valor(ctx), 0.00001d);
         assertEquals(1.11099d, new Parser("(x-CaSa)").expressao().valor(ctx), 0.00001d);
     }
+
+    @Test
+    public void expressoesLogicas() {
+        assertEquals(0d, new Parser("(0&1)").expressao().valor(), 0.00001d);
+        assertEquals(0d, new Parser("(0&0)").expressao().valor(), 0.00001d);
+        assertEquals(0d, new Parser("( 0 & 1 )").expressao().valor(), 0.00001d);
+        assertEquals(0d, new Parser("( 0 & 1 )").expressao().valor(), 0.00001d);
+        assertEquals(1d, new Parser("( 1 & 1 )").expressao().valor(), 0.00001d);
+        assertEquals(1d, new Parser("( 0 | 1 )").expressao().valor(), 0.00001d);
+        assertEquals(2d, new Parser("( 1 | 1 )").expressao().valor(), 0.00001d);
+    }
+
+    @Test
+    public void expressoesLogicasComplexas() {
+        assertEquals(0d, new Parser("( 0 | (1 & 0) )").expressao().valor(), 0.00001d);
+        assertEquals(2d, new Parser("(1|(1 & 1))").expressao().valor(), 0.00001d);
+    }
 }
 
 class Parser {
@@ -122,13 +139,19 @@ class Parser {
         eliminaBrancos();
 
         if (caractere != ')') {
-            throw new IllegalArgumentException("Esperado fecha parenteses: " +caractere);
+            throw new IllegalArgumentException("Esperado fecha parenteses: " + caractere);
+        }
+
+        if (corrente < ultimaPosicao) {
+            caractere = expr.charAt(++corrente);
         }
     }
 
     private char getOperador() {
         eliminaBrancos();
-        if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/') {
+        if (caractere == '+' || caractere == '-' ||
+                caractere == '*' || caractere == '/' ||
+                caractere == '&' || caractere == '|') {
             char operador = caractere;
 
             // consome operador
@@ -189,6 +212,10 @@ class Parser {
                 return new Multiplicacao(exp1, exp2);
             case '/':
                 return new Divisao(exp1, exp2);
+            case '&':
+                return new Multiplicacao(exp1, exp2);
+            case '|':
+                return new Soma(exp1, exp2);
             default:
                 throw new IllegalArgumentException("Operador invalido:" + caractere);
         }
@@ -211,7 +238,8 @@ class Parser {
                 caractere = expr.charAt(++corrente);
             }
 
-            String doubleStr = expr.substring(inicio, corrente + 1);
+            int fim = Character.isDigit(caractere) ? corrente + 1 : corrente;
+            String doubleStr = expr.substring(inicio, fim);
             return sinal * Double.parseDouble(doubleStr);
         }
 
@@ -239,19 +267,6 @@ class Parser {
         }
     }
 
-}
-
-class Sentenca implements Expressao {
-
-    @Override
-    public double valor() {
-        return 0;
-    }
-
-    @Override
-    public double valor(Map<String, Double> contexto) {
-        return 0;
-    }
 }
 
 class Constante implements Expressao {
