@@ -8,8 +8,16 @@ package br.ufg.inf.es.saep.sandbox.dominio.regra;
 import java.util.Map;
 
 /**
- * Identifica uma expressão que produz um
+ * Encapsula uma expressão que produz um
  * valor {@code double} quando avaliada.
+ *
+ * <p>Essa interface trabalha em conjunto com a
+ * interface {@link Parser} para isolar o
+ * domínio de tecnologias de implementação
+ * de compiladores de expressões e a
+ * execução correspondente.
+ *
+ * @see Parser
  */
 public interface Expressao {
 
@@ -20,7 +28,7 @@ public interface Expressao {
      * @return Valor {@code double} obtido da
      * avaliação da expressão.
      */
-    double valor();
+    float valor();
 
     /**
      * Obtém o valor produzido pela avaliação
@@ -33,5 +41,5 @@ public interface Expressao {
      * @return Valor {@code double} obtido da
      * avaliação da expressão.
      */
-    double valor(Map<String, Double> contexto);
+    float valor(Map<String, Float> contexto);
 }

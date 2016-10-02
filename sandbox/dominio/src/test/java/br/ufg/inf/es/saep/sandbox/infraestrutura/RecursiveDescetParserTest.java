@@ -49,9 +49,9 @@ public class RecursiveDescetParserTest {
 
     @Test
     public void expressoesVariaveis() {
-        Map<String,Double> ctx = new HashMap<>(2);
-        ctx.put("x", 9.876d);
-        ctx.put("CaSa", 8.765d);
+        Map<String,Float> ctx = new HashMap<>(2);
+        ctx.put("x", 9.876f);
+        ctx.put("CaSa", 8.765f);
 
         assertEquals(0, new Parser("x").expressao().valor(), 0.00001d);
         assertEquals(0, new Parser("CaSa").expressao().valor(), 0.00001d);
@@ -221,7 +221,7 @@ class Parser {
         }
     }
 
-    private double getConstante() {
+    private float getConstante() {
         int sinal = 1;
         if (caractere == '-') {
             caractere = expr.charAt(++corrente);
@@ -240,7 +240,7 @@ class Parser {
 
             int fim = Character.isDigit(caractere) ? corrente + 1 : corrente;
             String doubleStr = expr.substring(inicio, fim);
-            return sinal * Double.parseDouble(doubleStr);
+            return sinal * (float)Double.parseDouble(doubleStr);
         }
 
         throw new IllegalArgumentException("constante nao obtida");
@@ -270,19 +270,19 @@ class Parser {
 }
 
 class Constante implements Expressao {
-    private double constante;
+    private float constante;
 
-    public Constante(double valor) {
+    public Constante(float valor) {
         constante = valor;
     }
 
     @Override
-    public double valor(Map<String, Double> contexto) {
+    public float valor(Map<String, Float> contexto) {
         return 0;
     }
 
     @Override
-    public double valor() {
+    public float valor() {
         return constante;
     }
 }
@@ -298,12 +298,12 @@ class Soma implements Expressao {
     }
 
     @Override
-    public double valor() {
+    public float valor() {
         return parcelaUm.valor() + parcelaDois.valor();
     }
 
     @Override
-    public double valor(Map<String, Double> contexto) {
+    public float valor(Map<String, Float> contexto) {
         return parcelaUm.valor(contexto) + parcelaDois.valor(contexto);
     }
 }
@@ -319,12 +319,12 @@ class Subtracao implements Expressao {
     }
 
     @Override
-    public double valor() {
+    public float valor() {
         return parcelaUm.valor() - parcelaDois.valor();
     }
 
     @Override
-    public double valor(Map<String, Double> contexto) {
+    public float valor(Map<String, Float> contexto) {
         return parcelaUm.valor(contexto) - parcelaDois.valor(contexto);
     }
 }
@@ -340,12 +340,12 @@ class Multiplicacao implements Expressao {
     }
 
     @Override
-    public double valor() {
+    public float valor() {
         return parcelaUm.valor() * parcelaDois.valor();
     }
 
     @Override
-    public double valor(Map<String, Double> contexto) {
+    public float valor(Map<String, Float> contexto) {
         return parcelaUm.valor(contexto) * parcelaDois.valor(contexto);
     }
 }
@@ -361,12 +361,12 @@ class Divisao implements Expressao {
     }
 
     @Override
-    public double valor() {
+    public float valor() {
         return numerador.valor() / denominador.valor();
     }
 
     @Override
-    public double valor(Map<String, Double> contexto) {
+    public float valor(Map<String, Float> contexto) {
         return numerador.valor(contexto) / denominador.valor(contexto);
     }
 }
@@ -379,12 +379,12 @@ class Variavel implements Expressao {
     }
 
     @Override
-    public double valor() {
+    public float valor() {
         return 0;
     }
 
     @Override
-    public double valor(Map<String, Double> contexto) {
+    public float valor(Map<String, Float> contexto) {
         if (contexto.containsKey(variavel)) {
             return contexto.get(variavel);
         }

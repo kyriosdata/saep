@@ -9,6 +9,7 @@ import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,19 @@ public class RegraExpressao extends Regra {
      * resultado da avaliação da regra.
      */
     private String expressao;
+
+    /**
+     * Árvore sintática da expressão executável.
+     */
+    private Expressao ast;
+
+    /**
+     * Variáveis empregadas pela regra com
+     * respectivos valores a serem utilizados.
+     * Valores devem ser atualizados antes da
+     * execução da regra.
+     */
+    private Map<String, Float> ctx;
 
     /**
      * Cria uma regra.
@@ -49,27 +63,34 @@ public class RegraExpressao extends Regra {
      *                      expresso por esse parâmetro.
      * @param expressao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
-     * @param entao         A expressão que dará origem ao valor da regra caso
-     *                      a condição correspondente seja avaliada como verdadeira.
-     * @param senao         A expressão que dará origem ao valor da regra caso a
-     *                      condição correspondente seja avaliada como falsa.
-     * @param tipoRelato    Nome que identifica um relato, empregado em regras
-     *                      cuja avaliação é pontos por relato.
-     * @param pontosPorItem Total de pontos para cada relato de um dado
-     *                      tipo.
      * @param dependeDe     Lista de identificadores (atributos) que são
      *                      empregados na avaliação da regra. Por exemplo,
      *                      se uma regra é definida pela expressão "a + b",
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraExpressao(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
+    public RegraExpressao(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, List<String> dependeDe) {
         super(variavel, tipo, descricao, valorMaximo, valorMinimo, dependeDe);
         if (expressao == null || expressao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("expressao");
         }
 
         this.expressao = expressao;
+    }
+
+    @Override
+    public void preparacao(Parser parser) {
+        if (parser == null) {
+            throw new CampoExigidoNaoFornecido("parser");
+        }
+
+        List<String> dd = parser.dependencias(expressao);
+        ctx = new HashMap<>(dd.size());
+        for (String dep : dd) {
+           ctx.put(dep, 0f);
+        }
+
+        ast = parser.ast(expressao);
     }
 
     /**
@@ -83,6 +104,15 @@ public class RegraExpressao extends Regra {
 
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        return new Valor(0f);
+        for(String dd : getDependeDe()) {
+            float valor = 0f;
+            if (contexto.containsKey(dd)) {
+                valor = contexto.get(dd).getReal();
+            }
+
+            ctx.put(dd, valor);
+        }
+
+        return new Valor(ast.valor(ctx));
     }
 }

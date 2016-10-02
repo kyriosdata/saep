@@ -274,6 +274,18 @@ public abstract class Regra {
         return dependeDe;
     }
 
+    /**
+     * Define a lista de variáveis das quais a presente
+     * regra depende.
+     *
+     * @param dependencias Lista de identificadores de
+     *                     variáveis dos quais a presente
+     *                     regra depende.
+     */
+    public void setDependeDe(List<String> dependencias) {
+        dependeDe = dependencias;
+    }
+
     @Override
     public boolean equals(Object outro) {
         if (this == outro) {
@@ -320,6 +332,17 @@ public abstract class Regra {
         }
 
         return valor;
+    }
+
+    /**
+     * Oportunidade no ciclo de vida da regra para
+     * alguma operação prévia antes que possa ser
+     * executada.
+     *
+     * <p>Convém observar que nem toda regra depende
+     * do emprego de um analisador sintático.
+     */
+    public void preparacao(Parser parser) {
     }
 
     /**

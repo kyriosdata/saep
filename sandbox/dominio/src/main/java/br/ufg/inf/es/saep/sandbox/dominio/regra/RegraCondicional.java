@@ -67,7 +67,7 @@ public class RegraCondicional extends RegraExpressao {
      *                                  definição de uma regra não seja fornecido.
      */
     public RegraCondicional(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
-        super(variavel, tipo, descricao, valorMaximo, valorMinimo, expressao, entao, senao, tipoRelato, pontosPorItem, dependeDe);
+        super(variavel, tipo, descricao, valorMaximo, valorMinimo, expressao, dependeDe);
 
         if (entao == null || entao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("entao");
