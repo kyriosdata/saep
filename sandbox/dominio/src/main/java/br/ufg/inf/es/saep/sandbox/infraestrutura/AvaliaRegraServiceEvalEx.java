@@ -11,11 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Implementação do serviço de avaliação de regra usando dependeDeRegra1_1 ferramenta
- * <dependeDeRegra1_1 href="https://github.com/uklimaschewski/EvalEx">Java Expression
- * Evaluator</dependeDeRegra1_1>.
- *
- * <p>Uma alternativa é http://www.beyondlinux.com/2011/08/07/3-method-to-evaluate-expressions/.
  *
  */
 public class AvaliaRegraServiceEvalEx implements AvaliaRegraService {
