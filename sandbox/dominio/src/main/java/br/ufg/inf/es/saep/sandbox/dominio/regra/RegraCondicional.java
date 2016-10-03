@@ -6,30 +6,50 @@
 package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Regra que implementa condição ("se" ou "if").
  */
-public class RegraCondicional extends RegraExpressao {
+public class RegraCondicional extends Regra {
+
+    /**
+     * Sentença que reflete a condição da regra.
+     */
+    private String condicao;
 
     /**
      * Expressão a ser avaliada e cujo resultado torna-se
      * o resultado da regra condicional caso a condição
      * seja verdadeira.
      */
-
     private String entao;
+
     /**
      * Expressão a ser avaliada e cujo resultado torna-se
      * o resultado da regra condicional caso a condição
      * seja falsa.
      */
     private String senao;
+
+    /**
+     * Expressões (árvores sintáticas) das sentenças
+     * da regra.
+     */
+    private Expressao exprCondicao;
+    private Expressao exprEntao;
+    private Expressao exprSenao;
+
+    /**
+     * Contexto do qual variáveis (valores) serão consultados)
+     */
+    private Map<String, Float> ctx;
 
     /**
      * Cria uma regra.
@@ -47,7 +67,7 @@ public class RegraCondicional extends RegraExpressao {
      *                      avaliação da regra. Esse valor é empregado apenas
      *                      se a avaliação resultar em valor inferior ao
      *                      expresso por esse parâmetro.
-     * @param expressao     A expressão empregada para avaliar a regra,
+     * @param condicao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
      * @param entao         A expressão que dará origem ao valor da regra caso
      *                      a condição correspondente seja avaliada como verdadeira.
@@ -60,13 +80,14 @@ public class RegraCondicional extends RegraExpressao {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraCondicional(String variavel, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem) {
-        super(variavel, descricao, valorMaximo, valorMinimo, expressao);
+    public RegraCondicional(String variavel, String descricao, float valorMaximo, float valorMinimo, String condicao, String entao, String senao, String tipoRelato, float pontosPorItem) {
+        super(variavel, descricao, valorMaximo, valorMinimo);
 
         if (entao == null || entao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("entao");
         }
 
+        this.condicao = condicao;
         this.entao = entao;
         this.senao = senao;
     }
@@ -92,11 +113,45 @@ public class RegraCondicional extends RegraExpressao {
     }
 
     @Override
-    public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        if (super.avalie(avaliaveis, contexto).getBoolean()) {
-            return new Valor(true);
-        } else {
-            return new Valor(false);
+    public void preparacao(Parser parser) {
+        if (parser == null) {
+            throw new CampoExigidoNaoFornecido("parser");
         }
+
+        List<String> dc = parser.dependencias(condicao);
+        List<String> de = parser.dependencias(entao);
+        List<String> ds = parser.dependencias(senao);
+
+        List<String> dd = new ArrayList<>(dc);
+        dd.addAll(de);
+        dd.addAll(ds);
+
+        ctx = new HashMap<>(dd.size());
+        for (String dep : dd) {
+            ctx.put(dep, 0f);
+        }
+
+        exprCondicao = parser.ast(condicao);
+        exprEntao = parser.ast(entao);
+        exprSenao = parser.ast(senao);
+    }
+
+    @Override
+    public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
+        // Define o valor zero (padrão) ou o fornecido no contexto.
+        for(String dd : ctx.keySet()) {
+            float valor = 0f;
+            if (contexto.containsKey(dd)) {
+                valor = contexto.get(dd).getReal();
+            }
+
+            ctx.put(dd, valor);
+        }
+
+        float resultado = exprCondicao.valor(ctx) > 0.0001f
+                ? exprEntao.valor(ctx)
+                : exprSenao.valor(ctx);
+
+        return new Valor(resultado);
     }
 }
