@@ -32,7 +32,7 @@ public class RegraExpressao extends Regra {
     /**
      * Árvore sintática da expressão executável.
      */
-    private Expressao ast;
+    protected Expressao ast;
 
     /**
      * Variáveis empregadas pela regra com
@@ -40,7 +40,7 @@ public class RegraExpressao extends Regra {
      * Valores devem ser atualizados antes da
      * execução da regra.
      */
-    private Map<String, Float> ctx;
+    protected Map<String, Float> ctx;
 
     /**
      * Cria uma regra.
