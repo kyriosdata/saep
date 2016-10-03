@@ -32,11 +32,6 @@ public class AvaliaRegraServiceEvalExTest {
         avaliador = new AvaliaRegraServiceEvalEx();
     }
 
-    @Test(expected = NullPointerException.class)
-    public void naoAdmiteRegraNull() {
-        avaliador.avalia(null, new HashMap<>(0), null);
-    }
-
     @Test
     public void regraDefinidaPorConstante() {
         ArrayList<String> dd = new ArrayList<>(0);
@@ -123,56 +118,9 @@ public class AvaliaRegraServiceEvalExTest {
         assertEquals(2f, r.avalie(avaliavels, new HashMap<>(0)).getReal(), 0.0001f);
     }
 
-    @Test
-    public void media() {
-        int tipo = Regra.MEDIA;
-        List<String> deps = new ArrayList<>(1);
-        deps.add("dependeDeRegra1_1");
-
-        Regra r = new RegraExpressao("v", "d", 100, 0, "dependeDeRegra1_1");
-
-        Map<String, Valor> dados1 = new HashMap<>(2);
-        dados1.put("dependeDeRegra1_1", new Valor(2));
-        Relato r1 = new Relato("livro", dados1);
-
-        Map<String, Valor> dados2 = new HashMap<>(2);
-        dados2.put("dependeDeRegra1_1", new Valor(3));
-        Relato r2 = new Relato("artigo", dados2);
-
-        List<Avaliavel> relatos = new ArrayList<>(2);
-        relatos.add(r1);
-        relatos.add(r2);
-
-        Map<String, Valor> ctx = new HashMap<>(0);
-        Valor resultado = avaliador.avalia(r, ctx, relatos);
-        assertEquals(2.5f, resultado.getReal(), 0.0001f);
-    }
-
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void semRegistroZeroPontos() {
         new RegraExpressao("v", "d", 100, 0, null);
-    }
-
-    @Test
-    public void umRegistroPontuacaoCorrespondente() {
-        int tipo = Regra.PONTOS;
-        int ppr = 13;
-        Regra regra = new RegraExpressao("v", "d", 100, 0, null);
-
-        List<Avaliavel> relatos = new ArrayList<>(1);
-        relatos.add(null);
-
-        Valor resultado = avaliador.avalia(regra, null, relatos);
-        assertEquals(ppr, resultado.getReal(), 0.0001);
-    }
-
-    @Test
-    public void expressaoConstante() {
-        int tipo = Regra.EXPRESSAO;
-        Regra regra = new RegraExpressao("v", "d", 100, 0, "97");
-
-        Valor resultado = avaliador.avalia(regra, null, null);
-        assertEquals(97f, resultado.getReal(), 0.0001);
     }
 
     @Test
