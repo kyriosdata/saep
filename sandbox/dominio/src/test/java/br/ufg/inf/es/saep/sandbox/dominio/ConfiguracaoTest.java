@@ -20,7 +20,7 @@ public class ConfiguracaoTest {
 
     @BeforeClass
     public static void setUp() {
-        Regra r = new RegraExpressao("v", 1, "d", 1, 0, "a", new ArrayList<>());
+        Regra r = new RegraExpressao("v", "d", 1, 0, "a");
         regras = new ArrayList<>();
         regras.add(r);
     }

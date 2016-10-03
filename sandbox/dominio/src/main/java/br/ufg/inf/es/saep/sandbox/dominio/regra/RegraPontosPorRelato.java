@@ -62,7 +62,7 @@ public class RegraPontosPorRelato extends Regra {
      *                                  definição de uma regra não seja fornecido.
      */
     public RegraPontosPorRelato(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
-        super(variavel, tipo, descricao, valorMaximo, valorMinimo, dependeDe);
+        super(variavel, descricao, valorMaximo, valorMinimo);
         if (tipoRelato == null || tipoRelato.isEmpty()) {
             throw new CampoExigidoNaoFornecido("tipoRelato");
         }

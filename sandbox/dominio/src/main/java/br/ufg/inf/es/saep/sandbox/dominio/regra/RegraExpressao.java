@@ -49,9 +49,6 @@ public class RegraExpressao extends Regra {
      *                      valor da avaliação da regra. Em um dado conjunto de
      *                      regras, existe uma variável distinta para cada uma
      *                      delas.
-     * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
-     *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
-     *                      {@link #SOMATORIO}.
      * @param descricao     Texto que fornece alguma explanação sobre a regra.
      * @param valorMaximo   O valor máximo a ser utilizado como resultado da
      *                      avaliação da regra. Esse valor é empregado apenas
@@ -63,14 +60,11 @@ public class RegraExpressao extends Regra {
      *                      expresso por esse parâmetro.
      * @param expressao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
-     * @param dependeDe     Lista de identificadores (atributos) que são
-     *                      empregados na avaliação da regra. Por exemplo,
-     *                      se uma regra é definida pela expressão "a + b",
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraExpressao(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, List<String> dependeDe) {
-        super(variavel, tipo, descricao, valorMaximo, valorMinimo, dependeDe);
+    public RegraExpressao(String variavel, String descricao, float valorMaximo, float valorMinimo, String expressao) {
+        super(variavel, descricao, valorMaximo, valorMinimo);
         if (expressao == null || expressao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("expressao");
         }
@@ -104,7 +98,7 @@ public class RegraExpressao extends Regra {
 
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        for(String dd : getDependeDe()) {
+        for(String dd : ctx.keySet()) {
             float valor = 0f;
             if (contexto.containsKey(dd)) {
                 valor = contexto.get(dd).getReal();

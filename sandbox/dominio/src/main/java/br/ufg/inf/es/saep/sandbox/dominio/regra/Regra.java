@@ -106,13 +106,6 @@ public abstract class Regra {
     public static final int DATAS_DIFERENCA = 6;
 
     /**
-     * O valor {@link #EXPRESSAO}, ou {@link #CONDICIONAL},
-     * ou {@link #SOMATORIO}, ou {@link #MEDIA} ou {@link #PONTOS},
-     * que caracteriza o tipo de regra em questão.
-     */
-    private int tipo;
-
-    /**
      * Descrição da regra.
      */
     private String descricao;
@@ -160,9 +153,6 @@ public abstract class Regra {
      *                      valor da avaliação da regra. Em um dado conjunto de
      *                      regras, existe uma variável distinta para cada uma
      *                      delas.
-     * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
-     *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
-     *                      {@link #SOMATORIO}.
      * @param descricao     Texto que fornece alguma explanação sobre a regra.
      * @param valorMaximo   O valor máximo a ser utilizado como resultado da
      *                      avaliação da regra. Esse valor é empregado apenas
@@ -172,18 +162,13 @@ public abstract class Regra {
      *                      avaliação da regra. Esse valor é empregado apenas
      *                      se a avaliação resultar em valor inferior ao
      *                      expresso por esse parâmetro.
-     * @param dependeDe     Lista de identificadores (atributos) que são
-     *                      empregados na avaliação da regra. Por exemplo,
-     *                      se uma regra é definida pela expressão "a + b",
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
     public Regra(String variavel,
-                 int tipo,
                  String descricao,
                  float valorMaximo,
-                 float valorMinimo,
-                 List<String> dependeDe) {
+                 float valorMinimo) {
 
         if (variavel == null || variavel.isEmpty()) {
             throw new CampoExigidoNaoFornecido("variavel");
@@ -193,29 +178,10 @@ public abstract class Regra {
             throw new CampoExigidoNaoFornecido("descricao");
         }
 
-        // A avaliação abaixo seria mais simples se herança fosse
-        // empregada. Contudo, fica como alternativa caso novos
-        // tipos de regras sejam definidos.
-
-        if (dependeDe == null) {
-            throw new CampoExigidoNaoFornecido("dependeDe");
-        }
-
-        this.dependeDe = dependeDe;
-        this.tipo = tipo;
         this.descricao = descricao;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
         this.variavel = variavel;
-    }
-
-    /**
-     * Recupera o tipo da regra.
-     *
-     * @return O tipo da regra.
-     */
-    public int getTipo() {
-        return tipo;
     }
 
     /**

@@ -38,9 +38,6 @@ public class RegraCondicional extends RegraExpressao {
      *                      valor da avaliação da regra. Em um dado conjunto de
      *                      regras, existe uma variável distinta para cada uma
      *                      delas.
-     * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
-     *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
-     *                      {@link #SOMATORIO}.
      * @param descricao     Texto que fornece alguma explanação sobre a regra.
      * @param valorMaximo   O valor máximo a ser utilizado como resultado da
      *                      avaliação da regra. Esse valor é empregado apenas
@@ -60,14 +57,11 @@ public class RegraCondicional extends RegraExpressao {
      *                      cuja avaliação é pontos por relato.
      * @param pontosPorItem Total de pontos para cada relato de um dado
      *                      tipo.
-     * @param dependeDe     Lista de identificadores (atributos) que são
-     *                      empregados na avaliação da regra. Por exemplo,
-     *                      se uma regra é definida pela expressão "a + b",
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraCondicional(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
-        super(variavel, tipo, descricao, valorMaximo, valorMinimo, expressao, dependeDe);
+    public RegraCondicional(String variavel, String descricao, float valorMaximo, float valorMinimo, String expressao, String entao, String senao, String tipoRelato, float pontosPorItem) {
+        super(variavel, descricao, valorMaximo, valorMinimo, expressao);
 
         if (entao == null || entao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("entao");
