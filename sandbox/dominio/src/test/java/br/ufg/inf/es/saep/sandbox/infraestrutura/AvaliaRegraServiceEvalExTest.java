@@ -1,12 +1,14 @@
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
 import br.ufg.inf.es.saep.sandbox.ExpressaoTeste;
+import br.ufg.inf.es.saep.sandbox.ParserCondicaoTeste;
 import br.ufg.inf.es.saep.sandbox.ParserTeste;
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Relato;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.FalhaAoAvaliarRegra;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
+import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraCondicional;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
 import org.junit.Before;
 import org.junit.Test;
@@ -148,15 +150,9 @@ public class AvaliaRegraServiceEvalExTest {
         assertEquals(2.5f, resultado.getReal(), 0.0001f);
     }
 
-    @Test
+    @Test(expected = CampoExigidoNaoFornecido.class)
     public void semRegistroZeroPontos() {
-        int tipo = Regra.PONTOS;
-        Regra regra = new RegraExpressao("v", "d", 100, 0, null);
-
-        List<Avaliavel> relatos = new ArrayList<>(0);
-
-        Valor resultado = avaliador.avalia(regra, null, relatos);
-        assertEquals(0f, resultado.getReal(), 0.0001);
+        new RegraExpressao("v", "d", 100, 0, null);
     }
 
     @Test
@@ -234,27 +230,51 @@ public class AvaliaRegraServiceEvalExTest {
 
     @Test
     public void expressaoCondicional() {
-        int tipo = Regra.CONDICIONAL;
+        Regra regra = new RegraCondicional("c", "d", 10, 0, "condicao", "entao", "senao");
 
-        List<String> dd = new ArrayList<>(1);
-        dd.add("condicao");
-        dd.add("oito");
-        dd.add("nove");
+        // Parser
+        ParserCondicaoTeste pct = new ParserCondicaoTeste();
 
-        Regra regra = new RegraExpressao("c", "d", 10, 0, "condicao");
+        ArrayList<String> depsC = new ArrayList<>();
+        depsC.add("condicao");
 
-        // Primeiro: false (0)
+        ArrayList<String> depsE = new ArrayList<>();
+        depsE.add("entao");
+
+        ArrayList<String> depsS = new ArrayList<>();
+        depsS.add("senao");
+
+        pct.setDependencias("condicao", depsC);
+        pct.setDependencias("entao", depsE);
+        pct.setDependencias("senao", depsS);
+
+        ExpressaoTeste etC = new ExpressaoTeste();
+        etC.setValorRetorno(1f);
+
+        ExpressaoTeste etE = new ExpressaoTeste();
+        etE.setValorRetorno(1f);
+
+        ExpressaoTeste etS = new ExpressaoTeste();
+        etS.setValorRetorno(0f);
+
+        pct.setCondicao(etC);
+        pct.setEntao(etE);
+        pct.setSenao(etS);
+
+        // Preparação da regra
+
+        regra.preparacao(pct);
+
         Map<String, Valor> contexto = new HashMap<>(1);
         contexto.put("condicao", new Valor(0));
         contexto.put("oito", new Valor(8));
         contexto.put("nove", new Valor(9));
 
-        Valor resultado = avaliador.avalia(regra, contexto, null);
-        assertEquals(9f, resultado.getReal(), 0.0001);
+        // Condição verdadeira (definido acima)
+        assertEquals(1f, regra.avalie(null, contexto).getReal(), 0.0001);
 
-        // Segunda: true (1)
-        contexto.put("condicao", new Valor(1));
-        resultado = avaliador.avalia(regra, contexto, null);
-        assertEquals(8f, resultado.getReal(), 0.0001);
+        // Define condição com valor false
+        etC.setValorRetorno(0f);
+        assertEquals(0f, regra.avalie(null, contexto).getReal(), 0.0001);
     }
 }

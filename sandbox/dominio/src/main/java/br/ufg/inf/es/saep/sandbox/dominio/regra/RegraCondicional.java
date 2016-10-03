@@ -73,14 +73,10 @@ public class RegraCondicional extends Regra {
      *                      a condição correspondente seja avaliada como verdadeira.
      * @param senao         A expressão que dará origem ao valor da regra caso a
      *                      condição correspondente seja avaliada como falsa.
-     * @param tipoRelato    Nome que identifica um relato, empregado em regras
-     *                      cuja avaliação é pontos por relato.
-     * @param pontosPorItem Total de pontos para cada relato de um dado
-     *                      tipo.
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraCondicional(String variavel, String descricao, float valorMaximo, float valorMinimo, String condicao, String entao, String senao, String tipoRelato, float pontosPorItem) {
+    public RegraCondicional(String variavel, String descricao, float valorMaximo, float valorMinimo, String condicao, String entao, String senao) {
         super(variavel, descricao, valorMaximo, valorMinimo);
 
         if (entao == null || entao.isEmpty()) {
