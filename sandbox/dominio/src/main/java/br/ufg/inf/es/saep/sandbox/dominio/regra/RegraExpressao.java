@@ -79,6 +79,8 @@ public class RegraExpressao extends Regra {
         }
 
         List<String> dd = parser.dependencias(expressao);
+        setDependeDe(dd);
+
         ctx = new HashMap<>(dd.size());
         for (String dep : dd) {
            ctx.put(dep, 0f);

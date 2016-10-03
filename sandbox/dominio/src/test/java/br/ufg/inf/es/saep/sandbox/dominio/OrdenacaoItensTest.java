@@ -1,5 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
+import br.ufg.inf.es.saep.sandbox.ParserTeste;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
@@ -8,7 +9,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService.*;
+import static br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService.ordena;
 import static org.junit.Assert.assertEquals;
 
 public class OrdenacaoItensTest {
@@ -62,6 +63,20 @@ public class OrdenacaoItensTest {
         itens.add(regraZ);
         itens.add(regraX);
         itens.add(regraY);
+
+        // Preparação das regras
+        ParserTeste ptX = new ParserTeste();
+        ptX.setDependencias(atributosX);
+
+        ParserTeste ptY = new ParserTeste();
+        ptY.setDependencias(atributosY);
+
+        ParserTeste ptZ = new ParserTeste();
+        ptZ.setDependencias(atributosZ);
+
+        regraX.preparacao(ptX);
+        regraY.preparacao(ptY);
+        regraZ.preparacao(ptZ);
 
         List<Regra> ordenados = ordena(itens);
 

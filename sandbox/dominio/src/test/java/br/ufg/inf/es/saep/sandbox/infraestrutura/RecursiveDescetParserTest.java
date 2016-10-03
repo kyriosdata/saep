@@ -67,8 +67,8 @@ public class RecursiveDescetParserTest {
         assertEquals(18.641d, new Parser(" ( x+CaSa )  ").expressao().valor(ctx), 0.00001d);
         assertEquals(18.641d, new Parser(" ( x    +CaSa )").expressao().valor(ctx), 0.00001d);
         assertEquals(86.56314d, new Parser("(x*CaSa)").expressao().valor(ctx), 0.00001d);
-        assertEquals(1.12675d, new Parser("(x/CaSa)").expressao().valor(ctx), 0.00001d);
-        assertEquals(1.11099d, new Parser("(x-CaSa)").expressao().valor(ctx), 0.00001d);
+        assertEquals(1.12675f, new Parser("(x/CaSa)").expressao().valor(ctx), 0.00001d);
+        assertEquals(1.111f, new Parser("(x-CaSa)").expressao().valor(ctx), 0.00001d);
     }
 
     @Test

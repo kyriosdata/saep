@@ -1,10 +1,11 @@
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
+import br.ufg.inf.es.saep.sandbox.ExpressaoTeste;
+import br.ufg.inf.es.saep.sandbox.ParserTeste;
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Relato;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.FalhaAoAvaliarRegra;
-import br.ufg.inf.es.saep.sandbox.dominio.regra.Expressao;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
 import org.junit.Before;
@@ -246,48 +247,5 @@ public class AvaliaRegraServiceEvalExTest {
         contexto.put("condicao", new Valor(1));
         resultado = avaliador.avalia(regra, contexto, null);
         assertEquals(8f, resultado.getReal(), 0.0001);
-    }
-}
-
-class ParserTeste implements br.ufg.inf.es.saep.sandbox.dominio.regra.Parser {
-
-    private Expressao expressaoRetorno;
-    private List<String> dependencias;
-
-    public void setExpressao(Expressao exprRetorno) {
-        expressaoRetorno = exprRetorno;
-    }
-
-    public void setDependencias(List<String> deps) {
-        dependencias = deps;
-    }
-
-    @Override
-    public Expressao ast(String sentenca) {
-        return expressaoRetorno;
-    }
-
-    @Override
-    public List<String> dependencias(String sentenca) {
-        return dependencias;
-    }
-}
-
-class ExpressaoTeste implements Expressao {
-
-    private float valorRetorno;
-
-    public void setValorRetorno(float v) {
-        valorRetorno = v;
-    }
-
-    @Override
-    public float valor() {
-        return valorRetorno;
-    }
-
-    @Override
-    public float valor(Map<String, Float> contexto) {
-        return valorRetorno;
     }
 }
