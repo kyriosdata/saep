@@ -89,8 +89,7 @@ public class RegraCondicional extends Regra {
     }
 
     /**
-     * Recupera a expressão "então" associada à regra
-     * do tipo {@link #CONDICIONAL}.
+     * Recupera a expressão "então" associada à regra.
      *
      * @return A expressão "então".
      */
@@ -99,8 +98,7 @@ public class RegraCondicional extends Regra {
     }
 
     /**
-     * Recupera a expressão "senão" associada à regra
-     * do tipo {@link #CONDICIONAL}.
+     * Recupera a expressão "senão" associada à regra.
      *
      * @return A expressão "senão".
      */

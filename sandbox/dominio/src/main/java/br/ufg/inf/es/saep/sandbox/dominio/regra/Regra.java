@@ -52,60 +52,6 @@ import java.util.Map;
 public abstract class Regra {
 
     /**
-     * Identificador de tipoRelato de regra cuja pontuação é
-     * obtida da quantidade de relatos multiplicada pelos
-     * pontos para cada relato.
-     */
-    public static final int PONTOS = 0;
-
-    /**
-     * Identificador de tipoRelato de regra cuja pontuação é
-     * obtida da avaliação da expressão da regra.
-     */
-    public static final int EXPRESSAO = 1;
-
-    /**
-     * Identificador de tipoRelato de regra cuja pontuação
-     * resultante é a avaliação da expressão "então"
-     * ou a avaliação da expressão "senão", conforme
-     * a avaliação da condição seja, respectivamente,
-     * verdadeira ou falsa.
-     */
-    public static final int CONDICIONAL = 2;
-
-    /**
-     * Identificador de tipoRelato de regra cuja pontuação
-     * é obtida do somatório da avaliação da expressão
-     * da regra para um dado conjunto de {@link Avaliavel}
-     * de entrada.
-     */
-    public static final int SOMATORIO = 3;
-
-    /**
-     * Identificador de tipoRelato de regra cuja pontuação é
-     * obtida da média da avaliação da expressão da regra
-     * para cada um dos elementos do conjunto de
-     * {@link Avaliavel}.
-     */
-    public static final int MEDIA = 4;
-
-    /**
-     * Identificador de tipoRelato de regra cuja pontuação é
-     * obtida da média da avaliação da expressão da regra
-     * para cada um dos elementos do conjunto de
-     * {@link Avaliavel}.
-     */
-    public static final int DATAS_COMPARACAO = 5;
-
-    /**
-     * Identificador de tipoRelato de regra cuja pontuação é
-     * obtida da média da avaliação da expressão da regra
-     * para cada um dos elementos do conjunto de
-     * {@link Avaliavel}.
-     */
-    public static final int DATAS_DIFERENCA = 6;
-
-    /**
      * Descrição da regra.
      */
     private String descricao;

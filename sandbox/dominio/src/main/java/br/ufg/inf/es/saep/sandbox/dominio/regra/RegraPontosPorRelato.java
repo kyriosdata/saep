@@ -39,9 +39,6 @@ public class RegraPontosPorRelato extends Regra {
      *                      valor da avaliação da regra. Em um dado conjunto de
      *                      regras, existe uma variável distinta para cada uma
      *                      delas.
-     * @param tipo          O tipo da regra. Um dos seguintes valores: {@link #PONTOS},
-     *                      {@link #EXPRESSAO}, {@link #CONDICIONAL}, {@link #MEDIA} ou
-     *                      {@link #SOMATORIO}.
      * @param descricao     Texto que fornece alguma explanação sobre a regra.
      * @param valorMaximo   O valor máximo a ser utilizado como resultado da
      *                      avaliação da regra. Esse valor é empregado apenas
@@ -61,7 +58,7 @@ public class RegraPontosPorRelato extends Regra {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraPontosPorRelato(String variavel, int tipo, String descricao, float valorMaximo, float valorMinimo, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
+    public RegraPontosPorRelato(String variavel, String descricao, float valorMaximo, float valorMinimo, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
         super(variavel, descricao, valorMaximo, valorMinimo);
         if (tipoRelato == null || tipoRelato.isEmpty()) {
             throw new CampoExigidoNaoFornecido("tipoRelato");

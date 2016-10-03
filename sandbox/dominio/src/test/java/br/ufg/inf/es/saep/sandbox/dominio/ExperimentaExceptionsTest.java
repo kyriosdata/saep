@@ -34,5 +34,10 @@ public class ExperimentaExceptionsTest {
     public void naoPodeRemoverRadocComParecerQueReferenciaEle() {
         throw new ExisteParecerReferenciandoRadoc("x");
     }
+
+    @Test(expected = FalhaAoAvaliarRegra.class)
+    public void erroAoAvaliarRegra() {
+        throw new FalhaAoAvaliarRegra("x");
+    }
 }
 
