@@ -92,17 +92,29 @@ public class OrdenacaoItensTest {
         Regra ra = new RegraExpressao("a", "a = 10", 10, 0, "10");
 
         // b = a + 1
-        ArrayList<String> atributos = new ArrayList<>(0);
-        atributos.add("a");
         Regra rb = new RegraExpressao("b", "b = a + 1", 11, 0, "a + 1");
 
+        // Dependências de "b", apenas "a"
+        List<String> depsB = new ArrayList<>(0);
+        depsB.add("a");
+
         // Itens que devem ser ordenados (itemA e itemB)
-        List<Regra> itens = new ArrayList<>(2);
-        itens.add(ra);
-        itens.add(rb);
+        List<Regra> regras = new ArrayList<>(2);
+        regras.add(ra);
+        regras.add(rb);
+
+        // Preparação das regras (antes de qualquer uso)
+        ParserTeste ptB = new ParserTeste();
+        ptB.setDependencias(depsB);
+
+        ParserTeste ptA = new ParserTeste();
+        ptA.setDependencias(new ArrayList<>(0));
+
+        ra.preparacao(ptA);
+        rb.preparacao(ptB);
 
         // Executa operação de ordenação
-        List<Regra> ordenados = ordena(itens);
+        List<Regra> ordenados = ordena(regras);
 
         // Verifica que itemA precede itemB
         assertEquals(2, ordenados.size());
@@ -113,16 +125,29 @@ public class OrdenacaoItensTest {
     @Test
     public void cadItemInseridoUmaUnicaVez() {
         // Regras: "a=1", "b=a+1" e "c=a+2"
-        List<String> dd = new ArrayList<>();
         Regra ra = new RegraExpressao("a", "a=1", 0, 0, "1");
-
-        List<String> dependentesB = new ArrayList<>();
-        dependentesB.add("a");
         Regra rb = new RegraExpressao("b", "b=a+1", 0, 0, "a+1");
-
-        List<String> dependentesC = new ArrayList<>();
-        dependentesC.add("a");
         Regra rc = new RegraExpressao("c", "c=a+2", 0, 0, "a+2");
+
+        // Parser para as regras
+        ParserTeste ptA = new ParserTeste();
+        List<String> da = new ArrayList<>();
+        ptA.setDependencias(da);
+
+        ParserTeste ptB = new ParserTeste();
+        List<String> db = new ArrayList<>();
+        db.add("a");
+        ptB.setDependencias(db);
+
+        ParserTeste ptC = new ParserTeste();
+        List<String> dc = new ArrayList<>();
+        dc.add("a");
+        ptC.setDependencias(dc);
+
+        // Preparação das regras antes de qualquer uso
+        ra.preparacao(ptA);
+        rb.preparacao(ptB);
+        rc.preparacao(ptC);
 
         OrdenacaoService oi = new OrdenacaoService();
         ArrayList<Regra> itens = new ArrayList<>();
