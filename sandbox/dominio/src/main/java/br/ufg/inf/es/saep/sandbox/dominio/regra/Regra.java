@@ -124,6 +124,10 @@ public abstract class Regra {
             throw new CampoExigidoNaoFornecido("descricao");
         }
 
+        if (valorMinimo > valorMaximo) {
+            throw new IllegalArgumentException("minimo maior que maximo");
+        }
+
         this.descricao = descricao;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
