@@ -70,12 +70,22 @@ public class AvaliaRegraServiceEvalExTest {
         assertEquals(1f, r.avalie(null, new HashMap<>()).getReal(), 0.0001d);
     }
 
-    @Test(expected = FalhaAoAvaliarRegra.class)
+    @Test
     public void somatorioSemVariavelGeraExcecao() {
+        Regra r = new RegraExpressao("v", "d", 100, 0, "x");
 
+        // Preparação antes do uso da regra
         List<String> dd = new ArrayList<>(1);
-        dd.add("dependeDeRegra1_1");
-        Regra r = new RegraExpressao("v", "d", 100, 0, "dependeDeRegra1_1");
+        dd.add("x");
+
+        ExpressaoTeste et = new ExpressaoTeste();
+        et.setValorRetorno(6);
+
+        ParserTeste pt = new ParserTeste();
+        pt.setDependencias(dd);
+        pt.setExpressao(et);
+
+        r.preparacao(pt);
 
         List<Avaliavel> relatos = new ArrayList<>(1);
         Map<String, Valor> relato = new HashMap<>(1);
@@ -83,8 +93,7 @@ public class AvaliaRegraServiceEvalExTest {
         relatos.add(new Relato("livro", relato));
 
         Map<String, Valor> ctx = new HashMap<>(0);
-        Valor resultado = avaliador.avalia(r, ctx, relatos);
-        assertEquals(16f, resultado.getReal(), 0.0001f);
+        assertEquals(6f, r.avalie(null, ctx).getReal(), 0.0001f);
     }
 
     @Test
