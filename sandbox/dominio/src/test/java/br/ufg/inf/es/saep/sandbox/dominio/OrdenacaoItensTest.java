@@ -29,6 +29,11 @@ public class OrdenacaoItensTest {
         List<Regra> itens = new ArrayList<>(1);
         itens.add(regra);
 
+        ParserTeste pt = new ParserTeste();
+        pt.setDependencias(new ArrayList<>(0));
+
+        regra.preparacao(pt);
+
         List<Regra> ordenados = ordena(itens);
         assertEquals(1, ordenados.size());
         assertEquals("um", ordenados.get(0).getVariavel());
