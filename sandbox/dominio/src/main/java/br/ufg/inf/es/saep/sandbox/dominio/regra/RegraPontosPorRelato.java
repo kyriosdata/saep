@@ -91,7 +91,7 @@ public class RegraPontosPorRelato extends Regra {
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
         int total = 0;
         for (Avaliavel avaliavel : avaliaveis) {
-            if (tipoRelato.equals(avaliavel.get("classe"))) {
+            if (tipoRelato.equals(avaliavel.get("classe").getString())) {
                 total = total + 1;
             }
         }

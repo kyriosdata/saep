@@ -9,7 +9,6 @@ import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,7 +48,8 @@ public class RegraSomatorio extends RegraExpressao {
      *                      expresso por esse parâmetro.
      * @param expressao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
-     * @param classe
+     * @param classe Identificador da classe cujos relatos
+     *               serão considerados.
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */

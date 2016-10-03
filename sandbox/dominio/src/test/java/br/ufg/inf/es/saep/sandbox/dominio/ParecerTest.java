@@ -16,7 +16,7 @@ public class ParecerTest {
 
     @Before
     public void setUp() {
-        radocs = new ArrayList(1);
+        radocs = new ArrayList<>(1);
         radocs.add("radoc");
 
         pontuacoes = new ArrayList<>(1);

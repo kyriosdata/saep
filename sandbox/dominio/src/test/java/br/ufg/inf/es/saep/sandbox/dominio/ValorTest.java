@@ -54,6 +54,8 @@ public class ValorTest {
     @Test
     public void umaData() {
         Valor hoje = Valor.dataFromString("21/11/2008");
+        assertNotNull(hoje);
+
         LocalDate recuperada = hoje.getData();
 
         assertEquals(21, recuperada.getDayOfMonth());

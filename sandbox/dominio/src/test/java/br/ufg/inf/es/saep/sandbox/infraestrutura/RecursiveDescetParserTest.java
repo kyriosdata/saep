@@ -270,7 +270,7 @@ class Parser {
 }
 
 class Constante implements Expressao {
-    private float constante;
+    private final float constante;
 
     public Constante(float valor) {
         constante = valor;
@@ -289,8 +289,8 @@ class Constante implements Expressao {
 
 class Soma implements Expressao {
 
-    private Expressao parcelaUm;
-    private Expressao parcelaDois;
+    private final Expressao parcelaUm;
+    private final Expressao parcelaDois;
 
     public Soma(Expressao p1, Expressao p2) {
         parcelaUm = p1;
@@ -310,8 +310,8 @@ class Soma implements Expressao {
 
 class Subtracao implements Expressao {
 
-    private Expressao parcelaUm;
-    private Expressao parcelaDois;
+    private final Expressao parcelaUm;
+    private final Expressao parcelaDois;
 
     public Subtracao(Expressao p1, Expressao p2) {
         parcelaUm = p1;
@@ -331,8 +331,8 @@ class Subtracao implements Expressao {
 
 class Multiplicacao implements Expressao {
 
-    private Expressao parcelaUm;
-    private Expressao parcelaDois;
+    private final Expressao parcelaUm;
+    private final Expressao parcelaDois;
 
     public Multiplicacao(Expressao p1, Expressao p2) {
         parcelaUm = p1;
@@ -352,8 +352,8 @@ class Multiplicacao implements Expressao {
 
 class Divisao implements Expressao {
 
-    private Expressao numerador;
-    private Expressao denominador;
+    private final Expressao numerador;
+    private final Expressao denominador;
 
     public Divisao(Expressao p1, Expressao p2) {
         numerador = p1;
@@ -372,7 +372,7 @@ class Divisao implements Expressao {
 }
 
 class Variavel implements Expressao {
-    private String variavel;
+    private final String variavel;
 
     public Variavel(String variavel) {
         this.variavel = variavel;
