@@ -114,12 +114,7 @@ public class AvaliaRegraServiceEvalExTest {
         // Preparação antes de qualquer uso da regra
         r.preparacao(pt);
 
-        Avaliavel avaliavel = new Avaliavel() {
-            @Override
-            public Valor get(String atributo) {
-                return null;
-            }
-        };
+        Avaliavel avaliavel = atributo -> null;
 
         List<Avaliavel> avaliavels = new ArrayList<>(3);
         avaliavels.add(avaliavel);
