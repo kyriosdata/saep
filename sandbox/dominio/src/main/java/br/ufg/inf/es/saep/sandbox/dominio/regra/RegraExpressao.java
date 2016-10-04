@@ -98,6 +98,15 @@ public class RegraExpressao extends Regra {
         return expressao;
     }
 
+    /**
+     * Recupera o contexto empregado pela expressão.
+     *
+     * @return Contexto empregado pela expressão.
+     */
+    protected Map<String, Float> getContexto() {
+        return ctx;
+    }
+
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
         for(String dd : ctx.keySet()) {
