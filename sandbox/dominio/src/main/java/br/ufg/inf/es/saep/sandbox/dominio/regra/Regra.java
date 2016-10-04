@@ -257,6 +257,9 @@ public abstract class Regra {
      *
      * <p>Convém observar que nem toda regra depende
      * do emprego de um analisador sintático.
+     *
+     * @param parser O serviço de análise sintática
+     *               a ser utilizado.
      */
     public void preparacao(Parser parser) {
     }
