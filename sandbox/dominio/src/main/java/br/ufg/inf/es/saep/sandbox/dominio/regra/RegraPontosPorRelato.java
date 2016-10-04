@@ -52,13 +52,10 @@ public class RegraPontosPorRelato extends Regra {
      *                      cuja avaliação é pontos por relato.
      * @param pontosPorItem Total de pontos para cada relato de um dado
      *                      tipo.
-     * @param dependeDe     Lista de identificadores (atributos) que são
-     *                      empregados na avaliação da regra. Por exemplo,
-     *                      se uma regra é definida pela expressão "a + b",
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraPontosPorRelato(String variavel, String descricao, float valorMaximo, float valorMinimo, String tipoRelato, float pontosPorItem, List<String> dependeDe) {
+    public RegraPontosPorRelato(String variavel, String descricao, float valorMaximo, float valorMinimo, String tipoRelato, float pontosPorItem) {
         super(variavel, descricao, valorMaximo, valorMinimo);
         if (tipoRelato == null || tipoRelato.isEmpty()) {
             throw new CampoExigidoNaoFornecido("tipoRelato");
