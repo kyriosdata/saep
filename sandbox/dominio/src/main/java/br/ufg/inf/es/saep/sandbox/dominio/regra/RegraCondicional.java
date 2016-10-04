@@ -37,14 +37,8 @@ public class RegraCondicional extends RegraExpressao {
      * Expressões (árvores sintáticas) das sentenças
      * da regra.
      */
-    private Expressao exprCondicao;
     private Expressao exprEntao;
     private Expressao exprSenao;
-
-    /**
-     * Contexto do qual variáveis (valores) serão consultados)
-     */
-    private Map<String, Float> ctx;
 
     /**
      * Cria uma regra.
@@ -102,43 +96,28 @@ public class RegraCondicional extends RegraExpressao {
 
     @Override
     public void preparacao(Parser parser) {
-        if (parser == null) {
-            throw new CampoExigidoNaoFornecido("parser");
-        }
+        super.preparacao(parser);
 
-        String condicao = getExpressao();
-
-        List<String> dc = parser.dependencias(condicao);
         List<String> de = parser.dependencias(entao);
         List<String> ds = parser.dependencias(senao);
 
-        List<String> dd = new ArrayList<>(dc);
+        List<String> dd = new ArrayList<>(2);
         dd.addAll(de);
         dd.addAll(ds);
 
-        ctx = new HashMap<>(dd.size());
         for (String dep : dd) {
             ctx.put(dep, 0f);
         }
 
-        exprCondicao = parser.ast(condicao);
         exprEntao = parser.ast(entao);
         exprSenao = parser.ast(senao);
     }
 
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
-        // Define o valor zero (padrão) ou o fornecido no contexto.
-        for(String dd : ctx.keySet()) {
-            float valor = 0f;
-            if (contexto.containsKey(dd)) {
-                valor = contexto.get(dd).getReal();
-            }
+        atualizaContexto(contexto);
 
-            ctx.put(dd, valor);
-        }
-
-        float resultado = exprCondicao.valor(ctx) > 0.0001f
+        float resultado = ast.valor(ctx) > 0.0001f
                 ? exprEntao.valor(ctx)
                 : exprSenao.valor(ctx);
 
