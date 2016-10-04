@@ -19,7 +19,7 @@ import java.util.Map;
  * itens avaliáveis.
  *
  * <p>Uma expressão pode ser numérica, por exemplo,
- * "ch * 12.5", ou produzir um valor lógico, "3 > 1".
+ * "ch * 12.5", ou produzir um valor lógico, "3 &gt; 1".
  */
 public class RegraExpressao extends Regra {
 
