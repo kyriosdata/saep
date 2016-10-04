@@ -138,6 +138,9 @@
         </profile>
 
         <!-- PROFILE: release -->
+        <!-- mvn deploy -P release -->
+        <!-- oss.sonatype.org -->
+        <!-- central.sonatype.org -->
         <profile>
             <id>release</id>
             <build>
