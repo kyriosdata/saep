@@ -1,17 +1,11 @@
-package br.ufg.inf.es.saep.sandbox.infraestrutura;
+package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 import br.ufg.inf.es.saep.sandbox.ExpressaoTeste;
-import br.ufg.inf.es.saep.sandbox.ParserCondicaoTeste;
 import br.ufg.inf.es.saep.sandbox.ParserTeste;
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Relato;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
-import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraCondicional;
-import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
-import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraSomatorio;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,22 +13,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 
 /**
  * Testes do avaliador de regras
  */
-public class AvaliaRegraServiceEvalExTest {
-    private AvaliaRegraServiceEvalEx avaliador;
+public class RegraExpressaoTest {
 
-    @Before
-    public void setUp() {
-        avaliador = new AvaliaRegraServiceEvalEx();
+    @Test
+    public void agradarCobertura() {
+        RegraExpressao re = new RegraExpressao("v", "d", 1, 0, "x");
+
+        // Antes da preparação é null
+        assertNull(re.getContexto());
+
+        // Não pode ser null após preparação
+        ParserTeste parser = new ParserTeste();
+        parser.setDependencias(new ArrayList<>());
+        re.preparacao(parser);
+        assertNotNull(re.getContexto());
+        assertEquals("x", re.getExpressao());
+    }
+
+    @Test(expected = CampoExigidoNaoFornecido.class)
+    public void parserObrigatorioParaPreparacao() {
+        RegraExpressao re = new RegraExpressao("v", "d", 1, 0, "x");
+        re.preparacao(null);
     }
 
     @Test
     public void regraDefinidaPorConstante() {
-        ArrayList<String> dd = new ArrayList<>(0);
 
         // Define valor a ser retornado pela avaliação da expressão
         ExpressaoTeste et = new ExpressaoTeste();
@@ -42,7 +52,7 @@ public class AvaliaRegraServiceEvalExTest {
 
         // Parser empregado para dependencias e produção de expressão avaliável
         ParserTeste p = new ParserTeste();
-        p.setDependencias(dd);
+        p.setDependencias(new ArrayList<>(0));
         p.setExpressao(et);
 
         Regra regra = new RegraExpressao("v", "d", 100, 0, "2");
@@ -121,55 +131,5 @@ public class AvaliaRegraServiceEvalExTest {
     @Test(expected = CampoExigidoNaoFornecido.class)
     public void semRegistroZeroPontos() {
         new RegraExpressao("v", "d", 100, 0, null);
-    }
-
-    @Test
-    public void expressaoCondicional() {
-        Regra regra = new RegraCondicional("c", "d", 10, 0, "condicao", "entao", "senao");
-
-        // Parser
-        ParserCondicaoTeste pct = new ParserCondicaoTeste();
-
-        ArrayList<String> depsC = new ArrayList<>();
-        depsC.add("condicao");
-
-        ArrayList<String> depsE = new ArrayList<>();
-        depsE.add("entao");
-
-        ArrayList<String> depsS = new ArrayList<>();
-        depsS.add("senao");
-
-        pct.setDependencias("condicao", depsC);
-        pct.setDependencias("entao", depsE);
-        pct.setDependencias("senao", depsS);
-
-        ExpressaoTeste etC = new ExpressaoTeste();
-        etC.setValorRetorno(1f);
-
-        ExpressaoTeste etE = new ExpressaoTeste();
-        etE.setValorRetorno(1f);
-
-        ExpressaoTeste etS = new ExpressaoTeste();
-        etS.setValorRetorno(0f);
-
-        pct.setCondicao(etC);
-        pct.setEntao(etE);
-        pct.setSenao(etS);
-
-        // Preparação da regra
-
-        regra.preparacao(pct);
-
-        Map<String, Valor> contexto = new HashMap<>(1);
-        contexto.put("condicao", new Valor(0));
-        contexto.put("oito", new Valor(8));
-        contexto.put("nove", new Valor(9));
-
-        // Condição verdadeira (definido acima)
-        assertEquals(1f, regra.avalie(null, contexto).getReal(), 0.0001);
-
-        // Define condição com valor false
-        etC.setValorRetorno(0f);
-        assertEquals(0f, regra.avalie(null, contexto).getReal(), 0.0001);
     }
 }

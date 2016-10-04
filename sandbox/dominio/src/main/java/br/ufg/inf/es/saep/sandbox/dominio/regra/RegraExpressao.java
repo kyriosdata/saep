@@ -98,8 +98,29 @@ public class RegraExpressao extends Regra {
         return expressao;
     }
 
+    /**
+     * Recupera o contexto empregado pela expressão.
+     *
+     * @return Contexto empregado pela expressão.
+     */
+    protected Map<String, Float> getContexto() {
+        return ctx;
+    }
+
     @Override
     public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
+        atualizaContexto(contexto);
+
+        return new Valor(ast.valor(ctx));
+    }
+
+    /**
+     * Atualiza o contexto da expressão antes que possa ser executada.
+     *
+     * @param contexto Contexto contendo valores para variáveis empregadas
+     *                 na avaliação da expressão.
+     */
+    protected void atualizaContexto(Map<String, Valor> contexto) {
         for(String dd : ctx.keySet()) {
             float valor = 0f;
             if (contexto.containsKey(dd)) {
@@ -108,7 +129,5 @@ public class RegraExpressao extends Regra {
 
             ctx.put(dd, valor);
         }
-
-        return new Valor(ast.valor(ctx));
     }
 }
