@@ -17,12 +17,7 @@ import java.util.Map;
 /**
  * Regra que implementa condição ("se" ou "if").
  */
-public class RegraCondicional extends Regra {
-
-    /**
-     * Sentença que reflete a condição da regra.
-     */
-    private String condicao;
+public class RegraCondicional extends RegraExpressao {
 
     /**
      * Expressão a ser avaliada e cujo resultado torna-se
@@ -77,13 +72,12 @@ public class RegraCondicional extends Regra {
      *                                  definição de uma regra não seja fornecido.
      */
     public RegraCondicional(String variavel, String descricao, float valorMaximo, float valorMinimo, String condicao, String entao, String senao) {
-        super(variavel, descricao, valorMaximo, valorMinimo);
+        super(variavel, descricao, valorMaximo, valorMinimo, condicao);
 
         if (entao == null || entao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("entao");
         }
 
-        this.condicao = condicao;
         this.entao = entao;
         this.senao = senao;
     }
@@ -111,6 +105,8 @@ public class RegraCondicional extends Regra {
         if (parser == null) {
             throw new CampoExigidoNaoFornecido("parser");
         }
+
+        String condicao = getExpressao();
 
         List<String> dc = parser.dependencias(condicao);
         List<String> de = parser.dependencias(entao);

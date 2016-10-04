@@ -24,13 +24,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Testes do avaliador de regras
  */
-public class AvaliaRegraServiceEvalExTest {
-    private AvaliaRegraServiceEvalEx avaliador;
-
-    @Before
-    public void setUp() {
-        avaliador = new AvaliaRegraServiceEvalEx();
-    }
+public class AvaliaRegraTest {
 
     @Test
     public void regraDefinidaPorConstante() {
