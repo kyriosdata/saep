@@ -139,7 +139,7 @@
 
         <!-- PROFILE: release -->
         <!-- mvn deploy -P release -->
-        <!-- oss.sonatype.org -->
+        <!-- oss.sonatype.org username: kyriosdata -->
         <!-- central.sonatype.org -->
         <profile>
             <id>release</id>
