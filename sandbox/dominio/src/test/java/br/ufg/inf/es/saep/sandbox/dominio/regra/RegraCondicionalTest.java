@@ -2,28 +2,25 @@ package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 import br.ufg.inf.es.saep.sandbox.ExpressaoTeste;
 import br.ufg.inf.es.saep.sandbox.ParserCondicaoTeste;
-import br.ufg.inf.es.saep.sandbox.ParserTeste;
-import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
-import br.ufg.inf.es.saep.sandbox.dominio.Relato;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Testes do avaliador de regras
  */
 public class RegraCondicionalTest {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void entaoObrigatoriamenteDeveSerFornecido() {
-        new RegraCondicional("v", "d", 1, 0, "c", null, "s");
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraCondicional("v", "d", 1, 0, "c", null, "s"));
     }
 
     @Test

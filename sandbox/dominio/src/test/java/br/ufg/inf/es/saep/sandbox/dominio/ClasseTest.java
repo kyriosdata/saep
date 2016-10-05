@@ -1,45 +1,45 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static junit.framework.TestCase.assertFalse;
-import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ClasseTest {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void tipoDevePossuirIdentificadorNaoNull() {
-        new Classe(null, "n", "d", null);
+
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Classe(null, "n", "d", null));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void tipoDevePossuirIdentificadorNaoVazio() {
-        new Classe("", "n", "d", null);
+
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Classe("", "n", "d", null));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void tipoDevePossuirAtributos() {
-        new Classe("c", "n", "d", null);
+
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Classe("c", "n", "d", null));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void tipoDevePossuirPeloMenosUmAtributo() {
         Set<Atributo> atrs = new HashSet<>(0);
-        new Classe("c", "n", "d", atrs);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Classe("c", "n", "d", atrs));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void nomeDoTipoNaoPodeSerNull() {
         Atributo atributo = new Atributo("a", "d", 1);
         Set<Atributo> atrs = new HashSet<>(0);
         atrs.add(atributo);
-        new Classe("c", null, "d", atrs);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Classe("c", null, "d", atrs));
     }
 
     @Test
@@ -117,25 +117,26 @@ public class ClasseTest {
         assertEquals(2, ensino.getTipos().size());
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void grupoDevePossuirCodigo() {
-        new Grupo(null, "a", "d", null, null);
+
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Grupo(null, "a", "d", null, null));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void grupoDevePossuirPeloMenosUmAtributo() {
         Set<Atributo> atribs = new HashSet<>(1);
 
-        new Grupo("c", "a", "d", atribs, null);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Grupo("c", "a", "d", atribs, null));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void grupoDevePossuirPeloMenosUmTipo() {
         Set<Atributo> atribs = new HashSet<>(1);
         atribs.add(new Atributo("n", "d", Atributo.REAL));
 
         Set<String> tipos = new HashSet<>(0);
-        new Grupo("c", "a", "d", atribs, tipos);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Grupo("c", "a", "d", atribs, tipos));
     }
 }
 

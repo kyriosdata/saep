@@ -1,21 +1,20 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RelatoTest {
 
     Map<String, Valor> atributos;
     Map<String, Valor> vazio;
 
-    @Before
+    @BeforeEach
     public void defineValores() {
         atributos = new HashMap<>(1);
         atributos.put("nome", new Valor(99f));
@@ -23,24 +22,13 @@ public class RelatoTest {
         vazio = new HashMap<>(0);
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void tipoNaoPodeSerNull() {
-        new Relato(null, atributos);
-    }
+    @Test
+    public void situacoesExcepcionaisDeConstrucao() {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void tipoNaoPodeSerVazio() {
-        new Relato("", atributos);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void valoresNaoPodeSerNull() {
-        new Relato("tipo", null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void valoresNaoPodeSerVazio() {
-        new Relato("tipo", vazio);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Relato(null, atributos));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Relato("", atributos));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Relato("tipo", null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Relato("tipo", vazio));
     }
 
     @Test

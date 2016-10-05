@@ -2,26 +2,20 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.TipoDeAtributoInvalido;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AtributoTest {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void nomeNullGeraExcecao() {
-        new Atributo(null, "descricao", Atributo.STRING);
-    }
+    @Test
+    public void situacoesExcepcionais() {
 
-    @Test(expected = TipoDeAtributoInvalido.class)
-    public void tipoInvalidoGeraExcecao() {
-        new Atributo("d", "d", -2);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void nomeVazioGeraExcecao() {
-        new Atributo("", "descricao", Atributo.LOGICO);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Atributo(null, "descricao", Atributo.STRING));
+        assertThrows(TipoDeAtributoInvalido.class, () -> new Atributo("d", "d", -2));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Atributo("", "descricao", Atributo.LOGICO));
     }
 
     @Test

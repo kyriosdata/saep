@@ -1,11 +1,9 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PontuacaoTest {
 
@@ -17,14 +15,16 @@ public class PontuacaoTest {
         assertEquals(-21.4f, p.getValor().getReal(), 0.0001d);
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void nomeNullGeraExcecao() {
-        new Pontuacao(null, new Valor("o"));
+
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Pontuacao(null, new Valor("o")));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void valorNullGeraExcecao() {
-        new Pontuacao("o", null);
+
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Pontuacao("o", null));
     }
 
     @Test
