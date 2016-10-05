@@ -3,39 +3,26 @@ package br.ufg.inf.es.saep.sandbox.dominio.regra;
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RegraTest {
 
-    @Test(expected = IllegalArgumentException.class)
-    public void valorMinimoNaoPodeSerMaiorQueMaximo() {
-        new RegraParaTeste("r", "d", 1f, 2f);
-    }
+    @Test
+    public void situacoesExcepcionaisDeConstrucao() {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void variavelNaoPodeSerNull() {
-        new RegraParaTeste(null, "d", 10f, 2f);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void variavelNaoPodeSerVazia() {
-        new RegraParaTeste("", "d", 10f, 2f);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void descricaoNaoPodeSerNull() {
-        new RegraParaTeste("v", null, 10f, 2f);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void descricaoNaoPodeSerVazia() {
-        new RegraParaTeste("v", "", 10f, 2f);
+        assertThrows(IllegalArgumentException.class, () -> new RegraParaTeste("r", "d", 1f, 2f));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraParaTeste(null, "d", 10f, 2f));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraParaTeste("", "d", 10f, 2f));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraParaTeste("v", null, 10f, 2f));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraParaTeste("v", "", 10f, 2f));
     }
 
     @Test

@@ -4,13 +4,13 @@ import br.ufg.inf.es.saep.sandbox.ParserTeste;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService.ordena;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrdenacaoItensTest {
 

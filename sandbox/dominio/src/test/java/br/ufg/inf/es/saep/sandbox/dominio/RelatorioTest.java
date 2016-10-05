@@ -1,22 +1,23 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RelatorioTest {
 
     private List<Relato> relatos;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         Map<String, Valor> valores = new HashMap<>(1);
         valores.put("ano", new Valor(2016));
@@ -28,19 +29,12 @@ public class RelatorioTest {
         relatos.add(new Relato("a", valores));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void idNullGeraExcecao() {
-        new Relatorio(null, 0, new ArrayList<>());
-    }
+    @Test
+    public void situacoesExcepcionais() {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void idVazioGeraExcecao() {
-        new Relatorio("", 0, new ArrayList<>());
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void relatosNullGeraExcecao() {
-        new Relatorio("id", 0, null);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Relatorio(null, 0, new ArrayList<>()));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Relatorio("", 0, new ArrayList<>()));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Relatorio("id", 0, null));
     }
 
     @Test

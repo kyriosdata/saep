@@ -1,12 +1,13 @@
 package br.ufg.inf.es.saep.sandbox.infraestrutura;
 
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Expressao;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Analisador Sintático Descendente Recursivo.
@@ -18,24 +19,27 @@ import static org.junit.Assert.assertEquals;
  */
 public class RecursiveDescetParserTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void expressaoNullInvalida() {
-        new Parser(null).expressao();
+        assertThrows(IllegalArgumentException.class, () -> new Parser(null).expressao());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void expressaoVaziaInvalida() {
-        new Parser("").expressao();
+
+        assertThrows(IllegalArgumentException.class, () -> new Parser("").expressao());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void expressaoSemParentesesInvalida() {
-        new Parser("x + y").expressao();
+
+        assertThrows(IllegalArgumentException.class, () -> new Parser("x + y").expressao());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void expressaoComElementoInvalido() {
-        new Parser("@").expressao();
+
+        assertThrows(IllegalArgumentException.class, () -> new Parser("@").expressao());
     }
 
     @Test

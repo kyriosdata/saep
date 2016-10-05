@@ -6,21 +6,19 @@ import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Relato;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static junit.framework.TestCase.assertNotNull;
-import static junit.framework.TestCase.assertNull;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Testes do avaliador de regras
  */
-public class RegraExpressaoTest {
+public class RegraExpressaoTests {
 
     @Test
     public void agradarCobertura() {
@@ -37,10 +35,10 @@ public class RegraExpressaoTest {
         assertEquals("x", re.getExpressao());
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void parserObrigatorioParaPreparacao() {
         RegraExpressao re = new RegraExpressao("v", "d", 1, 0, "x");
-        re.preparacao(null);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> re.preparacao(null));
     }
 
     @Test
@@ -128,8 +126,8 @@ public class RegraExpressaoTest {
         assertEquals(2f, r.avalie(avaliavels, new HashMap<>(0)).getReal(), 0.0001f);
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void semRegistroZeroPontos() {
-        new RegraExpressao("v", "d", 100, 0, null);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraExpressao("v", "d", 100, 0, null));
     }
 }
