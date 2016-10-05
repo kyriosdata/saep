@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Testes do avaliador de regras
  */
-public class RegraExpressaoTests {
+public class RegraExpressaoTest {
 
     @Test
     public void agradarCobertura() {
@@ -100,30 +100,6 @@ public class RegraExpressaoTests {
 
         Map<String, Valor> ctx = new HashMap<>(0);
         assertEquals(6f, r.avalie(null, ctx).getReal(), 0.0001f);
-    }
-
-    @Test
-    public void somatorio() {
-        Regra r = new RegraSomatorio("v", "d", 100, 0, "a + b", "classe");
-
-        // Parser
-        ExpressaoTeste et = new ExpressaoTeste();
-        et.setValorRetorno(1f);
-
-        ParserTeste pt = new ParserTeste();
-        pt.setDependencias(new ArrayList<>(0));
-        pt.setExpressao(et);
-
-        // Preparação antes de qualquer uso da regra
-        r.preparacao(pt);
-
-        Avaliavel avaliavel = atributo -> null;
-
-        List<Avaliavel> avaliavels = new ArrayList<>(3);
-        avaliavels.add(avaliavel);
-        avaliavels.add(avaliavel);
-
-        assertEquals(2f, r.avalie(avaliavels, new HashMap<>(0)).getReal(), 0.0001f);
     }
 
     @Test
