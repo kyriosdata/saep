@@ -73,7 +73,10 @@ public class RegraExpressaoTest {
         Regra r = new RegraExpressao("v", "d", 100, 0, "1 + x");
         r.preparacao(pt);
 
-        assertEquals(1f, r.avalie(null, new HashMap<>()).getReal(), 0.0001d);
+        HashMap<String, Valor> contexto = new HashMap<>();
+        contexto.put("x", new Valor(34f));
+
+        assertEquals(1f, r.avalie(null, contexto).getReal(), 0.0001d);
     }
 
     @Test
