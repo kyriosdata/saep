@@ -59,25 +59,26 @@ public class Classe extends Entidade {
     /**
      * Cria uma classe.
      * @param id Código único que identifica a classe.
-     * @param nome O nome pelo qual a classe é conhecida.
-     * @param descricao Informação adicional sobre a classe.
-     * @param atributos Atributos que caracterizam a classe.
+     * @param nomeClasse O nome pelo qual a classe é conhecida.
+     * @param descricaoClasse Informação adicional sobre a classe.
+     * @param atributosClasse Atributos que caracterizam a classe.
      */
-    public Classe(final String id, final String nome,
-                  final String descricao, final Set<Atributo> atributos) {
+    public Classe(final String id, final String nomeClasse,
+                  final String descricaoClasse,
+                  final Set<Atributo> atributosClasse) {
         super(id);
 
-        if (nome == null || nome.isEmpty()) {
+        if (nomeClasse == null || nomeClasse.isEmpty()) {
             throw new CampoExigidoNaoFornecido("id");
         }
 
-        if (atributos == null || atributos.size() == 0) {
+        if (atributosClasse == null || atributosClasse.size() == 0) {
             throw new CampoExigidoNaoFornecido("atributos");
         }
 
-        this.nome = nome;
-        this.descricao = descricao;
-        this.atributos = atributos;
+        this.nome = nomeClasse;
+        this.descricao = descricaoClasse;
+        this.atributos = atributosClasse;
     }
 
     /**
