@@ -42,7 +42,7 @@ public class Classe extends Entidade {
      *
      * @return O nome do tipo.
      */
-    public String getNome() {
+    public final String getNome() {
         return nome;
     }
 
@@ -52,7 +52,7 @@ public class Classe extends Entidade {
      * @return Descrição ou informação adicional
      *      sobre o tipo.
      */
-    public String getDescricao() {
+    public final String getDescricao() {
         return descricao;
     }
 
@@ -63,7 +63,8 @@ public class Classe extends Entidade {
      * @param descricao Informação adicional sobre a classe.
      * @param atributos Atributos que caracterizam a classe.
      */
-    public Classe(String id, String nome, String descricao, Set<Atributo> atributos) {
+    public Classe(final String id, final String nome,
+                  final String descricao, final Set<Atributo> atributos) {
         super(id);
 
         if (nome == null || nome.isEmpty()) {
@@ -84,7 +85,7 @@ public class Classe extends Entidade {
      *
      * @return O conjunto de atributos que define a classe.
      */
-    public Set<Atributo> getAtributos() {
+    public final Set<Atributo> getAtributos() {
         return atributos;
     }
 }
