@@ -41,25 +41,6 @@ public class AvaliadorService {
     }
 
     /**
-     * Prepara o avaliador para execução de relatórios
-     * baseados em uma dada configuração.
-     *
-     * @param configuracao A configuração a ser utilizada
-     *                     para as avaliações.
-     */
-    public void preparacao(Configuracao configuracao) {
-
-        List<Regra> regras = configuracao.getRegras();
-
-        for (Regra regra : regras) {
-        }
-
-        // Regras devem estar ordenadas
-
-        ordenadas = OrdenacaoService.ordena(regras);
-    }
-
-    /**
      * Realiza avaliação dos itens fornecidos.
      *
      * @param regras Sequência de regras a serem avaliadas. Possivelmente
