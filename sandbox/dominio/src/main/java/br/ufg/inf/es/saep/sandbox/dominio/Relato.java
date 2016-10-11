@@ -11,11 +11,10 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Encapsula conjunto de atributos que caracterizam
- * o relato de uma atividade ou produto.
+ * A descrição de uma atividade ou produto.
  *
- * <p>Cada relato é de uma classe específica,
- * identificado por {@link #classe}.
+ * <p>Cada relato está associado a uma classe específica,
+ * identificada por {@link #classe}.
  *
  * <p>Um relato é um "value object". Ou seja, dois
  * relatos são iguais se todos os seus atributos
