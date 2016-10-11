@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Conjunto de relatos associados a um docente em um dado ano base.
+ * Conjunto de relatos e outras informações associadas a um docente.
  *
  * <p>Eventualmente um mesmo docente, em um dado ano, pode possuir
  * mais de um RADOC, decorrente, por exemplo, da correção de alguma

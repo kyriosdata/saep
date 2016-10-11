@@ -31,17 +31,17 @@ public abstract class Entidade {
      * Constrói uma entidade com o identificador
      * únido fornecido.
      *
-     * @param id O identificador únido da entidade.
+     * @param identificador O identificador únido da entidade.
      *
      * @throws CampoExigidoNaoFornecido Se o identificador
      *      fornecido é {@code null} ou vazio.
      */
-    public Entidade(String id) {
-        if (id == null || id.isEmpty()) {
+    public Entidade(final String identificador) {
+        if (identificador == null || identificador.isEmpty()) {
             throw new CampoExigidoNaoFornecido("id");
         }
 
-        this.id = id;
+        this.id = identificador;
     }
 
     /**
@@ -49,12 +49,12 @@ public abstract class Entidade {
      *
      * @return Identificador único da entidade.
      */
-    public String getId() {
+    public final String getId() {
         return id;
     }
 
     @Override
-    public boolean equals(Object outro) {
+    public final boolean equals(final Object outro) {
         if (this == outro) {
             return true;
         }
@@ -69,7 +69,7 @@ public abstract class Entidade {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return id.hashCode();
     }
 }

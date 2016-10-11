@@ -5,9 +5,11 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
 
-import br.ufg.inf.es.saep.sandbox.dominio.*;
+import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
+import br.ufg.inf.es.saep.sandbox.dominio.Observacao;
+import br.ufg.inf.es.saep.sandbox.dominio.Relato;
+import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.OrdenacaoService;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 
@@ -29,7 +31,6 @@ import java.util.Map;
 public class AvaliadorService {
 
     private List<Observacao> observacoes;
-    private List<Regra> ordenadas;
 
     /**
      * Serviço de avaliação de regra a ser utilizado pelo Avaliador.
