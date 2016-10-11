@@ -1,20 +1,19 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.TestCase.*;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParecerTest {
     private List<String> radocs;
     private List<Pontuacao> pontuacoes;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         radocs = new ArrayList<>(1);
         radocs.add("radoc");
@@ -23,44 +22,17 @@ public class ParecerTest {
         pontuacoes.add(new Pontuacao("p", new Valor(23f)));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void parecerSemIdGeraExcecao() {
-        new Parecer(null, "rid",  radocs, pontuacoes, null, null);
-    }
+    @Test
+    public void situacoesExcepcionaisDeConstrucao() {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void parecerComIdVazioGeraExcecao() {
-        new Parecer("", "rid",  radocs, pontuacoes, null, null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void resolucaoSemIdGeraExcecao() {
-        new Parecer("1", null,  radocs, pontuacoes, null, null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void resolucaoComIdVazioGeraExcecao() {
-        new Parecer("1", "",  radocs, pontuacoes, null, null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void parecerSemRadocGeraExcecao() {
-        new Parecer("1", "r", null, pontuacoes, null, null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void parecerComZeroRadocsGeraExcecao() {
-        new Parecer("1", "r", new ArrayList<>(0), pontuacoes, null, null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void parecerSemPontuacaoGeraExcecao() {
-        new Parecer("1", "r", radocs, null, null, null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void parecerComZeroPontuacoesGeraExcecao() {
-        new Parecer("1", "r", radocs, new ArrayList<>(0), null, null);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer(null, "rid",  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("", "rid",  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", null,  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "",  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", null, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", new ArrayList<>(0), pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", radocs, null, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", radocs, new ArrayList<>(0), null, null));
     }
 
     @Test
@@ -101,4 +73,3 @@ public class ParecerTest {
         assertFalse(p1.equals(null));
     }
 }
-

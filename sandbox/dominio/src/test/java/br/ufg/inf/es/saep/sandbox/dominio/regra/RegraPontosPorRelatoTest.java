@@ -1,28 +1,29 @@
 package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
-import br.ufg.inf.es.saep.sandbox.ExpressaoTeste;
 import br.ufg.inf.es.saep.sandbox.ParserTeste;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Test;
+import org.junit.jupiter.api.Executable;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Testes do avaliador de regras
  */
 public class RegraPontosPorRelatoTest {
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void tipoRelatoNaoPodeSerNull() {
-        new RegraPontosPorRelato("v", "d", 1, 0, null, 1);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraPontosPorRelato("v", "d", 1, 0, null, 1));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void tipoRelatoNaoPodeSerVazio() {
-        new RegraPontosPorRelato("v", "d", 1, 0, "", 1);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraPontosPorRelato("v", "d", 1, 0, "", 1));
     }
 
     @Test

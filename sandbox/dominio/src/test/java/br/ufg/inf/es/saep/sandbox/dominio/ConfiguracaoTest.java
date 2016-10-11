@@ -4,68 +4,45 @@ import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.RegraExpressao;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ConfiguracaoTest {
 
     private static List<Regra> regras;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         Regra r = new RegraExpressao("v", "d", 1, 0, "a");
         regras = new ArrayList<>();
         regras.add(r);
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void resolucaoIdNullGeraExcecao() {
+    @Test
+    public void situacoesExcepcionais() {
 
-        new Configuracao(null, "r", "d", new Date(), regras);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao(null, "r", "d", new Date(), regras));
+
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("", "r", "d", new Date(), regras));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", null, new Date(), regras));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "", new Date(), regras));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "d", null, regras));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "d", new Date(), null));
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void resolucaoIdVazioGeraExcecao() {
-
-        new Configuracao("", "r", "d", new Date(), regras);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void descricaoNullGeraExcecao() {
-
-        new Configuracao("id", "d", null, new Date(), regras);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void descricaoVaziaGeraExcecao() {
-
-        new Configuracao("id", "d", "", new Date(), regras);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void dataNullGeraExcecao() {
-
-        new Configuracao("id", "d", "d", null, regras);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
-    public void regrasNullGeraExcecao() {
-
-        new Configuracao("id", "d", "d", new Date(), null);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void regrasVaziaGeraExcecao() {
 
         List<Regra> vazias = new ArrayList<>(0);
-        new Configuracao("id", "d", "d", new Date(), vazias);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "d", new Date(), vazias));
     }
 
     @Test

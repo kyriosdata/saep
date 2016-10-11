@@ -83,26 +83,27 @@ public class Atributo {
     /**
      * Cria um atributo.
      *
-     * @param nome O nome do atributo.
+     * @param nomeAtributo O nome do atributo.
      *
-     * @param descricao A descrição do atributo.
+     * @param descricaoAtributo A descrição do atributo.
      *
-     * @param tipo O tipo do atributo. O tipo define o domínio
+     * @param tipoAtributo O tipo do atributo. O tipo define o domínio
      *             de valores que uma instância do atributo
      *             pode assumir.
      */
-    public Atributo(String nome, String descricao, int tipo) {
-        if (nome == null || nome.isEmpty()) {
+    public Atributo(final String nomeAtributo,
+                    final String descricaoAtributo, final int tipoAtributo) {
+        if (nomeAtributo == null || nomeAtributo.isEmpty()) {
             throw new CampoExigidoNaoFornecido("nome");
         }
 
-        if (tipo < LOGICO || tipo > DATA) {
+        if (tipoAtributo < LOGICO || tipoAtributo > DATA) {
             throw new TipoDeAtributoInvalido("tipo");
         }
 
-        this.nome = nome;
-        this.descricao = descricao;
-        this.tipo = tipo;
+        nome = nomeAtributo;
+        descricao = descricaoAtributo;
+        tipo = tipoAtributo;
     }
 
     /**
@@ -110,23 +111,23 @@ public class Atributo {
      *
      * @return O identificador único do atributo.
      */
-    public String getNome() {
+    public final String getNome() {
         return nome;
     }
 
     /**
-     * Recupera o tipo do atributo
+     * Recupera o tipo do atributo.
      *
      * @return O tipo do atributo, ou seja, o
      *      valor {@link #LOGICO}, {@link #REAL} ou
      *      {@link #STRING}.
      */
-    public int getTipo() {
+    public final int getTipo() {
         return tipo;
     }
 
     @Override
-    public boolean equals(Object other) {
+    public final boolean equals(final Object other) {
         if (this == other) {
             return true;
         }
@@ -141,7 +142,7 @@ public class Atributo {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return nome.hashCode();
     }
 
@@ -150,7 +151,7 @@ public class Atributo {
      *
      * @return Descrição do atributo.
      */
-    public String getDescricao() {
+    public final String getDescricao() {
         return descricao;
     }
 }

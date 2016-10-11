@@ -49,12 +49,15 @@ public class RegraSomatorio extends RegraExpressao {
      * @param expressao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
      * @param classe Identificador da classe cujos relatos
-     *               serão considerados.
+     *               serão considerados. O valor {@code null} indica que
+     *               todos os avaliáveis fornecidos devem ser considerados.
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
     public RegraSomatorio(String variavel, String descricao, float valorMaximo, float valorMinimo, String expressao, String classe) {
         super(variavel, descricao, valorMaximo, valorMinimo, expressao);
+
+        this.classe = classe;
     }
 
     @Override
@@ -62,6 +65,12 @@ public class RegraSomatorio extends RegraExpressao {
         float somatorio = 0f;
 
         for (Avaliavel avaliavel : avaliaveis) {
+            // Considera apenas avaliáveis da classe em questão
+            if (!classe.equals(avaliavel.get("classe"))) {
+                continue;
+            }
+
+            // Atualiza contexto da expressão com dados do avaliável
             for(String dd : ctx.keySet()) {
                 ctx.put(dd, prioridade(dd, avaliavel, contexto));
             }

@@ -1,43 +1,23 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class ExperimentaExceptionsTest {
 
-    @Test(expected = IdentificadorExistente.class)
-    public void justificativaNullGeraExcecao() {
-        throw new IdentificadorExistente("x");
-    }
+    @Test
+    public void geraExcecoesApenasParaCobertura() {
 
-    @Test(expected = TipoDeRegraInvalido.class)
-    public void tipoDeRegraInvalidoGeraExcecao() {
-        throw new TipoDeRegraInvalido("x");
-    }
-
-    @Test(expected = TipoDeAtributoInvalido.class)
-    public void tipoDeAtributoInvalidoGeraExcecao() {
-        throw new TipoDeAtributoInvalido("x");
-    }
-
-    @Test(expected = IdentificadorDesconhecido.class)
-    public void identificadorDesconhecidoGeraExcecao() {
-        throw new IdentificadorDesconhecido("x");
-    }
-
-    @Test(expected = ResolucaoUsaTipoException.class)
-    public void removerTipoUsadoGeraExcecao() {
-        throw new ResolucaoUsaTipoException("x");
-    }
-
-    @Test(expected = ExisteParecerReferenciandoRadoc.class)
-    public void naoPodeRemoverRadocComParecerQueReferenciaEle() {
-        throw new ExisteParecerReferenciandoRadoc("x");
-    }
-
-    @Test(expected = FalhaAoAvaliarRegra.class)
-    public void erroAoAvaliarRegra() {
-        throw new FalhaAoAvaliarRegra("x");
+        assertThrows(IdentificadorExistente.class, () -> { throw new IdentificadorExistente("x"); });
+        assertThrows(TipoDeRegraInvalido.class, () -> { throw new TipoDeRegraInvalido("x"); });
+        assertThrows(TipoDeAtributoInvalido.class, () -> { throw new TipoDeAtributoInvalido("x"); });
+        assertThrows(IdentificadorDesconhecido.class, () -> { throw new IdentificadorDesconhecido("x"); });
+        assertThrows(ResolucaoUsaTipoException.class, () -> { throw new ResolucaoUsaTipoException("x"); });
+        assertThrows(ExisteParecerReferenciandoRadoc.class, () -> { throw new ExisteParecerReferenciandoRadoc("x"); });
+        assertThrows(FalhaAoAvaliarRegra.class, () -> { throw new FalhaAoAvaliarRegra("x"); });
     }
 }
 

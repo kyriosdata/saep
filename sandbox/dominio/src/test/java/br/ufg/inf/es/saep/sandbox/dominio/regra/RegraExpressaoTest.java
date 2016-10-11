@@ -6,16 +6,14 @@ import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Relato;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static junit.framework.TestCase.assertNotNull;
-import static junit.framework.TestCase.assertNull;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Testes do avaliador de regras
@@ -37,10 +35,10 @@ public class RegraExpressaoTest {
         assertEquals("x", re.getExpressao());
     }
 
-    @Test(expected = CampoExigidoNaoFornecido.class)
+    @Test
     public void parserObrigatorioParaPreparacao() {
         RegraExpressao re = new RegraExpressao("v", "d", 1, 0, "x");
-        re.preparacao(null);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> re.preparacao(null));
     }
 
     @Test
@@ -75,7 +73,10 @@ public class RegraExpressaoTest {
         Regra r = new RegraExpressao("v", "d", 100, 0, "1 + x");
         r.preparacao(pt);
 
-        assertEquals(1f, r.avalie(null, new HashMap<>()).getReal(), 0.0001d);
+        HashMap<String, Valor> contexto = new HashMap<>();
+        contexto.put("x", new Valor(34f));
+
+        assertEquals(1f, r.avalie(null, contexto).getReal(), 0.0001d);
     }
 
     @Test
@@ -105,31 +106,7 @@ public class RegraExpressaoTest {
     }
 
     @Test
-    public void somatorio() {
-        Regra r = new RegraSomatorio("v", "d", 100, 0, "a + b", "classe");
-
-        // Parser
-        ExpressaoTeste et = new ExpressaoTeste();
-        et.setValorRetorno(1f);
-
-        ParserTeste pt = new ParserTeste();
-        pt.setDependencias(new ArrayList<>(0));
-        pt.setExpressao(et);
-
-        // Preparação antes de qualquer uso da regra
-        r.preparacao(pt);
-
-        Avaliavel avaliavel = atributo -> null;
-
-        List<Avaliavel> avaliavels = new ArrayList<>(3);
-        avaliavels.add(avaliavel);
-        avaliavels.add(avaliavel);
-
-        assertEquals(2f, r.avalie(avaliavels, new HashMap<>(0)).getReal(), 0.0001f);
-    }
-
-    @Test(expected = CampoExigidoNaoFornecido.class)
     public void semRegistroZeroPontos() {
-        new RegraExpressao("v", "d", 100, 0, null);
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new RegraExpressao("v", "d", 100, 0, null));
     }
 }
