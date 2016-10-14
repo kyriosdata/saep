@@ -26,8 +26,11 @@ import java.util.Set;
  * fornece uma ordem que pode ser empregada para executar
  * as regras.
  */
-public class OrdenacaoService {
+public final class OrdenacaoService {
 
+    /**
+     * Evita criação inútil de objeto.
+     */
     private OrdenacaoService() {
         // Checkstyle
     }

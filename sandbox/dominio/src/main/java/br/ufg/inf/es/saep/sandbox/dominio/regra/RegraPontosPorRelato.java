@@ -48,26 +48,27 @@ public class RegraPontosPorRelato extends Regra {
      *                      avaliação da regra. Esse valor é empregado apenas
      *                      se a avaliação resultar em valor inferior ao
      *                      expresso por esse parâmetro.
-     * @param tipoRelato    Nome que identifica um relato, empregado em regras
+     * @param tipo    Nome que identifica um relato, empregado em regras
      *                      cuja avaliação é pontos por relato.
-     * @param pontosPorItem Total de pontos para cada relato de um dado
+     * @param pontos Total de pontos para cada relato de um dado
      *                      tipo.
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
-     *                                  definição de uma regra não seja fornecido.
+     *                                  definição de uma regra não seja
+     *                                  fornecido.
      */
     public RegraPontosPorRelato(final String variavel,
                                 final String descricao,
                                 final float valorMaximo,
                                 final float valorMinimo,
-                                final String tipoRelato,
-                                final float pontosPorItem) {
+                                final String tipo,
+                                final float pontos) {
         super(variavel, descricao, valorMaximo, valorMinimo);
-        if (tipoRelato == null || tipoRelato.isEmpty()) {
+        if (tipo == null || tipo.isEmpty()) {
             throw new CampoExigidoNaoFornecido("tipoRelato");
         }
 
-        this.tipoRelato = tipoRelato;
-        this.pontosPorItem = pontosPorItem;
+        this.tipoRelato = tipo;
+        this.pontosPorItem = pontos;
     }
 
     /**
@@ -75,7 +76,7 @@ public class RegraPontosPorRelato extends Regra {
      *
      * @return O identificador do tipo de relato.
      */
-    public String getTipoRelato() {
+    public final String getTipoRelato() {
         return tipoRelato;
     }
 
@@ -85,12 +86,12 @@ public class RegraPontosPorRelato extends Regra {
      *
      * @return Pontos por item avaliável.
      */
-    public float getPontosPorItem() {
+    public final float getPontosPorItem() {
         return pontosPorItem;
     }
 
     @Override
-    public Valor avalie(final List<Avaliavel> avaliaveis,
+    public final Valor avalie(final List<Avaliavel> avaliaveis,
                         final Map<String, Valor> contexto) {
         int total = 0;
         for (Avaliavel avaliavel : avaliaveis) {

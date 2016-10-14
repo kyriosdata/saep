@@ -48,11 +48,12 @@ public class RegraSomatorio extends RegraExpressao {
      *                      expresso por esse parâmetro.
      * @param expressao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
-     * @param classe Identificador da classe cujos relatos
+     * @param nomeClasse Identificador da classe cujos relatos
      *               serão considerados. O valor {@code null} indica que
      *               todos os avaliáveis fornecidos devem ser considerados.
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
-     *                                  definição de uma regra não seja fornecido.
+     *                                  definição de uma regra não seja
+     *                                  fornecido.
      */
     public RegraSomatorio(
             final String variavel,
@@ -60,14 +61,14 @@ public class RegraSomatorio extends RegraExpressao {
             final float valorMaximo,
             final float valorMinimo,
             final String expressao,
-            final String classe) {
+            final String nomeClasse) {
         super(variavel, descricao, valorMaximo, valorMinimo, expressao);
 
-        this.classe = classe;
+        this.classe = nomeClasse;
     }
 
     @Override
-    public Valor avalie(final List<Avaliavel> avaliaveis,
+    public final Valor avalie(final List<Avaliavel> avaliaveis,
                         final Map<String, Valor> contexto) {
         float somatorio = 0f;
 
@@ -78,7 +79,7 @@ public class RegraSomatorio extends RegraExpressao {
             }
 
             // Atualiza contexto da expressão com dados do avaliável
-            for(String dd : ctx.keySet()) {
+            for (String dd : ctx.keySet()) {
                 ctx.put(dd, prioridade(dd, avaliavel, contexto));
             }
 
@@ -89,12 +90,14 @@ public class RegraSomatorio extends RegraExpressao {
     }
 
     /**
-     * Define o valor para uma dada variável dado um objeto avaliável e o contexto.
+     * Define o valor para uma dada variável dado um objeto avaliável
+     * e o contexto.
      *
-     * <p>Caso o avaliável possua a variável, então o valor do avaliável prevalece.
-     * Caso contrário o valor é procurado no contexto. Se encontrado, então esse é
-     * o valor retornado. Se o valor não é encontrado nem no avaliável e nem no
-     * contexto, então o valor zero é retornado.
+     * <p>Caso o avaliável possua a variável, então o valor do avaliável
+     * prevalece. Caso contrário o valor é procurado no contexto. Se
+     * encontrado, então esse é o valor retornado. Se o valor não é
+     * encontrado nem no avaliável e nem no contexto, então o valor
+     * zero é retornado.
      *
      * @param variavel Identificador da variável cujo valor é desejado.
      *

@@ -19,6 +19,11 @@ import java.util.Map;
 public class RegraCondicional extends RegraExpressao {
 
     /**
+     * Maior valor considerado zero.
+     */
+    private static final float MAIORZERO = 0.0001f;
+
+    /**
      * Expressão a ser avaliada e cujo resultado torna-se
      * o resultado da regra condicional caso a condição
      * seja verdadeira.
@@ -37,6 +42,11 @@ public class RegraCondicional extends RegraExpressao {
      * da regra.
      */
     private Expressao exprEntao;
+
+    /**
+     * Expressão a ser executada caso a condição
+     * seja falsa.
+     */
     private Expressao exprSenao;
 
     /**
@@ -57,25 +67,27 @@ public class RegraCondicional extends RegraExpressao {
      *                      expresso por esse parâmetro.
      * @param condicao     A expressão empregada para avaliar a regra,
      *                      conforme o tipo.
-     * @param entao         A expressão que dará origem ao valor da regra caso
-     *                      a condição correspondente seja avaliada como verdadeira.
-     * @param senao         A expressão que dará origem ao valor da regra caso a
-     *                      condição correspondente seja avaliada como falsa.
+     * @param sentencaEntao A expressão que dará origem ao valor da regra caso
+     *                      a condição correspondente seja avaliada como
+     *                      verdadeira.
+     * @param sentencaSenao A expressão que dará origem ao valor da regra caso
+     *                      a condição correspondente seja avaliada como falsa.
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
-     *                                  definição de uma regra não seja fornecido.
+     *                                  definição de uma regra não seja
+     *                                  fornecido.
      */
     public RegraCondicional(final String variavel, final String descricao,
                             final float valorMaximo, final float valorMinimo,
-                            final String condicao, final String entao,
-                            final String senao) {
+                            final String condicao, final String sentencaEntao,
+                            final String sentencaSenao) {
         super(variavel, descricao, valorMaximo, valorMinimo, condicao);
 
-        if (entao == null || entao.isEmpty()) {
+        if (sentencaEntao == null || sentencaEntao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("entao");
         }
 
-        this.entao = entao;
-        this.senao = senao;
+        this.entao = sentencaEntao;
+        this.senao = sentencaSenao;
     }
 
     /**
@@ -83,7 +95,7 @@ public class RegraCondicional extends RegraExpressao {
      *
      * @return A expressão "então".
      */
-    public String getEntao() {
+    public final String getEntao() {
         return entao;
     }
 
@@ -92,12 +104,12 @@ public class RegraCondicional extends RegraExpressao {
      *
      * @return A expressão "senão".
      */
-    public String getSenao() {
+    public final String getSenao() {
         return senao;
     }
 
     @Override
-    public void preparacao(Parser parser) {
+    public final void preparacao(final Parser parser) {
         super.preparacao(parser);
 
         List<String> de = parser.dependencias(entao);
@@ -116,13 +128,16 @@ public class RegraCondicional extends RegraExpressao {
     }
 
     @Override
-    public Valor avalie(final List<Avaliavel> avaliaveis,
+    public final Valor avalie(final List<Avaliavel> avaliaveis,
                         final Map<String, Valor> contexto) {
         atualizaContexto(contexto);
 
-        float resultado = ast.valor(ctx) > 0.0001f
-                ? exprEntao.valor(ctx)
-                : exprSenao.valor(ctx);
+        float resultado;
+        if (ast.valor(ctx) > MAIORZERO) {
+            resultado = exprEntao.valor(ctx);
+        } else {
+            resultado = exprSenao.valor(ctx);
+        }
 
         return new Valor(resultado);
     }
