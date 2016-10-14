@@ -35,20 +35,20 @@ public class Pontuacao implements Avaliavel {
      *
      * @param nome O nome da pontuação.
      *
-     * @param valor O valor da pontuação.
+     * @param pontos O valor da pontuação.
      */
-    public Pontuacao(String nome, Valor valor) {
+    public Pontuacao(final String nome, final Valor pontos) {
 
         if (nome == null || nome.isEmpty()) {
             throw new CampoExigidoNaoFornecido("nome");
         }
 
-        if (valor == null) {
+        if (pontos == null) {
             throw new CampoExigidoNaoFornecido("valor");
         }
 
         this.atributo = nome;
-        this.valor = valor;
+        this.valor = pontos;
     }
 
     /**
@@ -61,7 +61,7 @@ public class Pontuacao implements Avaliavel {
      *      identificador fornecido seja diferente daquele
      *      da pontuação.
      */
-    public Valor get(String atributo) {
+    public final Valor get(String atributo) {
 
         if (this.atributo.equals(atributo)) {
             return valor;
@@ -76,7 +76,7 @@ public class Pontuacao implements Avaliavel {
      *
      * @return O identificador da pontuação.
      */
-    public String getAtributo() {
+    public final String getAtributo() {
         return atributo;
     }
 
@@ -85,7 +85,7 @@ public class Pontuacao implements Avaliavel {
      *
      * @return O valor da pontuação.
      */
-    public Valor getValor() {
+    public final Valor getValor() {
         return valor;
     }
 }

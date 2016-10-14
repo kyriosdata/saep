@@ -98,7 +98,8 @@ public class Atributo {
         }
 
         if (tipoAtributo < LOGICO || tipoAtributo > DATA) {
-            throw new TipoDeAtributoInvalido("tipo");
+            throw new TipoDeAtributoInvalido("Valor de tipo inválido: "
+                    + tipoAtributo);
         }
 
         nome = nomeAtributo;

@@ -10,6 +10,11 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
  */
 public class TipoDeAtributoInvalido extends RuntimeException {
 
+    /**
+     * Sinaliza que o tipo do atributo é inválido.
+     *
+     * @param mensagem Mensagem que detalha a exceção.
+     */
     public TipoDeAtributoInvalido(String mensagem) {
         super(mensagem);
     }

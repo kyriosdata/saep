@@ -25,8 +25,7 @@ public interface ParecerRepository {
      * @param parecer O parecer a ser persistido.
      *
      * @throws br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
-     *      Caso o
-     *      identificador seja empregado por parecer
+     *      Caso o identificador seja empregado por parecer
      *      existente (já persistido).
      */
     void persisteParecer(Parecer parecer);

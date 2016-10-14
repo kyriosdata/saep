@@ -24,7 +24,7 @@ public class AvaliaveisIncompativeis extends RuntimeException {
      *              com avaliáveis de tipos
      *              distintos.
      */
-    public AvaliaveisIncompativeis(String campo) {
+    public AvaliaveisIncompativeis(final String campo) {
         super(campo);
     }
 }

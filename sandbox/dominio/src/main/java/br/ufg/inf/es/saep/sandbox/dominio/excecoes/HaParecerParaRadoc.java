@@ -12,7 +12,13 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
  */
 public class HaParecerParaRadoc extends RuntimeException {
 
-    public HaParecerParaRadoc(String mensagem) {
+    /**
+     * Sinaliza que existe parecer que faz referência a
+     * RADOC.
+     *
+     * @param mensagem Detalhes da situação excepcional.
+     */
+    public HaParecerParaRadoc(final String mensagem) {
         super(mensagem);
     }
 }

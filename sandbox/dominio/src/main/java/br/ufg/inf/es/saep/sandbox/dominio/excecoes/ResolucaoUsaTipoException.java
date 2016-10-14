@@ -11,7 +11,12 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
  */
 public class ResolucaoUsaTipoException extends RuntimeException {
 
-    public ResolucaoUsaTipoException(String mensagem) {
+    /**
+     * Sinaliza que há resolução que faz uso do tipo.
+     *
+     * @param mensagem Detalhes da situação excepcional.
+     */
+    public ResolucaoUsaTipoException(final String mensagem) {
         super(mensagem);
     }
 }

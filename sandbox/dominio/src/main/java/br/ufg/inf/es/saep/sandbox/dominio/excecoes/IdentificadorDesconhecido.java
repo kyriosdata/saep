@@ -11,7 +11,13 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
  */
 public class IdentificadorDesconhecido extends RuntimeException {
 
-    public IdentificadorDesconhecido(String mensagem) {
+    /**
+     * Cria objeto que sinaliza a detecção de identificador
+     * desconhecido, onde não esperado.
+     *
+     * @param mensagem Nome do identificador desconhecido.
+     */
+    public IdentificadorDesconhecido(final String mensagem) {
         super(mensagem);
     }
 }

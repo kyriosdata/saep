@@ -18,7 +18,7 @@ public class IdentificadorExistente extends RuntimeException {
      * @param campo Nome do campo cujo valor não está
      *              disponível ou é incorreto.
      */
-    public IdentificadorExistente(String campo) {
+    public IdentificadorExistente(final String campo) {
         super(campo);
     }
 }
