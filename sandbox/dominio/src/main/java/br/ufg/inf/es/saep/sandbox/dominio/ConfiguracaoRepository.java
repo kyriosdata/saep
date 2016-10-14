@@ -5,16 +5,13 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente;
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.ResolucaoUsaTipoException;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao;
 
 import java.util.List;
 
 /**
  * Operações para oferecer a noção de coleções
- * de resoluções em memória.
+ * de configurações em memória.
  *
  * <p>Uma resolução é formada por um conjunto de regras.
  * Está além do escopo do SAEP a edição de resoluções.
@@ -34,7 +31,7 @@ import java.util.List;
  *
  * @see Configuracao
  */
-public interface ResolucaoRepository {
+public interface ConfiguracaoRepository {
 
     /**
      * Recupera a instância de {@code Configuracao} correspondente
@@ -54,11 +51,15 @@ public interface ResolucaoRepository {
     /**
      * Persiste uma resolução.
      *
-     * @throws CampoExigidoNaoFornecido Caso o identificador não
-     * seja fornecido.
+     * @throws
+     *  br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido
+     *      Caso o identificador não
+     *      seja fornecido.
      *
-     * @throws IdentificadorExistente Caso uma resolução com identificador
-     * igual àquele fornecido já exista.
+     * @throws
+     *  br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
+     *      Caso uma resolução com identificador
+     *      igual àquele fornecido já exista.
      *
      * @param resolucao A resolução a ser persistida.
      *

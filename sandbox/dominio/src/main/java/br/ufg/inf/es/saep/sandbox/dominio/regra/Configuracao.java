@@ -45,7 +45,7 @@ public class Configuracao extends Entidade {
      *
      * @return O nome da configuração.
      */
-    public String getNome() {
+    public final String getNome() {
         return nome;
     }
 
@@ -54,7 +54,7 @@ public class Configuracao extends Entidade {
      *
      * @return A descrição da configuração.
      */
-    public String getDescricao() {
+    public final String getDescricao() {
         return descricao;
     }
 
@@ -63,7 +63,7 @@ public class Configuracao extends Entidade {
      *
      * @return Data de criação da resolução.
      */
-    public Date getData() {
+    public final Date getData() {
         return data;
     }
 
@@ -73,36 +73,39 @@ public class Configuracao extends Entidade {
      *
      * @return Conjunto de regras definido pela configuração.
      */
-    public List<Regra> getRegras() {
+    public final List<Regra> getRegras() {
         return regras;
     }
 
     /**
      * Cria uma configuração.
      * @param id O identificador único da configuração.
-     * @param nome O nome pelo qual seres humanos identificam a configuração.
-     * @param descricao A descrição da configuração.
-     * @param data A data de criação da configuração.
-     * @param regras Conjunto de regras que definem a configuração.
+     * @param configuracao O nome pelo qual seres humanos identificam
+     *                     a configuração.
+     * @param detalhes A descrição da configuração.
+     * @param criacao A data de criação da configuração.
+     * @param normas Conjunto de regras que definem a configuração.
      */
-    public Configuracao(String id, String nome, String descricao, Date data, List<Regra> regras) {
+    public Configuracao(final String id, final String configuracao,
+                        final String detalhes,
+                        final Date criacao, final List<Regra> normas) {
         super(id);
 
-        if (descricao == null || descricao.isEmpty()) {
+        if (detalhes == null || detalhes.isEmpty()) {
             throw new CampoExigidoNaoFornecido("descricao");
         }
 
-        if (data == null) {
+        if (criacao == null) {
             throw new CampoExigidoNaoFornecido("data");
         }
 
-        if (regras == null || regras.size() < 1) {
+        if (normas == null || normas.size() < 1) {
             throw new CampoExigidoNaoFornecido("regras");
         }
 
-        this.nome = nome;
-        this.descricao = descricao;
-        this.data = data;
-        this.regras = regras;
+        this.nome = configuracao;
+        this.descricao = detalhes;
+        this.data = criacao;
+        this.regras = normas;
     }
 }

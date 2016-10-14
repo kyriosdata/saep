@@ -15,7 +15,7 @@ public class TipoDeAtributoInvalido extends RuntimeException {
      *
      * @param mensagem Mensagem que detalha a exceção.
      */
-    public TipoDeAtributoInvalido(String mensagem) {
+    public TipoDeAtributoInvalido(final String mensagem) {
         super(mensagem);
     }
 }

@@ -145,7 +145,9 @@ public class Valor {
      *
      * @return A data armazenada na instância.
      */
-    public final LocalDate getData() { return data; }
+    public final LocalDate getData() {
+        return data;
+    }
 
     /**
      * Cria uma instância cujo valor armazenado é

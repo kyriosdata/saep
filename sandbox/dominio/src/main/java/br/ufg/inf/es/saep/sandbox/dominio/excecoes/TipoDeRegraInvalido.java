@@ -10,7 +10,13 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
  */
 public class TipoDeRegraInvalido extends RuntimeException {
 
-    public TipoDeRegraInvalido(String mensagem) {
+    /**
+     * Sinaliza que tipo da regra em questão é
+     * inválido.
+     *
+     * @param mensagem Detalhes da exceção.
+     */
+    public TipoDeRegraInvalido(final String mensagem) {
         super(mensagem);
     }
 }

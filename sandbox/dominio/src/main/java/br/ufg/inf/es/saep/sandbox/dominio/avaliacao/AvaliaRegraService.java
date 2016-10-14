@@ -7,7 +7,6 @@ package br.ufg.inf.es.saep.sandbox.dominio.avaliacao;
 
 import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.FalhaAoAvaliarRegra;
 import br.ufg.inf.es.saep.sandbox.dominio.regra.Regra;
 
 import java.util.List;
@@ -41,9 +40,11 @@ public interface AvaliaRegraService {
      *
      * @return O valor produzido pela avaliação da regra.
      *
-     * @throws FalhaAoAvaliarRegra Não é possível realizar a avaliação
+     * @throws br.ufg.inf.es.saep.sandbox.dominio.excecoes.FalhaAoAvaliarRegra
+     *      Não é possível realizar a avaliação
      *      da regra, possivelmente pela ausência de definição de variáveis
      *      das quais depende.
      */
-    Valor avalia(Regra regra, Map<String, Valor> contexto, List<Avaliavel> relatos);
+    Valor avalia(Regra regra, Map<String, Valor> contexto,
+                 List<Avaliavel> relatos);
 }

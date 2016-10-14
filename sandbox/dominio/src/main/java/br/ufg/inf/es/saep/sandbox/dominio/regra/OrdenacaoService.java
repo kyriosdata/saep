@@ -5,7 +5,12 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Ordena regras a serem avaliadas.
@@ -20,20 +25,22 @@ import java.util.*;
  * <p>A sequência retornada pelo método {@link #ordena(List)}
  * fornece uma ordem que pode ser empregada para executar
  * as regras.
- *
  */
 public class OrdenacaoService {
+
+    private OrdenacaoService() {
+        // Checkstyle
+    }
 
     /**
      * Ordena topologicamente um conjunto de regras a
      * serem avaliadas.
      *
      * @param regras Regras a serem ordenadas.
-     *
      * @return Sequência de itens a serem executadas
-     *      nessa ordem.
+     * nessa ordem.
      */
-    public static List<Regra> ordena(List<Regra> regras) {
+    public static List<Regra> ordena(final List<Regra> regras) {
         int size = regras.size();
         List<Regra> ordenados = new ArrayList<>(size);
 
@@ -43,7 +50,7 @@ public class OrdenacaoService {
         // variável é identificada por um dado nome.
         Map<String, Regra> regraPorVariavel = new HashMap<>(size);
 
-        for(Regra regra : regras) {
+        for (Regra regra : regras) {
             regraPorVariavel.put(regra.getVariavel(), regra);
         }
 
@@ -52,16 +59,29 @@ public class OrdenacaoService {
 
         // TODAS AS REGRAS SERÃO INSERIDAS
         for (Regra regra : regras) {
-            insereRegrasAposComponentes(regra, regraPorVariavel, ordenados, inseridos);
+            insereRegrasAposComponentes(
+                    regra, regraPorVariavel, ordenados, inseridos);
         }
 
         return ordenados;
     }
 
-    private static void insereRegrasAposComponentes(Regra regra,
-                                                    Map<String, Regra> regraPorVariavel,
-                                                    List<Regra> ordenadas,
-                                                    Set<String> inseridas) {
+    /**
+     * Insere a regra após os componentes da mesma.
+     *
+     * @param regra A regra a ser inserida.
+     *
+     * @param regraPorVariavel Dicionário que identifica
+     *                         regra pela variável correspondente.
+     * @param ordenadas Conjunto de regras ordenadas.
+     *
+     * @param inseridas Conjunto de regras já inseridas.
+     */
+    private static void insereRegrasAposComponentes(
+            final Regra regra,
+            final Map<String, Regra> regraPorVariavel,
+            final List<Regra> ordenadas,
+            final Set<String> inseridas) {
 
         // Regra já foi considerada.
         if (inseridas.contains(regra.getVariavel())) {
@@ -73,7 +93,7 @@ public class OrdenacaoService {
         // primeiro. Ou seja, se "a depende de b", então
         // "a" será inserido após o "b" ser inserido.
 
-        for(String variavel : regra.getDependeDe()) {
+        for (String variavel : regra.getDependeDe()) {
 
             // Se esse atributo já está ordenado,
             // não há o que fazer, vá para o próximo.

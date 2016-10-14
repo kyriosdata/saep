@@ -16,7 +16,6 @@ public class OrdenacaoItensTest {
 
     @Test
     public void semItensOrdenacaoTrivial() {
-        OrdenacaoService or = new OrdenacaoService();
         List<Regra> itens = new ArrayList<>();
         assertEquals(itens.size(), ordena(itens).size());
     }
@@ -91,7 +90,6 @@ public class OrdenacaoItensTest {
 
     @Test
     public void duasRegrasOrdenacaoUnica() {
-        OrdenacaoService or = new OrdenacaoService();
 
         // a = 10
         Regra ra = new RegraExpressao("a", "a = 10", 10, 0, "10");
@@ -154,7 +152,6 @@ public class OrdenacaoItensTest {
         rb.preparacao(ptB);
         rc.preparacao(ptC);
 
-        OrdenacaoService oi = new OrdenacaoService();
         ArrayList<Regra> itens = new ArrayList<>();
         itens.add(ra);
         itens.add(rb);
