@@ -56,7 +56,9 @@ public class Observacao {
      * @throws AvaliaveisIncompativeis Caso os avaliáveis fornecidos
      *      não sejam do mesmo tipo.
      */
-    public Observacao(Avaliavel origem, Avaliavel destino, String motivo) {
+    public Observacao(final Avaliavel origem,
+                      final Avaliavel destino,
+                      final String motivo) {
 
         if (destino == null) {
             throw new CampoExigidoNaoFornecido("destino");

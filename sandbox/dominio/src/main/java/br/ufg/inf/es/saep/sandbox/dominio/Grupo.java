@@ -60,7 +60,7 @@ public class Grupo extends Classe {
      *
      * @return Conjunto de componentes.
      */
-    public Set<String> getComponentes() {
+    public final Set<String> getComponentes() {
         return componentes;
     }
 }

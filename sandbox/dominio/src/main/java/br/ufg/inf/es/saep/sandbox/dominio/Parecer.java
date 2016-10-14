@@ -64,30 +64,30 @@ public class Parecer extends Entidade {
      *
      * @param id O identificador único do parecer.
      *
-     * @param resolucaoId O identificador da resolução na qual
+     * @param configuracaoId O identificador da resolução na qual
      *                    o parecer se baseia.
      *
      * @param radocsIds A lista de identificadores de RADOCs
      *                  empregados pelo parecer.
      *
-     * @param pontuacoes O conjunto de todas as pontuações obtidas
+     * @param pontuacao O conjunto de todas as pontuações obtidas
      *                   pelo parecer.
      *
-     * @param fundamentacao Texto que fundamenta o parecer.
+     * @param justificativa Texto que fundamenta o parecer.
      *
-     * @param observacoes Notas que alteram valores de pontuações e/ou
+     * @param obs Observações que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
     public Parecer(String id,
-                   String resolucaoId,
+                   String configuracaoId,
                    List<String> radocsIds,
-                   List<Pontuacao> pontuacoes,
-                   String fundamentacao,
-                   List<Observacao> observacoes) {
+                   List<Pontuacao> pontuacao,
+                   String justificativa,
+                   List<Observacao> obs) {
 
         super(id);
 
-        if (resolucaoId == null || resolucaoId.isEmpty()) {
+        if (configuracaoId == null || configuracaoId.isEmpty()) {
             throw new CampoExigidoNaoFornecido("resolucaoId");
         }
 
@@ -95,15 +95,15 @@ public class Parecer extends Entidade {
             throw new CampoExigidoNaoFornecido("radocsIds");
         }
 
-        if (pontuacoes == null || pontuacoes.size() == 0) {
+        if (pontuacao == null || pontuacao.size() == 0) {
             throw new CampoExigidoNaoFornecido("radocsIds");
         }
 
-        this.configuracao = resolucaoId;
+        this.configuracao = configuracaoId;
         this.relatorios = radocsIds;
-        this.pontuacoes = pontuacoes;
-        this.fundamentacao = fundamentacao;
-        this.observacoes = observacoes;
+        this.pontuacoes = pontuacao;
+        this.fundamentacao = justificativa;
+        this.observacoes = obs;
     }
 
     /**
@@ -145,7 +145,7 @@ public class Parecer extends Entidade {
      *
      * @return O identificador da resolução utilizada pelo parecer.
      */
-    public String getResolucaoId() {
+    public final String getResolucaoId() {
         return configuracao;
     }
 
@@ -155,7 +155,7 @@ public class Parecer extends Entidade {
      *
      * @return Identificadores de RADOCs.
      */
-    public List<String> getRadocsIds() {
+    public final List<String> getRadocsIds() {
         return relatorios;
     }
 
@@ -165,7 +165,7 @@ public class Parecer extends Entidade {
      *
      * @return Pontuações obtidas pelo parecer.
      */
-    public List<Pontuacao> getPontuacoes() {
+    public final List<Pontuacao> getPontuacoes() {
         return pontuacoes;
     }
 
@@ -174,7 +174,7 @@ public class Parecer extends Entidade {
      *
      * @return Texto de fundamentação do parecer.
      */
-    public String getFundamentacao() {
+    public final String getFundamentacao() {
         return fundamentacao;
     }
 
@@ -183,7 +183,7 @@ public class Parecer extends Entidade {
      *
      * @return Notas utilizadas pelo parecer.
      */
-    public List<Observacao> getObservacoes() {
+    public final List<Observacao> getObservacoes() {
         return observacoes;
     }
 }
