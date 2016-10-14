@@ -25,19 +25,19 @@ public class ParecerTest {
     @Test
     public void situacoesExcepcionaisDeConstrucao() {
 
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer(null, "rid",  radocs, pontuacoes, null, null));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("", "rid",  radocs, pontuacoes, null, null));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", null,  radocs, pontuacoes, null, null));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "",  radocs, pontuacoes, null, null));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", null, pontuacoes, null, null));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", new ArrayList<>(0), pontuacoes, null, null));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", radocs, null, null, null));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Parecer("1", "r", radocs, new ArrayList<>(0), null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem(null, "rid",  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem("", "rid",  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem("1", null,  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem("1", "",  radocs, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem("1", "r", null, pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem("1", "r", new ArrayList<>(0), pontuacoes, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem("1", "r", radocs, null, null, null));
+        assertThrows(CampoExigidoNaoFornecido.class, () -> new Contagem("1", "r", radocs, new ArrayList<>(0), null, null));
     }
 
     @Test
     public void parecerRecuperadoConformeCriado() {
-        Parecer p = new Parecer("1", "r", radocs, pontuacoes, null, null);
+        Contagem p = new Contagem("1", "r", radocs, pontuacoes, null, null);
 
         assertEquals("1", p.getId());
         assertEquals("r", p.getResolucaoId());
@@ -49,14 +49,14 @@ public class ParecerTest {
 
     @Test
     public void construtorGeraId() {
-        Parecer p = new Parecer("r", radocs, pontuacoes, null, null);
+        Contagem p = new Contagem("r", radocs, pontuacoes, null, null);
         assertNotNull(p.getId());
     }
 
     @Test
     public void pareceresIguais() {
-        Parecer p1 = new Parecer("1", "a", radocs, pontuacoes, "f", null);
-        Parecer p2 = new Parecer("1", "b", radocs, pontuacoes, "o", null);
+        Contagem p1 = new Contagem("1", "a", radocs, pontuacoes, "f", null);
+        Contagem p2 = new Contagem("1", "b", radocs, pontuacoes, "o", null);
 
         assertEquals(p1, p1);
         assertEquals(p1, p2);
@@ -65,8 +65,8 @@ public class ParecerTest {
 
     @Test
     public void pareceresDistintos() {
-        Parecer p1 = new Parecer("1", "a", radocs, pontuacoes, "f", null);
-        Parecer p2 = new Parecer("2", "a", radocs, pontuacoes, "f", null);
+        Contagem p1 = new Contagem("1", "a", radocs, pontuacoes, "f", null);
+        Contagem p2 = new Contagem("2", "a", radocs, pontuacoes, "f", null);
 
         assertNotEquals(p1, p2);
         assertFalse(p1.equals("banana"));

@@ -21,7 +21,7 @@ import java.util.List;
  * de um parecer.
  *
  * @see Relato
- * @see Parecer
+ * @see Contagem
  *
  */
 public class Relatorio extends Entidade {

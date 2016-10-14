@@ -18,7 +18,7 @@ import java.util.UUID;
  * @see br.ufg.inf.es.saep.sandbox.dominio.regra.Configuracao
  * @see Relatorio
  */
-public class Parecer extends Entidade {
+public class Contagem extends Entidade {
 
     /**
      * Identificação da configuração empregada
@@ -78,12 +78,12 @@ public class Parecer extends Entidade {
      * @param obs Observações que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
-    public Parecer(final String id,
-                   final String configuracaoId,
-                   final List<String> radocsIds,
-                   final List<Pontuacao> pontuacao,
-                   final String justificativa,
-                   final List<Observacao> obs) {
+    public Contagem(final String id,
+                    final String configuracaoId,
+                    final List<String> radocsIds,
+                    final List<Pontuacao> pontuacao,
+                    final String justificativa,
+                    final List<Observacao> obs) {
 
         super(id);
 
@@ -127,11 +127,11 @@ public class Parecer extends Entidade {
      * @param obs Notas que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
-    public Parecer(final String resolucaoId,
-                   final List<String> radocsIds,
-                   final List<Pontuacao> pontuacao,
-                   final String justificativa,
-                   final List<Observacao> obs) {
+    public Contagem(final String resolucaoId,
+                    final List<String> radocsIds,
+                    final List<Pontuacao> pontuacao,
+                    final String justificativa,
+                    final List<Observacao> obs) {
         this(UUID.randomUUID().toString(),
                 resolucaoId,
                 radocsIds,

@@ -8,7 +8,7 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
 /**
- * Mantém valor (pontuação) associado a uma
+ * Mantém valor (pontos) associado a uma
  * variável.
  *
  * <p>Regras estabelecem a forma como valores
@@ -55,15 +55,15 @@ public class Pontuacao implements Avaliavel {
      * Recupera o valor da pontuação se o identificador fornecido
      * coincide com aquele da pontuação.
      *
-     * @param atributo O identificador único do atributo.
+     * @param nome O identificador único do atributo.
      *
      * @return O valor da pontuação ou {@code null} caso o
      *      identificador fornecido seja diferente daquele
      *      da pontuação.
      */
-    public final Valor get(String atributo) {
+    public final Valor get(final String nome) {
 
-        if (this.atributo.equals(atributo)) {
+        if (atributo.equals(nome)) {
             return valor;
         }
 

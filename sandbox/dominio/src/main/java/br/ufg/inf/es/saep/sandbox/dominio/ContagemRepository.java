@@ -14,21 +14,22 @@ package br.ufg.inf.es.saep.sandbox.dominio;
  * de Avaliação Docente (CAD) ou automaticamente pelo
  * SAEP.
  *
- * @see Parecer
+ * @see Contagem
  * @see Relatorio
  */
-public interface ParecerRepository {
+public interface ContagemRepository {
 
     /**
      * Acrescenta o parecer ao repositório.
      *
      * @param parecer O parecer a ser persistido.
      *
-     * @throws br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
+     * @throws
+     *  br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
      *      Caso o identificador seja empregado por parecer
      *      existente (já persistido).
      */
-    void persisteParecer(Parecer parecer);
+    void persisteParecer(Contagem parecer);
 
     /**
      * Remove o parecer.
@@ -49,7 +50,7 @@ public interface ParecerRepository {
      * @return O parecer recuperado ou o valor {@code null},
      *      caso o identificador não defina um parecer.
      */
-    Parecer parecerById(String id);
+    Contagem parecerById(String id);
 
     /**
      * Conjunto de relatos de atividades e produtos
@@ -65,7 +66,8 @@ public interface ParecerRepository {
      *
      * @return O identificador único do RADOC.
      *
-     * @throws br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
+     * @throws
+     *  br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
      *      Caso o identificador
      *      do objeto a ser persistido seja empregado por
      *      RADOC existente.

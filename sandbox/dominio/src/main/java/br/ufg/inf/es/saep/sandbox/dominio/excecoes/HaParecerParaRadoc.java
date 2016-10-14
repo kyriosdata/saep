@@ -7,7 +7,7 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
 
 /**
  * Indica tentativa de remover um RADOC para o qual há pelo
- * menos um Parecer que o referencia. Ou seja, a tentativa
+ * menos um Contagem que o referencia. Ou seja, a tentativa
  * deve falhar com essa exceção.
  */
 public class HaParecerParaRadoc extends RuntimeException {
