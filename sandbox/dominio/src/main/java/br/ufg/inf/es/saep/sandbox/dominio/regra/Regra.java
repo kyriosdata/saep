@@ -111,10 +111,10 @@ public abstract class Regra {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public Regra(String variavel,
-                 String descricao,
-                 float valorMaximo,
-                 float valorMinimo) {
+    public Regra(final String variavel,
+                 final String descricao,
+                 final float valorMaximo,
+                 final float valorMinimo) {
 
         if (variavel == null || variavel.isEmpty()) {
             throw new CampoExigidoNaoFornecido("variavel");
@@ -198,12 +198,12 @@ public abstract class Regra {
      *                     variáveis dos quais a presente
      *                     regra depende.
      */
-    public void setDependeDe(List<String> dependencias) {
+    public void setDependeDe(final List<String> dependencias) {
         dependeDe = dependencias;
     }
 
     @Override
-    public boolean equals(Object outro) {
+    public boolean equals(final Object outro) {
         if (this == outro) {
             return true;
         }
@@ -238,7 +238,7 @@ public abstract class Regra {
      * estabelecidos pela regra ou o valor resultante da
      * aplicação dos limites da regra.
      */
-    public float ajustaLimites(float valor) {
+    public float ajustaLimites(final float valor) {
         if (valor < getValorMinimo()) {
             return getValorMinimo();
         }
@@ -261,7 +261,7 @@ public abstract class Regra {
      * @param parser O serviço de análise sintática
      *               a ser utilizado.
      */
-    public void preparacao(Parser parser) {
+    public void preparacao(final Parser parser) {
     }
 
     /**

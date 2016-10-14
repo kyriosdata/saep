@@ -55,7 +55,12 @@ public class RegraPontosPorRelato extends Regra {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraPontosPorRelato(String variavel, String descricao, float valorMaximo, float valorMinimo, String tipoRelato, float pontosPorItem) {
+    public RegraPontosPorRelato(final String variavel,
+                                final String descricao,
+                                final float valorMaximo,
+                                final float valorMinimo,
+                                final String tipoRelato,
+                                final float pontosPorItem) {
         super(variavel, descricao, valorMaximo, valorMinimo);
         if (tipoRelato == null || tipoRelato.isEmpty()) {
             throw new CampoExigidoNaoFornecido("tipoRelato");
@@ -85,7 +90,8 @@ public class RegraPontosPorRelato extends Regra {
     }
 
     @Override
-    public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
+    public Valor avalie(final List<Avaliavel> avaliaveis,
+                        final Map<String, Valor> contexto) {
         int total = 0;
         for (Avaliavel avaliavel : avaliaveis) {
             if (tipoRelato.equals(avaliavel.get("classe").getString())) {

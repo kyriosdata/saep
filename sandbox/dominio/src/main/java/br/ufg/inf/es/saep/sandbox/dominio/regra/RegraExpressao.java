@@ -63,7 +63,9 @@ public class RegraExpressao extends Regra {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraExpressao(String variavel, String descricao, float valorMaximo, float valorMinimo, String expressao) {
+    public RegraExpressao(final String variavel, final String descricao,
+                          final float valorMaximo, final float valorMinimo,
+                          final String expressao) {
         super(variavel, descricao, valorMaximo, valorMinimo);
         if (expressao == null || expressao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("expressao");
@@ -73,7 +75,7 @@ public class RegraExpressao extends Regra {
     }
 
     @Override
-    public void preparacao(Parser parser) {
+    public void preparacao(final Parser parser) {
         if (parser == null) {
             throw new CampoExigidoNaoFornecido("parser");
         }
@@ -120,7 +122,7 @@ public class RegraExpressao extends Regra {
      * @param contexto Contexto contendo valores para variáveis empregadas
      *                 na avaliação da expressão.
      */
-    protected void atualizaContexto(Map<String, Valor> contexto) {
+    protected void atualizaContexto(final Map<String, Valor> contexto) {
         for(String dd : ctx.keySet()) {
             float valor = 0f;
             if (contexto.containsKey(dd)) {

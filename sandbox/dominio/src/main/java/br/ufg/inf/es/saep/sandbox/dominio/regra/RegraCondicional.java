@@ -64,7 +64,10 @@ public class RegraCondicional extends RegraExpressao {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraCondicional(String variavel, String descricao, float valorMaximo, float valorMinimo, String condicao, String entao, String senao) {
+    public RegraCondicional(final String variavel, final String descricao,
+                            final float valorMaximo, final float valorMinimo,
+                            final String condicao, final String entao,
+                            final String senao) {
         super(variavel, descricao, valorMaximo, valorMinimo, condicao);
 
         if (entao == null || entao.isEmpty()) {
@@ -113,7 +116,8 @@ public class RegraCondicional extends RegraExpressao {
     }
 
     @Override
-    public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
+    public Valor avalie(final List<Avaliavel> avaliaveis,
+                        final Map<String, Valor> contexto) {
         atualizaContexto(contexto);
 
         float resultado = ast.valor(ctx) > 0.0001f
