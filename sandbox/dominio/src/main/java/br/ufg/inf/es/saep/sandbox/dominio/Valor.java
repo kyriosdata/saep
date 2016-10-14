@@ -35,7 +35,7 @@ public class Valor {
      * Formato de data empregado quando fornecida em
      * uma sequência de caracteres.
      */
-    public static final DateTimeFormatter formatoData =
+    public static final DateTimeFormatter FORMATO_DATA =
             DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     /**
@@ -69,7 +69,7 @@ public class Valor {
      * @param valor Sequência de caracteres
      *              do valor.
      */
-    public Valor(String valor) {
+    public Valor(final String valor) {
         this.string = valor;
     }
 
@@ -80,7 +80,7 @@ public class Valor {
      * @param valor Número real correspondente
      *              ao valor.
      */
-    public Valor(float valor) {
+    public Valor(final float valor) {
         real = valor;
     }
 
@@ -91,7 +91,7 @@ public class Valor {
      * @param valor Valor lógico a ser
      *              retido pela instância.
      */
-    public Valor(boolean valor) {
+    public Valor(final boolean valor) {
         logico = valor;
     }
 
@@ -99,9 +99,11 @@ public class Valor {
      * Cria uma instância cujo valor é uma data
      * no formato (dd/MM/aaaa).
      *
-     * @param data Data a ser associada ao valor.
+     * @param umaData Data a ser associada ao valor.
      */
-    public Valor(LocalDate data) { this.data = data; }
+    public Valor(final LocalDate umaData) {
+        this.data = umaData;
+    }
 
     /**
      * Recupera a sequência de caracteres
@@ -110,7 +112,7 @@ public class Valor {
      * @return Sequência de caracteres da
      *      instância.
      */
-    public String getString() {
+    public final String getString() {
         return string;
     }
 
@@ -122,7 +124,7 @@ public class Valor {
      *      {@code false} correspondente à
      *      instância.
      */
-    public boolean getBoolean() {
+    public final boolean getBoolean() {
         return logico;
     }
 
@@ -133,7 +135,7 @@ public class Valor {
      * @return O valor numérico correspondente
      *      à instância.
      */
-    public float getReal() {
+    public final float getReal() {
         return real;
     }
 
@@ -143,7 +145,7 @@ public class Valor {
      *
      * @return A data armazenada na instância.
      */
-    public LocalDate getData() { return data; }
+    public final LocalDate getData() { return data; }
 
     /**
      * Cria uma instância cujo valor armazenado é
@@ -156,11 +158,11 @@ public class Valor {
      * @return Instância correspondente à data fornecida
      * como sequência de caracteres.
      */
-    public static Valor dataFromString(String data) {
+    public static Valor dataFromString(final String data) {
         LocalDate parsedDate;
 
         try {
-            parsedDate = LocalDate.parse(data, formatoData);
+            parsedDate = LocalDate.parse(data, FORMATO_DATA);
         } catch (DateTimeParseException exp) {
             return null;
         }
