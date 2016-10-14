@@ -16,7 +16,7 @@ public class ExperimentaExceptionsTest {
         assertThrows(TipoDeAtributoInvalido.class, () -> { throw new TipoDeAtributoInvalido("x"); });
         assertThrows(IdentificadorDesconhecido.class, () -> { throw new IdentificadorDesconhecido("x"); });
         assertThrows(ResolucaoUsaTipoException.class, () -> { throw new ResolucaoUsaTipoException("x"); });
-        assertThrows(ExisteParecerReferenciandoRadoc.class, () -> { throw new ExisteParecerReferenciandoRadoc("x"); });
+        assertThrows(HaParecerParaRadoc.class, () -> { throw new HaParecerParaRadoc("x"); });
         assertThrows(FalhaAoAvaliarRegra.class, () -> { throw new FalhaAoAvaliarRegra("x"); });
     }
 }

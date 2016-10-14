@@ -5,9 +5,6 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.ExisteParecerReferenciandoRadoc;
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente;
-
 /**
  * Oferece noção de coleções de pareceres em memória.
  *
@@ -27,7 +24,8 @@ public interface ParecerRepository {
      *
      * @param parecer O parecer a ser persistido.
      *
-     * @throws IdentificadorExistente Caso o
+     * @throws br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
+     *      Caso o
      *      identificador seja empregado por parecer
      *      existente (já persistido).
      */
@@ -68,7 +66,8 @@ public interface ParecerRepository {
      *
      * @return O identificador único do RADOC.
      *
-     * @throws IdentificadorExistente Caso o identificador
+     * @throws br.ufg.inf.es.saep.sandbox.dominio.excecoes.IdentificadorExistente
+     *      Caso o identificador
      *      do objeto a ser persistido seja empregado por
      *      RADOC existente.
      *
@@ -87,7 +86,7 @@ public interface ParecerRepository {
      *
      * @param identificador O identificador do RADOC.
      *
-     * @throws ExisteParecerReferenciandoRadoc Caso exista pelo
+     * @throws HaParecerParaRadoc Caso exista pelo
      *      menos um parecer que faz referência para o RADOC cuja
      *      remoção foi requisitada.
      */

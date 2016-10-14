@@ -10,9 +10,9 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
  * menos um Parecer que o referencia. Ou seja, a tentativa
  * deve falhar com essa exceção.
  */
-public class ExisteParecerReferenciandoRadoc extends RuntimeException {
+public class HaParecerParaRadoc extends RuntimeException {
 
-    public ExisteParecerReferenciandoRadoc(String mensagem) {
+    public HaParecerParaRadoc(String mensagem) {
         super(mensagem);
     }
 }

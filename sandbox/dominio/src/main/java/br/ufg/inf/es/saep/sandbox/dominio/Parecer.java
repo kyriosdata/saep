@@ -119,25 +119,25 @@ public class Parecer extends Entidade {
      * @param radocsIds A lista de identificadores de RADOCs
      *                  empregados pelo parecer.
      *
-     * @param pontuacoes O conjunto de todas as pontuações obtidas
+     * @param pontuacao O conjunto de todas as pontuações obtidas
      *                   pelo parecer.
      *
-     * @param fundamentacao Texto que fundamenta o parecer.
+     * @param justificativa Texto que fundamenta o parecer.
      *
-     * @param observacoes Notas que alteram valores de pontuações e/ou
+     * @param obs Notas que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
     public Parecer(final String resolucaoId,
                    final List<String> radocsIds,
-                   final List<Pontuacao> pontuacoes,
-                   final String fundamentacao,
-                   final List<Observacao> observacoes) {
+                   final List<Pontuacao> pontuacao,
+                   final String justificativa,
+                   final List<Observacao> obs) {
         this(UUID.randomUUID().toString(),
                 resolucaoId,
                 radocsIds,
-                pontuacoes,
-                fundamentacao,
-                observacoes);
+                pontuacao,
+                justificativa,
+                obs);
     }
 
     /**
