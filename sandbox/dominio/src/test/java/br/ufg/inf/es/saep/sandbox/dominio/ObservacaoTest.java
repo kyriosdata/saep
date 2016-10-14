@@ -6,9 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ObservacaoTest {
 
@@ -26,9 +24,9 @@ public class ObservacaoTest {
     }
 
     @Test
-    public void origemNullGeraExcecao() {
+    public void origemSignificaInsercao() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Observacao(null, o, "simples erro"));
+        assertTrue(new Observacao(null, o, "simples erro").isInsercao());
     }
 
     @Test

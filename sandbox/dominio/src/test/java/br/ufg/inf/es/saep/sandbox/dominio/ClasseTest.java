@@ -114,7 +114,7 @@ public class ClasseTest {
 
         Grupo ensino = new Grupo("ensino", "ensino", "ensino graduação", atribs, tipos);
 
-        assertEquals(2, ensino.getTipos().size());
+        assertEquals(2, ensino.getComponentes().size());
     }
 
     @Test

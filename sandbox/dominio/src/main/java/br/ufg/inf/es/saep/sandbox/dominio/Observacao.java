@@ -22,8 +22,23 @@ import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
  *
  */
 public class Observacao {
+
+    /**
+     * Avaliável de referência que será "substituído".
+     * Se o valor é {@code null}, então significa que
+     * a observação é uma inserção (acréscimo) de avaliável.
+     */
     private Avaliavel original;
+
+    /**
+     * Avaliável que "substitui" o avaliável de
+     * rereferência.
+     */
     private Avaliavel novo;
+
+    /**
+     * Justificativa para a "alteração".
+     */
     private String justificativa;
 
     /**
@@ -33,7 +48,7 @@ public class Observacao {
      *
      * @param destino O avaliável que é "substitui" a origem.
      *
-     * @param justificativa A justificativa da "substituição".
+     * @param motivo A justificativa da "substituição".
      *
      * @throws CampoExigidoNaoFornecido Caso qualquer um dos argumentos
      *      seja {@code null}.
@@ -41,26 +56,30 @@ public class Observacao {
      * @throws AvaliaveisIncompativeis Caso os avaliáveis fornecidos
      *      não sejam do mesmo tipo.
      */
-    public Observacao(Avaliavel origem, Avaliavel destino, String justificativa) {
-        if (origem == null) {
-            throw new CampoExigidoNaoFornecido("origem");
-        }
+    public Observacao(Avaliavel origem, Avaliavel destino, String motivo) {
 
         if (destino == null) {
             throw new CampoExigidoNaoFornecido("destino");
         }
 
-        if (justificativa == null) {
+        if (motivo == null) {
             throw new CampoExigidoNaoFornecido("justificativa");
+        }
+
+        original = origem;
+        novo = destino;
+        justificativa = motivo;
+
+        // Se é inserção não há necessidade de compatibilidade
+        // entre original e novo.
+
+        if (isInsercao()) {
+            return;
         }
 
         if (!origem.getClass().equals(destino.getClass())) {
             throw new AvaliaveisIncompativeis("tipos distintos");
         }
-
-        this.original = origem;
-        this.novo = destino;
-        this.justificativa = justificativa;
     }
 
     /**
@@ -68,7 +87,7 @@ public class Observacao {
      *
      * @return O item para o qual a nota existe.
      */
-    public Avaliavel getItemOriginal() {
+    public final Avaliavel getItemOriginal() {
         return original;
     }
 
@@ -78,7 +97,7 @@ public class Observacao {
      *
      * @return O item que "substitui" o item original.
      */
-    public Avaliavel getItemNovo() {
+    public final Avaliavel getItemNovo() {
         return novo;
     }
 
@@ -87,7 +106,19 @@ public class Observacao {
      *
      * @return A justificativa da nota.
      */
-    public String getJustificativa() {
+    public final String getJustificativa() {
         return justificativa;
+    }
+
+    /**
+     * Verifica se a observação representa o acréscimo,
+     * inserção de um relato.
+     *
+     * @return {@code true} se a observação representa
+     * um acréscimo e {@code false}, caso o relato represente
+     * uma "substituição" de relato existente.
+     */
+    public final boolean isInsercao() {
+        return original == null;
     }
 }
