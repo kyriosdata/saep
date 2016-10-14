@@ -19,7 +19,7 @@ public class CampoExigidoNaoFornecido extends RuntimeException {
      * @param campo Nome do campo cujo valor não está
      *              disponível ou é incorreto.
      */
-    public CampoExigidoNaoFornecido(String campo) {
+    public CampoExigidoNaoFornecido(final String campo) {
         super(campo);
     }
 }

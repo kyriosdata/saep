@@ -11,7 +11,13 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
  */
 public class FalhaAoAvaliarRegra extends RuntimeException {
 
-    public FalhaAoAvaliarRegra(String mensagem) {
+    /**
+     * Cria objeto que representa falha ocorrida durante
+     * avaliação de regra.
+     *
+     * @param mensagem Mensagem que detalha a exceção.
+     */
+    public FalhaAoAvaliarRegra(final String mensagem) {
         super(mensagem);
     }
 }

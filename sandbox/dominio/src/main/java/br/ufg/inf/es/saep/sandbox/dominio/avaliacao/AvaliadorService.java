@@ -30,6 +30,10 @@ import java.util.Map;
  */
 public class AvaliadorService {
 
+    /**
+     * Observações a serem consideradas durante a
+     * avaliação.
+     */
     private List<Observacao> observacoes;
 
     /**
@@ -37,6 +41,11 @@ public class AvaliadorService {
      */
     private final AvaliaRegraService regraService;
 
+    /**
+     * Cria instância do serviço de avaliador.
+     *
+     * @param regraService Serviço de regra a ser utilizado.
+     */
     public AvaliadorService(AvaliaRegraService regraService) {
         this.regraService = regraService;
     }
@@ -44,30 +53,26 @@ public class AvaliadorService {
     /**
      * Realiza avaliação dos itens fornecidos.
      *
-     * @param regras Sequência de regras a serem avaliadas. Possivelmente
-     *               a ordem em que são fornecidas não é a ordem esperada
-     *               ou correta de execução. Ou seja, dependências entre
-     *               as regras não necessariamente são contempladas nesse
-     *               parâmetro.
-     *
-     * @param relatos Conjunto de relatos sobre os quais a avaliação
-     *                das regras será executada.
-     *
+     * @param regras      Sequência de regras a serem avaliadas. Possivelmente
+     *                    a ordem em que são fornecidas não é a ordem esperada
+     *                    ou correta de execução. Ou seja, dependências entre
+     *                    as regras não necessariamente são contempladas nesse
+     *                    parâmetro.
+     * @param relatos     Conjunto de relatos sobre os quais a avaliação
+     *                    das regras será executada.
      * @param observacoes Conjunto de pontuações que fornecem valores
-     *                   "substitutos".
-     *
-     * @param parametros Conjunto de valores iniciais, possivelmente
-     *                 empregados para definição de constantes.
-     *
+     *                    "substitutos".
+     * @param parametros  Conjunto de valores iniciais, possivelmente
+     *                    empregados para definição de constantes.
      * @return Resultados produzidos pela avaliação. Cada regra dá origem
-     *      a um valor quando avaliada, o valor é associado ao nome da
-     *      variável da regra e retornado.
+     * a um valor quando avaliada, o valor é associado ao nome da
+     * variável da regra e retornado.
      */
     public Map<String, Valor> avalia(
-            List<Regra> regras,
-            List<Relato> relatos,
-            Map<String, Valor> observacoes,
-            Map<String, Valor> parametros) {
+            final List<Regra> regras,
+            final List<Relato> relatos,
+            final Map<String, Valor> observacoes,
+            final Map<String, Valor> parametros) {
 
         // Acumula valores produzidos pela avaliação.
         Map<String, Valor> resultados = new HashMap<>();
@@ -117,11 +122,11 @@ public class AvaliadorService {
      * Dado um conjunto de relatos, agrupa-os por tipo.
      *
      * @param relatos Conjunto de relatos.
-     *
      * @return Dicionário que reúne os relatos fornecidos pelos tipos
-     *      correspondentes.
+     * correspondentes.
      */
-    private Map<String, List<Avaliavel>> montaRelatosPorTipo(List<Relato> relatos) {
+    private Map<String, List<Avaliavel>> montaRelatosPorTipo(
+            final List<Relato> relatos) {
         Map<String, List<Avaliavel>> relatosPorTipo = new HashMap<>();
         for (Relato relato : relatos) {
             String tipo = relato.getClasse();
@@ -140,13 +145,13 @@ public class AvaliadorService {
 
     /**
      * Adiciona observação ao parecer.
-     *
+     * <p>
      * <p>Caso a observacao a ser acrescentada
      * se refira a um item {@link Avaliavel} para o qual já
      * exista uma observacao, então esse observacao existente é
      * substituída por aquela fornecida. Caso contrário, a
      * observacao é simplesmente acrescentada.
-     *
+     * <p>
      * <p>A adição de uma observacao possivelmente altera o
      * conjunto de pontuações do parecer, dado que o valor de
      * um relato é substituído por outro, ou até mesmo o valor
@@ -154,11 +159,10 @@ public class AvaliadorService {
      * de um parecer.
      *
      * @param observacao A observacao a ser acrescentada ao parecer.
-     *
      * @throws CampoExigidoNaoFornecido Caso a observacao
-     *      seja {@code null}.
+     *                                  seja {@code null}.
      */
-    public void adicionaObservacao(Observacao observacao) {
+    public void adicionaObservacao(final Observacao observacao) {
         if (observacao == null) {
             throw new CampoExigidoNaoFornecido("observacao");
         }
@@ -169,7 +173,7 @@ public class AvaliadorService {
             return;
         }
 
-        for(Observacao n : observacoes) {
+        for (Observacao n : observacoes) {
             Avaliavel original = n.getItemOriginal();
             Avaliavel novo = observacao.getItemOriginal();
             if (original.equals(novo)) {
