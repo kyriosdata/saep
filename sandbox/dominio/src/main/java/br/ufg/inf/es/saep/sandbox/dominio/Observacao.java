@@ -5,7 +5,7 @@
 
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.AvaliaveisDeTiposDistintos;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.AvaliaveisIncompativeis;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
 /**
@@ -38,7 +38,7 @@ public class Observacao {
      * @throws CampoExigidoNaoFornecido Caso qualquer um dos argumentos
      *      seja {@code null}.
      *
-     * @throws AvaliaveisDeTiposDistintos Caso os avaliáveis fornecidos
+     * @throws AvaliaveisIncompativeis Caso os avaliáveis fornecidos
      *      não sejam do mesmo tipo.
      */
     public Observacao(Avaliavel origem, Avaliavel destino, String justificativa) {
@@ -55,7 +55,7 @@ public class Observacao {
         }
 
         if (!origem.getClass().equals(destino.getClass())) {
-            throw new AvaliaveisDeTiposDistintos("tipos distintos");
+            throw new AvaliaveisIncompativeis("tipos distintos");
         }
 
         this.original = origem;

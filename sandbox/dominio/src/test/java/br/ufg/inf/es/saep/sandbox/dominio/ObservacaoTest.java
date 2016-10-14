@@ -1,6 +1,6 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
-import br.ufg.inf.es.saep.sandbox.dominio.excecoes.AvaliaveisDeTiposDistintos;
+import br.ufg.inf.es.saep.sandbox.dominio.excecoes.AvaliaveisIncompativeis;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import org.junit.jupiter.api.Test;
 
@@ -51,7 +51,7 @@ public class ObservacaoTest {
 
         Avaliavel d = new Relato("d", valores);
 
-        assertThrows(AvaliaveisDeTiposDistintos.class, () -> new Observacao(o, d, "tentativa deve falhar"));
+        assertThrows(AvaliaveisIncompativeis.class, () -> new Observacao(o, d, "tentativa deve falhar"));
     }
 }
 

@@ -8,11 +8,11 @@ package br.ufg.inf.es.saep.sandbox.dominio.excecoes;
 import br.ufg.inf.es.saep.sandbox.dominio.Observacao;
 
 /**
- * Indica que os itens avaliáveis em questão são de
- * tipos distintos e, portanto, não podem fazer parte
- * de uma nota.
+ * Indica que os avaliáveis estabelecidos em uma
+ * {@link Observacao} são de tipos distintos e,
+ * portanto, incompatíveis.
  */
-public class AvaliaveisDeTiposDistintos extends RuntimeException {
+public class AvaliaveisIncompativeis extends RuntimeException {
 
     /**
      * Cria instância de exceção gerada quando se tenta
@@ -23,7 +23,7 @@ public class AvaliaveisDeTiposDistintos extends RuntimeException {
      *              {@link Observacao} com avaliáveis de tipos
      *              distintos.
      */
-    public AvaliaveisDeTiposDistintos(String campo) {
+    public AvaliaveisIncompativeis(String campo) {
         super(campo);
     }
 }

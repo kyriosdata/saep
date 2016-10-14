@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * Encapsula uma expressão que produz um
- * valor {@code double} quando avaliada.
+ * valor {@code float} quando avaliada.
  *
  * <p>Essa interface trabalha em conjunto com a
  * interface {@link Parser} para isolar o
