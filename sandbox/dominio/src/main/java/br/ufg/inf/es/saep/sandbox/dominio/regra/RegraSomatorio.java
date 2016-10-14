@@ -54,14 +54,21 @@ public class RegraSomatorio extends RegraExpressao {
      * @throws CampoExigidoNaoFornecido Caso um campo obrigatório para a
      *                                  definição de uma regra não seja fornecido.
      */
-    public RegraSomatorio(String variavel, String descricao, float valorMaximo, float valorMinimo, String expressao, String classe) {
+    public RegraSomatorio(
+            final String variavel,
+            final String descricao,
+            final float valorMaximo,
+            final float valorMinimo,
+            final String expressao,
+            final String classe) {
         super(variavel, descricao, valorMaximo, valorMinimo, expressao);
 
         this.classe = classe;
     }
 
     @Override
-    public Valor avalie(List<Avaliavel> avaliaveis, Map<String, Valor> contexto) {
+    public Valor avalie(final List<Avaliavel> avaliaveis,
+                        final Map<String, Valor> contexto) {
         float somatorio = 0f;
 
         for (Avaliavel avaliavel : avaliaveis) {
@@ -99,7 +106,9 @@ public class RegraSomatorio extends RegraExpressao {
      * @return O valor da variável conforme definido no avaliável, no contexto ou o valor
      * zero, o que for encontrado primeiro, nessa ordem.
      */
-    private float prioridade(String variavel, Avaliavel avaliavel, Map<String, Valor> ctx) {
+    private float prioridade(final String variavel,
+                             final Avaliavel avaliavel,
+                             final Map<String, Valor> ctx) {
         Valor v = avaliavel.get(variavel);
         if (v != null) {
             return v.getReal();

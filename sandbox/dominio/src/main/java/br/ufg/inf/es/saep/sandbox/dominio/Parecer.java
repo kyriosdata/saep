@@ -78,12 +78,12 @@ public class Parecer extends Entidade {
      * @param obs Observações que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
-    public Parecer(String id,
-                   String configuracaoId,
-                   List<String> radocsIds,
-                   List<Pontuacao> pontuacao,
-                   String justificativa,
-                   List<Observacao> obs) {
+    public Parecer(final String id,
+                   final String configuracaoId,
+                   final List<String> radocsIds,
+                   final List<Pontuacao> pontuacao,
+                   final String justificativa,
+                   final List<Observacao> obs) {
 
         super(id);
 
@@ -127,11 +127,11 @@ public class Parecer extends Entidade {
      * @param observacoes Notas que alteram valores de pontuações e/ou
      *              relatos dos RADOCs empregados.
      */
-    public Parecer(String resolucaoId,
-                   List<String> radocsIds,
-                   List<Pontuacao> pontuacoes,
-                   String fundamentacao,
-                   List<Observacao> observacoes) {
+    public Parecer(final String resolucaoId,
+                   final List<String> radocsIds,
+                   final List<Pontuacao> pontuacoes,
+                   final String fundamentacao,
+                   final List<Observacao> observacoes) {
         this(UUID.randomUUID().toString(),
                 resolucaoId,
                 radocsIds,
