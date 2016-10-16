@@ -6,12 +6,14 @@
 package br.ufg.inf.es.saep.sandbox.dominio;
 
 /**
- * Serviço oferecido por objeto que pode
- * ser avaliado por uma regra.
+ * Representa qualquer item que pode ser
+ * avaliado por uma regra. Adicionalmente,
+ * um avaliável é um item que pode ser
+ * "modificado" por uma observação.
  *
- * <p>Um objeto que permite recuperar valores
- * de seus atributos por meio de um nome
- * (identificador), é um objeto avaliável.
+ * @see Observacao
+ * @see br.ufg.inf.es.saep.sandbox.dominio.regra.Regra
+ * @see Relato
  */
 public interface Avaliavel {
 
@@ -24,4 +26,11 @@ public interface Avaliavel {
      * @return O valor do atributo.
      */
     Valor get(String atributo);
+
+    /**
+     * Classe associada ao item avaliável.
+     *
+     * @return Identificador da classe do avaliável.
+     */
+    String getClasse();
 }

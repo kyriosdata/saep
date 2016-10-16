@@ -9,17 +9,13 @@ import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.TipoDeAtributoInvalido;
 
 /**
- * Um atributo permite identificar cada um
- * dos possíveis valores que podem ser empregados
- * na descrição de um relato.
- *
- * <p>Um atributo define um nome e um tipo que
- * define o conjunto de valores que uma
- * "variável" correspondente ao atritubo
- * pode assumir.
+ * Um atributo define um nome, uma descrição
+ * e um tipo para um dado valor de um relato.
  *
  * <p>Um relato é composto por um conjunto de
  * valores, cada um deles para um atributo.
+ *
+ * @see Relato
  */
 public class Atributo {
 

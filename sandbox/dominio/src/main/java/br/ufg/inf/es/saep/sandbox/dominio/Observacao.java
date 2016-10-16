@@ -53,15 +53,15 @@ public class Observacao {
      * @throws CampoExigidoNaoFornecido Caso qualquer um dos argumentos
      *      seja {@code null}.
      *
-     * @throws AvaliaveisIncompativeis Caso os avaliáveis fornecidos
+     * @throws  AvaliaveisIncompativeis os avaliáveis fornecidos
      *      não sejam do mesmo tipo.
      */
     public Observacao(final Avaliavel origem,
                       final Avaliavel destino,
                       final String motivo) {
 
-        if (destino == null) {
-            throw new CampoExigidoNaoFornecido("destino");
+        if (origem == null && destino == null) {
+            throw new CampoExigidoNaoFornecido("origem ou destino");
         }
 
         if (motivo == null) {
@@ -72,10 +72,10 @@ public class Observacao {
         novo = destino;
         justificativa = motivo;
 
-        // Se é inserção não há necessidade de compatibilidade
-        // entre original e novo.
+        // Se a observação inclui ou "ignora" um relato,
+        // então não existe compatibilidade.
 
-        if (isInsercao()) {
+        if (isInsercao() || isRemocao()) {
             return;
         }
 
@@ -122,5 +122,14 @@ public class Observacao {
      */
     public final boolean isInsercao() {
         return original == null;
+    }
+
+    /**
+     * Verifica se a observação "remove" um relato existente.
+     *
+     * @return {@code true} se a observação remove um relato.
+     */
+    public final boolean isRemocao() {
+        return novo == null;
     }
 }

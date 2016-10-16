@@ -88,4 +88,13 @@ public class Pontuacao implements Avaliavel {
     public final Valor getValor() {
         return valor;
     }
+
+    /**
+     * Classe de uma pontuação.
+     *
+     * @return O identificador da classe de toda pontuação.
+     */
+    public final String getClasse() {
+        return "pontuacao";
+    }
 }

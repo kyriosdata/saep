@@ -11,7 +11,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * A descrição de uma atividade ou produto.
+ * Um relato é um conjunto de atributos que contribuem
+ * com uma contagem de pontos definida por regras.
  *
  * <p>Cada relato está associado a uma classe específica,
  * identificada por {@link #classe}.
@@ -19,6 +20,8 @@ import java.util.Set;
  * <p>Um relato é um "value object". Ou seja, dois
  * relatos são iguais se todos os seus atributos
  * forem iguais.
+ *
+ * @see Atributo
  */
 public class Relato implements Avaliavel {
 
