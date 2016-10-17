@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Analisador Sintático Descendente Recursivo.
  * <p>
- * Numero ::= dígito (um ou mais)
  * Constante ::= '-' + Numero | Numero
  * Variavel ::= Letra (uma ou mais)
  * Expr ::= Constante | Variavel | ( Expr Operador Expr )
+ * Main ::= Expr [Operador Expr]
  *
  * <p>Observe que não contempla "Expr op Expr".
  */
