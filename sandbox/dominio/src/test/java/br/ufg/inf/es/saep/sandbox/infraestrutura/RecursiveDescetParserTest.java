@@ -16,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * Constante ::= '-' + Numero | Numero
  * Variavel ::= Letra (uma ou mais)
  * Expr ::= Constante | Variavel | ( Expr Operador Expr )
+ *
+ * <p>Observe que não contempla "Expr op Expr".
  */
 public class RecursiveDescetParserTest {
 
