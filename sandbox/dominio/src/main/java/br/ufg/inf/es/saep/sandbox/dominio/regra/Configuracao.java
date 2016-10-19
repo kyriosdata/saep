@@ -99,7 +99,7 @@ public class Configuracao extends Entidade {
             throw new CampoExigidoNaoFornecido("data");
         }
 
-        if (normas == null || normas.size() < 1) {
+        if (normas == null || normas.isEmpty()) {
             throw new CampoExigidoNaoFornecido("regras");
         }
 

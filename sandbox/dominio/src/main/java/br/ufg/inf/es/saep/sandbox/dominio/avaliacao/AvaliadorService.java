@@ -80,8 +80,8 @@ public class AvaliadorService {
         // Parâmetros fornecidos devem estar disponíveis na avaliação
         if (parametros != null) {
             // Valores iniciais devem estar disponíveis
-            for (String key : parametros.keySet()) {
-                resultados.put(key, parametros.get(key));
+            for (Map.Entry<String, Valor> entrada : parametros.entrySet()) {
+                resultados.put(entrada.getKey(), entrada.getValue());
             }
         }
 

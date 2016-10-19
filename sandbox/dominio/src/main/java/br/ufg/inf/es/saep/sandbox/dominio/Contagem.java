@@ -91,11 +91,11 @@ public class Contagem extends Entidade {
             throw new CampoExigidoNaoFornecido("resolucaoId");
         }
 
-        if (radocsIds == null || radocsIds.size() == 0) {
+        if (radocsIds == null || radocsIds.isEmpty()) {
             throw new CampoExigidoNaoFornecido("radocsIds");
         }
 
-        if (pontuacao == null || pontuacao.size() == 0) {
+        if (pontuacao == null || pontuacao.isEmpty()) {
             throw new CampoExigidoNaoFornecido("radocsIds");
         }
 

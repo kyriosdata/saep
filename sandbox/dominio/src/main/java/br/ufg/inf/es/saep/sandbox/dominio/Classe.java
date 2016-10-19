@@ -72,7 +72,7 @@ public class Classe extends Entidade {
             throw new CampoExigidoNaoFornecido("id");
         }
 
-        if (atributosClasse == null || atributosClasse.size() == 0) {
+        if (atributosClasse == null || atributosClasse.isEmpty()) {
             throw new CampoExigidoNaoFornecido("atributos");
         }
 

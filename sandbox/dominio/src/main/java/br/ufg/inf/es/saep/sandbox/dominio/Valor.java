@@ -166,7 +166,7 @@ public class Valor {
         try {
             parsedDate = LocalDate.parse(data, FORMATO_DATA);
         } catch (DateTimeParseException exp) {
-            return null;
+            parsedDate = LocalDate.now();
         }
 
         return new Valor(parsedDate);

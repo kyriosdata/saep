@@ -75,7 +75,7 @@ public class Observacao {
         // Se a observação inclui ou "ignora" um relato,
         // então não existe compatibilidade.
 
-        if (isInsercao() || isRemocao()) {
+        if (origem == null || destino == null) {
             return;
         }
 
