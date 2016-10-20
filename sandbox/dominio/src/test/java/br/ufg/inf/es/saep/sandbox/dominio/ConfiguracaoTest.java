@@ -29,20 +29,26 @@ public class ConfiguracaoTest {
     @Test
     public void situacoesExcepcionais() {
 
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao(null, "r", "d", new Date(), regras));
-
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("", "r", "d", new Date(), regras));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", null, new Date(), regras));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "", new Date(), regras));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "d", null, regras));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "d", new Date(), null));
+        assertThrows(CampoExigidoNaoFornecido.class,
+                () -> new Configuracao(null, "r", "d", new Date(), regras));
+        assertThrows(CampoExigidoNaoFornecido.class,
+                () -> new Configuracao("", "r", "d", new Date(), regras));
+        assertThrows(CampoExigidoNaoFornecido.class,
+                () -> new Configuracao("id", "d", null, new Date(), regras));
+        assertThrows(CampoExigidoNaoFornecido.class,
+                () -> new Configuracao("id", "d", "", new Date(), regras));
+        assertThrows(CampoExigidoNaoFornecido.class,
+                () -> new Configuracao("id", "d", "d", null, regras));
+        assertThrows(CampoExigidoNaoFornecido.class,
+                () -> new Configuracao("id", "d", "d", new Date(), null));
     }
 
     @Test
     public void regrasVaziaGeraExcecao() {
 
         List<Regra> vazias = new ArrayList<>(0);
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Configuracao("id", "d", "d", new Date(), vazias));
+        assertThrows(CampoExigidoNaoFornecido.class,
+                () -> new Configuracao("id", "d", "d", new Date(), vazias));
     }
 
     @Test
