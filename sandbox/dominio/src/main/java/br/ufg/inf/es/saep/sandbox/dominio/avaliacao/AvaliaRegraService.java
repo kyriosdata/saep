@@ -22,6 +22,7 @@ import java.util.Map;
  * produção de um relatório para uma avaliação.
  *
  */
+@FunctionalInterface
 public interface AvaliaRegraService {
 
     /**

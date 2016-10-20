@@ -38,25 +38,6 @@ public class Classe extends Entidade {
     private Set<Atributo> atributos;
 
     /**
-     * Recupera o nome pelo qual o tipo é conhecido.
-     *
-     * @return O nome do tipo.
-     */
-    public final String getNome() {
-        return nome;
-    }
-
-    /**
-     * Recupera a descrição do tipo.
-     *
-     * @return Descrição ou informação adicional
-     *      sobre o tipo.
-     */
-    public final String getDescricao() {
-        return descricao;
-    }
-
-    /**
      * Cria uma classe.
      * @param id Código único que identifica a classe.
      * @param nomeClasse O nome pelo qual a classe é conhecida.
@@ -79,6 +60,25 @@ public class Classe extends Entidade {
         this.nome = nomeClasse;
         this.descricao = descricaoClasse;
         this.atributos = atributosClasse;
+    }
+
+    /**
+     * Recupera o nome pelo qual o tipo é conhecido.
+     *
+     * @return O nome do tipo.
+     */
+    public final String getNome() {
+        return nome;
+    }
+
+    /**
+     * Recupera a descrição do tipo.
+     *
+     * @return Descrição ou informação adicional
+     *      sobre o tipo.
+     */
+    public final String getDescricao() {
+        return descricao;
     }
 
     /**

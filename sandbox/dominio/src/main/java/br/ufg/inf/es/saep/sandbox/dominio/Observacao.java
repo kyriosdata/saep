@@ -60,12 +60,12 @@ public class Observacao {
                       final Avaliavel destino,
                       final String motivo) {
 
-        if (origem == null && destino == null) {
-            throw new CampoExigidoNaoFornecido("origem ou destino");
-        }
-
         if (motivo == null) {
             throw new CampoExigidoNaoFornecido("justificativa");
+        }
+
+        if (origem == null && destino == null) {
+            throw new CampoExigidoNaoFornecido("origem ou destino");
         }
 
         original = origem;
@@ -75,11 +75,9 @@ public class Observacao {
         // Se a observação inclui ou "ignora" um relato,
         // então não existe compatibilidade.
 
-        if (origem == null || destino == null) {
-            return;
-        }
+        boolean isAlteracao = origem != null && destino != null;
 
-        if (!origem.getClass().equals(destino.getClass())) {
+        if (isAlteracao && !origem.getClass().equals(destino.getClass())) {
             throw new AvaliaveisIncompativeis("tipos distintos");
         }
     }

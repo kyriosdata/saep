@@ -61,6 +61,7 @@ public class Pontuacao implements Avaliavel {
      *      identificador fornecido seja diferente daquele
      *      da pontuação.
      */
+    @Override
     public final Valor get(final String nome) {
 
         if (atributo.equals(nome)) {
@@ -94,6 +95,7 @@ public class Pontuacao implements Avaliavel {
      *
      * @return O identificador da classe de toda pontuação.
      */
+    @Override
     public final String getClasse() {
         return "pontuacao";
     }
