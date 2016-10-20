@@ -64,6 +64,7 @@ public class Relato implements Avaliavel {
      * @return O valor do atributo ou {@code null},
      * caso o atributo não faça parte do relato.
      */
+    @Override
     public Valor get(String atributo) {
 
         return atributos.get(atributo);
@@ -85,6 +86,7 @@ public class Relato implements Avaliavel {
      *
      * @return O identificador único do classe do relato.
      */
+    @Override
     public String getClasse() {
         return classe;
     }
