@@ -2,8 +2,6 @@ package br.ufg.inf.es.saep.sandbox.dominio.regra;
 
 import br.ufg.inf.es.saep.sandbox.ExpressaoTeste;
 import br.ufg.inf.es.saep.sandbox.ParserTeste;
-import br.ufg.inf.es.saep.sandbox.dominio.Avaliavel;
-import br.ufg.inf.es.saep.sandbox.dominio.Relato;
 import br.ufg.inf.es.saep.sandbox.dominio.Valor;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 import org.junit.jupiter.api.Test;
@@ -95,11 +93,6 @@ public class RegraExpressaoTest {
         pt.setExpressao(et);
 
         r.preparacao(pt);
-
-        List<Avaliavel> relatos = new ArrayList<>(1);
-        Map<String, Valor> relato = new HashMap<>(1);
-        relato.put("atributo", new Valor("ok"));
-        relatos.add(new Relato("livro", relato));
 
         Map<String, Valor> ctx = new HashMap<>(0);
         assertEquals(6f, r.avalie(null, ctx).getReal(), 0.0001f);
