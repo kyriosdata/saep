@@ -105,9 +105,6 @@ public class ClasseTest {
         Set<Atributo> atribs = new HashSet<>(1);
         atribs.add(new Atributo("c", "n", Atributo.REAL));
 
-        Classe presencial = new Classe("presencial", "presencial", "presencial", atribs);
-        Classe ead = new Classe("ead", "ead", "ead", atribs);
-
         Set<String> tipos = new HashSet<>();
         tipos.add("presencial");
         tipos.add("ead");
