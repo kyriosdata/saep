@@ -99,4 +99,28 @@ public class Pontuacao implements Avaliavel {
     public final String getClasse() {
         return "pontuacao";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Pontuacao pontuacao = (Pontuacao) o;
+
+        if (!atributo.equals(pontuacao.atributo)) {
+            return false;
+        }
+
+        return valor.equals(pontuacao.valor);
+    }
+
+    @Override
+    public int hashCode() {
+        return atributo.hashCode() + valor.hashCode();
+    }
 }

@@ -194,4 +194,41 @@ public class Valor {
     public byte getTipo() {
         return tipo;
     }
+
+    @Override
+    public String toString() {
+        if (tipo == STRING) {
+            return string;
+        } else if (tipo == REAL) {
+            return Float.toString(real);
+        } else if (tipo == LOGICO) {
+            return Boolean.toString(logico);
+        }
+
+        return data.format(FORMATO_DATA);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Valor valor = (Valor) o;
+
+        if (tipo != valor.tipo) {
+            return false;
+        }
+
+        return toString().equals(valor.toString());
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
 }
