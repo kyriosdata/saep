@@ -31,12 +31,22 @@ import java.time.format.DateTimeParseException;
  */
 public class Valor {
 
+    public static final byte REAL = 0;
+    public static final byte LOGICO = 1;
+    public static final byte STRING = 2;
+    public static final byte DATA = 3;
+
     /**
      * Formato de data empregado quando fornecida em
      * uma sequência de caracteres.
      */
     public static final DateTimeFormatter FORMATO_DATA =
             DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    /**
+     * Identifica o tipo do valor armazenado.
+     */
+    private byte tipo;
 
     /**
      * Contêiner para o valor numérico
@@ -70,6 +80,7 @@ public class Valor {
      *              do valor.
      */
     public Valor(final String valor) {
+        tipo = STRING;
         this.string = valor;
     }
 
@@ -81,6 +92,7 @@ public class Valor {
      *              ao valor.
      */
     public Valor(final float valor) {
+        tipo = REAL;
         real = valor;
     }
 
@@ -92,6 +104,7 @@ public class Valor {
      *              retido pela instância.
      */
     public Valor(final boolean valor) {
+        tipo = LOGICO;
         logico = valor;
     }
 
@@ -102,6 +115,7 @@ public class Valor {
      * @param umaData Data a ser associada ao valor.
      */
     public Valor(final LocalDate umaData) {
+        tipo = DATA;
         this.data = umaData;
     }
 
@@ -170,5 +184,14 @@ public class Valor {
         }
 
         return new Valor(parsedDate);
+    }
+
+    /**
+     * Obtém o tipo do valor armazenado.
+     *
+     * @return Tipo do valor armazenado.
+     */
+    public byte getTipo() {
+        return tipo;
     }
 }

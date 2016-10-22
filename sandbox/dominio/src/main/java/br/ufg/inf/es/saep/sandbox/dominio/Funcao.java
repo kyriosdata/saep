@@ -8,7 +8,6 @@ package br.ufg.inf.es.saep.sandbox.dominio;
 import br.ufg.inf.es.saep.sandbox.dominio.excecoes.CampoExigidoNaoFornecido;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * Uma função é o meio para realizar algumas operações
@@ -45,13 +44,11 @@ public class Funcao {
     private List<String> argumentos;
 
     /**
-     * Sequência de parâmetros empregados pela função.
-     */
-    private List<String> atributos;
-
-    /**
-     * Cria uma classe.
-     * @param resultado Nome da variável que guardará o resultado.
+     * Cria uma função.
+     *
+     * @param resultado Nome da variável que guardará o resultado
+     *                  da avaliação da função.
+     *
      * @param identificador O identificador único da função.
      * @param parametros Lista de parâmetros empregados pela função.
      */
