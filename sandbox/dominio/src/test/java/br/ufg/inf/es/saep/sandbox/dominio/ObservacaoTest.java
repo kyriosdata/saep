@@ -30,9 +30,9 @@ public class ObservacaoTest {
     }
 
     @Test
-    public void destinoNullGeraExcecao() {
+    public void destinoPodeSerNull() {
         Avaliavel o = new Pontuacao("o", new Valor("o"));
-        assertThrows(CampoExigidoNaoFornecido.class, () -> new Observacao(o, null, "simples erro"));
+        new Observacao(o, null, "motivo");
     }
 
     @Test

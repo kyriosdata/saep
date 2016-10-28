@@ -74,7 +74,10 @@ public class RegraSomatorio extends RegraExpressao {
 
         for (Avaliavel avaliavel : avaliaveis) {
             // Considera apenas avaliáveis da classe em questão
-            if (!classe.equals(avaliavel.get("classe").getString())) {
+            Valor atributo = avaliavel.get("classe");
+            String classe = atributo == null ? null : atributo.getString();
+
+            if (!this.classe.equals(classe)) {
                 continue;
             }
 
