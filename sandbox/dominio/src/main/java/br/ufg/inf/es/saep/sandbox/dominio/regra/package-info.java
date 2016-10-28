@@ -23,13 +23,16 @@
  * <p>Uma regra produz como resultado, quando avaliada, um único valor.
  * Esse valor pode ser recuperado pelo identificador da variável da
  * regra. O valor pode ser associado à própria regra ou ao relato
- * avaliado. Se for associado à regra, então teremos um único valor
- * produzido pela avaliação da regra. Se for associado ao relato
- * avaliado, então teremos um valor para cada relato avaliado pela
- * regra. Nesse segundo caso, a regra funciona como uma funcionalidade
- * por meio da qual "novos" atributos podem ser acrescentados a um
- * relato pois, quando avaliada para qualquer que seja o relato, esse
- * passa a ter um atributo adicional, que é identificado pela variável
- * da regra em questão.
+ * avaliado.
+ *
+ * <p>Se for associado à regra, então teremos um único valor
+ * produzido pela avaliação da regra. Esse valor será acessível
+ * pelo identificador da regra.
+ *
+ * <p>Se for associado ao relato avaliado, então um valor é produzido
+ * para cada relato avaliado pela regra. Nesse caso, para recuperar
+ * tal valor é necessário o relato e o identificador da variável
+ * da regra. Observe que nesse caso a regra pode ser vista como
+ * um meio para acrescentar atributos a um relato.
  */
 package br.ufg.inf.es.saep.sandbox.dominio.regra;
