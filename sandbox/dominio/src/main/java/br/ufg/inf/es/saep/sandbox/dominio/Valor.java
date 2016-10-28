@@ -180,7 +180,7 @@ public class Valor {
         try {
             parsedDate = LocalDate.parse(data, FORMATO_DATA);
         } catch (DateTimeParseException exp) {
-            parsedDate = LocalDate.now();
+            return null;
         }
 
         return new Valor(parsedDate);
