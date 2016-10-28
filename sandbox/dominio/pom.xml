@@ -11,7 +11,7 @@
     <groupId>com.github.kyriosdata.saep</groupId>
     <artifactId>saep-dominio</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 
     <name>com.github.kyriosdata.saep:saep-dominio</name>
 
@@ -97,6 +97,12 @@
     </build>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.github.kyriosdata.parser</groupId>
+            <artifactId>parser</artifactId>
+            <version>1.0.1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
