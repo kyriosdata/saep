@@ -104,13 +104,15 @@ public class RegraSomatorio extends RegraExpressao {
      *
      * @param variavel Identificador da variável cujo valor é desejado.
      *
-     * @param avaliavel Objeto avaliável que pode ou não conter o valor para a variável.
+     * @param avaliavel Objeto avaliável que pode ou não conter o valor para
+     *                  a variável.
      *
-     * @param ctx   Contexto que definirá o valor da variável caso contenha a variável
-     *              em questão e essa não esteja presente no objeto avaliável.
+     * @param ctx   Contexto que definirá o valor da variável caso contenha
+     *              a variável em questão e essa não esteja presente no objeto
+     *              avaliável.
      *
-     * @return O valor da variável conforme definido no avaliável, no contexto ou o valor
-     * zero, o que for encontrado primeiro, nessa ordem.
+     * @return O valor da variável conforme definido no avaliável, no contexto
+     * ou o valor zero, o que for encontrado primeiro, nessa ordem.
      */
     private float prioridade(final String variavel,
                              final Avaliavel avaliavel,

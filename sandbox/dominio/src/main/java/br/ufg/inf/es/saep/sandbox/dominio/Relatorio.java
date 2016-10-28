@@ -11,14 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Conjunto de relatos e outras informações associadas a um docente.
- *
- * <p>Eventualmente um mesmo docente, em um dado ano, pode possuir
- * mais de um RADOC, decorrente, por exemplo, da correção de alguma
- * informação.
- *
- * <p>Convém destacar que um RADOC pode ser referenciado por mais
- * de um parecer.
+ * Conjunto de relatos sobre os quais uma contagem é realizada.
  *
  * @see Relato
  * @see Contagem

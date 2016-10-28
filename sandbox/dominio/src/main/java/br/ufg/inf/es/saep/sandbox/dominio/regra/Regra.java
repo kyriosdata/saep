@@ -17,6 +17,13 @@ import java.util.Map;
  * objetos avaliáveis. Um objeto é avaliável
  * se implementa a interface {@link Avaliavel}).
  *
+ * <p>Ao ser executada uma regra produz um valor
+ * que se torna disponível por meio da variável
+ * definida para a regra. Por exemplo, uma regra
+ * definida pela expressão "x + y", quando avaliada,
+ * resulta no valor dessa soma associada à variável
+ * definida para a regra.
+ *
  * <p>A avaliação de uma regra pode dependenter de
  * valores devidamente identificados em um contexto.
  * Quando a regra é avaliada, a "variável" correspondente
@@ -26,14 +33,9 @@ import java.util.Map;
  * <p>Uma regra só é avaliada após a avaliação das
  * regras das quais depende. A dependência entre
  * regras é estabelecida por meio de suas variáveis.
- * Por exemplo, uma regra que possui como "variável"
- * o identificador "x" deve ser avaliada antes de
+ * Por exemplo, uma regra que possui como variável
+ * o identificador "x" só deve ser avaliada antes de
  * qualquer regra que depende do identificador "x".
- *
- * <p>Em um caso comum, uma regra é estabelecida para
- * identificar quantos pontos são obtidos por relatos
- * de um dado tipo, por exemplo, quantos pontos por
- * livro publicado com corpo editorial.
  *
  * <p>Uma regra pode ser empregada para obter a média
  * de pontos obtidos com o ensino em determinado período.
