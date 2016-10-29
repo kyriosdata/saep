@@ -20,6 +20,19 @@
  * aos valores de atributos de avaliáveis. Ou seja, um avaliável serve
  * como insumo para a avaliação de uma regra.
  *
- * <p>Uma
+ * <p>Uma regra produz como resultado, quando avaliada, um único valor.
+ * Esse valor pode ser recuperado pelo identificador da variável da
+ * regra. O valor pode ser associado à própria regra ou ao relato
+ * avaliado.
+ *
+ * <p>Se for associado à regra, então teremos um único valor
+ * produzido pela avaliação da regra. Esse valor será acessível
+ * pelo identificador da regra.
+ *
+ * <p>Se for associado ao relato avaliado, então um valor é produzido
+ * para cada relato avaliado pela regra. Nesse caso, para recuperar
+ * tal valor é necessário o relato e o identificador da variável
+ * da regra. Observe que nesse caso a regra pode ser vista como
+ * um meio para acrescentar atributos a um relato.
  */
 package br.ufg.inf.es.saep.sandbox.dominio.regra;
