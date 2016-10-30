@@ -1,4 +1,10 @@
+addons:
+  sonarqube: true
+env:
+  global:
+  - secure: KGE65zQnz997VD6J60g6bHQlmnA8ojXzKNcxcL8LcGAADOxhSbHEgTfbbYK8Gxa6KJIahH3aIZgabMGtZ1I7LCVkmOkgU2DRRJTea6jkL2lZMphhIb1p6CQ9lCumlH2o1ue5LrB84cPygZFPLJ3fmXkMBz1C+Ekmy1j94fVNkuHlqP51TzAqD/A6SbASu6MgwbrPlSpClaaW/oiCtaf4++as9ms7Ofz9bBqjxyPJ1ZnvbsGifFpNp60S75A6xJzA82hFtUo2cAd2IXBvrkxJ7NH6/XiqehErjtreitALL8abTqnS1z9KRMUfgHoHhbRbGljv3PpyNetEGkrKBMAbLLsGyjXIhTbkIJVDD4PYg1qJli1brl6ZqceJrbIGm9xRNK8DrxyKan515j6sz6XYmhDz58s7TJlQgHLIwmaDHDKFwlM805J45aE0qCek8XBLK7jjzTxZ6QAj/zn7uI1qVsZCyrQYeph8gQZ+j5bVZQYbSewX9o05kicXdtP6t8lZzXTrtaATr86fSD0h9KBv/jSKWxllzjtbPsXxwL6DUJyWVN0YkyXXKYRkd+Lstf5Znjicimfp6Fh2oH5P6Vmz9CXLTi7KdQ5d6kp1+q52okVX1lYsTcnT2XOyF5c6ob6qvGyLpppWXSj4sSbhPzncCfxksTNIDZJV6eCMJ95wQa4=
 language: java
 jdk:
-  - oraclejdk8
-script: mvn -f sandbox/dominio/pom.xml clean package coveralls:report -P cobertura
+- oraclejdk8
+script: mvn clean package coveralls:report sonar:sonar -P cobertura -Dsonar.login=$SONAR_TOKEN
+
