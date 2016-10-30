@@ -9,15 +9,15 @@ Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar 
 [![Code Climate](https://codeclimate.com/github/kyriosdata/saep/badges/gpa.svg)](https://codeclimate.com/github/kyriosdata/saep)
 [![Javadocs](http://javadoc.io/badge/com.github.kyriosdata.saep/saep-dominio.svg)](http://javadoc.io/doc/com.github.kyriosdata.saep/saep-dominio)
 
-<!-- Erro intermitente: aparece/não aparece. [<img src="https://img.shields.io/badge/saep-preliminar-yellow.svg">](https://github.com/kyriosdata/saep) -->
-
 Documentos disponíveis:
 * [Termo de Abertura](https://docs.google.com/document/d/1go3eH-8W48G8C6Ryi3bPPN9ZQsbqHNzgrP3ocrnxL2A/edit#heading=h.oxnfirf2m4kr)
 * [Visão](https://docs.google.com/document/d/1ElwL9lT6KFeUVl4KvWKZOGROEtLa7Lb2h6L3fLITtyg/edit#heading=h.np717zaohglw) (conceitos de operação)
 * [API](http://docs.saep.apiary.io/) (API preliminar de acesso ao SAEP)
 * Arquitetura [preliminar](https://docs.google.com/document/d/1pHi74guX42sezCPkEQsQVLkYQOy0Q0Ryk7h1OlD1lyU/edit)
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Faça a atribuição de autoria à "Fábrica de Software - Instituto de Informática (UFG)".
+<br />
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. 
+<br />Fábio Nogueira de Lucena - Fábrica de Software - Instituto de Informática (UFG).
 
 ## Como usar?
 
