@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.kyriosdata</groupId>
+	<artifactId>saep-cli</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0.0</version>
+
+	<name>com.github.kyriosdata:saep</name>
+
+	<description>
+		Projeto de linha de comandos para o SAEP
+	</description>
+
+	<url>https://github.com/kyriosdata/saep</url>
+
+	<organization>
+		<name>Instituto de Informática (UFG) - Fábrica de Software</name>
+		<url>http://www.inf.ufg.br</url>
+	</organization>
+
+	<inceptionYear>2016</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>Creative Commons Attribution 4.0 International (CC BY 4.0)</name>
+			<comments>A atribuição deve conter, explicitamente, a seguinte linha:
+				Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
+			</comments>
+			<url>https://creativecommons.org/licenses/by/4.0/</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>kyriosdata</id>
+			<name>Fábio Nogueira de Lucena</name>
+			<email>fabio@inf.ufg.br</email>
+			<organization>Instituto de Informática (UFG)</organization>
+			<organizationUrl>http://www.inf.ufg.br</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/kyriosdata/saep.git</connection>
+		<developerConnection>scm:git:https://github.com/kyriosdata/saep.git</developerConnection>
+		<url>https://github.com/kyriosdata/saep</url>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jar.mainclass>com.github.kyriosdata.saep.Main</jar.mainclass>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.shell</groupId>
+			<artifactId>spring-shell</artifactId>
+			<version>1.2.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit-dep</artifactId>
+		  <version>4.10</version>
+		  <scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<useUniqueVersions>false</useUniqueVersions>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>${jar.mainclass}</mainClass>
+						</manifest>
+						<manifestEntries>
+							<version>${project.version}</version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+
+	  <repositories>
+	    <repository>
+	      <id>libs-milestone</id>
+	      <url>http://repo.spring.io/libs-milestone/</url>
+	    </repository>
+	    <repository>
+	      <id>libs-release</id>
+	      <url>http://repo.spring.io/libs-release/</url>
+	    </repository>
+	  </repositories>
+</project>
