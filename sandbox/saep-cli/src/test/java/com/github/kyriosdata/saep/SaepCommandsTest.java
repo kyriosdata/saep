@@ -22,5 +22,6 @@ public class SaepCommandsTest {
 		
 		CommandResult cr = shell.executeCommand("configuracao abcd.123-3.y");
 		assertTrue(cr.isSuccess());
+		assertTrue(cr.getResult().toString().contains("inexistente"));
 	}
 }
