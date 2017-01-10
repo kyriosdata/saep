@@ -10,7 +10,7 @@ import org.springframework.shell.Bootstrap;
 import org.springframework.shell.core.CommandResult;
 import org.springframework.shell.core.JLineShellComponent;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class SaepCommandsTest {
 
@@ -21,6 +21,6 @@ public class SaepCommandsTest {
 		JLineShellComponent shell = bootstrap.getJLineShellComponent();
 		
 		CommandResult cr = shell.executeCommand("configuracao abcd.123-3.y");
-		assertFalse(cr.isSuccess());
+		assertTrue(cr.isSuccess());
 	}
 }
