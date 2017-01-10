@@ -32,11 +32,11 @@ public class SaepCommandsTest {
 
 	@Test
     public void testaTable() {
-	    Map<String, String> tabela = new HashMap<String, String>();
+	    Map<String, String> tabela = new HashMap<>();
 	    tabela.put("João", "Goiânia");
         tabela.put("Pedro", "São Paulo");
 
-        String out = TableRenderer.renderSingleMap(tabela, "NOMES", "CIDADE");
-        System.out.println(out);
+        String out = TableRenderer.renderSingleMap(tabela, "VARIÁVEL", "VALOR");
+        //System.out.println(out);
     }
 }
