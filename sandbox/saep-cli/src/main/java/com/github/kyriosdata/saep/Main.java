@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
+ * Copyright (c) 2016 Fábio Nogueira de Lucena
+ * Fábrica de Software - Instituto de Informática (UFG)
  * Creative Commons Attribution 4.0 International License.
  */
 
@@ -12,12 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-/**
- * Driver class to run the helloworld example. 
- * 
- * @author Mark Pollack
- *
- */
 public class Main {
 
 	/**

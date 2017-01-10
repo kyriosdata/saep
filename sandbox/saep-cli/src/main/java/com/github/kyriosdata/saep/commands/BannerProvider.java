@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
+ * Copyright (c) 2016 Fábio Nogueira de Lucena
+ * Fábrica de Software - Instituto de Informática (UFG)
  * Creative Commons Attribution 4.0 International License.
  */
 
@@ -17,8 +18,10 @@ public class BannerProvider extends DefaultBannerProvider  {
 
 	public String getBanner() {
 		StringBuffer buf = new StringBuffer();
-		buf.append("SAEP (linha de comandos)" + OsUtils.LINE_SEPARATOR);
-		buf.append("Version:" + this.getVersion());
+		buf.append("   ------------------------");
+		buf.append("   SAEP (linha de comandos)" + OsUtils.LINE_SEPARATOR);
+		buf.append("   Version:" + this.getVersion());
+		buf.append("   ------------------------");
 		return buf.toString();
 	}
 
