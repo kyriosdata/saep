@@ -9,6 +9,9 @@ Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar 
 [![Code Climate](https://codeclimate.com/github/kyriosdata/saep/badges/gpa.svg)](https://codeclimate.com/github/kyriosdata/saep)
 [![Javadocs](http://javadoc.io/badge/com.github.kyriosdata.saep/saep-dominio.svg)](http://javadoc.io/doc/com.github.kyriosdata.saep/saep-dominio)
 
+O SAEP é feito com o apoio do JProfiler (<a href="http://www.ej-technologies.com/products/jprofiler/overview.html">Java Profiler</a>).
+Clique em <img src="https://www.ej-technologies.com/images/product_banners/jprofiler_small.png"> para detalhes.
+
 Documentos disponíveis:
 * [Termo de Abertura](https://docs.google.com/document/d/1go3eH-8W48G8C6Ryi3bPPN9ZQsbqHNzgrP3ocrnxL2A/edit#heading=h.oxnfirf2m4kr)
 * [Visão](https://docs.google.com/document/d/1ElwL9lT6KFeUVl4KvWKZOGROEtLa7Lb2h6L3fLITtyg/edit#heading=h.np717zaohglw) (conceitos de operação)
