@@ -1,0 +1,24 @@
+{
+  "anoBase": 2016,
+  "relatos": [
+    {
+      "classe": "r1",
+      "atributos": {
+        "peso": {
+          "tipo": 0,
+          "valor": 49.0
+        }
+      }
+    },
+    {
+      "classe": "r2",
+      "atributos": {
+        "peso": {
+          "tipo": 0,
+          "valor": 49.0
+        }
+      }
+    }
+  ],
+  "id": "relatorio"
+}
