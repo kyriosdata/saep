@@ -1,10 +1,10 @@
-# SAEP
-Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar a edição de pareceres de processos de progressão, promoção e avaliação de estágio probatório da Universidade Federal de Goiás (UFG). O SAEP é desenvolvido no contexto da Fábrica de Software do Instituto de Informática (UFG). 
 
 # Status
-Tendo em vista as várias dúvidas não esclarecidas sobre as regras no âmbito da UFG e a atualização destas regras por meio de resolução que revoga aquela considerada no presente projeto, optou-se pela suspensão temporária das atividades.
+> Tendo em vista as várias dúvidas não esclarecidas sobre as regras de avaliação no âmbito da UFG e a atualização destas regras por meio de resolução que revoga aquela considerada no presente projeto, optou-se pela suspensão temporária do projeto.
 
-<br />
+
+# SAEP
+Sistema de Apoio à Elaboração de Parecer (SAEP) tem como propósito auxiliar a edição de pareceres de processos de progressão, promoção e avaliação de estágio probatório da Universidade Federal de Goiás (UFG). O SAEP é desenvolvido no contexto da Fábrica de Software do Instituto de Informática (UFG). 
 
 [<img src="https://api.travis-ci.org/kyriosdata/saep.svg?branch=master">](https://travis-ci.org/kyriosdata/saep)
 [![Dependency Status](https://www.versioneye.com/user/projects/576c3769cd6d510048bab371/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576c3769cd6d510048bab371)
