@@ -19,6 +19,14 @@
 
 1. Definição do projeto (design) do software.
 
-1. Marco: **Solução aprovada**.
+1. Marco: **Solução proposta aprovada**.
 
 1. Definição de plano de desenvolvimento. Deve incluir papéis e esforço estimado para cada um deles. 
+
+1. Desenvolvimento. 
+
+1. Validação (automatizada).
+
+1. Entrega para o CERCOMP.
+
+1. Marco: **Solução implementada e operacional**.
