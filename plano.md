@@ -5,7 +5,7 @@
    
    1. Elaborar modelo conceitual do domínio das regras. Este modelo inclui "produção", "ensino" e os demais conceitos pertinentes. Este modelo deve ser "completo" e "flexível" para admitir extensões das regras. Observe que este modelo depende da interpretação "correta" da resolução em questão e, ao mesmo tempo, visa amenizar esforços futuros para contemplar as resoluções que irão suceder a resolução corrente.
    
-1. Marco: Semântica. Regras são compreendidas conforme devem ser interpretadas.
+1. Marco: **Resolução compreendida**. Regras são compreendidas conforme devem ser interpretadas.
 
 1. Rever o Termo de Abertura. Obter acordo com patrocinador acerca da visão do produto e dos entregáveis, inclusive licença do produto a ser produzido.
 
@@ -13,12 +13,12 @@
 
 1. Definição de requisitos de software e validação com o patrocinador. 
 
-1. Marco: Problema caracterizado.
+1. Marco: **Problema caracterizado**.
 
 1. Elaboração de protótipos.
 
 1. Definição do projeto (design) do software.
 
-1. Marco: Solução aprovada.
+1. Marco: **Solução aprovada**.
 
 1. Definição de plano de desenvolvimento. Deve incluir papéis e esforço estimado para cada um deles. 
