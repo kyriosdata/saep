@@ -27,8 +27,10 @@
 
 1. Desenvolvimento. 
 
-1. Validação (automatizada).
+1. Configuração do produto para a resolução Consuni 18/2017.
 
-1. Entrega para o CERCOMP.
+1. Validação.
+
+1. Entrega para a UFG.
 
 1. Marco: **Solução implementada e operacional**.
