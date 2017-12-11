@@ -13,6 +13,8 @@
 
 1. Definição de requisitos de software e validação com o patrocinador. 
 
+1. Definição de cenários (casos) de testes, possivelmente numerosos. Testes deverão ser suficientes para assegurar evidência de que o produto faz o que é esperado, além de permitir acompanhar a evolução do desenvolvimento.
+
 1. Marco: **Problema caracterizado**.
 
 1. Elaboração de protótipos.
