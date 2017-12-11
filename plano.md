@@ -1,5 +1,7 @@
 ### Plano
 
+1. Reunião inicial com Cedri, Igor, Juarez e Fábio (08/12/2017). Próximo encontro acertado para o dia 20/12/2017.
+
 1. Analisar a resolução Consuni 18/2017 ([aqui](https://sistemas.ufg.br/consultas_publicas/resolucoes/arquivos/Resolucao_CONSUNI_2017_0018.pdf)). 
    1. Esta análise deverá resultar em conjunto de questões (dúvidas) a serem submetidas para o órgão pertinente com o propósito de obter esclarecimentos que orientarão a elaboração do software. As questões aqui estão restritas ao escopo da interpretação das regras contidas na resolução supracitada.
    
